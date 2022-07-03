@@ -1,0 +1,215 @@
+% !TeX root = mos-en.tex
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+\begin{center}
+\textbf{\LARGE Review of Probability}
+\end{center}
+\addcontentsline{toc}{section}{\Large Review of probability}
+
+This section reviews concepts of probability. An example of each concept is given using the activity of throwing fair six-sided dice.
+
+\textbf{Experiment} This is an undefined primitive concept, the intention being an action that has a possible result. An experiment is also called a \emph{trial}. Throwing a die is an experiment.\footnote{\emph{Die} is the singular of the more familiar plural noun \emph{dice}.}
+
+\textbf{Outcome} The result of an experiment. If you throw a die one outcome is $4$.
+
+\textbf{Sample space} The set of all possible outcomes of an experiment. The set $S=\{1,2,3,4,5,6\}$ is the sample space of the outcomes of throwing a die.
+
+\textbf{Event} A subset of the sample space. The subset $e=\{2,4,6\}\subseteq S$ is the event of a die showing an even number.
+
+\textbf{Random variable} A function from a sample space to (real) numbers. Let $T$ be the sample space of throwing two dice:
+\[
+T=\{(a,b)| a,b\in \{1,2,3,4,5,6\} \}\,.
+\]
+Define the random variable $X$ as the function $X:T \mapsto \{2,3,\ldots,11,12\}$ which gives the sum of the numbers on the two dice:
+\begin{equation}\label{eq.sum}
+X((a,b)) = a+b\,.
+\end{equation}
+
+\textbf{Union, intersection, complement} Since events are sets these concepts take on their normal set-theoretical meaning. Let  $e_1=\{2,4,6\}$ and $e_2=\{1,2,3\}$. Then:
+\[
+e_1 \cup E_2=\{1,2,3,4,6\}\quad e_1 \cap e_2=\{2\}\quad \overline{e_1} = S\setminus e_1=\{1,3,5\}\,.
+\]
+The intersection is the set of even numbers among the first three outcomes in the sample space. The complement is the set of odd outcomes in the sample space.
+
+\textbf{Mutually exclusive} Two or more events are mutually exclusive if their intersection is the empty set. $e_1=\{2,4,6\}$ and $e_2=\{1,3,5\}$ are mutually exclusive since $e_1 \cap e_2=\emptyset$, that is, there are no outcomes which are both even and odd.
+
+\textbf{Probability} Probability is the limiting relative frequency of an event. Let $e$ be an event and let $n_e$ be the number of times that $e$ occurs in $n$ repetitions of the event. Then $P(e)$, the probability of the event $e$, is:
+\[
+P(e) = \lim_{n\rightarrow \infty} \frac{n_e}{n}\,.
+\]
+This is not a very good definition because we don't actually know that the limit exists. The definition also depends on ``repetitions of an event'' but we want to define probability without reference to a specific sequence of events.
+
+Modern probability theory is based on a set of three axioms, but we won't develop this theory, though two of the axioms are clearly seen to be fundamental:
+\begin{eqnarray*}
+P(e) &\geq& 0\\
+P(S) &=& 1\,.
+\end{eqnarray*} 
+Any event either occurs with some non-zero probability or it doesn't occur, and the outcome space is by definition all the possible outcomes.
+
+The \emph{laws of large numbers} ensure that our intuitive concept of probability as relative frequency is very similar to what happens when an event is repeated many times.
+
+\textbf{Uniformly distributed} If all outcomes in the sample space have equal probability (are equally likely to occur), the probability is said to be uniformly distributed. If $S$ is finite and the probability is uniformly distributed then:
+\[
+P(e)=\frac{|e|}{|S|}\,.
+\]
+For example, if you throw a \emph{fair} die the probability of the outcomes is uniformly distributed, so for $e=\{2,4,6\}$:
+\[
+P(e) = \frac{|e|}{|S|} = \frac{|\{2,4,6\}|}{|\{1,2,3,4,5,6\}|}=\frac{1}{2}\,.
+\]
+
+
+\textbf{Conditional probability} Let $e_1,e_2$ be events.  $P(e_1 | e_2)$, the conditional probability that $e_1$ occurs given that $e_2$ occurs, is given by:
+\[
+P(e_1 | e_2) = \disfrac{P(e_1 \cap e_2)}{P(e_2)}\,.
+\]
+Let $e_1=\{1,2,3\}$ be the event that a die shows a number less than or equal to $3$ and let $e_2=\{2,4,6\}$ be the event that the die shows an even number. Then:
+\[
+P(e_2 | e_1) = \disfrac{P(E_2 \cap E_1)}{P(e_1)}=\disfrac{P(\{2\})}{P(\{2,4,6\})}= \disfrac{1/6}{1/2}=\disfrac{1}{3}\,.
+\]
+This makes sense since if you know that a number less than or equal to $3$ is thrown, only one out of the three outcomes is an even number.
+
+\textbf{Independence} Two events are independent if the probability of their intersection is the product of their individual probabilities:
+\[
+P(e_1 \cap e_2)=P(e_1)\,P(e_2)\,.
+\]
+In terms of conditional probability:
+\[
+P(e_1 | e_2)=\frac{P(e_1)\cap P(e_2)}{P(e_2)} = \frac{P(e_1)\,P(e_2)}{P(e_2)}=P(e_1)\,. 
+\]
+For independent events $e_1,e_2$, if you know the probability of $e_2$ it gives you no information as to the probability of $e_1$. Three throws of a fair die are independent so the probability of all of them showing an even number is $\frac{1}{2}\cdot \frac{1}{2}\cdot \frac{1}{2}=\frac{1}{8}$. 
+
+\textbf{Average}
+Let $S=\{a_1,\ldots,a_n\}$ be a set of values. Then:
+\[
+\mathit{Average}(S)=\disfrac{\sum_{i=1}^{n} a_i}{n}\,.
+\]
+An average is computed over a set of values but the average may not be an element of the set. If there are $1000$ families in a town and $3426$ children, the average number of children per family is $3.426$ although clearly no family has $3.426$ children. If you throw a die six times and receive the numbers $\{2,2,4,4,5,6\}$. The average is:
+\[
+\frac{2+2+4+4+5+6}{6}=\frac{23}{6}\approx 3.8\,,
+\]
+again, a value not in the set.
+
+\textbf{Expectation}
+The expectation of a random variable is the sum of the probability of each outcome times the value of random variable for that outcome. For a fair die each outcome has the same probability:
+\[
+E(\textsf{value of a die})=1\cdot \frac{1}{6} + 2\cdot\frac{1}{6} + 3\cdot\frac{1}{6} + 4\cdot\frac{1}{6} + 5\cdot\frac{1}{6} + 6\cdot\frac{1}{6}=3.5\,.
+\]
+Consider the random variable defined by the function $X$ (Equation~\ref{eq.sum}) that maps the numbers appearing in a pair of dice to the sum of the numbers. The probability of each pair is $1/36$, but since the pairs $(2,5)$ and $(5,2)$ have the same sum they belong to the same outcome. The values of the random variable are $\{2,\ldots,12\}$ and that the number of ways of obtaining each one is:
+\[
+\begin{array}{l|rrrrrrrrrrr}
+\textrm{Sum} & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12\\\hline
+\textrm{Pairs} & 1 & 2 & 3 & 4 & 5 & 6 & 5 & 4 & 3 & 2 & 1
+\end{array}
+\]
+The expectation is the average of the values of the random variable \emph{weighted} by the probability of each outcome:
+\[
+E(\textsf{sum of two dice})=2\cdot \frac{1}{36} + 3\cdot \frac{2}{36} + 4\cdot \frac{3}{36} + 
+\cdots + 10\cdot \frac{3}{36} + 11\cdot \frac{2}{36} + 12\cdot \frac{1}{36} = 7\,.
+\]
+For an arbitrary set of events $\{e_1,\ldots,e_n\}$ the expectation is:
+\[
+E=\sum_{i=1}^{n} e_iP(e_i)\,.
+\]
+
+\textbf{Linearity of expectation}\label{p.linearity}
+Expectation is a linear function $E(ae_1 + be_2) = aE(e_1) + bE(e_2)$ and for an arbitrary linear expression:
+\[
+E\left(\sum_{i=1}^{n} a_ie_i\right)=\sum_{i=1}^{n} a_iE(e_i)\,.
+\]
+For a proof see \cite[Section~4.9]{ross}.
+
+\textbf{Indicator variable} Let $e$ be an event whose probability is $P(e)$. Define $I_e$, an indicator variable for $e$, as follows \cite[Chapter~4, Example~3b]{ross}:
+\[
+I_e=
+\left\{
+\begin{array}{ll}
+1,\quad \textsf{if}\; e\;\textsf{occurs}\\
+0, \quad \textsf{if}\;e\;\textsf{does not occur}\,.
+\end{array}
+\right.
+\]
+Then $E(I_e)=1\cdot P(e) + 0\cdot (1-P(e))=P(e)$.
+
+\bigskip
+
+\textbf{\large Mathematical formulas}
+
+\textbf{Binomial theorem}
+If the probability of an event $e$ is $p$ then the probability that a sequence of $n$ independent trials results in \emph{exactly} $k$ events $e$ is given by the \emph{binomial coefficient}:
+\[
+\dischoose{n}{k} p^k (1-p)^{n-k}\,.
+\]
+By the \emph{binomial theorem}:
+\[
+(x+y)^n=\sum_{i=0}^{n} \dischoose{n}{i} x^i y^{n-i}\,.
+\]
+For $p,1-p$ the is $(p+(1-p))^n=1$, as expected, since one of the outcomes must occur.
+
+\textbf{Sum of a geometric series}
+For $0<r<1$:
+\[
+\sum_{i=0}^{n} r^i = \disfrac{1-r^{n+1}}{1-r},\quad\quad
+\sum_{i=0}^{\infty} r^i = \disfrac{1}{1-r}\,.
+\]
+
+\textbf{Sum of a harmonic series}\label{p.harmonic}
+For positive integer $n$ the harmonic series is:
+\[
+H_n=\sum_{k=1}^{n}\disfrac{1}{k}\approx \ln n + \frac{1}{2n} + \gamma\,,
+\]
+where $\gamma \approx 0.5772$ is \emph{Euler's constant}. As $n$ approaches infinity the series diverges:
+\[
+\sum_{k=1}^{\infty}\disfrac{1}{k}=\infty\,,
+\]
+because $\ln n$ is unbounded.
+
+\textbf{Stirling's approximation}
+Computing $n!$ for large $n$ is very difficult. It is convenient to use one of the formulas of \emph{Stirling's approximation}:
+\begin{eqnarray*}
+n! &\approx& \sqrt{2\pi n}\left(\disfrac{n}{e}\right)^n\\
+\ln (n!) &\approx& n\ln n - n\\
+\ln (n!)  &\approx& n\ln n - n + \frac{1}{6}\left(8n^3+4n^2+n+\frac{1}{30}\right)+\frac{1}{2}\ln\pi\,.
+\end{eqnarray*}
+
+\medskip
+
+\textbf{\large Continuous probability distribution}\label{p.continuous}
+
+A beginning student may not have learned continuous probability distributions, but they do not appear very often in the book. For readers with the appropriate background, we review the basic concepts.
+
+Probabilities can be defined over continuous random variables. A  \emph{probability density function (PDF)} $f(x): \mathcal{R}\rightarrow \mathcal{R}$ maps an outcome $x$ to the value of the function, thus defining:
+\[
+P(x) = f(x)\,.
+\]
+The reason for this terminology is that each \emph{individual} real number has zero probability of occurring, so the proper interpretation is to assign probabilities to neighborhoods of points.
+
+The \emph{cumulative probability distribution (CPD)} for the interval $[-\infty,a]$ is obtained by integrating the PDF:
+\[
+P(x<a) = \int_{-\infty}^{a} f(x)\, dx\,.
+\]
+Of course this is also $P(x\leq a)$ since $P(a)=0$.
+
+Like probabilities, for a PDF, $P(x)\geq 0$ for all $x$, and:
+\[
+\int_{-\infty}^{\infty} P(x)\, dx=\int_{-\infty}^{\infty} f(x)\, dx=1\,.
+\]
+If the integral does not evaluate to $1$ a \emph{normalization constant} must be used. For example, if a PDF is uniformly distributed in the range $[a,b]$ then:
+\[
+P(a\leq x \leq b)=\int_{a}^{b} 1\, dx=(b-a)\,,
+\]
+and therefore we must define:
+\[
+P(a\leq x \leq b)=\disfrac{1}{b-a}\int_{a}^{b} 1\, dx=\disfrac{1}{b-a}\cdot (b-a)=1\,.
+\]
+The expectation can be obtained by integrating the PDF $f(x)$ multiplied by $x$:
+\[
+E(x)=\int_{-\infty}^{\infty} xf(x)\, dx\,.
+\]
+The PDF can be obtained by differentiating the CPD:
+\[
+P(x<a)= \frac{d}{da}\mathit{CDP}(x<a)\,.
+\]
+

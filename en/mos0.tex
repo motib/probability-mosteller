@@ -1,0 +1,558 @@
+% !TeX root = mos-en.tex
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+\textbf{\LARGE Problems and solutions}
+\end{center}
+
+\addcontentsline{toc}{section}{\Large Problems and solutions}
+
+\begin{prob}{The sock drawer\annotate{S}}
+A drawer contains both red socks and black socks. If two socks are drawn at random (without replacement) the probability that both are red is $\frac{1}{2}$. 
+
+\que{1} How small can the number of black socks in the drawer be? What is the corresponding number of red socks?
+
+\que{2} How small can the number of black socks in the drawer be if the number of black socks is \emph{even}? What is the corresponding number of red socks?
+\end{prob}
+
+\solution{1}
+
+\ans{1} Let $r$ be the number of red socks in the drawer and let $b$ the number of black socks.  $r\geq 2$ since two red socks are drawn, and $b\geq 1$ since otherwise the probability of drawing two red socks would be $1$. Multiplying the probabilities for the two selections gives:
+\begin{equation}\label{eq.1-a}
+\frac{r}{r+b} \cdot \frac{(r-1)}{(r-1)+b} = \frac{1}{2}\,.
+\end{equation}
+Multiplying out and simplifying results in a quadratic equation in the variable $r$:
+\begin{equation}\label{eq.quad-for-r}
+r^2-r(2b+1)-(b^2-b)=0\,.
+\end{equation}
+Since $r,b$ are positive integers the discriminant:
+\[
+(2b+1)^2+4(b^2-b)=8b^2+1
+\]
+must be the square of an integer.
+
+The discriminant is a square when $b=1$ (its smallest value). Then from Equation~\ref{eq.quad-for-r}, $r=3$ and we reject the solution $r=0$ because $r\geq 2$. The total number of socks is $4$.
+
+Check: $\frac{3}{4}\cdot\frac{2}{3}=\frac{1}{2}$.
+
+\medskip
+
+\ans{2}
+Check even positive integer values of $b$ to find the smallest one for which the discriminant is a square:
+\begin{displaymath}
+\renewcommand{\arraystretch}{1}
+\begin{array}{r|r|r}
+b&8b^2+1&\sqrt{8b^2+1}\\
+\hline
+2&33&5.74\\
+4&129&11.36\\
+\mathbf{6}&\mathbf{289}&\mathbf{17}
+\end{array}
+\end{displaymath}
+For $b=6$ the corresponding value for $r$ is $15$.
+
+Check: $\frac{15}{21}\cdot\frac{14}{20}=\frac{1}{2}$.
+
+\solution{2}
+
+\ans{1}
+Is the following inequality is true?
+\begin{equation}\label{eq.1-b}
+\frac{r}{r+b} \stackrel{?}{>} \frac{r-1}{(r-1)+b}\,.
+\end{equation}
+$r\geq 2, b\geq 1$, so both denominators are positive and we can multiply the two sides:
+\begin{eqnarray*}
+r(r-1+b)&\stackrel{?}{>}&(r-1)(r+b)\\
+r^2-r+rb&\stackrel{?}{>}&r^2-r+rb-b\\
+b&\stackrel{?}{>}&0\,.
+\end{eqnarray*}
+$b>1$ so Equation~\ref{eq.1-b} is true.
+
+By Equations~\ref{eq.1-a}, \ref{eq.1-b}:
+\begin{equation}\label{eq.1-c}
+\left(\frac{r}{r+b}\right)^2 = \frac{r}{r+b} \cdot\frac{r}{r+b} > \frac{r}{r+b} \cdot \frac{r-1}{(r-1)+b} = \frac{1}{2}\,,
+\end{equation}
+and similarly:
+\begin{equation}\label{eq.1-d}
+\left(\frac{r-1}{(r-1)+b}\right)^2  = \frac{r-1}{(r-1)+b}\cdot \frac{r-1}{(r-1)+b}<  \frac{r}{r+b} \cdot \frac{r-1}{(r-1)+b} = \frac{1}{2}\,.
+\end{equation}
+The denominator $r+b$ is non-zero so we can take the square root and simplify Equation~\ref{eq.1-c}:
+\begin{eqnarray*}
+\frac{r}{r+b}  &>& \sqrt{\frac{1}{2}}\\
+r&>&\frac{b}{\sqrt{2}-1}\\
+r&>&\frac{b}{\sqrt{2}-1}\cdot\frac{\sqrt{2}+1}{\sqrt{2}+1}\\
+r&>&b(\sqrt{2}+1)\,.
+\end{eqnarray*}
+Similarly for Equation~\ref{eq.1-d}:
+\begin{eqnarray*}
+\frac{r-1}{(r-1)+b}&<&\sqrt{\frac{1}{2}}\\
+r-1 &<& \frac{b}{\sqrt{2}-1}\\
+r-1&<&b(\sqrt{2}+1)\,.
+\end{eqnarray*}
+Combining both equations we get:
+\[
+r-1<(\sqrt{2}+1)b<r\,.
+\]
+
+For $b=1$ we have $2.141 < r< 3.141$ and $b=1,r=3$ is a solution.
+
+\ans{2} Checking even numbers for $b$:
+\begin{displaymath}	
+\renewcommand{\arraystretch}{1}
+\begin{array}{r|ccc|c}
+b& (\sqrt{2}+1)b&<r<& (\sqrt{2}+1)b+1&r\\
+\hline
+2&4.8&<r<&5.8&5\\
+4&9.7&<r<&10.7&10\\
+\mathbf{6}&\mathbf{14.5}&\mathbf{<r<}&\mathbf{15.5}&\mathbf{15}
+\end{array}
+\end{displaymath}
+Mosteller mentions a connection between this problem and advanced number theory, and gives another solution: $b=35,r=85$ (check!).
+
+\medskip
+\textbf{Simulation}
+\begin{verbatim}
+Expectation of both red  = 0.5000
+Average of both red for (red =  3, black =  1) = 0.5053
+Average of both red for (red = 15, black =  6) = 0.5013
+Average of both red for (red = 85, black = 35) = 0.4961
+\end{verbatim}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{prob}{Successive wins\annotate{S}}
+You are playing a series of three games against two players and you win the series if you win at least two of the three games. The probability that you will win a game against player $P_1$ is $p_1$ and the probability that you will win a game against player $P_2$ is $p_2$. It is known that $p_1>p2$. Which of the following scenarios gives you a better chance of winning the series?
+\begin{itemize}
+\item You play against $P_1,P_2,P_1$ in that order.
+\item You play against $P_2,P_1,P_2$ in that order.
+\end{itemize}
+\end{prob}
+
+\solution{1}
+
+You win if: (a) you win the first two games and lose the last game, (b) you lose the first game and win the last two games, or (c) you win all three games.
+
+Let $p_{121}$ and $p_{212}$ be the probabilities that you win the series in the two scenarios:
+\begin{eqnarray*}
+p_{121}&=&p_1p_2(1-p_1) + (1-p_1)p_2p_1 + p_1p_2p_1\\
+p_{212}&=&p_2p_1(1-p_2) + (1-p_2)p_1p_2 + p_2p_1p_2\,.
+\end{eqnarray*}
+You have a better chance of winning the series in the first scenario if $p_{121}>p_{212}$, that is, if:
+\begin{eqnarray*}
+p_1p_2(1-p_1) + (1-p_1)p_2p_1 + p_1p_2p_1 &\stackrel{?}{>}& 
+p_2p_1(1-p_2) + (1-p_2)p_1p_2 + p_2p_1p_2\\
+-p_1p_2p_1 & \stackrel{?}{>}& -p_2p_1p_2\\
+p_1&\stackrel{?}{<}&p_2\,.
+\end{eqnarray*}
+By assumption $p_1>p_2$ so you should choose the second scenario.
+
+\solution{2}
+
+The result is counter-intuitive. Intuitively, you should choose to play two games with $P_1$ and one game with $P_2$ because more likely to win games against $P_1$. However, the only way that you can win the series is by winning the \emph{middle} game, and, therefore, you should play the middle set against $P_1$, the player you are more likely to defeat.
+
+\textbf{Simulation}
+\begin{verbatim}
+For p1 = 0.6, p2 = 0.5
+Proportion of P_121 wins = 0.4172
+Proportion of P_212 wins = 0.4422
+
+For p1 = 0.6, p2 = 0.4
+Proportion of P_121 wins = 0.3405
+Proportion of P_212 wins = 0.3881
+
+For p1 = 0.6, p2 = 0.2
+Proportion of P_121 wins = 0.1699
+Proportion of P_212 wins = 0.2187
+\end{verbatim}
+Explain why the proportions don't add up to $1$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{prob}{The flippant juror\annotate{S}}
+There are two options to reach a decision: (a) A three-person panel consisting of two members who independently make the correct decision with probability $p$ and one member who makes the correct decision with probability $1/2$. The final decision is determined by a majority vote. (b) A one-person panel whose only member has probability $p$ of making the correct decision. Which option has the higher probability of making the correct decision?
+\end{prob}
+
+\solution{}
+
+The three-person panel makes the correct decision if all three members make the correct decision or if any subset of two members makes the correct decision. The probability is:
+\[
+\overbrace{\left(p\cdot p\cdot\frac{1}{2}\right)}^{\textsf{all three correct}}+\;\;\overbrace{\left(p(1-p)\cdot\frac{1}{2}+(1-p)p\cdot\frac{1}{2}+p\cdot p\cdot\frac{1}{2}\right)}^{\textsf{two out of three correct}}=p\,,
+\]
+so there is no difference between the two options.
+
+\textbf{Simulation}
+\begin{verbatim}
+Prediction: probabilities of (a) and (b) are equal
+For p = 0.25, proportion correct of (a) = 0.5019, (b) = 0.5046
+For p = 0.50, proportion correct of (a) = 0.5072, (b) = 0.4970
+For p = 0.75, proportion correct of (a) = 0.5062, (b) = 0.5040
+\end{verbatim}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{prob}{Trials until first success\annotate{S}}
+\label{p.four}
+What is the expectation of the number of throws of a die until a $6$ appears?
+\end{prob}
+
+\solution{1}
+
+The probability that the $i$th throw will be the first occurrence of $6$ is the probability of $i-1$ throws of one of the other five numbers times the probability that the $i$th throw will give $6$. To simplify the notation we use $p$ for $1/6$:
+\[
+P(\textsf{first }\:6\; \textsf{on}\;i \textsf{th throw})=(1-p)^{i-1}p\,,
+\]
+With a run of bad ``luck'' the number of throws until a $6$ appears could be very large so it is unbounded.
+
+Let $E=E(\textsf{first throw of}\:6)$. Then:
+\begin{equation}\label{eq.expectation}
+E=1p(1-p)^0 + 2p(1-p)^1+ 3p(1-p)^2+ 4p(1-p)^3 +\cdots =\sum_{i=1}^{\infty} ip(1-p)^{i-1}\,.
+\end{equation}
+Without the $i$ the sum would be the probability of eventually throwing a $6$:
+\begin{equation}\label{eq.geo}
+P(\textsf{eventually throwing a}\;6)= \sum_{i=1}^{\infty} p(1-p)^{i-1}=p\cdot\frac{1}{1-(1-p)}=1\,.
+\end{equation}
+This is not a surprising result.
+
+The calculation of the expectation can be performed as follows:
+\[
+\begin{array}{llllllllll}
+E&=&p(1-p)^0 &+& p(1-p)^1&+& p(1-p)^2&+& p(1-p)^3 &+\cdots \\
+& & &&p(1-p)^1&+& p(1-p)^2&+& p(1-p)^3 &+\cdots \\
+&  &&&& &p(1-p)^2&+& p(1-p)^3 &+\cdots \\
+&&&&&&&&p(1-p)^3 &+\cdots
+\end{array}
+\]
+The first row is the sum of the geometric series from Equation~\ref{eq.geo} which is $1$. The second row is the same infinite geometric series except that the first element is $p(1-p)$ so its sum is:
+\[
+\frac{p(1-p)}{1-(1-p)}=1-p\,.
+\]
+Similarly, the sum of the third row will be $(1-p)^2$ and the sum of the $i$th row will be $(1-p)^{i-1}$. Therefore, the expectation is the sum of the infinite geometric series:
+\[
+E= 1 + (1-p) + (1-p)^2 + (1-p)^3 + \cdots= \frac{1}{1-(1-p)}=\frac{1}{p}=6\,.
+\]
+
+\solution{2}
+
+Multiply Equation~\ref{eq.expectation} by $1-p$ and subtract the result from that equation. The result is the geometric series in Equation~\ref{eq.geo}:
+\[
+\begin{array}{rclcl}
+E&=&p(1-p)^0 &+&2p(1-p)^1+ 3p(1-p)^2+ 4p(1-p)^3 +\cdots\\
+E\cdot(1-p)&=&&&p(1-p)^1 + 2p(1-p)^2+ 3p(1-p)^3 +\cdots \\
+E\cdot(1-(1-p)) &=& p &+& p(1-p)^1 + p(1-p)^2 + p(1-p)^3 +\cdots\\
+&=&1\\
+E&=&1/p\,.
+\end{array}
+\]
+Since $p=1/6$ the expectation of the number of throws until a $6$ appears is $6$.
+
+\solution{3}
+
+Consider the first throw separately from the rest of the throws. If the first throw is a $6$ (probability $p$) then one throw is sufficient. Otherwise, if the first throw is not a $6$ (probability $1-p$), then the remaining throws form a sequence identical to the original one so the expectation of this sequence is $E$. The expectation is therefore:
+\begin{eqnarray*}
+E &=& 1p + (E+1)(1-p)\\
+E&=&\disfrac{1}{p}=6\,.
+\end{eqnarray*}
+
+\textbf{Simulation}
+\begin{verbatim}
+Expectation of first success = 6
+Average of first success     = 6.0161
+\end{verbatim}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{prob}{Coin in a square\annotate{S}}
+
+\que{1} Given a square of side $8$ and a coin of radius $3$, throw the coin onto the square. The location of the center of the coin is uniformly distributed within the square. What is the probability that the coin lands entirely within the square?
+
+\que{2} For each throw you win $5$ if the coin lands within the square and lose $1$ if it touches the square. What is the expectation of your winnings for each throw?
+
+\que{3} Develop a formula for the probability of the coin landing within the square if the side of the square is $a$ and the radius of the coin is $r<a/4$.
+\end{prob}
+
+\solution{}
+
+\ans{1} Figure~\ref{f.coins1} shows a square of side $8$ and four circles of radius $3$ inscribed within the corners of the square. The centers of the circles form an inner square of side $2$. Any coin whose center is outside the inner square will touch an edge of the outer square. Since the center of the coin is uniformly distributed, the probability that the coin lands entirely within the square is the ratio of the area of the inner square to the area of the outer square:
+\[
+P(\textsf{coin lands within the square})=\frac{2\cdot 2}{8\cdot 8} =\frac{1}{16}=0.0625\,.
+\]
+\begin{figure}[tb]
+\begin{center}
+\begin{tikzpicture}[scale=.7]
+\coordinate (c1) at (3,3);
+\coordinate (c2) at (3,5);
+\coordinate (c3) at (5,3);
+\coordinate (c4) at (5,5);
+\draw[very thick] (c1) -- (c3) -- (c4) -- (c2) -- cycle;
+\draw[thick] (0,0) rectangle +(8,8);
+\draw[color=red,thick] (c1) circle[radius=3];
+\draw[color=blue,thick] (c2) circle[radius=3];
+\draw[color=green,thick] (c3) circle[radius=3];
+\draw[color=orange,thick] (c4) circle[radius=3];
+\vertexcolor{c1}{red};
+\vertexcolor{c2}{blue};
+\vertexcolor{c3}{green};
+\vertexcolor{c4}{orange};
+\draw[<->] (0,-.4) -- node[fill=white] {$8$} (8,-.4);
+\draw[<->] (8.4,0) -- node[fill=white] {$8$} (8.4,8);
+\draw[->,red] (3,3) -- node[near end,fill=white] {$3$} +(-135:3);
+\draw[->,blue] (3,5) -- node[near end,fill=white] {$3$} +(135:3);
+\draw[->,green] (5,3) -- node[near end,fill=white] {$3$} +(-45:3);
+\draw[->,orange] (5,5) -- node[near end,fill=white] {$3$} +(45:3);
+\end{tikzpicture}
+\end{center}
+\caption{Boundaries for coins not intersecting a square}\label{f.coins1}
+\end{figure}
+
+\ans{2} The expectation is negative:
+\[
+E(\textsf{winnings per throw})=5\cdot\frac{1}{16}\,+\,(-1)\cdot\frac{15}{16}=-\frac{10}{16}=-0.625\,.
+\]
+
+\ans{3} Figure~\ref{f.coins2} shows four circles inscribed in the corners of the square. The side of the inner square is $a-2r$ so the probability of landing in the inner square is:
+\[
+P(\textsf{coin lands within the square})=\frac{(a-2r)^2}{a^2}\,.
+\]
+\begin{figure}[tb]
+\begin{center}
+\begin{tikzpicture}[scale=.7]
+\coordinate (c1) at (1.5,1.5);
+\coordinate (c2) at (1.5,6.5);
+\coordinate (c3) at (6.5,1.5);
+\coordinate (c4) at (6.5,6.5);
+\draw[very thick] (c1) -- (c3) -- (c4) -- (c2) -- cycle;
+\draw[thick] (0,0) rectangle +(8,8);
+\draw[color=red,thick] (c1) circle[radius=1.5];
+\draw[color=blue,thick] (c2) circle[radius=1.5];
+\draw[color=green,thick] (c3) circle[radius=1.5];
+\draw[color=orange,thick] (c4) circle[radius=1.5];
+\vertexcolor{c1}{red};
+\vertexcolor{c2}{blue};
+\vertexcolor{c3}{green};
+\vertexcolor{c4}{orange};
+\draw[<->] (0,-.4) -- node[fill=white] {$a$} (8,-.4);
+\draw[<->] (8.4,0) -- node[fill=white] {$a$} (8.4,8);
+\draw[->,red] (1.5,1.5) -- node[fill=white] {$r$} +(-135:1.5);
+\draw[->,blue] (1.5,6.5) -- node[fill=white] {$r$} +(135:1.5);
+\draw[->,green] (6.5,1.5) -- node[fill=white] {$r$} +(-45:1.5);
+\draw[->,orange] (6.5,6.5) -- node[fill=white] {$r$} +(45:1.5);
+\draw[<->] (1.5,4) -- node[fill=white] {$a-2r$} (6.5,4);
+\end{tikzpicture}
+\end{center}
+\caption{Coins in a large square}\label{f.coins2}
+\end{figure}
+
+\textbf{Simulation}
+\begin{verbatim}
+For side = 8, radius = 1:
+Probability of landing within the square = 0.5625
+Proportion landing within the square     = 0.5704
+For side = 8, radius = 2:
+Probability of landing within the square = 0.2500
+Proportion landing within the square     = 0.2481
+For side = 8, radius = 3:
+Probability of landing within the square = 0.0625
+Proportion landing within the square     = 0.0639
+For side = 8, radius = 4:
+Probability of landing within the square = 0.0000
+Proportion landing within the square     = 0.0000
+\end{verbatim}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{prob}{Chuck-a-luck\annotate{S}}
+Choose number $n$ between $1$ and $6$. Throw three dice. If $n$ does not appear on any of the dice you lose $1$; if $n$ appears on one die you win $1$; if $n$ appears on two dice you win $2$; if $n$ appears on three dice you win $3$. What is the expectation of your winnings?
+\end{prob}
+
+\solution{}
+
+Let $P(k)$ be the probability of $n$ appearing on $k$ dice. The expectation of your winnings is:
+\[
+E(\textsf{winnings per throw})=-1\cdot P(0) + 1\cdot P(1) + 2\cdot P(2) + 3\cdot P(3)\,.
+\]
+The throws of the three dice are independent so each of these probabilities is given by the binomial distribution with $p=1/6$, the probability that $n$ appears on a die:
+\begin{eqnarray*}
+E(\textsf{winnings per throw}) &=& 
+(-1)\cdot \dischoose{3}{0}\left(\frac{1}{6}\right)^0\left(\frac{5}{6}\right)^3
++1\cdot\dischoose{3}{1}\left(\frac{1}{6}\right)^1\left(\frac{5}{6}\right)^2+\\
+&&2\cdot{3\choose 2}\left(\frac{1}{6}\right)^2\left(\frac{5}{6}\right)^1+
+3\cdot\dischoose{3}{3}\left(\frac{1}{6}\right)^3\left(\frac{5}{6}\right)^0\\
+&=& \frac{1}{216}(-125+75+30+3)\\
+&=&-\frac{17}{216}\approx -0.0787\,.
+\end{eqnarray*}
+
+\textbf{Simulation}
+\begin{verbatim}
+Expectation of winnings = -0.0787
+Average winnings        = -0.0724
+\end{verbatim}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{prob}{Curing the compulsive gambler\annotate{S}}
+Roulette is a game played with a wheel having $38$ numbered pockets: $18$ red, $18$ black and $2$ green.\footnote{There are two green pockets in American roulette and one green pocket in European roulette.} The wheel is spun and a ball lands in one of the pockets. The casino wins if the ball lands in a green pocket; otherwise, you win $36$ for each $1$ bet on the number of the (red or black) pocket where the ball lands. You play $36$ rounds of roulette,  betting $1$ in each round.
+
+\que{1} What is the expectation your winnings?
+
+\que{2} Your friend offers to bet you $20$ that after $36$ rounds you will have \emph{lost} money. What is the expectation of your winnings, taking into account the money won or lost from both the game and your friend's bet?
+\end{prob}
+
+\solution{}
+
+\ans{1} The probability of winning a single round is $1/38$ and the expectations are:
+\begin{eqnarray*}
+E(\textsf{winning one round})&=&35\cdot \frac{1}{38} + (-1)\cdot\frac{37}{38} = -\frac{2}{38} \approx -0.0526\\
+E(\textsf{winning}\;36\;\textsf{rounds})&=&36\cdot -0.05266=-1.8947\,.
+\end{eqnarray*}
+(Your net win is $35$ because the $36$ you receive includes your bet of $1$ which is returned.)
+
+\ans{2}
+Consider the four outcomes of playing roulette for $36$ rounds:
+\begin{itemize}
+\item If you lose all the rounds, you \emph{lose} $36$.
+\item If you win one round, you win $35$ and lose $35$ on the other rounds for a net win of $0$.
+\item If you win two rounds, you win $70$ and lose $34$ on the other rounds for a net win of $36$.
+\item If you win $k$ rounds for $2<k\leq 36$, your net win is $35k - (36-k)>0$.
+\end{itemize}
+Therefore, you lose the bet only if you lose all rounds:
+\[
+P(\textrm{losing\ } 36 \textrm{\ rounds})=\left(\frac{37}{38}\right)^{36}\approx 0.3829\,.
+\]
+The probability of not losing is $1-0.3829=0.6171$. Therefore the expectation of the playing $36$ rounds together with bet is:
+\[
+\overbrace{-1.8947}^{\textsf{\small E of all rounds}}+\;\;
+\overbrace{-20\cdot 0.3829}^{\textsf{\small lose bet}} \;+\; \overbrace{20\cdot 0.6171}^{\textsf{\small win bet}} \approx 2.7904\,.
+\]
+Clearly you should take the bet!
+
+\textbf{Simulation}
+\begin{verbatim}
+Expectation of winning a round = -0.0526
+Average winnings for a round   = -0.0593
+\end{verbatim}
+The simulation showed a large variance which was reduced by running one million trials.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{prob}{Perfect bridge hand}
+Randomly select $13$ cards from a deck. What is the probability that they will all be of the same suit?
+\end{prob}
+
+\solution{1}
+
+Since there are $13$ cards of each suit there are $\dischoose{52}{13}$ ways of selecting $13$ cards of a single suit, say hearts. Only one of them consists of $13$ hearts so:
+\[
+P(\textsf{selecting}\;13\;\textsf{hearts})=\frac{1}{\dischoose{52}{13}}=\frac{13! 39!}{52!}=\approx 1.5747\times 10^{-12}\,.
+\]
+There are four suits so:
+\[
+P(\textsf{selecting}\;13\;\textsf{cards of the same suit})=4\cdot \frac{13! 39!}{52!}\approx 6.2991\times 10^{-12}\,.
+\]
+
+\solution{2}
+
+There are $52$ ways of selecting the first card from the $52$ cards in the deck. Then there are $12$ ways of selecting the second card of the same suit from the remaining $51$ cards, $11$ ways of selecting a third card, and so on. Therefore:
+\[
+P(\textsf{selecting}\;13\;\textsf{cards of the same suit})=\frac{52}{52}\cdot \frac{12}{51}\cdot \frac{11}{50} \cdots  \frac{1}{40}= \frac{12!}{51!/39!}\approx 6.2991\times 10^{-12}\,.
+\]
+There is no point in running a simulation because the result would almost certainly be zero.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{prob}{Craps\annotate{D,S}}
+Craps is a played with a pair of dice. On the first throw you win if the sum of the numbers is $7$ or $11$ and you lose if the sum is $2$, $3$ or $12$. If the sum on the first throw is $n=4,5,6,8,9,10$ (called a \emph{point}), continue to throw the dice until the sum is $n$ (a win) or $7$ (a loss).
+
+\que{1} What are the probabilities of the events on the first throw: winning, losing, neither?
+
+\que{2} What is the probability of a win?
+\end{prob}
+
+\solution{1}
+
+\ans{1} The probability of an outcome in a throw of a die is uniformly distributed and equal to $1/6$. Since the outcomes of a throw of a pair of dice are independent, the probability of any outcome is $1/36$. The number of ways of obtaining each of the outcomes (sums) $2,\ldots,12$ is:
+\[
+\begin{array}{l|rrrrrrrrrrr}
+\textrm{Sum} & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12\\\hline
+\textrm{Pairs} & 1 & 2 & 3 & 4 & 5 & 6 & 5 & 4 & 3 & 2 & 1
+\end{array}
+\]
+On the first throw there are $8$ ways of throwing $7$ or $11$ for a probability of $8/36$ for winning and $4$ ways of throwing $2,3,12$ for a probability of $4/36$ for losing. The probability of neither winning nor losing on the first throw is:
+\[
+1 - \frac{8}{36} - \frac{4}{36} = \frac{24}{36}\,.
+\]
+
+\ans{2}
+Consider two cases referring to the table above:
+\begin{itemize}
+\item The point is $4$. The probability of winning on the second throw (a $4$) is $3/36$ and the probability of losing (a $7$) is $6/36$. The probability of neither winning nor losing is $1-(3/36)-(6/36)=27/36$.
+\item The point is $8$. The probability of winning on the second throw (an $8$) is $5/36$ and the probability of losing (a $7$) is $6/36$. The probability of neither winning nor losing is $1-(5/36)-(6/36)=25/36$.
+\end{itemize}
+The probability of winning must be computed separately for each of the points $4,5,6,8,9,10$. We develop a general formula for the probability.
+
+Starting with the \emph{second throw} after obtaining a point on the first throw, let $P_n$ be the probability of winning by throwing the point $n$ and let $Q_n$ the probability of neither winning nor losing. $W_n$, the probability of winning \emph{by eventually throwing the point $n$}, is computed by adding:
+\begin{itemize}
+\item The probability of throwing the point on the second throw.
+\item The probability of neither winning nor losing on the second throw and throwing the point on the third throw.
+\item The probability of neither winning nor losing on the second and third throws and throwing the point on the fourth throw.
+\item \ldots .
+\end{itemize}
+\begin{eqnarray*}
+W_n&=&P_n + Q_n P_n + Q_n^2 P_n+ Q_n^3 P_n  + \cdots\\
+&=&P_n\left(1+Q_n^1 + Q_n^2+ Q_n^3  + \cdots\right)\\
+&=&P_n\left(\frac{1}{1-Q_n}\right)\,.
+\end{eqnarray*}
+You lose the game on any throw after the first if you throw a $7$ with probability $6/36$, so $Q_n$, the probability of neither winning nor losing, is:
+\[
+Q_n = 1-P_n-(6/36)\,,
+\]
+and:
+\[
+W_n=\frac{P_n}{P_n+(6/36)}\,.
+\]
+$W_n$ for the six points are:
+\[
+\renewcommand{\arraystretch}{2}
+\begin{array}{lcccccc}
+n   & 4 & 5 & 6 & 8 & 9 & 10 \\\hline
+P_n & \disfrac{3}{36} & \disfrac{4}{36} & \disfrac{5}{36} & \disfrac{5}{36} & \disfrac{4}{36} & \disfrac{3}{36} \\
+%1-Q_n & \disfrac{9}{36} & \disfrac{10}{36} & \disfrac{11}{36} & \disfrac{11}{36} & \disfrac{10}{36} & \disfrac{9}{36} \\
+W_n & \disfrac{3}{9} & \disfrac{4}{10} & \disfrac{5}{11} & \disfrac{5}{11} & \disfrac{4}{10} & \disfrac{3}{9}
+\end{array}
+\]
+$W$, the probability of winning, can be computed by adding the probability of winning on the first throw to the sum of the probabilities for the six wins on points each multiplied by the probability of throwing \emph{that point} on the first throw:
+\begin{equation}\label{eq.9-a}
+W=\frac{8}{36}+\sum_{n\in\{4,5,6,8,9,10\}} P_nW_n \approx 0.4929\,.
+\end{equation}
+The casino's probability of winning a single round of craps is
+only $0.5-0.4949\approx 0.5\%$ but the law of large numbers ensures that they will eventually win and you will eventually lose!
+
+\solution{2}
+
+\ans{2} Consider the following sequences of throws, where in all sequences the point is $4$. 
+\[
+\begin{array}{rrrrrrrrrrr}
+4 & 8 & 9 & 9 & 9 & 8 & 8 & 8 & 9 & 8 & 4\\
+4 & 8 & 9 & 9 & 9 & 8 & 8 & 8 & 9 & 8 & 7\\
+4 & 9 & 9 & 9 & 8 & 8 & 4
+\end{array}
+\]
+The games only terminates if a $4$ is thrown (win) or a $7$ is thrown (loss), so throwing $8$s or $9$s doesn't affect the result! Therefore, once a point has been thrown, the chance of winning is simply the conditional probability that a $4$ is thrown given that a $4$ or  a $7$ is thrown. Let $f$ be the event that a $4$ is thrown and $s$ be the event that a $7$ is thrown. Then:
+\[
+P(f|f\cup s) = \disfrac{f\cap(f\cup s)}{f\cup s}=\disfrac{f}{f\cup s}=\disfrac{3/36}{(3+6)/36}=\disfrac{3}{9}\,,
+\]
+exactly the result $W_4$ in the table above. Equation~\ref{eq.9-a} can now be used to compute $W$.
+
+Conditional probability is implicitly used in the first solution because $W_n$ is conditional on the first throw resulting in the point $n$.
+
+\textbf{Simulation}
+\begin{verbatim}
+Probability of winning = 0.4929
+Proportion of wins     = 0.4948
+\end{verbatim}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\refstepcounter{problem}  % 10. An experiment in personal taste
+

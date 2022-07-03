@@ -1,0 +1,89 @@
+% !TeX root = mos-en.tex
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{mathpazo}
+\usepackage{microtype}
+\usepackage{verbatim}
+\usepackage{url}
+\usepackage{subeqnarray}
+\usepackage{caption,subcaption}
+
+% TikZ package
+\usepackage{tikz}
+\usetikzlibrary{%
+  calc,arrows.meta,shapes,%
+  through,intersections,%
+  decorations.pathmorphing}
+\tikzset {>=Stealth}
+
+% Display vertex not affected by tikz scale
+\newcommand*{\vertex}[1]
+  {\fill[shift only] (#1) circle (2.5pt)}
+\newcommand*{\vertexcolor}[2]
+  {\fill[shift only,#2] (#1) circle (2.5pt)}
+
+% Layout
+\textwidth=155mm
+\textheight=230mm
+\topmargin=0pt
+\headheight=0pt
+\oddsidemargin=0mm
+\evensidemargin=0mm
+\headsep=0pt
+\parindent=0pt
+\renewcommand{\baselinestretch}{1.1}
+\setlength{\parskip}{0.3\baselineskip plus 1pt minus 1pt}
+
+% Format problem with counter
+\newcounter{problem}
+\newenvironment{prob}[1]{
+  \bigskip\bigskip\refstepcounter{problem}
+  \addcontentsline{toc}{subsection}
+  {\bfseries\theproblem{}.\ #1}
+  \textbf{\Large\theproblem.\ #1\medskip\\}}{\bigskip}
+\newcommand*{\que}[1]{\textbf{Q#1:}}
+
+% Format solution
+\newcommand*{\solution}[1]{\bigskip%
+  \textbf{\large Solution #1} \medskip}
+\newcommand*{\ans}[1]{\textbf{A#1:}}
+
+% Annotate chapter headings
+\newcommand*{\annotate}[1]{$\,^{#1}$}
+
+% Displaystyle for fractions and combinations
+\newcommand*{\disfrac}[2]{\displaystyle\frac{#1}{#2}}
+\newcommand*{\dischoose}[2]{\displaystyle{#1 \choose #2}}
+
+%\includeonly{}
+
+\begin{document}
+
+% \input prevents unnecessary page breakss
+
+%\input{mos-intro}
+%\input{mos0}
+%\input{mos1}
+%\input{mos2}
+%\input{mos3}
+%\input{mos4}
+%\input{mos5}
+%\input{mos-prob}
+%\input{mos-bib}
+
+% \include allows partial compilation
+
+\include{mos-intro}
+\include{mos0}
+\include{mos1}
+\include{mos2}
+\include{mos3}
+\include{mos4}
+\include{mos5}
+\include{mos-prob}
+\include{mos-bib}
+
+\end{document}

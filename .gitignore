@@ -1,0 +1,15 @@
+﻿save/*
+en/tikz/*
+*.bat
+*.zip
+*~
+*.aux
+*.log
+*.auxlock
+*.bbl
+*.blg
+*.synctex.gz
+*.toc
+*.cot
+*.thm
+*.idx
