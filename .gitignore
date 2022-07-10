@@ -1,5 +1,4 @@
 ﻿save/*
-en/tikz/*
 *.bat
 *.zip
 *~
@@ -10,6 +9,5 @@ en/tikz/*
 *.blg
 *.synctex.gz
 *.toc
-*.cot
-*.thm
 *.idx
+*.docx

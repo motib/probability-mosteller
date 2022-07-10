@@ -3,7 +3,7 @@
 # Copyright 2022. Moti Ben-Ari
 # Creative Commons Attribution-ShareAlike
 
-import random
+import random, math
 
 # Number of simulations
 n = 10000
@@ -37,4 +37,19 @@ def simulate():
     for socks in [(3,1), (15,6), (85,35)]:
         draw_socks(socks[0], socks[1])
 
+# Search for values of red/black that satisfy the requirements
+#   of the problem
+def search_values():
+    print('\nblack  red  disc.     prob.')
+    for b in range(1,51):
+        prob = math.sqrt(8*b*b+1)
+        red = math.ceil((math.sqrt(2)+1)*b)
+        half = (red/(red+b))*((red-1)/(red-1+b))
+        print('{:5d}'.format(b),'{:4d}'.format(red),
+              '{:6.2f}'.format(prob),'{:9.6f}'.format(half))
+
+
+
 simulate()
+search_values()
+

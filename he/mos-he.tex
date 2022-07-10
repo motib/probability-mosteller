@@ -1,15 +1,14 @@
-% !TeX root = mos-en.tex
+% !TeX root = mos-he.tex
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[11pt,a4paper]{article}
+\documentclass[12pt,a4paper]{article}
 
-\usepackage{mathpazo}
-\usepackage{microtype}
 \usepackage{verbatim}
 \usepackage{url}
 \usepackage{subeqnarray}
-\usepackage{caption,subcaption}
+\usepackage{subcaption}
+\pagestyle{plain}
 
 % TikZ package
 \usepackage{tikz}
@@ -25,6 +24,20 @@
 \newcommand*{\vertexcolor}[2]
   {\fill[shift only,#2] (#1) circle (2.5pt)}
 
+% Polyglossia Hebrew (main) and English (other)
+\usepackage{polyglossia}  
+\setmainlanguage{hebrew}
+\setotherlanguage{english}
+
+% Fonts: David for Hebrew, Palatino/Courier for English
+\newfontfamily{\hebrewfont}{David}[Script=Hebrew]
+\newfontfamily{\englishfont}{Palatino Linotype}
+%\newfontfamily{\englishfonttt}{Courier New}
+
+% Abbreviations for backwards compatibility with babel
+\renewcommand*{\L}[1]{\textenglish{#1}}
+\newcommand*{\R}[1]{\texthebrew{#1}}
+
 % Layout
 \textwidth=155mm
 \textheight=230mm
@@ -39,17 +52,18 @@
 
 % Format problem with counter
 \newcounter{problem}
-\newenvironment{prob}[1]{
+\newenvironment{prob}[3]{
   \bigskip\bigskip\refstepcounter{problem}
   \addcontentsline{toc}{subsection}
-  {\bfseries\theproblem{}.\ #1}
-  \textbf{\Large\theproblem.\ #1\medskip\\}}{\bigskip}
-\newcommand*{\que}[1]{\textbf{Question #1:}}
+  {\bfseries\theproblem{}.\ #1 \L{\small (#3)}}
+  \textbf{\large\theproblem.\ #1 \L{\small (#3)}%
+\annotate{#2}\medskip\\}}{\bigskip}
+\newcommand*{\que}[1]{\textbf{שאלה #1:}}
 
 % Format solution
 \newcommand*{\solution}[1]{\bigskip%
-  \textbf{\Large Solution #1} \medskip}
-\newcommand*{\ans}[1]{\textbf{Answer #1:}}
+  \textbf{\large פתרון #1} \medskip}
+\newcommand*{\ans}[1]{\textbf{תשובה #1:}}
 
 % Annotate chapter headings
 \newcommand*{\annotate}[1]{$\,^{#1}$}
@@ -58,11 +72,20 @@
 \newcommand*{\disfrac}[2]{\displaystyle\frac{#1}{#2}}
 \newcommand*{\dischoose}[2]{\displaystyle{#1 \choose #2}}
 
-%\includeonly{}
+% Environments for theorems and definitions
+%\newtheorem{theorem}{משפט}
+%\newtheorem{definition}[theorem]{הגדרה}
+
+\DeclareCaptionSubType*{figure}
+\captionsetup[subfigure]{labelformat=simple}
+\renewcommand\thesubfigure{איור~\thefigure(\alph{subfigure})}
+
+
+\includeonly{mos0}
 
 \begin{document}
 
-% \input prevents unnecessary page breakss
+% \input prevents unnecessary page breaks
 
 %\input{mos-intro}
 %\input{mos0}

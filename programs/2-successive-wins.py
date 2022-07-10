@@ -37,9 +37,9 @@ def play_games(p1, p2):
                 p212_wins += 1
 
     print('For p1 = {:.1f}, p2 = {:.1f}'.format(p1, p2))
-    print('Proportion of P_121 wins = {:.4f}'.
+    print('Proportion of P121 wins = {:.4f}'.
         format(p121_wins/n))
-    print('Proportion of P_212 wins = {:.4f}'.
+    print('Proportion of P212 wins = {:.4f}'.
         format(p212_wins/n))
     print()
 

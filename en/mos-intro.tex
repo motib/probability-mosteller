@@ -20,7 +20,7 @@
 \bigskip
 \bigskip
 
-Version $0.1$
+Version $0.2$
 
 \bigskip
 
@@ -62,7 +62,7 @@ This work is licensed under Attribution-ShareAlike 4.0 International. To view a 
 \textbf{\LARGE Introduction}
 \end{center}
 
-\addcontentsline{toc}{section}{\Large Introduction}
+\addcontentsline{toc}{section}{\large Introduction}
 
 \bigskip
 
@@ -102,13 +102,15 @@ Even a problem not marked $D$ can be difficult so do not be discouraged if you c
 
 The programs run each simulation $10000$ times and the results are displayed to four decimal places. A simulated result will almost certainly not be exactly the same as that obtained from computing the expectation or the probability. You can run the program many times to see how the results vary.
 
-The Python source code is available at \url{...github...}. The files are named \verb+N-name.py+ where \verb+N+ is the problem number and \verb+name+ is the problem title.
+Python source code is available at \url{https://github.com/motib/probability-mosteller}. The files are named \verb+N-name.py+ where \verb+N+ is the problem number and \verb+name+ is the problem title.
 
 For each simulation two results are displayed: 
 \begin{itemize}
 \item The theoretical value which is either a \emph{probability} or an \emph{expectation}. In general, rather than copy the values from the text they are calculated from the formulas. 
-\item The result of the simulation is either a \emph{proportion} of successes, corresponding to a probability, or an \emph{average}, corresponding to an expectation.
+\item The result of the simulation is either a \emph{proportion} of successes relative to the number of trials corresponding to a probability, or the \emph{average} number of successes corresponding to an expectation.
 \end{itemize}
-It is important to understand that ``probability'' and ``expectation'' are theoretical concepts. The \emph{laws of large numbers} ensure that the outcomes of many trials are very close to the theoretical values, but they won't be exactly the same. For example, the probability of obtaining a $6$ when a fair die is thrown is $1/6\approx 0.1667$. Running a simulation for $10000$ throws resulted in a range of values: $0.1684, 0.1693, 0.1687, 0.1665, 0.1656$.
+It is important to understand that ``probability'' and ``expectation'' are theoretical concepts. The \emph{law of large numbers} ensures that the outcomes of many trials are very close to the theoretical values, but they won't be exactly the same. For example, the probability of obtaining a $6$ when a fair die is thrown is $1/6\approx 0.1667$. Running a simulation for $10000$ throws resulted in a range of values: $0.1684, 0.1693, 0.1687, 0.1665, 0.1656$.
 
-\newpage
+\textbf{Acknowledgments}
+
+David Fortus

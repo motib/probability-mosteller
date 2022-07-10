@@ -1,0 +1,195 @@
+% !TeX root = mos-he.tex
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\selectlanguage{hebrew}
+
+\thispagestyle{empty}
+
+\begin{center}
+\textbf{\LARGE הבעיות המאתגרות בהסתברות של Mosteller}
+
+\bigskip
+\bigskip
+\bigskip
+
+\textbf{\Large מוטי בן-ארי}
+
+\bigskip
+
+\L{\url{http://www.weizmann.ac.il/sci-tea/benari/}}
+
+\bigskip
+\bigskip
+
+גרסה $0.2$
+
+\bigskip
+
+\today
+
+\end{center}
+
+\vfill
+
+\selectlanguage{english}
+\begin{center}
+\copyright{} Moti Ben-Ari $2022$
+ \end{center}
+ 
+\begin{small}
+This work is licensed under Attribution-ShareAlike 4.0 International. To view a copy of this license, visit \url{http://creativecommons.org/licenses/by-sa/4.0/}.
+
+%\begin{center}\bf You are free to\end{center}
+%
+%\textit{Share:} copy and redistribute the material in any medium or format.
+%
+%\textit{Adapt:} remix, transform, and build upon the material
+%for any purpose, even commercially.
+%
+%The licensor cannot revoke these freedoms as long as you follow the license terms.
+%
+%\begin{center}\bf Under the following terms\end{center}
+%
+%\textit{Attribution:} You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+%
+%\textit{No additional restrictions:} You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
+\end{small}
+\newpage
+
+\selectlanguage{hebrew}
+
+\tableofcontents
+
+\newpage
+
+\begin{center}
+\textbf{\Large מבוא}
+\end{center}
+
+\addcontentsline{toc}{section}{\large מבוא}
+
+\bigskip
+
+\textbf{Mosteller Frederick}
+
+\L{Frederick Mosteller}
+($1916$--$2006$)
+ייסד את המחלקה לסטטיסטיקה באוניברסיטת 
+\L{Harvard}
+ושירת כראש המחלקה מ-%
+$1957$
+ועד
+$1971$,
+ויצא לגמלאות שנת
+$2003$.
+ל-%
+\L{Mosteller}
+היתה התעניינות עמוקה בחינוך בסטטיסקיה וחיבר ספרי לימוד חלוציים כולל 
+\cite{pwsa}
+שהידגש את הגישה ההסתברותי לסטטיסטיקה, ו-%
+\cite{bsda}
+שהיה אחת מספרי הלימוד הראשונים בניתוח מידע. בראיון תיאר 
+\L{Mosteller}
+את ההתפתחות של גישתו להוראת הסטטיסטיקה
+\cite{gse}.
+
+\medskip
+
+\textbf{מסמך זה}
+
+מסמך זה הוא "עיבוד" לספרו שובה הלב של 
+\L{Mosteller}: 
+\textbf{חמישים בעיות מאתגרות בהסתברות ופתרונותהן}
+\cite{fifty}.
+הבעיות הפתרונות מוצגות ככל האפשר בצורה נגישה לקוראים עם ידע בסיסי בהסתברות, ובעיות רבות נגישות לתלמידי תיכון ולמורים. שכתבתי אתה בעיות והפתרונות עם חישובים מפורטים והסברים נוספים ואיורים. לעתים כללתי פתרונות נוספים.
+
+רבות מהבעיות שונו כדי שיהיו נגישות: הבאתי גרסאות פשוטות שלהן, חילקתי לתת-בעיות והוספתי רמזים. כהעדפה אישית ניסחתי אותן מחדש בצורה מופשטת יותר מ-%
+\L{Mosteller}.
+
+המספור והכותרות נשארו כדי להקל על השוואה עם ספרו של
+\L{Mosteller}.
+
+מחשבונים מודרניים, כולל אפליקציות לסמארטפון, מסוגלים לבצע את כל החישובים ללא קושי.
+
+עבור רוב הבעיות נכתבו סימולציות בשפת התכנות 
+\L{Python}.
+
+בסעיף האחרון חזרה על מושגים בסיסיים בהסתברות לפי
+\cite{ross}.
+
+הבעיות סומנו כדלקמן:
+\begin{itemize}
+\item 
+בעיות המסומנות ב-%
+$D$
+קשות יותר.
+\item
+בעיות עבורן קיימות סימולציות סומנו ב-%
+$S$.
+\end{itemize}
+אתם עלולים למצוא שאפילו בעיות שאינן מסומנות ב-%
+$D$
+הן קשות. אל נא להתייאש אם לא תוכלו לפתור אותן. בכל זאת שווה לנסות לפתור את כולן כי כל התקדמות לקראת פתרון תעודד.
+
+
+\textbf{סימולציות}
+
+\L{\emph{Monte Carlo simulations}}
+(על שם קזינו מופרסם במונקו) נכתבו בשפת התכנות
+\L{Python 3}.
+תכנית מחשב "מבצעת ניסוי" כגון "הטלת זוג קוביות" או "הטלת מטעה" מספר רב מאוד של פעמים ומחשב ומציג ממוצעים. השתמשתי במחוללי מספרי אקראיים הבנויים בתוך
+\L{Python},
+\L{\texttt{random.random()}}
+ו-%
+\L{\texttt{random.randint()}},
+כדי לקבל תוצאות אקראיות לכל ניסוי.
+
+כל תכנית מריצה סימולציה המורכת מ-%
+$10000$
+ניסויים והתוצאות מוצגות עם ארבע ספרות לאחר הנקודה העשרונית. כמעט תמיד התוצאה לא תהיה זהה לתוצאה שמתקבלת מחישוב ההסתברות או התוחלת. תוכל להריץ תכנית פעמים רבות ולבדוק את התוצאות משתנות.
+
+ניתן להוריד את קבצי המקור ב-%
+\L{Python}
+מ-%
+\L{\url{https://github.com/motib/probability-mosteller}}.
+שמות הקבצים הם 
+\L{\texttt{N-name.py}}
+כאשר
+\L{\texttt{N}}
+הוא מספר הבעיה ו-%
+\L{\texttt{name}}
+הוא שם הבעיה (באנגלית).
+
+שתי תוצאות מוצגות (באנגלית) עבור כל סימולציה:
+\begin{itemize}
+\item
+התוצאה התיאורטית שהיא 
+\textbf{הסתברות}
+\L{(Probability)}
+או
+\textbf{תוחלת}
+\L{(Expectation)}.
+בדרך כלל, במקום להעתיק את הערכים המחושבים התכנית מחשבת אותם מהנוסחאות.
+\item
+תוצאת הסימולציה שהיא
+\textbf{היחס בין מספר ההצלחות לבין מספר הניסויים}
+\L{(Proportion)}
+
+שהוא מקביל להסתברות, או
+\textbf{ממוצע ההצלחות}
+\L{(Average)}
+שהוא מקביל לתוחלת.
+\end{itemize}
+חשוב להבין שהסתברות ותוחלת הן מושגים תיאורטיים. 
+\textbf{חוק המספרים הגדולים}
+מבטיח שהתוצאות של מספר רב של ניסויים תהינה קרובות לערכים התיאורטיים, אבל הם לא יהיו בזהות. למשל, ההסתברות לקבל 
+$6$
+בהטלת קוביה הוגנת היא
+$1/6\approx 0.1667$.
+בהרצת סימולציה של 
+$10000$
+הטלות קיבלתי טווח של ערכים:
+$0.1684, 0.1693, 0.1687, 0.1665, 0.1656$.
+
+\newpage
