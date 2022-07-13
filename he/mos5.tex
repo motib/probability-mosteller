@@ -1,8 +1,8 @@
-% !TeX root = mos-en.tex
+% !TeX root = mos-he.tex
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{Doubling you accuracy}
+\begin{prob}{להכפיל את הדיוק}{}{(Doubling you accuracy)}
 You are given two rods of lengths $L_1<L_2$ and a measuring instrument whose possible error is given by a normal distribution with mean $0$ and variance $\sigma^2$. The lengths of the two rods can be measured by measuring each one separately. Is there a more accurate method?
 \end{prob}
 
@@ -46,7 +46,7 @@ Since the mean of the measurement instrument is $0$, the mean of the errors of t
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{Random quadratic equations\annotate{S}}
+\begin{prob}{משוואות ריבועיות אקראיות}{S}{(Random quadratic equations)}
 
 Consider the quadratic equation $x^2+2bx+c=0$ defined on $[-B,B]\times[-B,B]$ for $B\geq 1$.
 
@@ -99,13 +99,13 @@ The shaded area can be computed by integration:
 \]
 The total area of the range $[-B,B]\times[-B,B]$ is $4B^2$ so:
 \begin{eqnarray*}
-P(\textsf{complex roots})&=&\disfrac{\frac{4}{3}B^{3/2}}{4B^2}=\disfrac{1}{3\sqrt{B}}\\
-P(\textsf{real roots})&=&1-\disfrac{1}{3\sqrt{B}}\,.
+P(\textrm{complex roots})&=&\disfrac{\frac{4}{3}B^{3/2}}{4B^2}=\disfrac{1}{3\sqrt{B}}\\
+P(\textrm{real roots})&=&1-\disfrac{1}{3\sqrt{B}}\,.
 \end{eqnarray*}
 \ans{2}
 \[
 \lim_{B\rightarrow\infty}
-P(\textsf{real roots})=
+P(\textrm{real roots})=
 \lim_{B\rightarrow\infty} \left(1-\disfrac{1}{3\sqrt{B}}\right)=
 1\,.
 \]
@@ -125,7 +125,7 @@ Proportion real roots     = 0.9582
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{Two-dimensional random walk\annotate{S}}
+\begin{prob}{הילוך מקרי דו-ממדי}{S}{(Two-dimensional random walk)}
 A particle is placed at the origin of a two-dimensional coordinate system. The particle moves left or right on the $x$-axis with probabilities $1/2$ \emph{and} up or down the $y$-axis with probabilities $1/2$. Figure~\ref{f.2d-random-walk} shows a random walk of $22$ steps starting at and returning to the origin.
 
 \que{1} What is the probability of returning to the origin in $2$ moves?
@@ -181,7 +181,7 @@ The dots in Figure~\ref{f.two-moves} show the possible positions of the particle
 \end{itemize}
 The blue paths are the only ones that return to the origin so:
 \[
-P(\textsf{return to origin in two moves})=\frac{4}{16}\,.
+P(\textrm{return to origin in two moves})=\frac{4}{16}\,.
 \]
 
 \begin{figure}[tb]
@@ -208,24 +208,24 @@ P(\textsf{return to origin in two moves})=\frac{4}{16}\,.
 
 \ans{3} The choices of direction for $x$ and $y$ are independent so for $2n$ moves:
 \begin{equation}\label{eq.2d-1}
-P_{2n}(\textsf{return to origin}) =
-P_{2n}(\textsf{return to}\;x=0)\,P_{2n}(\textsf{return to}\;y=0)\,.
+P_{2n}(\textrm{return to origin}) =
+P_{2n}(\textrm{return to}\;x=0)\,P_{2n}(\textrm{return to}\;y=0)\,.
 \end{equation}
 The particle will return to the origin if and only if for both axes the number of $+1$ moves equals the number of $-1$ moves. There are ${2n \choose n}$ ways to arrange $+1$s and $-1$s so:
 \begin{eqnarray}
-P_{2n}(\textsf{return to}\;x=0) =P_{2n}(\textsf{return to}\;y=0)&=&
+P_{2n}(\textrm{return to}\;x=0) =P_{2n}(\textrm{return to}\;y=0)&=&
 \dischoose{2n}{n}\left(\disfrac{1}{2}\right)^n\left(\disfrac{1}{2}\right)^{n}\\
-P_{2n}(\textsf{return to origin}) &=&
+P_{2n}(\textrm{return to origin}) &=&
 \left[\dischoose{2n}{n}\left(\disfrac{1}{2}\right)^{2n}\right]^2\\
-P(\textsf{return to origin}) =
-\sum_{n=1}^{\infty}P_{2n}(\textsf{return to origin}) &=&
+P(\textrm{return to origin}) =
+\sum_{n=1}^{\infty}P_{2n}(\textrm{return to origin}) &=&
 \sum_{n=1}^{\infty}\left[\dischoose{2n}{n}\left(\disfrac{1}{2}\right)^{2n}\right]^2\,.\label{eq.2d-2}
 \end{eqnarray}
 
 \ans{3}
 By Stirling's approximation $n! \approx \sqrt{2\pi n}\left(n/e\right)^n$:
 \begin{eqnarray*}
-P_{2n}(\textsf{return to origin}) &=&
+P_{2n}(\textrm{return to origin}) &=&
 \left[\dischoose{2n}{n}
 \left(\disfrac{1}{2}\right)^{2n}\right]^2 \\
 &=&
@@ -240,7 +240,7 @@ P_{2n}(\textsf{return to origin}) &=&
 &=&\left(\disfrac{1}{2}\right)^{4n}\disfrac{4\pi n}{4\pi^2 n^2}\cdot
 \disfrac{\left(n/e\right)^{4n}\cdot 2^{4n}}{\left(n/e\right)^{4n}}\\
 &=& \disfrac{1}{\pi n}\\
-P(\textsf{return to origin}) &=& \disfrac{1}{\pi}\sum_{n=1}^{\infty}\disfrac{1}{n}\,,
+P(\textrm{return to origin}) &=& \disfrac{1}{\pi}\sum_{n=1}^{\infty}\disfrac{1}{n}\,,
 \end{eqnarray*}
 which is the \emph{harmonic series} that diverges. This means that with probability $1$ the particle returns to the origin.
 
@@ -252,7 +252,7 @@ Proportion returned to origin      = 0.8700
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{Three-dimensional random walk\annotate{D,S}}
+\begin{prob}{הילוך מקרי תלת-ממדי}{D,S}{(Three-dimensional random walk)}
 A particle is placed at the origin of a three-dimensional coordinate system. The particle moves left or right on the $x$-axis with probabilities $1/2$ \emph{and} up or down the $y$-axis with probabilities $1/2$ \emph{and} in or out on the $z$-axis with probabilities $1/2$.
 
 \que{1} What is the expectation of the number of times that the particle returns to the origin?
@@ -269,7 +269,7 @@ A particle is placed at the origin of a three-dimensional coordinate system. The
 $P_{2n}$, probability of returning to the origin after $2n$ steps, is given by the analogue of Equation~\ref{eq.2d-1}:
 \[
 P_{2n} =
-P_{2n}(\textsf{return to}\;x=0)\,P_{2n}(\textsf{return to}\;y=0\, P_{2n}(\textsf{return to}\;z=0)\,.
+P_{2n}(\textrm{return to}\;x=0)\,P_{2n}(\textrm{return to}\;y=0\, P_{2n}(\textrm{return to}\;z=0)\,.
 \]
 $P_r$, the probability of returning to the origin one or more times, is given by the analogue of Equation~\ref{eq.2d-2}:
 \[
@@ -297,20 +297,20 @@ Let $I_k$ be the indicator variable for a return to the origin on step $k$:
 I_k=
 \left\{
 \begin{array}{ll}
-1,\quad\textsf{if particle returns to origin on step}\;k\\
-0, \quad\textsf{if particle does not returns to origin on step}\;k\,.
+1,\quad\textrm{if particle returns to origin on step}\;k\\
+0, \quad\textrm{if particle does not returns to origin on step}\;k\,.
 \end{array}
 \right.
 \end{equation}
 Then:
 \[
-E(\textsf{number of returns to the origin})=\sum_{n=1}^{\infty}P_{2n}\, I_{2n} = P_r\approx 0.3772\,,
+E(\textrm{number of returns to the origin})=\sum_{n=1}^{\infty}P_{2n}\, I_{2n} = P_r\approx 0.3772\,,
 \]
 so the expectation of the number of returns is equal to the probability.
 
 \que{2} Let $P_1$ be the probability that the particle returns to the origin \emph{at least once}.  From Problem~4 we know that the expectation of the number of trials until the first one where the particle \emph{does not} return to the origin is $1/(1-P_1)$. Therefore, the expectation of the number of trials for which the particle does return to the origin is one less, because the particle can return to the origin many times until finally it does not.\footnote{Mosteller's presentation is not easy to follow. I would like to thank Aaron Montgomery for clarification \cite{montgomery}.}
 
-Let $E_r=E(\textsf{number of returns to the origin})$, then:
+Let $E_r=E(\textrm{number of returns to the origin})$, then:
 \begin{eqnarray*}
 E_r &=& \disfrac{1}{1-P_1} - 1\\
 P_1&=& \disfrac{E_r}{1+E_r}\,.
@@ -332,7 +332,7 @@ Proportion reached origin      = 0.2790
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{Buffon's needle\annotate{D, S}}
+\begin{prob}{המחט של \L{Buffon}}{D,S}{(Buffon's needle)}
 Consider a needle of length $a\leq 1$ and a surface ruled with parallel lines $1$ apart. Throw the needle onto the surface. What is the probability that the needle crosses a line?\footnote{The problem has been simplified by specifying the distance between the parallel lines as $1$. We ignore the possibility that the needle lies completely along the line or just touches two lines since the probability of these events is zero.}
 
 \textbf{Hint:} There are two independent random variables (Figure~\ref{f.buffon1}): $x$, the position of the center of the needle relative to the closest line which is uniformly distributed in the range $[0,1]$, and $\theta$, the angle formed by the needle relative to the parallel lines which is uniformly distributed in the range $[0,\pi/2]$.
@@ -361,23 +361,23 @@ Consider a needle of length $a\leq 1$ and a surface ruled with parallel lines $1
 
 Let $p(a)$ be the probability that a needle of length $a$ crosses a line and define the indicator variable:
 \[
-I_{\textsf{crosses}}=
+I_{\textrm{crosses}}=
 \left\{
 \begin{array}{ll}
-1,\quad \textsf{if needle of length}\;a\;\textsf{crosses a line}\\
-0, \quad \textsf{if needle of length}\;a\;\textsf{does not cross a line}\,.
+1,\quad \textrm{if needle of length}\;a\;\textrm{crosses a line}\\
+0, \quad \textrm{if needle of length}\;a\;\textrm{does not cross a line}\,.
 \end{array}
 \right.
 \]
 Then:
 \begin{equation}\label{eq.buffon-probability}
-E(I_{\textsf{crosses}})=1\cdot p(a) + 0\cdot (1-p(a))=p(a)\,,
+E(I_{\textrm{crosses}})=1\cdot p(a) + 0\cdot (1-p(a))=p(a)\,,
 \end{equation}
 and the probability can be computed by computing the expectation.
 
 Let $m$ be a line perpendicular to the parallel lines that passes through the center of the needle and let $\theta$ be the angle between the needle and a parallel line. Project the needle onto $m$ to give the line segment $\overline{CD}$. The probability that the needle will cross a line is:
 \begin{equation}\label{eq.cross}
-P(\textsf{needle of length}\;a,\;\textsf{angle}\;\theta\;\textsf{crosses line})=\disfrac{\overline{CD}/2}{1/2}=\disfrac{(a/2)\sin \theta}{1/2}=a\sin\theta\,.
+P(\textrm{needle of length}\;a,\;\textrm{angle}\;\theta\;\textrm{crosses line})=\disfrac{\overline{CD}/2}{1/2}=\disfrac{(a/2)\sin \theta}{1/2}=a\sin\theta\,.
 \end{equation}
 
 \begin{figure}[bt]
@@ -419,7 +419,7 @@ P(\textsf{needle of length}\;a,\;\textsf{angle}\;\theta\;\textsf{crosses line})=
 
 The expectation of the number of lines crossed is given by integrating over possible angles:
 \begin{equation}\label{eq.buffon-integral}
-E(\textsf{lines crossed}) =
+E(\textrm{lines crossed}) =
   \disfrac{1}{(\pi/2)-0} \int_0^{\pi/2} a\sin \theta\,
   d\theta=\left.\disfrac{2}{\pi}\cdot a (-\cos \theta)
   \right|_0^{\pi/2}=\disfrac{2a}{\pi}\,.
@@ -450,8 +450,8 @@ E(Q_n)\leq E(C)\leq E(R_n)\,.
 \end{equation}
 Let $a_Q, a_R$ be the sums of the lengths of the sides of $Q_n,R_n$, respectively. By the linearity of expectation:
 \begin{eqnarray}\label{eq.buffon1a}
-E(Q_n)&=&\sum_{i=1}^n E(\textsf{segments of}\;a_Q)=a_QE(1)\\
-\label{eq.buffon1b}E(R_n)&=&\sum_{i=1}^n E(\textsf{segments of}\;a_R)=a_RE(1)\,. 
+E(Q_n)&=&\sum_{i=1}^n E(\textrm{segments of}\;a_Q)=a_QE(1)\\
+\label{eq.buffon1b}E(R_n)&=&\sum_{i=1}^n E(\textrm{segments of}\;a_R)=a_RE(1)\,. 
 \end{eqnarray}
 As $n\rightarrow\infty$ both polygons approximate the circle so:
 \begin{equation}\label{eq.buffon-pi}
@@ -509,7 +509,7 @@ Empirical value for pi   = 3.1581
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{Buffon's needle with horizontal and vertical rulings}
+\begin{prob}{המחט של \L{Buffon} עם רשת אופקי ואנכי}{}{\\(Buffon's needle with horizontal and vertical rulings)}
 
 Solve Buffon's needle problem for a surface that is covered by a grid with squares of size $1\times 1$. A needle can cross a vertical line (green), a horizontal line (blue), both (red) or neither (orange) (Figure~\ref{f.buffon5}).
 
@@ -537,17 +537,17 @@ Solve Buffon's needle problem for a surface that is covered by a grid with squar
 
 The numbers of crossings of the horizontal and vertical lines are independent and expectation is linear so:
 \begin{eqnarray*}
-E(\textsf{lines crossed by\ } a)&=&E(\textsf{vertical lines crossed by\ } a +
-     \textsf{horizontal lines crossed by\ } a)\\
-&=&E(\textsf{vertical lines crossed by\ } a) +
-   E(\textsf{horizontal lines crossed by\ } a)\\
+E(\textrm{lines crossed by\ } a)&=&E(\textrm{vertical lines crossed by\ } a +
+     \textrm{horizontal lines crossed by\ } a)\\
+&=&E(\textrm{vertical lines crossed by\ } a) +
+   E(\textrm{horizontal lines crossed by\ } a)\\
 &=&\disfrac{2a}{\pi}+\disfrac{2a}{\pi}=\disfrac{4a}{\pi}\,.
 \end{eqnarray*}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{Long needles\annotate{D,S}}
+\begin{prob}{מחטים ארוכים}{D,S}{(Long needles)}
 
 Let the length of the needle in Buffon's problem be $a>1$.
 
@@ -638,11 +638,11 @@ Average crossings        = 0.8897
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{Molina's urns}
+\begin{prob}{הכד של \L{Molina}}{}{(Molina's urns)}
 Let $U_1,U_2$ be two urns containing $m$ balls each. $U_1$ has $w_1$ white balls and $b_1$ blacks while $U_2$ has $w_2$ white balls and $b_2$ blacks. $n$ balls are drawn \emph{with replacement} from each urn. Find $w_1,b_1,w_2,b_2$ such that:
 \[
-p(\textsf{balls drawn from} \;U_1\; \textsf{are all white})=
-p(\textsf{balls drawn from} \;U_2\; \textsf{are all white or all black})\,.
+p(\textrm{balls drawn from} \;U_1\; \textrm{are all white})=
+p(\textrm{balls drawn from} \;U_2\; \textrm{are all white or all black})\,.
 \]
 
 \que{1} Find values of $w_1,b_1,w_2,b_2$ for $n=2$.

@@ -1,4 +1,4 @@
-% !TeX root = mos-en.tex
+% !TeX root = mos-he.tex
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -6,7 +6,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{The little end of the stick\annotate{S}}
+\begin{prob}{הקצה הקצר של המקל}{S}{(The little end of the stick)}
 A large number of glass rods each of length $1$ are broken into two pieces each.
 
 \que{1} What is the expectation of the length of the \emph{smaller} piece?
@@ -19,12 +19,12 @@ A large number of glass rods each of length $1$ are broken into two pieces each.
 \ans{1} The probability that the break is on the left half of a rod is $1/2$ as is the probability that it is on the right half.
 The smaller piece is on the same side as the break and since the break occurs at a random place, the expectation of its position is halfway between the end and the middle. Therefore:
 \[
-E(\textsf{length of smaller piece}) = \frac{1}{2}\cdot\frac{1}{2}=\frac{1}{4}\,.
+E(\textrm{length of smaller piece}) = \frac{1}{2}\cdot\frac{1}{2}=\frac{1}{4}\,.
 \]
 
 \ans{2} Without loss of generality assume that the break occurred in the right half of the rod (Figure~\ref{f.stick}). The ratio of the smaller piece to the larger piece is $(1-x)/x$ and the length of the larger piece $x$ is uniformly distributed in $(1/2,1)$. The expectation of the ratio is:
 \begin{eqnarray*}
-E(\textsf{ratio})&=&\left(\frac{1}{1-(1/2)}\right)\int_{1/2}^1 \frac{1-x}{x} \,dx\\
+E(\textrm{ratio})&=&\left(\frac{1}{1-(1/2)}\right)\int_{1/2}^1 \frac{1-x}{x} \,dx\\
 &=& 2\int_{1/2}^1 \left(\frac{1}{x} -1\right) \,dx \\
 &=& 2\left.(\ln |x| - x)\right|_{1/2}^1 = 2\ln 2 -1\approx 0.3863\,.
 \end{eqnarray*}
@@ -56,7 +56,7 @@ Average smaller/larger           = 0.3845
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\begin{prob}{The broken bar\annotate{D,S}}
+\begin{prob}{המוט השבור}{S}{(The broken bar)}
 
 A large number of glass rods of length $1$ are broken in two places (Figure~\ref{f.break1}).
 
@@ -188,7 +188,6 @@ E(x)&=& \frac{1}{1/6}\int_{0}^{1/3} x [(1-x)-2x]\,dx\\
 \draw (0,3cm-7pt) rectangle +(7pt,7pt);
 \end{tikzpicture}
 }
-\end{center}
 \end{figure}
 
 \ans{2}
@@ -197,10 +196,10 @@ $(x,y)$ must lie to the right of $y=2x$ (red) and to the right of $y=1-x$ (blue)
 
 For convenience we divide the shaded region into two triangles (dashed line) and compute the expectations separately. The area of the shaded region is the sum of the areas of the triangles $1/24+1/8=1/6$. Then:
 \begin{eqnarray*}
-E(x \textsf{\ in left triangle})&=& 6\int_{1/3}^{1/2} x [2x-(1-x)]\,dx  \\
+E(x \textrm{\ in left triangle})&=& 6\int_{1/3}^{1/2} x [2x-(1-x)]\,dx  \\
 &=&\int_{1/3}^{1/2} \left(18x^2-6x\right)\,dx\\
 &=&\left. (6x^3-3x^2)\right|_{1/3}^{1/2}=\disfrac{1}{9}\\
-E(x \textsf{\ in right triangle})&=& 6\int_{1/2}^{1} x [1-x]\,dx\\
+E(x \textrm{\ in right triangle})&=& 6\int_{1/2}^{1} x [1-x]\,dx\\
 &=&\int_{1/2}^{1} (6x-6x^2)\,dx\\
 &=&\left. \left(3x^2-2x^3\right)\right|_{1/2}^{1}= \disfrac{1}{2}\\
 E(x)&=& \disfrac{1}{9}+\disfrac{1}{2} = \disfrac{11}{18}\approx 0.6111\,.
@@ -216,7 +215,7 @@ Averages:     shortest = 0.1115, middle = 0.2783, longest = 0.6102
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{Winning an unfair game\annotate{D,S}}
+\begin{prob}{לנצח במשחק לא-הוגן}{D,S}{(Winning an unfair game)}
 You are given an unfair coin whose probability of heads is $1/3 < p < 1/2$. Toss a coin an even number of times $N=2n$. You win if and only \emph{more} than half of the tosses are heads.
 
 \que{1} Develop a formula for the probability $P_N$ of winning the game and develop a formula for the probability $T_N$ of a tie occurring.
@@ -236,7 +235,7 @@ T_N &=& \dischoose{2n}{n} p^n (1-p)^{n}\,.
 
 \ans{2} For $N=2n$ to give the highest probability of winning we must have:
 \[
-P_{2n-2} \leq P_{2n} \quad \textsf{and} \quad P_{2n}\geq P_{2n+2}\,.
+P_{2n-2} \leq P_{2n} \quad \textrm{and} \quad P_{2n}\geq P_{2n+2}\,.
 \]
 When is $P_{2n-2}\not = P_{2n}$?
 
@@ -294,7 +293,7 @@ For 12 games, average won   = 0.2640
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{Average number of matches\annotate{S}}
+\begin{prob}{ממוצע של מספר ההתאמות}{S}{(Average number of matches)}
 Lay out a deck of cards in a row in the standard order and then lay out a second deck in a row in a random order below the first (Figure~\ref{f.cards}). What is the expectation of the number of matches of a card in the first row with the card below it?
 \end{prob}
 
@@ -354,7 +353,7 @@ Lay out a deck of cards in a row in the standard order and then lay out a second
 
 The distribution is uniform because each card has the same probability of being matched with the card above it. Therefore:
 \[
-E(\textsf{number of matches}) = 52\cdot \frac{1}{52} = 1\,.
+E(\textrm{number of matches}) = 52\cdot \frac{1}{52} = 1\,.
 \]
 
 \begin{verbatim}
@@ -364,7 +363,7 @@ Average of matches     = 1.01
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{Probabilities of matches\annotate{S}}
+\begin{prob}{הסתברויות של התאמות}{S}{(Probabilities of matches)}
 
 Lay out a deck of $n$ cards in a row in the standard order and then lay out a second deck in a row in a random order below the first (Figure~\ref{f.cards}). Develop a formula for $P(n,r)$, the probability that there will be exactly $r$ matches of a card in the first row with the card below? Assume that $P(k,0)$ is given for all $0\leq k\leq n$.
 \end{prob}
@@ -409,7 +408,7 @@ Proportion 4 matches     = 0.0168
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{Choosing the largest dowry\annotate{D,S}}
+\begin{prob}{לבחור את המוהר הגדול ביותר}{D,S}{(Choosing the largest dowry)}
 Place a sequence of $n$ cards face down. There is a positive integer written on the face of each card but you have no knowledge as to their distribution. Turn the cards over one-by-one and look at the numbers. After turning over each card you can declare that it is the largest number. If you are correct you win the game, otherwise you lose. For example, let the sequence of cards be $(47, 23, 55, 4)$. You win only if you choose the third card.
 
 Consider the following strategy: for some fixed $r$ reject the first $r-1$ cards and select the first card whose number is greater than all the $r-1$ cards.
@@ -464,28 +463,28 @@ The probability of winning is $10/24$.
 
 \ans{2} If the largest number is in one the of positions $1,\ldots,r-1$ you lose. Therefore, in order to win the largest number must be in the $m$th position for $r\leq m\leq n$:
 \[
-1\quad 2\quad \cdots\quad r-2 \quad r-1 \quad \overbrace{r \quad r+1 \quad \cdots\quad m-1\quad  m \quad m+1\quad \cdots \quad n}^{\textsf{largest number must be here}}\,.
+1\quad 2\quad \cdots\quad r-2 \quad r-1 \quad \overbrace{r \quad r+1 \quad \cdots\quad m-1\quad  m \quad m+1\quad \cdots \quad n}^{\textrm{largest number must be here}}\,.
 \]
 By the strategy you reject the first $r-1$ cards. You will choose position $m$ only if \emph{all} the numbers in $(r,\ldots,m-1)$ are less than \emph{all} the numbers in $(1,\ldots,r)$. In other words, the largest card in the entire sequence $(1,\ldots,m-1)$, the sequence up until $m$, is \emph{not} in the second part of the sequence $(r,\ldots m-1)$ but in the first part $(1,\ldots,r-1)$. The probability is:
 \[
-P(\textsf{largest card in}\;(1,\ldots,m-1)\;\textsf{is in}\; (1,\ldots,r-1)) = \disfrac{r-1}{m-1}\,.
+P(\textrm{largest card in}\;(1,\ldots,m-1)\;\textrm{is in}\; (1,\ldots,r-1)) = \disfrac{r-1}{m-1}\,.
 \]
 Since the probability that the largest card is at $m$ is $1/n$:
 \begin{equation}\label{eq.dowry1}
-P(\textsf{win}) = \sum_{m=r}^{n} \disfrac{1}{n} \cdot \disfrac{r-1}{m-1}= \disfrac{r-1}{n}\sum_{m=r}^{n} \disfrac{1}{m-1}\,.
+P(\textrm{win}) = \sum_{m=r}^{n} \disfrac{1}{n} \cdot \disfrac{r-1}{m-1}= \disfrac{r-1}{n}\sum_{m=r}^{n} \disfrac{1}{m-1}\,.
 \end{equation}
-For $n=4, r=3$, $P(\textsf{win}) = 5/12=10/24$.
+For $n=4, r=3$, $P(\textrm{win}) = 5/12=10/24$.
 
 Equation~\ref{eq.dowry1} is not defined for $r=1$ but the probability of winning when choosing the first number is $1/n$. A larger $r$ will have a higher probability of winning as shown in the example.
 
 \ans{3}
 Rewrite Equation~\ref{eq.dowry1} as:
 \begin{equation}\label{eq.dowry2}
-P(\textsf{win}) =\disfrac{r-1}{n}\left(\sum_{m=2}^{n} \disfrac{1}{m-1}-\sum_{m=2}^{r-1} \disfrac{1}{m-1}\right)\,.
+P(\textrm{win}) =\disfrac{r-1}{n}\left(\sum_{m=2}^{n} \disfrac{1}{m-1}-\sum_{m=2}^{r-1} \disfrac{1}{m-1}\right)\,.
 \end{equation}
 For large $n,r$ Equation~\ref{eq.dowry2} can be approximated by:
 \[
-P(\textsf{win})=\disfrac{r}{n}(\ln n - \ln r)=\disfrac{r}{n}\ln \disfrac{n}{r}=-\disfrac{r}{n}\ln \disfrac{r}{n}\,.
+P(\textrm{win})=\disfrac{r}{n}(\ln n - \ln r)=\disfrac{r}{n}\ln \disfrac{n}{r}=-\disfrac{r}{n}\ln \disfrac{r}{n}\,.
 \]
 Denote $x=r/n$ and find the maximum by taking derivatives:
 \begin{eqnarray*}
@@ -514,7 +513,7 @@ Proportion wins       = 0.3601
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{Choosing the largest random number\annotate{D,S}}
+\begin{prob}{בחירת המספר האקראי הגדול ביותר}{D,S}{(Choosing the largest random number)}
 
 Place a sequence of $n$ cards face down. On the face of each card is a real number with uniform distribution in $0.0\leq x<1.0$. Turn the cards over one-by-one and look at the numbers. After turning over each card you can declare that it is the largest number. If you are correct you win the game, otherwise you lose.
 
@@ -538,30 +537,30 @@ Let $v_1,v_2,v_3$ be the values of the three cards.
 
 \ans{1} You have no choice but to select the first card since there are no other cards. There is no indifference value. Since $v_1$ is the ``largest'' number $P({win})=1$.
 
-\ans{2} If you select the first card $P(\textsf{win})=v_1$ which is the probability that the second card has a smaller value. If you reject the first card, $P(\textsf{win})=1-v_1$, which is the probability that $v_2>v_1$. Therefore, if $v_1<0.5$ select the second card because $1-v_1>0.5$ and if $v_1>0.5$ select the first card because $1-v_1<0.5$. It follows that $d=0.5$.
+\ans{2} If you select the first card $P(\textrm{win})=v_1$ which is the probability that the second card has a smaller value. If you reject the first card, $P(\textrm{win})=1-v_1$, which is the probability that $v_2>v_1$. Therefore, if $v_1<0.5$ select the second card because $1-v_1>0.5$ and if $v_1>0.5$ select the first card because $1-v_1<0.5$. It follows that $d=0.5$.
 
 Here is the formula for the probability of winning:
 \[
-P(\textsf{win with two cards}) = p(\textsf{win} \,|\,v_1<0.5)\,p(v_1<0.5)+ p(\textsf{win}\,|\,v_1>0.5)\,p(v_1>0.5)\,.
+P(\textrm{win with two cards}) = p(\textrm{win} \,|\,v_1<0.5)\,p(v_1<0.5)+ p(\textrm{win}\,|\,v_1>0.5)\,p(v_1>0.5)\,.
 \]
-$p(v_1<0.5)=0.5$ is immediate by uniform distribution. What about $p(\textsf{win} \,|\,v_1<0.5)$? By the strategy you win if $0.5<v_2<1$, but you also win if $v_1<v_2<0.5$. Since $v_1$ is uniformly distributed in $(0,0.5)$:
+$p(v_1<0.5)=0.5$ is immediate by uniform distribution. What about $p(\textrm{win} \,|\,v_1<0.5)$? By the strategy you win if $0.5<v_2<1$, but you also win if $v_1<v_2<0.5$. Since $v_1$ is uniformly distributed in $(0,0.5)$:
 \[
-p(\textsf{win} \,|\,v_1<0.5)=\disfrac{1}{2} + \disfrac{1}{4}=\disfrac{3}{4}\,.
+p(\textrm{win} \,|\,v_1<0.5)=\disfrac{1}{2} + \disfrac{1}{4}=\disfrac{3}{4}\,.
 \]
 A similar computation holds for $v_1>0.5$. Putting this together gives:
 \[
-P(\textsf{win with two cards})=\disfrac{3}{4}\cdot\disfrac{1}{2}+\disfrac{3}{4}\cdot\disfrac{1}{2}=\disfrac{3}{4}\,.
+P(\textrm{win with two cards})=\disfrac{3}{4}\cdot\disfrac{1}{2}+\disfrac{3}{4}\cdot\disfrac{1}{2}=\disfrac{3}{4}\,.
 \]
 
 \ans{3}
 
-If you select the first card $P(\textsf{win})=v_1^2$ because the second and third cards must be smaller than the first.
+If you select the first card $P(\textrm{win})=v_1^2$ because the second and third cards must be smaller than the first.
 
 If you reject the first card and select the second because $v_2>v_1$:
 \begin{itemize}
-\item $P(\textsf{win})=(1-v_1)v_1$ if $v_2>v_1$ and $v_3<v_1$.
-\item $P(\textsf{win})=v_1(1-v_1)$ if $v_2<v_1$ and $v_3>v_1$.
-\item $P(\textsf{win})=\frac{1}{2}(1-v_1)^2$ if $v_2>v_1$ and $v_3>v_1$, since winning depends on the order: $(0.55, 0.75, 0.65)$ wins and $(0.55, 0.65, 0.75)$ loses.
+\item $P(\textrm{win})=(1-v_1)v_1$ if $v_2>v_1$ and $v_3<v_1$.
+\item $P(\textrm{win})=v_1(1-v_1)$ if $v_2<v_1$ and $v_3>v_1$.
+\item $P(\textrm{win})=\frac{1}{2}(1-v_1)^2$ if $v_2>v_1$ and $v_3>v_1$, since winning depends on the order: $(0.55, 0.75, 0.65)$ wins and $(0.55, 0.65, 0.75)$ loses.
 \end{itemize}
 
 The indifference value $d$ is the value such that the probability of winning by selecting the first card equals the probability of winning by rejecting the first card:
@@ -572,7 +571,7 @@ d&=& \disfrac{1+\sqrt{6}}{5}\approx 0.6899\,.
 \end{eqnarray*}
 Gilbert and Mosteller \cite[page~55]{gilbert} show that for $n=3$:
 \[
-P(\textsf{win}) = \disfrac{1}{3}+\disfrac{d}{2}+\disfrac{d^2}{1}-\disfrac{3d^3}{2}\approx 0.6617\,.
+P(\textrm{win}) = \disfrac{1}{3}+\disfrac{d}{2}+\disfrac{d^2}{1}-\disfrac{3d^3}{2}\approx 0.6617\,.
 \]
 \textbf{Simulation:}
 \begin{verbatim}

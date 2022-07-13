@@ -148,7 +148,7 @@ Using a computer program I found the following solutions where the number of bla
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{Successive wins\annotate{S}}
-You are playing a series of three games against two players and you win the series if you win at least two of the three games. The probability that you will win a game against player $P_1$ is $p_1$ and the probability that you will win a game against player $P_2$ is $p_2$. It is known that $p_1>p2$. Which of the following scenarios gives you a better chance of winning the series?
+You play a sequence of three games alternately against two players and you win the sequence if you win at least two of the three games. The probability that you will win a game against player $P_1$ is $p_1$ and the probability that you will win a game against player $P_2$ is $p_2$. It is given that $p_1>p2$. Which of these scenarios gives you a better chance of winning the sequence?
 \begin{itemize}
 \item You play against $P_1,P_2,P_1$ in that order.
 \item You play against $P_2,P_1,P_2$ in that order.
@@ -159,12 +159,12 @@ You are playing a series of three games against two players and you win the seri
 
 You win if: (a) you win the first two games and lose the last game, (b) you lose the first game and win the last two games, or (c) you win all three games.
 
-Let $p_{121}$ and $p_{212}$ be the probabilities that you win the series in the two scenarios:
+Let $p_{121}$ and $p_{212}$ be the probabilities that you win the sequence in the two scenarios:
 \begin{eqnarray*}
 p_{121}&=&p_1p_2(1-p_1) + (1-p_1)p_2p_1 + p_1p_2p_1\\
 p_{212}&=&p_2p_1(1-p_2) + (1-p_2)p_1p_2 + p_2p_1p_2\,.
 \end{eqnarray*}
-You have a better chance of winning the series in the first scenario if $p_{121}>p_{212}$, that is, if:
+You have a better chance of winning the sequence in the first scenario if $p_{121}>p_{212}$, that is, if:
 \begin{eqnarray*}
 p_1p_2(1-p_1) + (1-p_1)p_2p_1 + p_1p_2p_1 &\stackrel{?}{>}& 
 p_2p_1(1-p_2) + (1-p_2)p_1p_2 + p_2p_1p_2\\
@@ -175,7 +175,7 @@ By assumption $p_1>p_2$ so you should choose the second scenario.
 
 \solution{2}
 
-The result is counter-intuitive. Intuitively, you should choose to play two games with $P_1$ and one game with $P_2$ because more likely to win games against $P_1$. However, the only way that you can win the series is by winning the \emph{middle} game, and, therefore, you should play the middle set against $P_1$, the player you are more likely to defeat.
+The result is counter-intuitive. Intuitively, you should choose to play two games with $P_1$ and one game with $P_2$ because more likely to win games against $P_1$. However, the only way that you can win the sequence is by winning the \emph{middle} game, and, therefore, you should play the middle set against $P_1$, the player you are more likely to defeat.
 
 \textbf{Simulation}
 \begin{verbatim}

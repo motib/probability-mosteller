@@ -1,8 +1,8 @@
-% !TeX root = mos-en.tex
+% !TeX root = mos-he.tex
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{Birthday pairings\annotate{S}}
+\begin{prob}{ימי הולדת זהים}{S}{(Birthday pairings)}
 Randomly select $23$ people and ask them what their birthdays are. Assume a uniform distribution of $365$ different birthdays (no one was born on February $29$). Show that the probability that at least two of them have the same birthday is greater than $0.5$.
 \end{prob}
 
@@ -12,10 +12,10 @@ Compute the probability that \emph{none} of the $23$ people have the same birthd
 \[
 \renewcommand*{\arraystretch}{2.5}
 \begin{array}{rcl}
-P(\textsf{no birthday pair})&=&
+P(\textrm{no birthday pair})&=&
   \overbrace{\disfrac{365}{365}\cdot\frac{364}{365}
   \cdot\frac{363}{365}\cdot \;\cdots \; \cdot \frac{344}{365}
-  \cdot\frac{343}{365}}^{23\;\textsf{\small fractions}}\\
+  \cdot\frac{343}{365}}^{23\;\textrm{\small fractions}}\\
 &=&\disfrac{365!}{365^{23}\cdot 342!}\approx 0.4927\,.
 \end{array}
 \]
@@ -25,11 +25,11 @@ A modern calculator can compute the probability, but it is worthwhile computing 
 \[
 \renewcommand*{\arraystretch}{2}
 \begin{array}{rcl}
-\ln P(\textsf{no birthday pair})&=&
+\ln P(\textrm{no birthday pair})&=&
   \ln\left(\disfrac{365!}{342!\cdot 365^{23}}\right)=\ln 365! - \ln 342! -23 \ln 365\\
 &\approx& (365\ln 365 -365) - (342\ln 342 -342) - 23\,\ln 365 \\
 &\approx&-0.7404\\
-P(\textsf{no birthday pair})&\approx&e^{-0.7404}=0.4769\,.
+P(\textrm{no birthday pair})&\approx&e^{-0.7404}=0.4769\,.
 \end{array}
 \]
 The reader is invited to compute the probability with the following better approximation:
@@ -57,7 +57,7 @@ Average no pairs        = 0.4345
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{Finding your birthmate\annotate{S}}
+\begin{prob}{למצוא עמית ליום ההולדת}{S}{(Finding your birthmate)}
 Your \emph{birthmate} is a person with the same birthday as yours.
 
 Why is finding a birthmate different from finding a birthday pairing?
@@ -75,7 +75,7 @@ Many people could have the same birthday which is considered a success for find 
 \ans{1}
 Find the smallest number of people for which the probability that \emph{none} of theme are birthmates is less than $0.5$. The probability that the first person you ask is not a birthmate is $364/365$, but that is also the probability that the second, third, \ldots, person is not a birthmate. The solution is the smallest $k$ such that:
 \[
-P(\textsf{not a birthmate})=\left(\frac{364}{365}\right)^k<\frac{1}{2}\,,
+P(\textrm{not a birthmate})=\left(\frac{364}{365}\right)^k<\frac{1}{2}\,,
 \]
 which is $k=253$:
 \[
@@ -88,7 +88,7 @@ Equation~\ref{eq.reciprocal} is:
 \]
 which can be used to approximate the probability:
 \begin{eqnarray*}
-P(\textsf{not a birthmate})&=&
+P(\textrm{not a birthmate})&=&
   \left(\disfrac{365-1}{365}\right)^k=\left[\left(\disfrac{364}{365}\right)^{365}\right]^{k/365}\\
 &\approx& e^{-k/365}\\
 e^{-253/365}&\approx&0.5000\,.
@@ -115,19 +115,19 @@ Proportion no match     = 0.5078
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{Relating the birthday pairings and the birthmate problems}
-Let $P_{\textsf{\footnotesize pair}}(r)$ be the probability that two people out of $r$ are a birthday pair (Problem~$31$) and let $P_{\textsf{\footnotesize mate}}(n)$ be the probability that two people out of $n$ are birthmates (Problem~$32$). Given $r$ for what $n$ does $P_{\textsf{\footnotesize pair}}(r) \approx P_{\textsf{\footnotesize mate}}(n)$?
+\begin{prob}{השוואת הבעיות יום הולדת זהה ועמית ליום ההולדת}{}{\\(Relating the birthday pairings and the birthmate problems)}
+Let $P_{\textrm{\footnotesize pair}}(r)$ be the probability that two people out of $r$ are a birthday pair (Problem~$31$) and let $P_{\textrm{\footnotesize mate}}(n)$ be the probability that two people out of $n$ are birthmates (Problem~$32$). Given $r$ for what $n$ does $P_{\textrm{\footnotesize pair}}(r) \approx P_{\textrm{\footnotesize mate}}(n)$?
 \end{prob}
 
 \solution{1}
 
 The solution is based on \cite{birthday}.
 
-Using the notation $P_{\textsf{\footnotesize no pair}}(r)$ for the complement, from the solution to Problem~$31$ we have:
+Using the notation $P_{\textrm{\footnotesize no pair}}(r)$ for the complement, from the solution to Problem~$31$ we have:
 \[
 \renewcommand*{\arraystretch}{2.2}
 \begin{array}{lcl}
-P_{\textsf{\footnotesize no pair}}(r)&=&
+P_{\textrm{\footnotesize no pair}}(r)&=&
 \disfrac{365}{365}\cdot 
   \frac{365-1}{365}\cdot \frac{365-2}{365} \cdot\;
   \cdots \;\cdot \frac{365-(r-1)}{365}\\
@@ -142,11 +142,11 @@ P_{\textsf{\footnotesize no pair}}(r)&=&
 \]
 where the approximation in the third equation results from deleting powers of $1/365$ greater than one because they are too small to significantly affect the result.
 
-Using the notation $P_{\textsf{\footnotesize no mate}}(n)$ for the complement and the same approximation, from the solution to Problem~$32$ we have:
+Using the notation $P_{\textrm{\footnotesize no mate}}(n)$ for the complement and the same approximation, from the solution to Problem~$32$ we have:
 \[
 \renewcommand*{\arraystretch}{2.2}
 \begin{array}{lcl}
-P_{\textsf{\footnotesize no mate}}(n)
+P_{\textrm{\footnotesize no mate}}(n)
 &=&\overbrace{\left(1-\frac{1}{365}\right)
   \left(1-\frac{1}{365}\right)\cdots
   \left(1-\frac{1}{365}\right)}^{n}\\
@@ -155,7 +155,7 @@ P_{\textsf{\footnotesize no mate}}(n)
 &\approx& 1-\disfrac{n}{365}\\
 \end{array}
 \]
-Therefore $P_{\textsf{\footnotesize no pair}}(r)\approx P_{\textsf{\footnotesize no mate}}(n)$ when:
+Therefore $P_{\textrm{\footnotesize no pair}}(r)\approx P_{\textrm{\footnotesize no mate}}(n)$ when:
 \[
 n=\frac{r(r-1)}{2}\,.
 \]
@@ -173,13 +173,13 @@ This reasoning can be understood as follows. For the birthday problem choose an 
 \[
 {r \choose 2}=\frac{r!}{2!(r-2)!} = \frac{r(r-1)}{2}
 \]
-ways of doing so. For the birthmate problem your own birthday is given. Any of the $n$ people can have the same birthday. By equating the two we have the $n$ such that $P_{\textsf{\footnotesize pair}}(r) \approx P_{\textsf{\footnotesize mate}}(n)$.
+ways of doing so. For the birthmate problem your own birthday is given. Any of the $n$ people can have the same birthday. By equating the two we have the $n$ such that $P_{\textrm{\footnotesize pair}}(r) \approx P_{\textrm{\footnotesize mate}}(n)$.
 
 You can run the simulations for Problems~31, 32 and check this result.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{Birthday holidays\annotate{D,S}}
+\begin{prob}{חופש בימי הולדת}{D,S}{(Birthday holidays)}
 A factory is closed whenever one of its workers has a birthday. There are no other holidays.
 
 \que{1} How many workers should be employed in order to maximize the number of work-days in a year?
@@ -198,17 +198,17 @@ To simplify the notation we will denote the number of days in a year by $N$ and 
 
 For any given day the probability that it is a work-day is the probability that each worker has a birthday on some other day:
 \[
-P(\textsf{a given day is a work-day})=\overbrace{\disfrac{N-1}{N} \cdot \;\cdots\;\cdot \disfrac{N-1}{N}}^n = \left(1-\disfrac{1}{N}\right)^n\,.
+P(\textrm{a given day is a work-day})=\overbrace{\disfrac{N-1}{N} \cdot \;\cdots\;\cdot \disfrac{N-1}{N}}^n = \left(1-\disfrac{1}{N}\right)^n\,.
 \]
 Denote $\left(1-\disfrac{1}{N}\right)$ by $p$.
 
 The expectation of the number of work-days for a given day is:
 \[
-E(\textsf{work-days for a given day}) = n \cdot p^n + 0\cdot (1-p^n) = np^n\,.
+E(\textrm{work-days for a given day}) = n \cdot p^n + 0\cdot (1-p^n) = np^n\,.
 \]
 All the days in the year have this same expectation, so we just multiply by $N$ to get the expectation for a year:
 \begin{equation}\label{eq.holidays}
-E(\textsf{work-days for a year}) = Nnp^n\,.
+E(\textrm{work-days for a year}) = Nnp^n\,.
 \end{equation}
 
 To find the maximum we take the derivative of Equation~\ref{eq.holidays} with respect to $n$ and use
@@ -236,7 +236,7 @@ n=-\disfrac{1}{\ln p}\,.
 \]
 For $N=365$ this gives $n=364.5$. Since $n$ is a positive integer the maximum is achieved at $n=364$ or $n=365$ which give the same expectation of the number of work-days:
 \begin{eqnarray*}
-E(\textsf{work-days for a year}) &=&Nnp^n\\
+E(\textrm{work-days for a year}) &=&Nnp^n\\
 &=&365\cdot 364 \cdot \left(\disfrac{364}{365}\right)^{364}\\
 &=&365\cdot 364  \cdot \disfrac{365}{365}\left(\disfrac{364}{365}\right)^{364}\\
 &=&365\cdot 365  \cdot \left(\disfrac{364}{365}\right)^{365}\\
@@ -246,11 +246,11 @@ E(\textsf{work-days for a year}) &=&Nnp^n\\
 \ans{2} 
 The expectation of the ratio is:
 \[
-E(\textsf{max work-days/possible work-days})=\disfrac{365\cdot 365  \cdot \left(\frac{364}{365}\right)^{365}}{365\cdot 365}=\left(\disfrac{364}{365}\right)^{365}\approx 0.3674\,.
+E(\textrm{max work-days/possible work-days})=\disfrac{365\cdot 365  \cdot \left(\frac{364}{365}\right)^{365}}{365\cdot 365}=\left(\disfrac{364}{365}\right)^{365}\approx 0.3674\,.
 \]
 By Equation~\ref{eq.reciprocal}:
 \[
-\lim_{n\rightarrow\infty}E(\textsf{max work-days/possible work-days})=\lim_{N\rightarrow \infty} \left(1-\disfrac{1}{N}\right)= \disfrac{1}{e}\,.
+\lim_{n\rightarrow\infty}E(\textrm{max work-days/possible work-days})=\lim_{N\rightarrow \infty} \left(1-\disfrac{1}{N}\right)= \disfrac{1}{e}\,.
 \]
 
 \textbf{Simulation}
@@ -275,7 +275,7 @@ Ratio work-days / 365**2 = 0.3674
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{The cliff-hanger\annotate{S}}
+\begin{prob}{על שפת התהום}{S}{(The cliff-hanger)}
 A particle is initially placed on the $x$-axis at position $1$. At any position on the $x$-axis it can move right with probability $2/3$ and left with probability $1/3$ (Figure~\ref{f.ruin1}).
 
 \que{1} What is the probability that the particle will eventually be at position $0$?
@@ -317,11 +317,11 @@ Let us try to compute the probability directly. Denote a move left by $L$ and a 
 
 Compute the probability that the particle reaches $0$ from $1$ conditioned on the first step:
 \begin{eqnarray*}
-P(\textsf{reaches}\;0\;\textsf{from}\;1) &=& P(\textsf{reaches}\;0\;\textsf{from}\;1|\textsf{first move left}) +\\
-&&P(\textsf{reaches}\;0\;\textsf{from}\;1|\textsf{first move right})\\
-&=& (1-p)\cdot 1 + pP(\textsf{reaches}\;1\;\textsf{from}\;2)P(\textsf{reaches}\;0\;\textsf{from}\;1)\,.
+P(\textrm{reaches}\;0\;\textrm{from}\;1) &=& P(\textrm{reaches}\;0\;\textrm{from}\;1|\textrm{first move left}) +\\
+&&P(\textrm{reaches}\;0\;\textrm{from}\;1|\textrm{first move right})\\
+&=& (1-p)\cdot 1 + pP(\textrm{reaches}\;1\;\textrm{from}\;2)P(\textrm{reaches}\;0\;\textrm{from}\;1)\,.
 \end{eqnarray*}
-But the probability of reaching $1$ from $2$ is exactly the same as the probability of reaching $0$ from $1$. Abbreviating $P(\textsf{reaches}\;0\;\textsf{from}\;1)$ as $P$ we have:
+But the probability of reaching $1$ from $2$ is exactly the same as the probability of reaching $0$ from $1$. Abbreviating $P(\textrm{reaches}\;0\;\textrm{from}\;1)$ as $P$ we have:
 \begin{eqnarray*}
 P &=& (1-p) + pP^2\\
 pP^2 - P + (1-p) &=&0\\
@@ -375,7 +375,7 @@ Proportion reaching 0     = 0.2502
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{Gambler's ruin\annotate{D,S}}
+\begin{prob}{המהמר פשט רגל}{D,S}{(Gambler's ruin)}
 A particle is initially placed on the $x$-axis at position $m\geq 1$. At any position on the $x$-axis it can move right with probability $p>1/2$ and left with probability $1-p$.
 
 \que{1} What is the probability that the particle will eventually be at position $0$?
@@ -475,7 +475,7 @@ The greater the amount of money that the left player has and the greater his pro
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{Bold play vs. cautious play\annotate{S}}
+\begin{prob}{משחק נועז או משחק זהיר}{S}{(Bold play vs. cautious play)}
 In roulette you can bet that the ball will fall into a pocket with an even number. The probability is $18/38$ since there are $18$ even numbers, $18$ odd numbers and $2$ green numbers where the casino wins.
 
 Which of the following strategies is better?
@@ -492,7 +492,7 @@ The probability of winning with bold play is $18/38\approx 0.4737$.
 
 The probability of winning with cautious play is $P(40,20)$ with $r=\frac{20}{38}/\frac{18}{38}=\frac{20}{18}$ (Equation~\ref{eq.ruin1}):
 \[
-P(\textsf{reaches}\;40\;\textsf{from}\;20) =
+P(\textrm{reaches}\;40\;\textrm{from}\;20) =
 \left(\frac{1-(20/18)^{20}}{1-(20/18)^{40}}\right)\approx 0.1084\,.
 \]
 Clearly, bold play is preferable to cautious play.
@@ -513,7 +513,7 @@ Proportion cautious wins     = 0.1094
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{The clumsy chemist\annotate{S}}
+\begin{prob}{הכימאי המגושם}{S}{(The clumsy chemist)}
 
 You have a large number of glass rods of length $1$ with one end colored red and the other colored blue. When you drop them on the floor they each break into three pieces with a uniform distribution of the length of the pieces (Figure~\ref{f.rod1}). What is the expectation of the length of the piece whose end is colored blue?
 
@@ -645,7 +645,7 @@ Average length of right piece        = 0.3359
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{The first ace\annotate{S}}
+\begin{prob}{האס הראשון}{S}{(The first ace)}
 Deal cards from a well-shuffled deck of cards until an ace appears. What is the expectation of the number of cards that must be dealt?
 
 \textbf{Hint:} Consider the deck of cards without the aces to be laid out in a line.

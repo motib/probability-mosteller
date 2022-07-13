@@ -1,8 +1,8 @@
-% !TeX root = mos-en.tex
+% !TeX root = mos-he.tex
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{Should you sample with or without replacement?\annotate{D,S}}
+\begin{prob}{לדגום עם או בלי החזרות?}{D,S}{(Should you sample with or without replacement?)}
 Urn $A$ contains $2$ red balls and $1$ green ball, and urn $B$ contains $101$ red balls and $100$ green balls. An urn is chosen at random and two balls are randomly drawn \emph{from the selected urn}. You win if you correctly identify whether the selected urn was $A$ or $B$.
 
 Which of the following rules gives you the highest probability of winning?
@@ -43,7 +43,7 @@ P(GG|B) &=& \frac{1}{2} \cdot \frac{1}{2} &=& \frac{1}{4}\end{array}
 \]
 If the outcome is $RR$ there is a higher probability that urn $A$ was selected ($4/9$) than that urn $B$ was selected ($1/4$); otherwise, there is a higher probability that urn $B$ was selected:
 \[
-P(\textsf{winning})=\frac{1}{2}\left(\frac{4}{9} + \frac{1}{4}+ \frac{1}{4}+ \frac{1}{4}\right)=\disfrac{43}{72}\approx 0.5972\,.
+P(\textrm{winning})=\frac{1}{2}\left(\frac{4}{9} + \frac{1}{4}+ \frac{1}{4}+ \frac{1}{4}\right)=\disfrac{43}{72}\approx 0.5972\,.
 \]
 
 \ans{2} Drawing without replacement:
@@ -65,7 +65,7 @@ P(GG|B) &=& \frac{1}{2} \cdot \frac{1}{2} &=& \frac{1}{4}
 \]
 If the outcome is $GG$ there is (of course!) a higher probability that urn $B$ was selected than that urn $A$ was selected; otherwise, there is a higher probability that urn $A$ was selected. The probability of winning is:
 \[
-P(\textsf{win})=\frac{1}{2}\left(\frac{1}{3} + \frac{1}{3}+ \frac{1}{3}+ \frac{1}{4}\right)=\frac{5}{8}=0.6250\,,
+P(\textrm{win})=\frac{1}{2}\left(\frac{1}{3} + \frac{1}{3}+ \frac{1}{3}+ \frac{1}{4}\right)=\frac{5}{8}=0.6250\,,
 \]
 which is greater than the probability of winning when sampling with replacement.
 
@@ -98,15 +98,15 @@ P(GG|B) &=& \frac{1}{2} \cdot \frac{1}{2} &=& \frac{1}{4}\\\end{array}
 \]
 If a red ball is drawn first then $\frac{4}{9}>\frac{1}{4}$ and $\frac{2}{9}<\frac{1}{4}$ with replacement, whereas $\frac{1}{3}>\frac{1}{4}$ and $\frac{1}{3}>\frac{1}{4}$ without replacement, so the second ball can help identify the urn only if the drawing is done \emph{with} replacement: urn $A$ if red, urn $B$ if green. Choose the draw with replacement:
 \[
-P(\textsf{winning if red first})=\frac{1}{2}\left(\frac{4}{9}+\frac{1}{4}\right)=\frac{25}{72}\,.
+P(\textrm{winning if red first})=\frac{1}{2}\left(\frac{4}{9}+\frac{1}{4}\right)=\frac{25}{72}\,.
 \]
 If a green ball is drawn first then $\frac{2}{9}<\frac{1}{4}$ and $\frac{1}{9}<\frac{1}{4}$ with replacement, whereas $\frac{1}{3}>\frac{1}{4}$ and $0<\frac{1}{4}$ without replacement, so the second ball can help identify the urn only if the drawing is done \emph{without} replacement: urn $A$ if red, urn $B$ if green. Choose the draw without replacement:
 \[
-P(\textsf{winning if green first})=\frac{1}{2}\left(\frac{1}{3}+\frac{1}{4}\right)=\frac{7}{24}\,.
+P(\textrm{winning if green first})=\frac{1}{2}\left(\frac{1}{3}+\frac{1}{4}\right)=\frac{7}{24}\,.
 \]
 The total probability of winning is:
 \[
-P(\textsf{winning})=\frac{25}{72} + \frac{7}{24}=\frac{23}{36}\approx 0.6389\,.
+P(\textrm{winning})=\frac{25}{72} + \frac{7}{24}=\frac{23}{36}\approx 0.6389\,.
 \]
 The highest probability of winning is obtained when the decision to draw with or without replacement depends on the result of the first draw.
 
@@ -127,7 +127,7 @@ Average wins           = 0.6379
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\begin{prob}{The ballot box\annotate{S}}
+\begin{prob}{הקלפי}{S}{(The ballot box)}
 In an election there are two candidates $A$ and $B$.  $A$ receives $a$ votes and $B$ receives $b$ votes, $a>b$. The votes are counted one-by-one and the running totals $(a_i,b_i), 1\leq i \leq a+b$ are updated as each vote is counted. What is the probability that for at least one $i$, $a_i=b_i$?
 
 \que{1} Solve for $a=3, b=2$ by listing $(a_i,b_i)$ for $1\leq i\leq 5$.
@@ -190,15 +190,15 @@ B & B & A & A & A
 \end{center}
 There are ties in all the arrangements except for the first two so:
 \[
-P(\textsf{tie occurs with}\;(3,2)\;\textsf{votes})=\disfrac{8}{10}=\disfrac{4}{5}\,.
+P(\textrm{tie occurs with}\;(3,2)\;\textrm{votes})=\disfrac{8}{10}=\disfrac{4}{5}\,.
 \]
 
 \ans{2} 
 The following discussion indicates how to approach the second question. List arrangements for $A,B$ with $(3,2)$ votes until the \emph{first tie} occurs:
 \[
 \begin{array}{rrrrr|rrrrr}
-\multicolumn{5}{c|}{A \;\textsf{leads until tie}} &
-\multicolumn{5}{c}{B \;\textsf{leads until tie}}\\\hline
+\multicolumn{5}{c|}{A \;\textrm{leads until tie}} &
+\multicolumn{5}{c}{B \;\textrm{leads until tie}}\\\hline
 A & B &&& &B & A & & &\\
 A & A & B & B && B & B & A & A&\\
 \end{array}
@@ -207,15 +207,15 @@ For every arrangement where $A$ leads until the first tie there is a mirror imag
 
 Before the first tie one of the candidates must be leading. If the first vote counted is for $B$ there must be a tie since $a>b$. The probability that the first vote is for $b$ is:
 \[
-P(\textsf{first vote for}\;B)=\frac{b}{a+b}\,.
+P(\textrm{first vote for}\;B)=\frac{b}{a+b}\,.
 \]
 By mirroring the positions of the votes, the number of sequences resulting in a tie that begin with a vote for $A$ is the same as the number of sequences resulting in a tie that begin with a vote for $B$. But we just computed the latter probability so the probability of a tie is:
 \[
-P(\textsf{tie occurs})=2\cdot\frac{b}{a+b}\,.
+P(\textrm{tie occurs})=2\cdot\frac{b}{a+b}\,.
 \]
 Check:
 \[
-P(\textsf{tie occurs with}\;(3,2)\;\textsf{votes})=2\cdot\frac{2}{2+3}=\frac{4}{5}\,.
+P(\textrm{tie occurs with}\;(3,2)\;\textrm{votes})=2\cdot\frac{2}{2+3}=\frac{4}{5}\,.
 \]
 
 \textbf{Simulation}
@@ -234,7 +234,7 @@ Proportion of ties   = 0.9354
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{Ties in matching pennies\annotate{D,S}}
+\begin{prob}{תיקו בהשוואת מטבעות}{D,S}{(Ties in matching pennies)}
 Toss a pair of fair coins $N$ times, $N$ even, and keep count of how many times the parity is even (heads-heads, tails-tails) and how many times the parity is odd (heads-tails, tails-heads). What is the probability of obtaining a tie (not counting the $0-0$ tie at the start)?
 
 \que{1} Solve for $N=4$ by writing out all the possible outcomes.
@@ -261,11 +261,11 @@ EEEE & EEEO & EEOE & \textbf{EEOO} & \textbf{EOEE} & \textbf{EOEO} &\textbf{EOOE
 \ans{2}
 By Problem~22:
 \begin{equation}\label{eq.coins-ties}
-P(\textsf{tie on toss}\;i)=
+P(\textrm{tie on toss}\;i)=
 \left\{
 \begin{array}{ll}
-2i/N &\textsf{if}\; i\leq N/2\\
-2(N-i)/N& \textsf{if}\; i\geq N/2\,,
+2i/N &\textrm{if}\; i\leq N/2\\
+2(N-i)/N& \textrm{if}\; i\geq N/2\,,
 \end{array}
 \right.
 \end{equation}
@@ -275,11 +275,11 @@ The following computations are quite complex so we justify each step in detail.
 
 The probability of $i$ evens is given by the binomial coefficient:
 \begin{equation}\label{eq.coins00}
-P(i\;\textsf{evens})=\dischoose{N}{i} \left(\disfrac{1}{2}\right)^i \left(\disfrac{1}{2}\right)^{N-i}=\dischoose{N}{i} \left(\disfrac{1}{2}\right)^N =  2^{-N}\dischoose{N}{i}\,.
+P(i\;\textrm{evens})=\dischoose{N}{i} \left(\disfrac{1}{2}\right)^i \left(\disfrac{1}{2}\right)^{N-i}=\dischoose{N}{i} \left(\disfrac{1}{2}\right)^N =  2^{-N}\dischoose{N}{i}\,.
 \end{equation}
 The probability of a tie is the sum over $i$ of the probability of obtaining $i$ evens times the probability of a tie on the $i$th toss (Equation~\ref{eq.coins-ties}). For $N=6$:
 \begin{equation}\label{eq.coins0}
-P(\textsf{ties})=2\cdot 2^{-6}\left[
+P(\textrm{ties})=2\cdot 2^{-6}\left[
 \frac{0}{6}\dischoose{6}{0} + \frac{1}{6}\dischoose{6}{1} +
 \frac{2}{6}\dischoose{6}{2} + \frac{3}{6}\dischoose{6}{3} +
 \frac{2}{6}\dischoose{6}{4} + \frac{1}{6}\dischoose{6}{5} +
@@ -288,7 +288,7 @@ P(\textsf{ties})=2\cdot 2^{-6}\left[
 \end{equation}
 Equation~\ref{eq.coins1} follows from Equation~\ref{eq.coins0} by deleting the two zero terms, expressing the combinations as factorials, canceling $\frac{1}{6}$ from $6!$:
 \begin{equation}\label{eq.coins1}
-P(\textsf{ties})=2^{-5}\left[
+P(\textrm{ties})=2^{-5}\left[
 1\cdot\disfrac{5!}{1!5!} + 2\cdot\disfrac{5!}{2!4!} +
 3\cdot\disfrac{5!}{3!3!} + 2\cdot\disfrac{5!}{4!2!} +
 1\cdot\disfrac{5!}{5!1!}
@@ -296,7 +296,7 @@ P(\textsf{ties})=2^{-5}\left[
 \end{equation}
 Equation~\ref{eq.coins2} is obtained by canceling $i$ from $i!$:
 \begin{equation}\label{eq.coins2}
-P(\textsf{ties})=2^{-5}\left[
+P(\textrm{ties})=2^{-5}\left[
 \disfrac{5!}{1!5!} + \disfrac{5!}{1!4!} +
 \disfrac{5!}{2!3!} + \disfrac{5!}{4!1!} +
 \disfrac{5!}{5!1!}
@@ -304,7 +304,7 @@ P(\textsf{ties})=2^{-5}\left[
 \end{equation}
 To obtain Equation~\ref{eq.coins3} from Equation~\ref{eq.coins2} add and subtract  $\frac{5!}{3!2!}$:
 \begin{equation}\label{eq.coins3}
-P(\textsf{ties})=2^{-5}\left[
+P(\textrm{ties})=2^{-5}\left[
 \left(\disfrac{5!}{1!5!} + \disfrac{5!}{1!4!} +
 \disfrac{5!}{2!3!} + \disfrac{5!}{3!2!} +\disfrac{5!}{4!1!} +
 \disfrac{5!}{5!1!}\right) - \disfrac{5!}{3!2!}
@@ -312,7 +312,7 @@ P(\textsf{ties})=2^{-5}\left[
 \end{equation}
 Equation~\ref{eq.coins4} results from  replacing $1!$ by $0!$:
 \begin{equation}\label{eq.coins4}
-P(\textsf{ties})=2^{-5}\left[
+P(\textrm{ties})=2^{-5}\left[
 \left(\disfrac{5!}{0!5!} + \disfrac{5!}{1!4!} +
 \disfrac{5!}{2!3!} + \disfrac{5!}{3!2!} +\disfrac{5!}{4!1!} +
 \disfrac{5!}{5!0!}\right) - \disfrac{5!}{3!2!}
@@ -320,7 +320,7 @@ P(\textsf{ties})=2^{-5}\left[
 \end{equation}
 By expressing the factorials back as combinations we obtain  Equation~\ref{eq.coins5}:
 \begin{equation}\label{eq.coins5}
-P(\textsf{ties})=2^{-5}\left[
+P(\textrm{ties})=2^{-5}\left[
 \dischoose{5}{0} + \dischoose{5}{1} +
 \dischoose{5}{2} + \dischoose{5}{3} +
 \dischoose{5}{4} + \dischoose{5}{5} - \dischoose{5}{3}
@@ -328,12 +328,12 @@ P(\textsf{ties})=2^{-5}\left[
 \end{equation}
 Finally, Equation~\ref{eq.coins6} results from the binomial theorem:
 \begin{equation}\label{eq.coins6}
-P(\textsf{ties})=2^{-5}\left(2^5 - 10\right)=\disfrac{11}{16}\approx 0.6875\,.
+P(\textrm{ties})=2^{-5}\left(2^5 - 10\right)=\disfrac{11}{16}\approx 0.6875\,.
 \end{equation}
 
 \ans{3} Perform the same calculations as in \ans{2} but using arbitrary $N$. The result is:
 \[
-P(\textsf{ties})=2^{-N+1}\left[2^{N-1} - \dischoose{N-1}{N/2}\right]= 
+P(\textrm{ties})=2^{-N+1}\left[2^{N-1} - \dischoose{N-1}{N/2}\right]= 
 \left[1 - \left.\dischoose{N-1}{N/2}\right/ 2^{N-1}\right]\,.
 \]
 
@@ -372,7 +372,7 @@ Proportion of ties  = 0.8255
 
 
 
-\begin{prob}{Lengths of random chords\annotate{S}}
+\begin{prob}{אורכים של מיתרים אקראיים}{S}{(Lengths of random chords)}
 Select a random chord in the unit circle. What is the probability that the length of the chord is greater than $1$?
 
 To solve the problem you first have to decide what ``select a random chord'' means. Solve the problem for each of the following possibilities:
@@ -496,15 +496,20 @@ P(\overline{EG}>1)=\frac{(2\pi-(2\pi/3))\cdot 1}{2\pi \cdot 1}=\frac{2}{3}\,.
 \textbf{Simulation}
 
 The simulation is for choosing two random points on the circumference.
+\selectlanguage{english}
 \begin{verbatim}
 Probability of long chords = 0.6667
 Proportion of long chords  = 0.6627
 \end{verbatim}
+\selectlanguage{hebrew}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{The hurried duelers\annotate{S}}
-$A$ and $B$ arrive at a meeting point at a random time with uniform distribution within a one-hour period. If $A$ arrives first and $B$ does not arrive within $5$ minutes, $A$ leaves. Similarly, if $B$ arrives first and $A$ does not arrive within $5$ minutes, $B$ leaves. What is the probability that they meet?
+\begin{prob}{ממהרים לדו-קרב}{S}{(The hurried duelers)}
+
+$A$ and $B$ arrive at a meeting point at a random time with uniform distribution within a one-hour period.
+If $A$ arrives first and $B$ does not arrive within $5$ minutes, $A$ leaves. 
+Similarly, if $B$ arrives first and $A$ does not arrive within $5$ minutes, $B$ leaves. What is the probability that they meet?
 
 Time within the one-hour period is \emph{continuous} in the range $[0,1]$, that is, you cannot \emph{count} a discrete number of minutes or seconds to compute probabilities. You can compute the probabilities of \emph{durations}.
 
@@ -542,7 +547,7 @@ If $A$ arrives later then $B$ also has to arrive later by the same amount; for e
 
 The probability that a meeting will occur is the ratio of the area of the graph colored gray to the area of the large square. It is easier to compute the complement which is the area of the white triangles in the upper left and lower right:
 \begin{eqnarray*}
-P(A,B\;\textsf{meet}) &=& 1- P(A,B\;\textsf{don't meet})\\
+P(A,B\;\textrm{meet}) &=& 1- P(A,B\;\textrm{don't meet})\\
 &=&1- 2\cdot \left(\frac{1}{2}\cdot \frac{55}{60}\cdot \frac{55}{60}\right)=\frac{23}{144}\approx 0.1597\,.
 \end{eqnarray*}
 
@@ -554,7 +559,7 @@ Proportion of meetings   = 0.1549
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{Catching the cautious counterfeiter\annotate{S}}
+\begin{prob}{לתפוס זייפן זהיר}{S}{(Catching the cautious counterfeiter)}
 
 There are $n$ boxes each with $n$ coins and one coin in each box is counterfeit. Draw one coin from each box and test it to determine whether it is counterfeit or not. What is the probability that all the coins that are drawn are are real?
 
@@ -573,18 +578,18 @@ The draws are independent so the probability is the product of the probabilities
 
 \ans{1}
 \[
-P(\textsf{all real}) = \left(\frac{9}{10}\right)^{10}=0.3487\,.
+P(\textrm{all real}) = \left(\frac{9}{10}\right)^{10}=0.3487\,.
 \]
 
 
 \ans{2}
 \[
-P(\textsf{all real}) = \left(\frac{99}{100}\right)^{100}=0.3660\,.
+P(\textrm{all real}) = \left(\frac{99}{100}\right)^{100}=0.3660\,.
 \]
 
 \ans{3}
 \[
-P(\textsf{all real}) = \left(\frac{n-1}{n}\right)^{n}\,.
+P(\textrm{all real}) = \left(\frac{n-1}{n}\right)^{n}\,.
 \]
 
 \ans{4}
@@ -619,7 +624,7 @@ Proportion all real     = 0.3690
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{Catching the greedy counterfeiter\annotate{S}}
+\begin{prob}{לתפוס את הזייפן החמדן}{S}{(Catching the greedy counterfeiter)}
 There are $n$ boxes each with $n$ coins and $m$ coins in each box are counterfeit. Draw one coin from each box and test it to determine whether it is counterfeit or not. What is the probability $P(n,m,r)$ that $r$ of the coins that are drawn are \emph{counterfeit}?
 
 \que{1} Develop a formula for $P(n,m,r)$.
@@ -666,7 +671,7 @@ Proportion counterfeit      = 0.1905
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{Moldy gelatin\annotate{S}}
+\begin{prob}{\protect עובש בג'לטין}{S}{(Moldy gelatin)}
 
 A rectangular plate is divided into $n$ small squares. There are an average of $r$ microbes in each square.
 

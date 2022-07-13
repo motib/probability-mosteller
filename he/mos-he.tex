@@ -32,7 +32,8 @@
 % Fonts: David for Hebrew, Palatino/Courier for English
 \newfontfamily{\hebrewfont}{David}[Script=Hebrew]
 \newfontfamily{\englishfont}{Palatino Linotype}
-%\newfontfamily{\englishfonttt}{Courier New}
+\newfontfamily{\englishfonttt}{Courier New}
+\newfontfamily{\hebrewfonttt}{Courier New}
 
 % Abbreviations for backwards compatibility with babel
 \renewcommand*{\L}[1]{\textenglish{#1}}
@@ -52,11 +53,11 @@
 
 % Format problem with counter
 \newcounter{problem}
-\newenvironment{prob}[3]{
+\newenvironment{prob}[4]{
   \bigskip\bigskip\refstepcounter{problem}
   \addcontentsline{toc}{subsection}
-  {\bfseries\theproblem{}.\ #1 \L{\small (#3)}}
-  \textbf{\large\theproblem.\ #1 \L{\small (#3)}%
+  {\bfseries\theproblem{}.\ #1 \L{\small #3}}
+  \textbf{\large\theproblem.\ #1 \L{\small #3}%
 \annotate{#2}\medskip\\}}{\bigskip}
 \newcommand*{\que}[1]{\textbf{שאלה #1:}}
 
@@ -80,8 +81,7 @@
 \captionsetup[subfigure]{labelformat=simple}
 \renewcommand\thesubfigure{איור~\thefigure(\alph{subfigure})}
 
-
-\includeonly{mos0}
+%\includeonly{mos1}
 
 \begin{document}
 
