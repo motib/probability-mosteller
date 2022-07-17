@@ -11,3 +11,4 @@
 *.toc
 *.idx
 *.docx
+./*.pdf

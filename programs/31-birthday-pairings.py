@@ -39,7 +39,7 @@ def average_no_pairs(k):
     
     print('Probability of no pairs = {:.4f}'.\
         format(probability_no_pair(k)))
-    print('Proportion of no pairs        = {:.4f}'.\
+    print('Proportion of no pairs  = {:.4f}'.\
         format(1.0-(no_pairs/n)))
 
 def simulate():

@@ -28,9 +28,9 @@ def compute_worker_days(workers):
                 work_days += 1
 
     expectation = days * workers * ((days-1)/days) ** workers
-    print('Expectation work-days    = {:5.0f}'.\
+    print('Expectation work-days    =  {:5.0f}'.\
            format(expectation))
-    print('Average work days        = {:5.0f}'.\
+    print('Average work days        =  {:5.0f}'.\
            format(work_days * workers/n))
     print('Ratio work-days / 365**2 = {:.4f}'.\
            format(expectation/(days * days)))

@@ -8,7 +8,7 @@ Randomly select $23$ people and ask them what their birthdays are. Assume a unif
 
 \solution{}
 
-Compute the probability that \emph{none} of the $23$ people have the same birthday and show that it is less than $0.5$. Select the first birthday arbitrarily, then the next birthday from the remaining days, then the next birthday from the remaining days, and so on:
+Compute the probability that none of the $23$ people have the same birthday and show that it is less than $0.5$. Select the first birthday arbitrarily, then the next birthday from the remaining days, then the next birthday from the remaining days, and so on:
 \[
 \renewcommand*{\arraystretch}{2.5}
 \begin{array}{rcl}
@@ -60,12 +60,12 @@ Average no pairs        = 0.4345
 \begin{prob}{Finding your birthmate\annotate{S}}
 Your \emph{birthmate} is a person with the same birthday as yours.
 
-Why is finding a birthmate different from finding a birthday pairing?
+Why is finding a birthmate a different problem than finding a birthday pairing?
 
-\que{1} How many people do you have to ask until the probability of finding your brithmate is greater than $0.5$?
+\que{1} How many people do you have to ask until the probability of finding your brithmate becomes greater than $0.5$?
 
 \que{2}
-Solve by using the approximation in Equation~\ref{eq.reciprocal} on page~\pageref{eq.reciprocal}.
+Solve the problem by using the approximation in Equation~\ref{eq.reciprocal} (page~\pageref{eq.reciprocal}).
 \end{prob}
 
 \solution{}
@@ -73,9 +73,9 @@ Solve by using the approximation in Equation~\ref{eq.reciprocal} on page~\pagere
 Many people could have the same birthday which is considered a success for find a birthday pairing, but not for finding a birthmate unless that birthday is the same as yours.
 
 \ans{1}
-Find the smallest number of people for which the probability that \emph{none} of theme are birthmates is less than $0.5$. The probability that the first person you ask is not a birthmate is $364/365$, but that is also the probability that the second, third, \ldots, person is not a birthmate. The solution is the smallest $k$ such that:
+Find the smallest number of people for which the probability that none of them are birthmates is less than $0.5$. The probability that the first person you ask is not a birthmate is $364/365$, but that is also the probability that the second, third, \ldots, person is not a birthmate. The solution is the smallest $k$ such that:
 \[
-P(\textsf{not a birthmate})=\left(\frac{364}{365}\right)^k<\frac{1}{2}\,,
+P(\textsf{birthmate not found})=\left(\frac{364}{365}\right)^k<\frac{1}{2}\,,
 \]
 which is $k=253$:
 \[
@@ -87,12 +87,12 @@ Equation~\ref{eq.reciprocal} is:
 \lim_{n\rightarrow\infty}\left(\frac{n-1}{n}\right)^{n}=\frac{1}{e}\,,
 \]
 which can be used to approximate the probability:
-\begin{eqnarray*}
-P(\textsf{not a birthmate})&=&
+\begin{eqn}
+P(\textsf{birthmate not found})&=&
   \left(\disfrac{365-1}{365}\right)^k=\left[\left(\disfrac{364}{365}\right)^{365}\right]^{k/365}\\
 &\approx& e^{-k/365}\\
 e^{-253/365}&\approx&0.5000\,.
-\end{eqnarray*}
+\end{eqn}
 \textbf{Simulation}
 \begin{verbatim}
 For 251 people:
@@ -116,14 +116,14 @@ Proportion no match     = 0.5078
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{Relating the birthday pairings and the birthmate problems}
-Let $P_{\textsf{\footnotesize pair}}(r)$ be the probability that two people out of $r$ are a birthday pair (Problem~$31$) and let $P_{\textsf{\footnotesize mate}}(n)$ be the probability that two people out of $n$ are birthmates (Problem~$32$). Given $r$ for what $n$ does $P_{\textsf{\footnotesize pair}}(r) \approx P_{\textsf{\footnotesize mate}}(n)$?
+Let $P_{\textsf{\footnotesize pair}}(r)$ be the probability that out of $r$ people two are a birthday pair (Problem~$31$) and let $P_{\textsf{\footnotesize mate}}(n)$ be the probability that out of $n$ people at least one is your birthmate (Problem~$32$). Given $r$, for what $n$ does $P_{\textsf{\footnotesize pair}}(r) \approx P_{\textsf{\footnotesize mate}}(n)$?
 \end{prob}
 
 \solution{1}
 
 The solution is based on \cite{birthday}.
 
-Using the notation $P_{\textsf{\footnotesize no pair}}(r)$ for the complement, from the solution to Problem~$31$ we have:
+Using the notation $P_{\textsf{\footnotesize no pair}}(r)$ for the complement of $P_{\textsf{\footnotesize pair}}(r)$, from the solution to Problem~$31$ we have:
 \[
 \renewcommand*{\arraystretch}{2.2}
 \begin{array}{lcl}
@@ -169,11 +169,11 @@ In comparing the birthday and birthmate problems, one observes that for $r$ peop
 \end{quote}
 From this he concludes that $n\approx r(r-1)/2$.
 
-This reasoning can be understood as follows. For the birthday problem choose an arbitrary date and ask if two people out of $r$ have \emph{that} birthday. There are:
+This reasoning can be understood as follows: For the birthday problem choose an arbitrary date and ask if two people out of $r$ have \emph{that birthday}. There are:
 \[
 {r \choose 2}=\frac{r!}{2!(r-2)!} = \frac{r(r-1)}{2}
 \]
-ways of doing so. For the birthmate problem your own birthday is given. Any of the $n$ people can have the same birthday. By equating the two we have the $n$ such that $P_{\textsf{\footnotesize pair}}(r) \approx P_{\textsf{\footnotesize mate}}(n)$.
+ways of doing so. For the birthmate problem your own birthday is given. Any of the $n$ people can have the same birthday. By equating the two expressions we have the $n$ such that $P_{\textsf{\footnotesize pair}}(r) \approx P_{\textsf{\footnotesize mate}}(n)$.
 
 You can run the simulations for Problems~31, 32 and check this result.
 
@@ -182,7 +182,7 @@ You can run the simulations for Problems~31, 32 and check this result.
 \begin{prob}{Birthday holidays\annotate{D,S}}
 A factory is closed whenever one of its workers has a birthday. There are no other holidays.
 
-\que{1} How many workers should be employed in order to maximize the number of work-days in a year?
+\que{1} How many workers should be employed in order to maximize the number of work-days in one year?
 
 \que{2} What is the expectation of the ratio of the maximum work-days to $365^2$, the number of possible work-days if each one of $365$ workers worked every day?
 
@@ -192,7 +192,7 @@ A factory is closed whenever one of its workers has a birthday. There are no oth
 \solution{}
 
 \ans{1}
-At one extreme if there is only one worker there are $364$ work-days. If there are two workers there are $363+363=726$ workers days (ignoring the very small possibility that both workers have the same birthday). At the other extreme if there are one million workers the number of work-days will almost certainly be zero. Since the number of work-days rises initially and then returns to zero, there must be a maximum in between.
+At one extreme if there is only one worker there are $364$ work-days. If there are two workers there are $363+363=726$ workers days (ignoring the very small possibility that both workers have the same birthday). At the other extreme if there are one million workers the number of work-days will almost certainly be zero. Since the number of work-days rises initially and then returns to zero, there must be a maximum in between the extremes.
 
 To simplify the notation we will denote the number of days in a year by $N$ and the number of workers by $n$.
 
@@ -200,9 +200,7 @@ For any given day the probability that it is a work-day is the probability that 
 \[
 P(\textsf{a given day is a work-day})=\overbrace{\disfrac{N-1}{N} \cdot \;\cdots\;\cdot \disfrac{N-1}{N}}^n = \left(1-\disfrac{1}{N}\right)^n\,.
 \]
-Denote $\left(1-\disfrac{1}{N}\right)$ by $p$.
-
-The expectation of the number of work-days for a given day is:
+Denote $\left(1-\disfrac{1}{N}\right)$ by $p$. Then:
 \[
 E(\textsf{work-days for a given day}) = n \cdot p^n + 0\cdot (1-p^n) = np^n\,.
 \]
@@ -211,21 +209,13 @@ All the days in the year have this same expectation, so we just multiply by $N$ 
 E(\textsf{work-days for a year}) = Nnp^n\,.
 \end{equation}
 
-To find the maximum we take the derivative of Equation~\ref{eq.holidays} with respect to $n$ and use
-$(p^n)'=p^n\ln p$ which can be proved using the chain rule:
+To find the maximum we take the derivative of Equation~\ref{eq.holidays} with respect to $n$ and use $(p^n)'=p^n\ln p$ which can be proved using the chain rule:
 \[
 (p^n)' = ((e^{\ln p})^n)' =
 (e^{n\ln p})' =
 e^{n\ln p} (n\ln p)'=
 (e^{\ln p})^n \ln p = p^n\ln p\,.
 \]
-%$(a^x)'=a^x\ln a$ which can be proved using the chain rule:
-%\[
-%(a^x)' = ((e^{\ln a})^x)' =
-%(e^{x\ln a})' =
-%e^{x\ln a} (x\ln a)'=
-%(e^{\ln a})^x \ln a = a^x\ln a\,.
-%\]
 The derivative of Equation~\ref{eq.holidays} is therefore:
 \[
 (Nnp^n)'= N (p^n + n (p^n)') = N (p^n + np^n\ln p)\,,
@@ -235,13 +225,13 @@ which is $0$ when:
 n=-\disfrac{1}{\ln p}\,.
 \]
 For $N=365$ this gives $n=364.5$. Since $n$ is a positive integer the maximum is achieved at $n=364$ or $n=365$ which give the same expectation of the number of work-days:
-\begin{eqnarray*}
+\begin{eqn}
 E(\textsf{work-days for a year}) &=&Nnp^n\\
 &=&365\cdot 364 \cdot \left(\disfrac{364}{365}\right)^{364}\\
 &=&365\cdot 364  \cdot \disfrac{365}{365}\left(\disfrac{364}{365}\right)^{364}\\
 &=&365\cdot 365  \cdot \left(\disfrac{364}{365}\right)^{365}\\
 &=&48944\,.
-\end{eqnarray*}
+\end{eqn}
 
 \ans{2} 
 The expectation of the ratio is:
@@ -303,36 +293,36 @@ A particle is initially placed on the $x$-axis at position $1$. At any position 
 }
 \end{tikzpicture}
 \end{center}
-\caption{Can the particle return to $0$ (infinite line)?}\label{f.ruin1}
+\caption{Can the particle return to $0$ (axis is infinite to the right)?}\label{f.ruin1}
 \end{figure}
 
 \end{prob}
 
 \solution{}
 
-It is just as easy to compute the probabilty for arbitrary $p$ as it is for $p=2/3$.
+It is no more difficult to compute the probabilty for arbitrary $p$ as it is for $p=2/3$, so we give solutions for both questions together.
 
 \ans{1,2}
-Let us try to compute the probability directly. Denote a move left by $L$ and a move right by $R$. The particle can reach $0$ directly by moving $L$ with probability $\frac{1}{3}$, or by moving $RLL$ with probability $\frac{2}{3}\cdot\frac{1}{3}\cdot\frac{1}{3}$, or by moving $RRLLL$ with probability $\left(\frac{2}{3}\right)^2\left(\frac{1}{3}\right)^3$, \ldots\ . This seems to be a straightforward geometric progression, but it ignores possibilities such as $RLRLL$.
+Let us try to compute the probability directly. Denote a move left by $L$ and a move right by $R$. The particle can reach $0$ directly by moving $L$ with probability $\frac{1}{3}$, or by moving $RLL$ with probability $\frac{2}{3}\cdot\frac{1}{3}\cdot\frac{1}{3}$, or by moving $RRLLL$ with probability $\left(\frac{2}{3}\right)^2\left(\frac{1}{3}\right)^3$, \ldots\ . This computations seems to be a straightforward geometric progression, but it ignores possibilities such as $RLRLL$.
 
 Compute the probability that the particle reaches $0$ from $1$ conditioned on the first step:
-\begin{eqnarray*}
+\begin{eqn}
 P(\textsf{reaches}\;0\;\textsf{from}\;1) &=& P(\textsf{reaches}\;0\;\textsf{from}\;1|\textsf{first move left}) +\\
 &&P(\textsf{reaches}\;0\;\textsf{from}\;1|\textsf{first move right})\\
 &=& (1-p)\cdot 1 + pP(\textsf{reaches}\;1\;\textsf{from}\;2)P(\textsf{reaches}\;0\;\textsf{from}\;1)\,.
-\end{eqnarray*}
-But the probability of reaching $1$ from $2$ is exactly the same as the probability of reaching $0$ from $1$. Abbreviating $P(\textsf{reaches}\;0\;\textsf{from}\;1)$ as $P$ we have:
-\begin{eqnarray*}
+\end{eqn}
+But the probability of reaching $1$ from $2$ is exactly the same as the probability of reaching $0$ from $1$. Denoting $P(\textsf{reaches}\;0\;\textsf{from}\;1)$ by $P$ we have:
+\begin{eqn}
 P &=& (1-p) + pP^2\\
 pP^2 - P + (1-p) &=&0\\
 P&=& \frac{1\pm\sqrt{1-4p(1-p)}}{2p}\\
 P&=&1,\; (1-p)/p\,.
-\end{eqnarray*}
+\end{eqn}
 If $p\leq 1/2$ then $(1-p)/p\geq 1$, so $P=1$ is the only solution and it is certain that the particle will reach $0$.
 
 If $p=1$ then $P=0$ since if the particle always moves to the right it cannot return to $0$.
 
-Suppose $P=1$ for $1/2<p < 1$, that is, $P$ \emph{does not depend on} $p$. Then $P$ cannot suddenly ``jump'' from $1$ to $0$ as $p$ approaches $1$: in Figure~\ref{f.ruin2} the dashed red line and the red dot at $(1,0)$. Therefore, for $p> 1/2$ the only solution is $P=(1-p)/p< 1$.\footnote{Mosteller writes that this follows by continuity but does not give a proof.}
+Suppose $P=1$ for $1/2<p < 1$, that is, $P$ \emph{does not depend on} $p$. But $P$ cannot suddenly ``jump'' from $1$ to $0$ as $p$ approaches $1$: in Figure~\ref{f.ruin2} the dashed red line and the red dot at $(1,0)$. Therefore, for $p> 1/2$ the only solution is $P=(1-p)/p< 1$.\footnote{Mosteller writes that this follows by continuity but does not give a proof.}
 
 \begin{figure}[tb]
 \begin{center}
@@ -380,7 +370,7 @@ A particle is initially placed on the $x$-axis at position $m\geq 1$. At any pos
 
 \que{1} What is the probability that the particle will eventually be at position $0$?
 
-\que{2} Let $n>m$. If the particle reaches position $0$ or position $n$ its stops moving. What is the probability that the particle will eventually be at position $0$? What is the probability that the particle will eventually be at position $n$?
+\que{2} Let $n>m$. If the particle reaches position $0$ or position $n$ its stops moving (Figure~\ref{f.ruin3}). What is the probability that the particle will eventually be at position $0$? What is the probability that the particle will eventually be at position $n$?
 \begin{figure}[tb]
 \begin{center}
 \begin{tikzpicture}[scale=1.5]
@@ -396,10 +386,10 @@ A particle is initially placed on the $x$-axis at position $m\geq 1$. At any pos
 \draw[->] (2,5mm) -- node[above] {$2/3$} (3,5mm);
 \end{tikzpicture}
 \end{center}
-\caption{Can the particle return to $0$ (finite line)?}\label{f.ruin3}
+\caption{Can the particle return to $0$ (axis is finite)?}\label{f.ruin3}
 \end{figure}
 
-\textbf{Note:} Problem~35 is represents a player with a finite amount of money betting against a casino with unlimited money. The problem asks for the probabiliy that the player loses all his money. Of course the casino never runs out of money. This problem represents one player who starts with $m$ betting against a second player who starts with $n-m$. The problem asks for the probabilities that \emph{one} of the players loses all her money to the other player.
+\textbf{Note:} Problem~35 is represents a gambler with a finite amount of money playing against a casino with unlimited money. The problem asks for the probabiliy that the gambler loses all his money. This problem represents one gambler who starts with $m$ playing against a second gambler who starts with $n-m$. The problem asks for the probabilities that \emph{one} of the gamblers loses all her money to the other one.
 
 \end{prob}
 
@@ -407,49 +397,50 @@ A particle is initially placed on the $x$-axis at position $m\geq 1$. At any pos
 
 The solution is based on \cite[Chapter~2, Example~4m]{ross}.
 
-\ans{1} The solution to Problem~35 showed that for $p>1/2$ (which is true here by assumption), if a particle is at position $1$ the probability of its reaching position $0$ is $r=(1-p)/p$. Notation: let $P(i,j)$ be the probability of reaching $i$ from $j$. Since the claim does not depend on the actual position of the particle, the probability of a particle reaching $0$ from position $m$ is:
+\ans{1} The solution to Problem~35 showed that for $p>1/2$ (here it is given), if a particle is at position $1$ the probability of its reaching position $0$ is $r=(1-p)/p$. Notation: let $P(i,j)$ be the probability of reaching $i$ from $j$. Since the probability of a particle reaching one position from another does not depend on the absolute position:
 \begin{equation}
 P(0,m)=P(m-1,m)P(m-2,m-1)\cdots P(1,2)P(0,1)=r^m\,.
 \end{equation}
 
 \ans{2} Let $P_i=P(n,i)$ and compute it using conditional probability:
-\begin{eqnarray*}
+\begin{eqn}
 P_i &=& pP_{i+1} + (1-p)P_{i-1}\\
 pP_{i+1}&=&1\cdot P_i - (1-p)P_{i-1}\\
 pP_{i+1}&=&(p+(1-p))P_i - (1-p)P_{i-1}\\
 p(P_{i+1}-P_i)&=&(1-p)(P_i-P_{i-1})\\
 P_{i+1}-P_i&=&r(P_i-P_{i-1})\,.
-\end{eqnarray*}
+\end{eqn}
 $P_0=0$ since if the particle is at $0$ it does not move. Therefore:
-\begin{eqnarray*}
+\begin{eqn}
 P_2 - P_1 &=& r(P_1 - P_0) = rP_1\\
 P_3 - P_2 &=& r(P_2 - P_1) = r^2P_1\\
 \cdots &=&\cdots\\
 P_i - P_{i-1} &=& r(P_{i-1} - P_{i-2}) = r^{i-1}P_1\,.
-\end{eqnarray*}
+\end{eqn}
 Most of the terms on the lefthand sides cancel when we add the equations:
-\begin{eqnarray*}
+\begin{eqn}
 P_i - P_1 &=& P_1\sum_{j=2}^{i}r^{j-1}\\
 &=& P_1 + P_1\sum_{j=2}^{i}r^{j-1} - P_1 \\
 P_i&=& P_1\sum_{j=0}^{i-1}r^j =P_1\left(\frac{1-r^i}{1-r}\right)\,.
-\end{eqnarray*}
+\end{eqn}
 If the particle is at $n$ then it is already at $n$ so $P_n=1$:
-\begin{eqnarray*}
+\begin{eqn}
 1 &=& P_1\left(\frac{1-r^n}{1-r}\right)\\
 P_1 &=& \left(\frac{1-r}{1-r^n}\right)\,,
-\end{eqnarray*}
-and therefore (using a symmetrical argument exchanging $p$ and $1-p$): 
+\end{eqn}
+and therefore (using a symmetrical argument exchanging $p$ and $1-p$):
+{
+\addtolength{\arraycolsep}{-3pt}
 \begin{eqnarray}
 \label{eq.ruin1}P(n,i) &=& \left(\frac{1-r^{i}}{1-r^n}\right)\\
 \label{eq.ruin2}P(0,i) &=& \left(\frac{1-(1/r)^{n-i}}{1-(1/r)^{n}}\right)\,.
 \end{eqnarray}
-We leave it to the reader to show that the sum of Eqs.~\ref{eq.ruin1},~\ref{eq.ruin2} is $1$ meaning that one of the players will certainly win and one will lose.
-
-For $m=1, n=3, p=2/3$:
-\begin{eqnarray*}
+}
+We leave it to the reader to show that the sum of Eqs.~\ref{eq.ruin1},~\ref{eq.ruin2} is $1$ meaning that one of the players will certainly win and one will lose. For $m=1, n=3, p=2/3$:
+\begin{eqn}
 P(0,1) &=& \left(\frac{1-\left(\frac{1}{2}\right)^{1}}{1-\left(\frac{1}{2}\right)^{3}}\right)=\frac{4}{7}\\
 P(3,1) &=& \left(\frac{1-2^{2}}{1-2^{3}}\right)=\frac{3}{7}\,.
-\end{eqnarray*}
+\end{eqn}
 
 \textbf{Simulation}
 \begin{verbatim}
@@ -481,7 +472,7 @@ In roulette you can bet that the ball will fall into a pocket with an even numbe
 Which of the following strategies is better?
 \begin{enumerate}
 \item Bold play: betting $20$ in one round.
-\item Cautious play: $1$ per round until you win or lose $20$.
+\item Cautious play: bettin $1$ per round until you win or lose $20$.
 \end{enumerate}
 \textbf{Hint:} Use the results of Problem~36.
 \end{prob}
@@ -490,11 +481,12 @@ Which of the following strategies is better?
 
 The probability of winning with bold play is $18/38\approx 0.4737$.
 
-The probability of winning with cautious play is $P(40,20)$ with $r=\frac{20}{38}/\frac{18}{38}=\frac{20}{18}$ (Equation~\ref{eq.ruin1}):
-\[
-P(\textsf{reaches}\;40\;\textsf{from}\;20) =
-\left(\frac{1-(20/18)^{20}}{1-(20/18)^{40}}\right)\approx 0.1084\,.
-\]
+The probability of winning with cautious play is (Equation~\ref{eq.ruin1}):
+\begin{eqnarray*}
+r&=&\frac{20}{38}\Big/ \frac{18}{38}=\frac{20}{18}\\
+P(40,20) &=&
+\frac{1-(20/18)^{20}}{1-(20/18)^{40}}\approx 0.1084\,.
+\end{eqnarray*}
 Clearly, bold play is preferable to cautious play.
 
 Mosteller writes that the intuitive explanation for this result is that betting in more rounds exposes the player to the probability of $2/38$ that the casino wins.
@@ -561,7 +553,7 @@ Instead of straight rods suppose that you are given (unmarked) glass rings that 
 
 \solution{1}
 
-The rods are not symmetric because the end pieces are different from the center piece. However, the ring is symmetric so the distributions of all three pieces must be uniform with expectation $1/3$. By choosing and coloring one of breaks, the problem is now the same as that of the rods so the distributions remain the same. Therefore the expectation of the breaks in the rod is also $1/3$.
+The rods are not symmetric because the end pieces are different from the center piece. However, the ring is symmetric so the distributions of all three pieces must be uniform with expectation $1/3$. By choosing and coloring one of breaks as shown in Figure~\ref{f.rod2}, the problem is now the same as that of the rods so the distributions remain the same. Therefore the expectation of the lengths of the pieces is also $1/3$.
 
 \solution{2}
 
@@ -569,8 +561,7 @@ Here is an elegant solution from \cite{stack-rods}.
 
 Assume that the rod represents the line segment $(0,1)$. The rod is broken in two places which are represented as two uniform independent random variables $X,Y\in (0,1)$. Let us compute the probability $P(|X-Y|>a)$.
 
-Table~\ref{t.rods} shows points $(x,y)$, where $x,y \in \{0.0, 0.1, 0.2, \ldots, 0.9\}$ and the decimal point is omitted. The values that appear in the table are $|X-Y|$. In the table, for $a=0.6$ the points in the upper left and lower right corners of $[0,1]\times [0,1]$: $(0,6)$--$(6,9)$ and above, $(6,0)$--$(9,6)$ and below, 
-are those outcomes that define $P(|X-Y|>a)$. The area of one corner is $\frac{1}{2}(1-a)(1-a)$, so:
+Table~\ref{t.rods} shows points $(x,y)$, where $x,y \in \{0.0, 0.1, 0.2, \ldots, 0.9\}$ and the decimal point is omitted. The values that appear in the table are $|X-Y|$. For $a=0.6$ the entries in the upper left corner $(0,6)$--$(6,9)$ and above, and the entries in the lower right corner $(6,0)$--$(9,6)$ and below, are those outcomes that define $P(|X-Y|>a)$:
 \[
 P(|X-Y|>a)=2\cdot \frac{1}{2}(1-a)(1-a)=(1-a)^2\,.
 \]
@@ -615,12 +606,12 @@ Taking the complement gives:
 \[
 P(|X-Y|<a)=1-(1-a)^2\,.
 \]
-This is the cumulative probability distribution (CPD) for the interval $(0,1)$. The probability density function (CDF) can be obtained by differentiating the CDP:
+This is the cumulative probability distribution (CPD) for the interval $(0,1)$. The probability density function (PDF) can be obtained by differentiating the CDP:
 \[
 P(|X-Y|=a)= \frac{d}{da}P(|X-Y|<a) =
   \frac{d}{da}(1-(1-a)^2)=2(1-a)\,.
 \]
-The expectation is the integral of the probability density function multiplied by the value:
+The expectation is the integral of the PDF multiplied by the value:
 \[
 E(|X-Y|)= \int_{0}^{1} a\cdot2(1-a)\, da=
   2\left.\left(\frac{a^2}{2}-\frac{a^3}{3}\right)\right|_0^1=\frac{1}{3}\,.

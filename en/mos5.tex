@@ -26,22 +26,22 @@ You are given two rods of lengths $L_1<L_2$ and a measuring instrument whose pos
 \caption{Measuring the lengths of two rods}\label{f.rods}
 \end{figure}
 Place the rods end-to-end and measure $L_s=L_1+L_2$ and then place the rods side-by-side and measure $L_d=L_2-L_1$ (Figure~\ref{f.rods}). Compute $L_1,L_2$:
-\begin{eqnarray*}
+\begin{eqn}
 \textstyle\frac{1}{2}(L_s-L_d)=\frac{1}{2}((L_1+L_2)-(L_2-L_1))&=&L_1\\
 \textstyle\frac{1}{2}(L_s+L_d)=\frac{1}{2}((L_1+L_2)+(L_2-L_1))&=&L_2\,.
-\end{eqnarray*}
+\end{eqn}
 The errors in the measurements are $e_s, e_d$ so the errors in the results are:
-\begin{eqnarray*}
+\begin{eqn}
 \textstyle\frac{1}{2}((L_s+e_s)-(L_d+e_d))&=&L_1+\textstyle\frac{1}{2}(e_s-e_d)\\
 \textstyle\frac{1}{2}((L_s+e_s)+(L_d+e_d))&=&L_2+\textstyle\frac{1}{2}(e_s+e_d)\,.
-\end{eqnarray*}
+\end{eqn}
 Since the mean of the measurement instrument is $0$, the mean of the errors of these measurements is also zero. The variance is reduced to half its previous value:\footnote{We use the fact that the measurements are independent so the covariance is zero.}
-\begin{eqnarray*}
+\begin{eqn}
 \mathrm{Var}\left(\textstyle\frac{1}{2}\left(e_s-e_d\right)\right)&=&
   \textstyle\frac{1}{4}(\sigma^2+(-1)^2\sigma^2)=\frac{1}{2}\sigma^2\\
 \mathrm{Var}\left(\textstyle\frac{1}{2}(e_s+e_d)\right)&=&
   \textstyle\frac{1}{4}( \sigma^2+\sigma^2)=\frac{1}{2}\sigma^2\,.
-\end{eqnarray*}
+\end{eqn}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -98,10 +98,10 @@ The shaded area can be computed by integration:
 \disfrac{4}{3}B^{3/2}\,.
 \]
 The total area of the range $[-B,B]\times[-B,B]$ is $4B^2$ so:
-\begin{eqnarray*}
+\begin{eqn}
 P(\textsf{complex roots})&=&\disfrac{\frac{4}{3}B^{3/2}}{4B^2}=\disfrac{1}{3\sqrt{B}}\\
 P(\textsf{real roots})&=&1-\disfrac{1}{3\sqrt{B}}\,.
-\end{eqnarray*}
+\end{eqn}
 \ans{2}
 \[
 \lim_{B\rightarrow\infty}
@@ -212,19 +212,23 @@ P_{2n}(\textsf{return to origin}) =
 P_{2n}(\textsf{return to}\;x=0)\,P_{2n}(\textsf{return to}\;y=0)\,.
 \end{equation}
 The particle will return to the origin if and only if for both axes the number of $+1$ moves equals the number of $-1$ moves. There are ${2n \choose n}$ ways to arrange $+1$s and $-1$s so:
+{
+\addtolength{\arraycolsep}{-3pt}
 \begin{eqnarray}
+\label{eq.return-to-origin1}
 P_{2n}(\textsf{return to}\;x=0) =P_{2n}(\textsf{return to}\;y=0)&=&
 \dischoose{2n}{n}\left(\disfrac{1}{2}\right)^n\left(\disfrac{1}{2}\right)^{n}\\
 P_{2n}(\textsf{return to origin}) &=&
 \left[\dischoose{2n}{n}\left(\disfrac{1}{2}\right)^{2n}\right]^2\\
 P(\textsf{return to origin}) =
 \sum_{n=1}^{\infty}P_{2n}(\textsf{return to origin}) &=&
-\sum_{n=1}^{\infty}\left[\dischoose{2n}{n}\left(\disfrac{1}{2}\right)^{2n}\right]^2\,.\label{eq.2d-2}
+\sum_{n=1}^{\infty}\left[\dischoose{2n}{n}\left(\disfrac{1}{2}\right)^{2n}\right]^2\,.\label{eq.return-to-origin2}
 \end{eqnarray}
+}
 
 \ans{3}
 By Stirling's approximation $n! \approx \sqrt{2\pi n}\left(n/e\right)^n$:
-\begin{eqnarray*}
+\begin{eqn}
 P_{2n}(\textsf{return to origin}) &=&
 \left[\dischoose{2n}{n}
 \left(\disfrac{1}{2}\right)^{2n}\right]^2 \\
@@ -241,7 +245,7 @@ P_{2n}(\textsf{return to origin}) &=&
 \disfrac{\left(n/e\right)^{4n}\cdot 2^{4n}}{\left(n/e\right)^{4n}}\\
 &=& \disfrac{1}{\pi n}\\
 P(\textsf{return to origin}) &=& \disfrac{1}{\pi}\sum_{n=1}^{\infty}\disfrac{1}{n}\,,
-\end{eqnarray*}
+\end{eqn}
 which is the \emph{harmonic series} that diverges. This means that with probability $1$ the particle returns to the origin.
 
 \textbf{Simulation}
@@ -266,19 +270,19 @@ A particle is placed at the origin of a three-dimensional coordinate system. The
 
 \solution{}
 
-$P_{2n}$, probability of returning to the origin after $2n$ steps, is given by the analogue of Equation~\ref{eq.2d-1}:
+$P_{2n}$, probability of returning to the origin after $2n$ steps, is given by the analogue of Equation~\ref{eq.return-to-origin1}:
 \[
 P_{2n} =
 P_{2n}(\textsf{return to}\;x=0)\,P_{2n}(\textsf{return to}\;y=0\, P_{2n}(\textsf{return to}\;z=0)\,.
 \]
-$P_r$, the probability of returning to the origin one or more times, is given by the analogue of Equation~\ref{eq.2d-2}:
+$P_r$, the probability of returning to the origin one or more times, is given by the analogue of Equation~\ref{eq.return-to-origin2}:
 \[
 P_r =\sum_{n=1}^{\infty}P_{2n} =
 \sum_{n=1}^{\infty}\left[\dischoose{2n}{n}\left(\disfrac{1}{2}\right)^{2n}\right]^3\,.
 \]
 
 From Stirling's approximation:\footnote{Mosteller used $18$ terms in his computation and obtained $0.315$. My program used $500$ terms to obtain $0.3772$.}
-\begin{eqnarray*}
+\begin{eqn}
 P_{2n} &=&
 \left[\disfrac{(2n)!}{(n!)^2}
 \left(\disfrac{1}{2}\right)^{2n}\right]^3 \\
@@ -291,7 +295,7 @@ P_{2n} &=&
 &=&\disfrac{(4\pi n)^{3/2}}{(2\pi n)^3}=
  \disfrac{1}{(\pi n)^{3/2}}\\
 P_r &=& \sum_{n=1}^{\infty}\disfrac{1}{(\pi n)^{3/2}}\approx 0.3772\,.
-\end{eqnarray*}
+\end{eqn}
 Let $I_k$ be the indicator variable for a return to the origin on step $k$:
 \begin{equation}
 I_k=
@@ -311,10 +315,10 @@ so the expectation of the number of returns is equal to the probability.
 \que{2} Let $P_1$ be the probability that the particle returns to the origin \emph{at least once}.  From Problem~4 we know that the expectation of the number of trials until the first one where the particle \emph{does not} return to the origin is $1/(1-P_1)$. Therefore, the expectation of the number of trials for which the particle does return to the origin is one less, because the particle can return to the origin many times until finally it does not.\footnote{Mosteller's presentation is not easy to follow. I would like to thank Aaron Montgomery for clarification \cite{montgomery}.}
 
 Let $E_r=E(\textsf{number of returns to the origin})$, then:
-\begin{eqnarray*}
+\begin{eqn}
 E_r &=& \disfrac{1}{1-P_1} - 1\\
 P_1&=& \disfrac{E_r}{1+E_r}\,.
-\end{eqnarray*}
+\end{eqn}
 In \ans{1} we computed that $E_r\approx 0.3772$ so:
 Then:
 \[
@@ -449,15 +453,18 @@ Inscribe a regular polygon $Q_n$ (red) within $c$ (green) and circumscribe a reg
 E(Q_n)\leq E(C)\leq E(R_n)\,.
 \end{equation}
 Let $a_Q, a_R$ be the sums of the lengths of the sides of $Q_n,R_n$, respectively. By the linearity of expectation:
-\begin{eqnarray}\label{eq.buffon1a}
+{
+\addtolength{\arraycolsep}{-3pt}
+\begin{eqnarray}\label{eq.buffon1}
 E(Q_n)&=&\sum_{i=1}^n E(\textsf{segments of}\;a_Q)=a_QE(1)\\
-\label{eq.buffon1b}E(R_n)&=&\sum_{i=1}^n E(\textsf{segments of}\;a_R)=a_RE(1)\,. 
+\label{eq.buffon2}E(R_n)&=&\sum_{i=1}^n E(\textsf{segments of}\;a_R)=a_RE(1)\,. 
 \end{eqnarray}
+}
 As $n\rightarrow\infty$ both polygons approximate the circle so:
 \begin{equation}\label{eq.buffon-pi}
 \lim_{n\rightarrow\infty}a_Q = \lim_{n\rightarrow\infty} a_R=\pi\,,
 \end{equation}
-the circumference of the circle. From Equations~\ref{eq.buffon-2}--\ref{eq.buffon-pi} we have:
+the circumference of the circle. From Equations~\ref{eq.buffon1}--\ref{eq.buffon-pi} we have:
 \[
 \renewcommand*{\arraystretch}{1.5}
 \begin{array}{l}
@@ -536,13 +543,13 @@ Solve Buffon's needle problem for a surface that is covered by a grid with squar
 \solution{}
 
 The numbers of crossings of the horizontal and vertical lines are independent and expectation is linear so:
-\begin{eqnarray*}
+\begin{eqn}
 E(\textsf{lines crossed by\ } a)&=&E(\textsf{vertical lines crossed by\ } a +
      \textsf{horizontal lines crossed by\ } a)\\
 &=&E(\textsf{vertical lines crossed by\ } a) +
    E(\textsf{horizontal lines crossed by\ } a)\\
 &=&\disfrac{2a}{\pi}+\disfrac{2a}{\pi}=\disfrac{4a}{\pi}\,.
-\end{eqnarray*}
+\end{eqn}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -569,7 +576,7 @@ E(a)= \sum_{i=1}^n E(a_i)= \disfrac{2a}{\pi}\,.
 \ans{2} This solution is based on \cite{wiki-buffon} and \cite[Chapter~26]{proofs}.
 
 By Equation~\ref{eq.cross} the probability that a needle will cross a line is $a\sin\theta$ \emph{if} $a\sin\theta \leq 1$, that is, if $0\leq\theta\leq\sin^{-1}(1/a)$. However, if $a\sin\theta > 1$ then the probability is $1$ (Figure~\ref{f.buffon6}). Let us generalize Equation~\ref{eq.buffon-integral} for arbitrary $a>0$. The integral is divided into two, one for $\theta<\sin^{-1}(1/a))$ and one for $\theta>\sin^{-1}(1/a))$:
-\begin{eqnarray*}
+\begin{eqn}
 E(a) &=& \disfrac{2}{\pi}
    \left(\int_{0}^{\sin^{-1}(1/a)} 
    a\sin \theta\:d\theta + 
@@ -582,7 +589,7 @@ E(a) &=& \disfrac{2}{\pi}
   \left(a
   \left(1-\sqrt{1-\disfrac{1}{a^2}}\right)-
   \sin^{-1}(1/a)\right)\,.
-\end{eqnarray*}
+\end{eqn}
 
 \begin{figure}[tb]
 \begin{center}
@@ -653,10 +660,10 @@ p(\textsf{balls drawn from} \;U_2\; \textsf{are all white or all black})\,.
 \solution{}
 
 \ans{1} The equation that must be solved is:
-\begin{eqnarray*}
+\begin{eqn}
 \left(\disfrac{w_1}{m}\right)^2&=&\left(\disfrac{w_2}{m}\right)^2+\left(\disfrac{b_2}{m}\right)^2\\
 w_1^2&=&w_2^2+b_2^2\,.
-\end{eqnarray*}
+\end{eqn}
 One solution is $w_1=10,b_1=4,w_2=6,b_2=8$.
 
 \ans{2} By Fermat's Last Theorem, proved in 1995 by Andrew Wiles, there are no solutions to $w_1^n=w_2^n+b_2^n$ for $n\geq 3$.

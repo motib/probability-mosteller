@@ -60,11 +60,11 @@ Is the following inequality is true?
 \frac{r}{r+b} \stackrel{?}{>} \frac{r-1}{(r-1)+b}\,.
 \end{equation}
 $r\geq 2, b\geq 1$, so both denominators are positive and we can multiply the two sides:
-\begin{eqnarray*}
+\begin{eqn}
 r(r-1+b)&\stackrel{?}{>}&(r-1)(r+b)\\
 r^2-r+rb&\stackrel{?}{>}&r^2-r+rb-b\\
 b&\stackrel{?}{>}&0\,.
-\end{eqnarray*}
+\end{eqn}
 $b>1$ so Equation~\ref{eq.1-b} is true.
 
 By Equations~\ref{eq.1-a}, \ref{eq.1-b}:
@@ -76,18 +76,18 @@ and similarly:
 \left(\frac{r-1}{(r-1)+b}\right)^2  = \frac{r-1}{(r-1)+b}\cdot \frac{r-1}{(r-1)+b}<  \frac{r}{r+b} \cdot \frac{r-1}{(r-1)+b} = \frac{1}{2}\,.
 \end{equation}
 The denominator $r+b$ is non-zero so we can take the square root and simplify Equation~\ref{eq.1-c}:
-\begin{eqnarray*}
+\begin{eqn}
 \frac{r}{r+b}  &>& \sqrt{\frac{1}{2}}\\
 r&>&\frac{b}{\sqrt{2}-1}\\
 r&>&\frac{b}{\sqrt{2}-1}\cdot\frac{\sqrt{2}+1}{\sqrt{2}+1}\\
 r&>&b(\sqrt{2}+1)\,.
-\end{eqnarray*}
+\end{eqn}
 Similarly for Equation~\ref{eq.1-d}:
-\begin{eqnarray*}
+\begin{eqn}
 \frac{r-1}{(r-1)+b}&<&\sqrt{\frac{1}{2}}\\
 r-1 &<& \frac{b}{\sqrt{2}-1}\\
 r-1&<&b(\sqrt{2}+1)\,.
-\end{eqnarray*}
+\end{eqn}
 Combining both equations we get:
 \begin{equation}\label{eq.inequalities}
 r-1<(\sqrt{2}+1)b<r\,.
@@ -160,17 +160,17 @@ You play a sequence of three games alternately against two players and you win t
 You win if: (a) you win the first two games and lose the last game, (b) you lose the first game and win the last two games, or (c) you win all three games.
 
 Let $p_{121}$ and $p_{212}$ be the probabilities that you win the sequence in the two scenarios:
-\begin{eqnarray*}
+\begin{eqn}
 p_{121}&=&p_1p_2(1-p_1) + (1-p_1)p_2p_1 + p_1p_2p_1\\
 p_{212}&=&p_2p_1(1-p_2) + (1-p_2)p_1p_2 + p_2p_1p_2\,.
-\end{eqnarray*}
+\end{eqn}
 You have a better chance of winning the sequence in the first scenario if $p_{121}>p_{212}$, that is, if:
-\begin{eqnarray*}
+\begin{eqn}
 p_1p_2(1-p_1) + (1-p_1)p_2p_1 + p_1p_2p_1 &\stackrel{?}{>}& 
 p_2p_1(1-p_2) + (1-p_2)p_1p_2 + p_2p_1p_2\\
 -p_1p_2p_1 & \stackrel{?}{>}& -p_2p_1p_2\\
 p_1&\stackrel{?}{<}&p_2\,.
-\end{eqnarray*}
+\end{eqn}
 By assumption $p_1>p_2$ so you should choose the second scenario.
 
 \solution{2}
@@ -275,10 +275,10 @@ Since $p=1/6$ the expectation of the number of throws until a $6$ appears is $6$
 \solution{3}
 
 Consider the first throw separately from the rest of the throws. If the first throw is a $6$ (probability $p$) then one throw is sufficient. Otherwise, if the first throw is not a $6$ (probability $1-p$), then the remaining throws form a sequence identical to the original one so the expectation of this sequence is $E$. The expectation is therefore:
-\begin{eqnarray*}
+\begin{eqn}
 E &=& 1p + (E+1)(1-p)\\
 E&=&\disfrac{1}{p}=6\,.
-\end{eqnarray*}
+\end{eqn}
 
 \textbf{Simulation}
 \begin{verbatim}
@@ -399,7 +399,7 @@ Let $P(k)$ be the probability of $n$ appearing on $k$ dice. Then:
 E(\textsf{winnings per throw})=-1 P(0) + 1 P(1) + 2 P(2) + 3 P(3)\,.
 \]
 The throws of the three dice are independent so each of these probabilities is given by the binomial distribution with $p=1/6$, the probability that $n$ appears on a die:
-\begin{eqnarray*}
+\begin{eqn}
 E(\textsf{winnings per throw}) &=& 
 -1 \dischoose{3}{0}\left(\frac{1}{6}\right)^0\left(\frac{5}{6}\right)^3
 +1\dischoose{3}{1}\left(\frac{1}{6}\right)^1\left(\frac{5}{6}\right)^2+\\
@@ -407,7 +407,7 @@ E(\textsf{winnings per throw}) &=&
 3\dischoose{3}{3}\left(\frac{1}{6}\right)^3\left(\frac{5}{6}\right)^0\\
 &=& \frac{1}{216}(-125+75+30+3)\\
 &=&-\frac{17}{216}\approx -0.0787\,.
-\end{eqnarray*}
+\end{eqn}
 
 \textbf{Simulation}
 \begin{verbatim}
@@ -428,10 +428,10 @@ Roulette is a game played with a wheel having $38$ numbered pockets: $18$ red, $
 \solution{}
 
 \ans{1} The probability of winning a single round is $1/38$ so:
-\begin{eqnarray*}
+\begin{eqn}
 E(\textsf{winning one round})&=&35\cdot \frac{1}{38} + (-1)\cdot\frac{37}{38} = -\frac{2}{38} \approx -0.0526\\
 E(\textsf{winning}\;36\;\textsf{rounds})&=&36\cdot -0.05266=-1.8947\,.
-\end{eqnarray*}
+\end{eqn}
 (Your net win is $35$ because the $36$ you receive includes your bet of $1$ which is returned.)
 
 \ans{2}
@@ -524,16 +524,16 @@ After throwing a \emph{point} of the first throw, let $P_n$ be the probability o
 \item The probability of neither winning nor losing on the second and third throws and throwing the point on the fourth throw,
 \end{itemize}
 and so on.
-\begin{eqnarray*}
+\begin{eqn}
 W_n&=&P_n + Q_n P_n + Q_n^2 P_n+ Q_n^3 P_n  + \cdots\\
 &=&P_n\left(1+Q_n^1 + Q_n^2+ Q_n^3  + \cdots\right)\\
 &=&P_n\left(\frac{1}{1-Q_n}\right)\,.
-\end{eqnarray*}
+\end{eqn}
 You lose the game on any throw after the first if you throw a $7$ with probability $6/36$ so:
-\begin{eqnarray*}
+\begin{eqn}
 Q_n &=& 1-P_n-(6/36)\\
 W_n&=&\frac{P_n}{P_n+(6/36)}\,.
-\end{eqnarray*}
+\end{eqn}
 $W_n$ for the six points are:
 \[
 \renewcommand{\arraystretch}{2}

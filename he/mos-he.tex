@@ -2,11 +2,10 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[12pt,a4paper]{article}
+\documentclass[12pt,a4paper,leqno]{article}
 
 \usepackage{verbatim}
 \usepackage{url}
-\usepackage{subeqnarray}
 \usepackage{subcaption}
 \pagestyle{plain}
 
@@ -81,21 +80,17 @@
 \captionsetup[subfigure]{labelformat=simple}
 \renewcommand\thesubfigure{איור~\thefigure(\alph{subfigure})}
 
-%\includeonly{mos1}
+% Reduce space around c column in eqnarray*
+\newenvironment{eqn}
+  {\addtolength{\arraycolsep}{-3pt}\begin{eqnarray*}}
+  {\end{eqnarray*}}
+
+% Use english equation numbers in hebrew document
+\renewcommand{\theequation}{\L{\arabic{equation}}}
+
+%\includeonly{mos3}
 
 \begin{document}
-
-% \input prevents unnecessary page breaks
-
-%\input{mos-intro}
-%\input{mos0}
-%\input{mos1}
-%\input{mos2}
-%\input{mos3}
-%\input{mos4}
-%\input{mos5}
-%\input{mos-prob}
-%\input{mos-bib}
 
 % \include allows partial compilation
 
@@ -108,5 +103,17 @@
 \include{mos5}
 \include{mos-prob}
 \include{mos-bib}
+
+% \input prevents unnecessary page breaks
+
+%\input{mos-intro}
+%\input{mos0}
+%\input{mos1}
+%\input{mos2}
+%\input{mos3}
+%\input{mos4}
+%\input{mos5}
+%\input{mos-prob}
+%\input{mos-bib}
 
 \end{document}

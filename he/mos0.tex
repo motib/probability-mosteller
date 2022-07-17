@@ -57,7 +57,7 @@ $r,b$
 הדיסקרימיננט הוא ריבוע כאשר 
 $b=1$
 (הערך הקטן ביותר). ממשוואה%
-~$\ref{eq.quad-for-r}$, $r=3$,
+~\ref{eq.quad-for-r}, $r=3$,
 כאשר אנו דוחים את הפתרון 
 $r=0$
 כי
@@ -91,7 +91,7 @@ $r$
 הוא
 $15$
 שמתקבל על ידי פתרון משוואה%
-~$\ref{eq.quad-for-r}$.
+~\ref{eq.quad-for-r}.
 
 בדיקה:
 $\frac{15}{21}\cdot\frac{14}{20}=\frac{1}{2}$.
@@ -105,18 +105,18 @@ $\frac{15}{21}\cdot\frac{14}{20}=\frac{1}{2}$.
 \end{equation}
 $r\geq 2, b\geq 1$
 ולכן שני המכנים חיוביים וניתן להכפיל את שני הצדדים:
-\begin{eqnarray*}
+\begin{eqn}
 r(r-1+b)&\stackrel{?}{>}&(r-1)(r+b)\\
 r^2-r+rb&\stackrel{?}{>}&r^2-r+rb-b\\
 b&\stackrel{?}{>}&0\,.
-\end{eqnarray*}
+\end{eqn}
 $b>1$
 כך שמשווה%
-~$\ref{eq.1-b}$
+~\ref{eq.1-b}
 נכונה.
 
 לפי משוואות%
-~$\ref{eq.1-a}, \ref{eq.1-b}$:
+~\ref{eq.1-a}, \ref{eq.1-b}:
 \begin{equation}\label{eq.1-c}
 \left(\frac{r}{r+b}\right)^2 = \frac{r}{r+b} \cdot\frac{r}{r+b} > \frac{r}{r+b} \cdot \frac{r-1}{(r-1)+b} = \frac{1}{2}\,,
 \end{equation}
@@ -127,20 +127,20 @@ $b>1$
 המכנה
 $r+b$
 שונה מאפס ולכן ניתן לחשב שורש ריבועי ולפשט את משוואה%
-~$\ref{eq.1-c}$:
-\begin{eqnarray*}
+~\ref{eq.1-c}:
+\begin{eqn}
 \frac{r}{r+b}  &>& \sqrt{\frac{1}{2}}\\
 r&>&\frac{b}{\sqrt{2}-1}\\
 r&>&\frac{b}{\sqrt{2}-1}\cdot\frac{\sqrt{2}+1}{\sqrt{2}+1}\\
 r&>&b(\sqrt{2}+1)\,.
-\end{eqnarray*}
+\end{eqn}
 באופן דומה עבור משוואה%
-~$\ref{eq.1-d}$:
-\begin{eqnarray*}
+~\ref{eq.1-d}:
+\begin{eqn}
 \frac{r-1}{(r-1)+b}&<&\sqrt{\frac{1}{2}}\\
 r-1 &<& \frac{b}{\sqrt{2}-1}\\
 r-1&<&b(\sqrt{2}+1)\,.
-\end{eqnarray*}
+\end{eqn}
 משתי המשוואות נקבל:
 \begin{equation}\label{eq.inequalities}
 r-1<(\sqrt{2}+1)b<r\,.
@@ -192,13 +192,13 @@ $r,b$.
 בפתרון~
 $1$
 פיתחנו תנאי הכרחי---לפי משוואה%
-~$\ref{eq.discriminant}$
+~\ref{eq.discriminant}
 הדיסקרימיננט חייב להיות מספר שלם---ומחפשים ערכים של 
 $b$
 שעומדים בדרישה זו. בפתרון~$2$ התנאי ההכרחי הוא ש-%
 $r,b$
 מספקים את האי-שוויונות במשוואה%
-~$\ref{eq.inequalities}$
+~\ref{eq.inequalities}
 ואז חיפשנו ערכים שעומדים בדרישה זו. כתבתי תכנית קצרה לחפש פתרונות בטווח 
 $[1,50]$.
 התוצאות  עבור ערכים מסביב ל-%
@@ -215,7 +215,7 @@ $35$
 \end{verbatim}
 \selectlanguage{hebrew}
 כאשר הטורים הם (משמאל לימין) מספר הגרביים השחורות, מספר הגרביים האדומות, השורש של הדיסקרימיננט (משוואה%
-~$\ref{eq.discriminant}$),
+~\ref{eq.discriminant}),
 ההסתברות לשלוף שתי גרביים אדומות.
 
 בעזרת תכנית מחשב מצאתי את הפתרונות הבאים עבור מספר גרביים שחורות פחות ממיליון:
@@ -269,19 +269,19 @@ $p_{121}$
 ו-%
 $p_{212}$
 ההסתברויות שאתם מנצחים בסדרה בשני התסריטים:
-\begin{eqnarray*}
+\begin{eqn}
 p_{121}&=&p_1p_2(1-p_1) + (1-p_1)p_2p_1 + p_1p_2p_1\\
 p_{212}&=&p_2p_1(1-p_2) + (1-p_2)p_1p_2 + p_2p_1p_2\,.
-\end{eqnarray*}
+\end{eqn}
 קיים סיכוי גדול יותר לנצח בסדרה בתסריט הראשון אם 
 $p_{121}>p_{212}$,
 כלומר, אם:
-\begin{eqnarray*}
+\begin{eqn}
 p_1p_2(1-p_1) + (1-p_1)p_2p_1 + p_1p_2p_1 &\stackrel{?}{>}& 
 p_2p_1(1-p_2) + (1-p_2)p_1p_2 + p_2p_1p_2\\
 -p_1p_2p_1 & \stackrel{?}{>}& -p_2p_1p_2\\
 p_1&\stackrel{?}{<}&p_2\,.
-\end{eqnarray*}
+\end{eqn}
 נתון ש-%
 $p_1>p_2$
 לכן כדאי לבחור את התסריט השני.
@@ -352,6 +352,7 @@ For p = 0.75, proportion correct of (a) = 0.5062, (b) = 0.5040
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{ניסיונות עד להצלחה הראשונה}{S}{(Trials until first success)}
+
 \label{p.four}
 מה התוחלת של מספר ההטלות של קוביה עד שהופיע $6$?
 \end{prob}
@@ -458,10 +459,10 @@ $1-p$)
 אזי ההטלות הבאות מרכיבות סדרה זהה לסדרה המקורית שהתוחלת שלה היא
 $E$.
 לכן התוחלת היא:
-\begin{eqnarray*}
+\begin{eqn}
 E &=& 1\cdot p + (E+1)(1-p)\\
 E&=&\disfrac{1}{p}=6\,.
-\end{eqnarray*}
+\end{eqn}
 
 \textbf{סימולציה}
 \selectlanguage{english}
@@ -647,7 +648,7 @@ $p=1/6$,
 ההסתברות ש-%
 $n$
 מופיע על קוביה:
-\begin{eqnarray*}
+\begin{eqn}
 E(\textrm{הטלה לכל רווח}) &=& 
 -1\dischoose{3}{0}\left(\frac{1}{6}\right)^0\left(\frac{5}{6}\right)^3
 +1\dischoose{3}{1}\left(\frac{1}{6}\right)^1\left(\frac{5}{6}\right)^2+\\
@@ -655,7 +656,7 @@ E(\textrm{הטלה לכל רווח}) &=&
 3\dischoose{3}{3}\left(\frac{1}{6}\right)^3\left(\frac{5}{6}\right)^0\\
 &=& \frac{1}{216}(-125+75+30+3)\\
 &=&-\frac{17}{216}\approx -0.0787\,.
-\end{eqnarray*}
+\end{eqn}
 
 \textbf{סימולציה}
 \selectlanguage{english}
@@ -709,10 +710,10 @@ $36$
 ההסתברות של ניצחון בסבב אחד היא
 $1/38$
 ולכן:
-\begin{eqnarray*}
+\begin{eqn}
 E(\textrm{אחד בסבב רווח})&=&35\cdot \frac{1}{38} + (-1)\cdot\frac{37}{38} = -\frac{2}{38} \approx -0.0526\\
 E(\textrm{סבבים}\;36\textrm{ב- רווח })&=&36\cdot -0.05266=-1.8947\,.
-\end{eqnarray*}
+\end{eqn}
 (הרווח נטו הוא 
 $35$
 כי ה-%
@@ -932,20 +933,20 @@ $W_n$
 ההסתברות לא לנצח ולא להפסיד בהטלה השנייה והשלישית כפול ההסתברות להופעת הנקודה בהטלה הרביעית,
 \end{itemize}
 וכך הלאה.
-\begin{eqnarray*}
+\begin{eqn}
 W_n&=&P_n + Q_n P_n + Q_n^2 P_n+ Q_n^3 P_n  + \cdots\\
 &=&P_n\left(1+Q_n^1 + Q_n^2+ Q_n^3  + \cdots\right)\\
 &=&P_n\left(\frac{1}{1-Q_n}\right)\,.
-\end{eqnarray*}
+\end{eqn}
 אתה מפסיד אם בהטלה כלשהי לאחר הראשונה מופיע 
 $7$
 עם הסתברות
 $6/36$
 ולכן:
-\begin{eqnarray*}
+\begin{eqn}
 Q_n &=& 1-P_n-(6/36)\\
 W_n&=&\frac{P_n}{P_n+(6/36)}\,.
-\end{eqnarray*}
+\end{eqn}
 $W_n$
 עבור ששת הנקודות היא:
 \[

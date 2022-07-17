@@ -8,7 +8,6 @@
 \usepackage{microtype}
 \usepackage{verbatim}
 \usepackage{url}
-\usepackage{subeqnarray}
 \usepackage{caption,subcaption}
 
 % TikZ package
@@ -58,7 +57,12 @@
 \newcommand*{\disfrac}[2]{\displaystyle\frac{#1}{#2}}
 \newcommand*{\dischoose}[2]{\displaystyle{#1 \choose #2}}
 
-%\includeonly{mos1}
+% Reduce space around c column in eqnarray*
+\newenvironment{eqn}
+  {\addtolength{\arraycolsep}{-3pt}\begin{eqnarray*}}
+  {\end{eqnarray*}}
+
+%\includeonly{mos3}
 
 \begin{document}
 

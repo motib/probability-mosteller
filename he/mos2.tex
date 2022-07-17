@@ -3,29 +3,58 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{לדגום עם או בלי החזרות?}{D,S}{(Should you sample with or without replacement?)}
-Urn $A$ contains $2$ red balls and $1$ green ball, and urn $B$ contains $101$ red balls and $100$ green balls. An urn is chosen at random and two balls are randomly drawn \emph{from the selected urn}. You win if you correctly identify whether the selected urn was $A$ or $B$.
 
-Which of the following rules gives you the highest probability of winning?
+בכד 
+$A$
+נמצאים
+$2$
+כדורים אדומים ו-%
+$1$
+כדור ירוק, ובכד 
+$B$
+נמצאים
+$101$
+כדורים אדומים ו-%
+$100$
+כדורים ירוקים. בחר כד אחד בצורה אקראי ושלוף שני כדורים באופן אקראי מהכד שנבחר. אתה מנצח אם אתה מזהה נכון אם כדורים נשלפו מכד 
+$A$
+או כד
+$B$.
 
-\que{1} The first ball is replaced before the second drawing.
+חשב את ההסתברויות לניצחון של כל אחד מהחוקים שלהן וקבע איזה חוק נותן את ההסתברות הגבוהה ביותר לניצחון.
 
-\que{2} The first ball is not replaced before the second drawing.
+\que{1}
+אתה מחזיר את הכדור הראשון לפני השליפה השנייה.
 
-\que{3} After the first ball is drawn you can decide whether it will be replaced or not.
+\que{2} 
+אתה לא מחזיר את הכדור הראשון לפני השליפה השנייה.
 
-\textbf{Hint:} When computing probabilities:
+\que{3}
+לאחר נשלף הכדור הראשון אתה יכול להחליט אם להחזיר אותו או לא.
+
+\textbf{רמז:} 
+כאשר מחשבים הסתברויות:
 \[
 \disfrac{101}{201}\approx \disfrac{100}{201} \approx \disfrac{100}{200} \approx \disfrac{1}{2}\,.
 \]
 \end{prob}
 
-\vspace{-5ex}
+\vspace{-7ex}
 
 \solution{}
 
-There are four outcomes which we denote by $RR, RG, GR, GG$. For each rule compute the conditional probabilities of the four outcomes given that urn $A$ or urn $B$ was selected initially. These multiply by $1/2$ to take into account the random selection of the urn.
+יש ארבע תוצאות שנסמן
+$RR, RG, GR, GG$.
+לכל אחד מהחוקים נחשב את ההסתברויות המתנות של ארבעת התוצאות תלוי בזהות הכד 
+$A$
+או
+$B$
+שנבחר תחילה. אחר כך נכפיל את ההסתברויות ב-%
+$1/2$
+כדי לקחת בחשבון את הבחירה האקראית של הכד.
 
-\ans{1} Drawing with replacement:
+\ans{1}
+שליפה עם החזרה:
 \[
 \renewcommand*{\arraystretch}{1.5}
 \begin{array}{lcccc}
@@ -41,12 +70,25 @@ P(GR|B) &=& \frac{1}{2} \cdot \frac{1}{2} &=& \frac{1}{4}\\
 P(GG|A) &=& \frac{1}{3} \cdot \frac{1}{3} &=& \frac{1}{9}\\
 P(GG|B) &=& \frac{1}{2} \cdot \frac{1}{2} &=& \frac{1}{4}\end{array}
 \]
-If the outcome is $RR$ there is a higher probability that urn $A$ was selected ($4/9$) than that urn $B$ was selected ($1/4$); otherwise, there is a higher probability that urn $B$ was selected:
+אם התוצאה היא
+$RR$
+ההסתברות שכד 
+$A$
+נבחר
+($4/9$)
+גבוהה מהסתברות שכד
+$B$
+נבחר
+($1/4$);
+אחרת, ההסתברות ש-%
+$B$
+נבחר גבוהה יותר. לכן:
 \[
-P(\textrm{winning})=\frac{1}{2}\left(\frac{4}{9} + \frac{1}{4}+ \frac{1}{4}+ \frac{1}{4}\right)=\disfrac{43}{72}\approx 0.5972\,.
+P(\textrm{ניצחון})=\frac{1}{2}\left(\frac{4}{9} + \frac{1}{4}+ \frac{1}{4}+ \frac{1}{4}\right)=\disfrac{43}{72}\approx 0.5972\,.
 \]
 
-\ans{2} Drawing without replacement:
+\ans{2}
+שליפה ללא החזרה:
 \[
 \renewcommand*{\arraystretch}{1.5}
 \begin{array}{lcccc}
@@ -63,15 +105,28 @@ P(GG|A) &=& \frac{1}{3} \cdot 0 &=& 0\\
 P(GG|B) &=& \frac{1}{2} \cdot \frac{1}{2} &=& \frac{1}{4}
 \end{array}
 \]
-If the outcome is $GG$ there is (of course!) a higher probability that urn $B$ was selected than that urn $A$ was selected; otherwise, there is a higher probability that urn $A$ was selected. The probability of winning is:
+אם התוצאה היא
+$GG$
+ההסתברות שכד
+$B$
+נבחר גבוהה יותר (כמובן!) מההסתברות שכד
+$A$
+נבחר; אחרת, ההסתברות שכד 
+$A$
+נבחר גבוהה יותר. לכן:
 \[
 P(\textrm{win})=\frac{1}{2}\left(\frac{1}{3} + \frac{1}{3}+ \frac{1}{3}+ \frac{1}{4}\right)=\frac{5}{8}=0.6250\,,
 \]
-which is greater than the probability of winning when sampling with replacement.
+שהיא גבוהה יותר מההסתברות לניצחון כאשר שליפה היא עם החזרה.
 
-\ans{3} The decision is based on the outcome of the first draw.
+\ans{3} 
+ההחלטה נעשית על סמך התוצאות מהשליפה הראשונה.
 
-If the first drawing is from urn $A$ the probabilities must be conditioned on the decision to sample with or without replacement. Drawing first from urn $B$ does not affect the probabilities because of the approximation in the hint.
+אם השליפה הראשונה היא מכד
+$A$
+ההסתברויות חייבות להיות מותנות בהחלטה להחזיר או לא. שליפה הראשונה היא מכד
+$B$
+לא משפיעה על ההסתברויות בגלל הקירוב ברמז.
 \[
 \renewcommand*{\arraystretch}{1.5}
 \begin{array}{lcccc}
@@ -96,21 +151,46 @@ P(GG|A,w) &=& \frac{1}{3} \cdot \frac{1}{3} &=& \frac{1}{9}\\
 P(GG|A,w/o) &=& \frac{1}{3} \cdot 0 &=&0\\
 P(GG|B) &=& \frac{1}{2} \cdot \frac{1}{2} &=& \frac{1}{4}\\\end{array}
 \]
-If a red ball is drawn first then $\frac{4}{9}>\frac{1}{4}$ and $\frac{2}{9}<\frac{1}{4}$ with replacement, whereas $\frac{1}{3}>\frac{1}{4}$ and $\frac{1}{3}>\frac{1}{4}$ without replacement, so the second ball can help identify the urn only if the drawing is done \emph{with} replacement: urn $A$ if red, urn $B$ if green. Choose the draw with replacement:
+אם כדור אדום נשלף ראשונה אזי 
+$\frac{4}{9}>\frac{1}{4}$
+ו-%
+$\frac{2}{9}<\frac{1}{4}$
+עם החזרה, לעומת
+$\frac{1}{3}>\frac{1}{4}$
+ו-%
+$\frac{1}{3}>\frac{1}{4}$
+ללא החזרה, לכן הכדור השני יכול לעזור בזיהוי הכד רק אם השליפה נעשית 
+\textbf{עם}
+החזרה: אם אדום כד
+$A$
+ואם ירוק כד
+$B$.
+נבחר שליפה עם החזרה ו:
 \[
-P(\textrm{winning if red first})=\frac{1}{2}\left(\frac{4}{9}+\frac{1}{4}\right)=\frac{25}{72}\,.
+P(\textrm{ראשון אדום אם ניצחון})=\frac{1}{2}\left(\frac{4}{9}+\frac{1}{4}\right)=\frac{25}{72}\,.
 \]
-If a green ball is drawn first then $\frac{2}{9}<\frac{1}{4}$ and $\frac{1}{9}<\frac{1}{4}$ with replacement, whereas $\frac{1}{3}>\frac{1}{4}$ and $0<\frac{1}{4}$ without replacement, so the second ball can help identify the urn only if the drawing is done \emph{without} replacement: urn $A$ if red, urn $B$ if green. Choose the draw without replacement:
+אם כדור ירוק נשלף ראשון אזי
+$\frac{2}{9}<\frac{1}{4}$
+ו-%
+$\frac{1}{9}<\frac{1}{4}$
+עם החזרה, לעומת
+$\frac{1}{3}>\frac{1}{4}$
+ו-%
+$0<\frac{1}{4}$
+ללא החזרה, לכן הכדור השני יכול לעזור בזיהוי הכד רק אם השליפה נעשית 
+\textbf{בלי}
+החזרה ו:
 \[
-P(\textrm{winning if green first})=\frac{1}{2}\left(\frac{1}{3}+\frac{1}{4}\right)=\frac{7}{24}\,.
+P(\textrm{ראשון ירוק אם ניצחון})=\frac{1}{2}\left(\frac{1}{3}+\frac{1}{4}\right)=\frac{7}{24}\,.
 \]
-The total probability of winning is:
+ההסתברות לניצחון היא:
 \[
-P(\textrm{winning})=\frac{25}{72} + \frac{7}{24}=\frac{23}{36}\approx 0.6389\,.
+P(\textrm{ניצחון})=\frac{25}{72} + \frac{7}{24}=\frac{23}{36}\approx 0.6389\,.
 \]
-The highest probability of winning is obtained when the decision to draw with or without replacement depends on the result of the first draw.
+ההסתברות הגבוהה ביותר לניצחון מתקבלת כאשר ההחלטה לשלוף עם או בלי החזרה מתקבל בהתאם לתוצאה של השליפה הראשונה.
 
-\textbf{Simulation}
+\textbf{סימולציה}
+\selectlanguage{english}
 \begin{verbatim}
 With replacement:
 Expectation of winning = 0.5972
@@ -122,27 +202,60 @@ Decide after first draw:
 Expectation of winning = 0.6389
 Average wins           = 0.6379
 \end{verbatim}
-
+\selectlanguage{hebrew}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \begin{prob}{הקלפי}{S}{(The ballot box)}
-In an election there are two candidates $A$ and $B$.  $A$ receives $a$ votes and $B$ receives $b$ votes, $a>b$. The votes are counted one-by-one and the running totals $(a_i,b_i), 1\leq i \leq a+b$ are updated as each vote is counted. What is the probability that for at least one $i$, $a_i=b_i$?
 
-\que{1} Solve for $a=3, b=2$ by listing $(a_i,b_i)$ for $1\leq i\leq 5$.
+שתי מועמדות 
+$A$
+ו-%
+$B$
+מתמודדות בבחירות. 
+$A$
+קיבלה
+$a$
+קולות ו-%
+$B$
+קיבלה
+$b$
+קולות,
+$a>b$.
+הקולות נספרים אחד-אחד וסכומי הביניים
+$(a_i,b_i), 1\leq i \leq a+b$
+מתעדכנים לאחר ספירת כל קול. מה ההסתברות שעבור לפחות
+$i$
+אחד,
+$a_i=b_i$?
 
-\que{2} Solve the problem for all $a>b$.
+\que{1} 
+פתור עבור
+$a=3, b=2$
+על ידי הכנת רשימה
+$(a_i,b_i)$
+עבור
+$1\leq i\leq 5$.
 
-\textbf{Hint 1:} What can you say about which candidate leads until the \emph{first} tie occurs?
+\que{2} 
+פתור עבור כל
+$a>b$.
 
-\textbf{Hint 2:} What is the significance of the first vote counted?
+\textbf{רמז 1:} 
+מה ניתן להגיד על זהות המועמדת שמובילה עד לתיקו 
+\textbf{ראשון}?
+
+\textbf{Hint 2:}
+מה החשיבות של הקול הראשון שנספר.
 \end{prob}
 
 \solution{}
 
 \ans{1}
-The number of arrangements of running totals is ${5\choose 2}={5\choose 3}=10$, because the positions of the votes for one candidate determine the positions of the votes for the other candidate. The following table lists the possible arrangements of the votes and of running totals with first ties emphasized:
+מספר הדרכים לסדר את סכומי הביניים הוא
+${5\choose 2}={5\choose 3}=10$ 
+כי המיקום הקולות עבור מועמדת אחת קובע את מיקום הקולות של המועמדת השנייה. בטבלה שלהלן רשומים הסידורים האפשריים של הקולות וסכומי הביניים כאשר התיקו הראשון מודגש:
 \begin{center}
 \begin{minipage}{.48\textwidth}
 \[
@@ -188,13 +301,16 @@ B & B & A & A & A
 \]
 \end{minipage}
 \end{center}
-There are ties in all the arrangements except for the first two so:
+קיימים מצבי תיקו בכל הסידורים פרט לשני הראשונים ולכן:
 \[
-P(\textrm{tie occurs with}\;(3,2)\;\textrm{votes})=\disfrac{8}{10}=\disfrac{4}{5}\,.
+P(\textrm{קולות}\;(3,2)\;\textrm{עם תיקו קיים})=\disfrac{8}{10}=\disfrac{4}{5}\,.
 \]
 
 \ans{2} 
-The following discussion indicates how to approach the second question. List arrangements for $A,B$ with $(3,2)$ votes until the \emph{first tie} occurs:
+נתחיל את הפתרון עם דיון איך לגשת לפתרון של השאלה השנייה. הנה מספר סידורים עבור 
+$(a,b)=(3,2)$
+עד לקבלת
+\textbf{התיקו הראשון}:
 \[
 \begin{array}{rrrrr|rrrrr}
 \multicolumn{5}{c|}{A \;\textrm{leads until tie}} &
@@ -203,22 +319,42 @@ A & B &&& &B & A & & &\\
 A & A & B & B && B & B & A & A&\\
 \end{array}
 \]
-For every arrangement where $A$ leads until the first tie there is a mirror image arrangement where $B$ leads until the first tie which is obtained by exchanging $A$'s and $B$'s.
+לכל סידור בו 
+$A$
+מובילה עד לתיקו הראשון, קיים סידור שהוא תמונת ראי בו 
+$B$
+מובילה עד לקבלת התיקו הראשון. השיקוף מתקבל על ידי החלפת כל 
+$A$
+ב-%
+$B$
+ולהפך.
 
-Before the first tie one of the candidates must be leading. If the first vote counted is for $B$ there must be a tie since $a>b$. The probability that the first vote is for $b$ is:
+לפני התיקו הראשון אחת מהמועמדות חייבת להוביל. אם הקול הראשון שנספר הוא עבור 
+$B$
+חייב להיות תיקו בהמשך הספירה כי
+$a>b$.
+
+ההסתברות שהקול הראשון היא עבור 
+$B$
+היא:
 \[
-P(\textrm{first vote for}\;B)=\frac{b}{a+b}\,.
+P(B\;\textrm{עבור ראשון קול})=\frac{b}{a+b}\,.
 \]
-By mirroring the positions of the votes, the number of sequences resulting in a tie that begin with a vote for $A$ is the same as the number of sequences resulting in a tie that begin with a vote for $B$. But we just computed the latter probability so the probability of a tie is:
+על ידי שיקוף המיקומים של הקולות, מספר הסידורים שמובילים לתיקו שמתחילים בקול עבור
+$A$
+שווה למספר הסידורים שמובילים לתיקו שמתחילים בקול עבור
+$B$. 
+לכן:
 \[
-P(\textrm{tie occurs})=2\cdot\frac{b}{a+b}\,.
+P(\textrm{תיקו קיים })=2\cdot\frac{b}{a+b}\,.
 \]
-Check:
+בדיקה:
 \[
-P(\textrm{tie occurs with}\;(3,2)\;\textrm{votes})=2\cdot\frac{2}{2+3}=\frac{4}{5}\,.
+P(\textrm{קולות}\;(3,2)\;\textrm{עם תיקו קיים})=2\cdot\frac{2}{2+3}=\frac{4}{5}\,.
 \]
 
-\textbf{Simulation}
+\textbf{סימולציה}
+\selectlanguage{english}
 \begin{verbatim}
 For a =  3, b =  2:
 Probability of a tie = 0.8000
@@ -230,27 +366,54 @@ For a = 20, b = 18:
 Probability of a tie = 0.9474
 Proportion of ties   = 0.9354
 \end{verbatim}
+\selectlanguage{hebrew}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{תיקו בהשוואת מטבעות}{D,S}{(Ties in matching pennies)}
-Toss a pair of fair coins $N$ times, $N$ even, and keep count of how many times the parity is even (heads-heads, tails-tails) and how many times the parity is odd (heads-tails, tails-heads). What is the probability of obtaining a tie (not counting the $0-0$ tie at the start)?
 
-\que{1} Solve for $N=4$ by writing out all the possible outcomes.
+הטל זוג מטבעות הוגנות
+$N$
+פעמים עבור
+$N$
+זוג, ורשום את מספר הפעמים שהזוגיות היא זוגי (עץ-עץ או פלי-פלי) ומספר ההפעמים שהזוגיות היא אי-זוגי (עץ-פלי או פלי-עץ). מה ההסתברות לקבל תיקו (לא כולל התיקו 
+$0-0$
+בהתחלה)?
 
-\que{2} Solve for $N=6$ by developing a formula for the probability.
+\que{1}
+פתור עבור 
+$N=4$
+על ידי רישום כל התוצאות האפשריות.
 
-\que{3} Develop a formula for arbitrary even $N$.
+\que{2} 
+פתור עבור
+$N=6$
+על ידי פיתוח נוסחה להסתברות.
 
-\que{4} Explain why the probability for the odd number $N+1$ is the same as the probability for the even number $N$.
+\que{3} 
+פתח נוסחה עבור כל
+$N$
+זוגי.
 
-\textbf{Hint:} Use the solution of Problem~22.
+\que{4}
+הסבר מדוע ההסתברות למספר אי-זוגי
+$N+1$
+שווה להסתברות של המספר הזוגי
+$N$.
+
+\textbf{רמז:}
+השתמש בפתרון לבעיה~22.
 \end{prob}
 
 \solution{}
 
-\ans{1} Denote tosses with even parity by $E$ and tosses with odd parity by $O$. Ten out of the sixteen arrangements of tosses have ties (emphasized):
+\ans{1} 
+נסמן את ההטלות עם זוגיות זוגי ב-%
+$E$
+וההטלות עם זוגיות אי-זוגי ב-%
+$O$.
+בעשרה מתוך שש עשרה סידורי ההטלות יש תיקו (מודגש):
 \begin{center}
 \begin{tabular}{llllllll}
 EEEE & EEEO & EEOE & \textbf{EEOO} & \textbf{EOEE} & \textbf{EOEO} &\textbf{EOOE} & \textbf{EOOO}\\
@@ -259,9 +422,9 @@ EEEE & EEEO & EEOE & \textbf{EEOO} & \textbf{EOEE} & \textbf{EOEO} &\textbf{EOOE
 \end{center}
 
 \ans{2}
-By Problem~22:
+לפי בעיה~22:
 \begin{equation}\label{eq.coins-ties}
-P(\textrm{tie on toss}\;i)=
+P(i\;\textrm{בהטלה תיקו})=
 \left\{
 \begin{array}{ll}
 2i/N &\textrm{if}\; i\leq N/2\\
@@ -269,15 +432,24 @@ P(\textrm{tie on toss}\;i)=
 \end{array}
 \right.
 \end{equation}
-since the ballot box problem showed that the smaller value determines the probability.
+כי בבעיית הקלפי הראנו שהערך הנמוך יותר קובע את ההסתברות.
 
-The following computations are quite complex so we justify each step in detail.
+החישובים שלהלן די מסובכים לכן נצדיק כל חישוב לפרטים.
 
-The probability of $i$ evens is given by the binomial coefficient:
+ההסתברות ל-%
+$i$
+זוגיים ניתן על ידי ההתפלגות הבינומית:
 \begin{equation}\label{eq.coins00}
-P(i\;\textrm{evens})=\dischoose{N}{i} \left(\disfrac{1}{2}\right)^i \left(\disfrac{1}{2}\right)^{N-i}=\dischoose{N}{i} \left(\disfrac{1}{2}\right)^N =  2^{-N}\dischoose{N}{i}\,.
+P(i\;\textrm{זוגיים})=\dischoose{N}{i} \left(\disfrac{1}{2}\right)^i \left(\disfrac{1}{2}\right)^{N-i}=\dischoose{N}{i} \left(\disfrac{1}{2}\right)^N =  2^{-N}\dischoose{N}{i}\,.
 \end{equation}
-The probability of a tie is the sum over $i$ of the probability of obtaining $i$ evens times the probability of a tie on the $i$th toss (Equation~\ref{eq.coins-ties}). For $N=6$:
+ההסתברות לתיקו היא הסכום מעל 
+$i$
+של ההסתברות לקבל 
+$i$
+זוגיים כפול ההסתברות לתיקו בהטלה ה-%
+$i$
+(משוואה%
+~\ref{eq.coins-ties}). For $N=6$:
 \begin{equation}\label{eq.coins0}
 P(\textrm{ties})=2\cdot 2^{-6}\left[
 \frac{0}{6}\dischoose{6}{0} + \frac{1}{6}\dischoose{6}{1} +
@@ -286,7 +458,16 @@ P(\textrm{ties})=2\cdot 2^{-6}\left[
 \frac{0}{6}\dischoose{6}{6}
 \right]\,.
 \end{equation}
-Equation~\ref{eq.coins1} follows from Equation~\ref{eq.coins0} by deleting the two zero terms, expressing the combinations as factorials, canceling $\frac{1}{6}$ from $6!$:
+משוואה%
+~\ref{eq.coins1}
+נובעת ממשוואה%
+~\ref{eq.coins0}
+על ידי השמטת שני הגורמים שהם אפס, כתיבת ה
+\L{combination???}
+עם עצרת, צימצום 
+$1/6$
+מ-%
+$6!$:
 \begin{equation}\label{eq.coins1}
 P(\textrm{ties})=2^{-5}\left[
 1\cdot\disfrac{5!}{1!5!} + 2\cdot\disfrac{5!}{2!4!} +
@@ -294,7 +475,12 @@ P(\textrm{ties})=2^{-5}\left[
 1\cdot\disfrac{5!}{5!1!}
 \right]\,.
 \end{equation}
-Equation~\ref{eq.coins2} is obtained by canceling $i$ from $i!$:
+משוואה%
+~\ref{eq.coins2}
+מתקבלת מצימצום
+$i$
+מ-%
+$i!$:
 \begin{equation}\label{eq.coins2}
 P(\textrm{ties})=2^{-5}\left[
 \disfrac{5!}{1!5!} + \disfrac{5!}{1!4!} +
@@ -302,7 +488,12 @@ P(\textrm{ties})=2^{-5}\left[
 \disfrac{5!}{5!1!}
 \right]\,.
 \end{equation}
-To obtain Equation~\ref{eq.coins3} from Equation~\ref{eq.coins2} add and subtract  $\frac{5!}{3!2!}$:
+כדי לקבל משוואה%
+~\ref{eq.coins3}
+ממשוואה%
+~\ref{eq.coins2}
+חבר וחסר
+$\frac{5!}{3!2!}$:
 \begin{equation}\label{eq.coins3}
 P(\textrm{ties})=2^{-5}\left[
 \left(\disfrac{5!}{1!5!} + \disfrac{5!}{1!4!} +
@@ -310,7 +501,12 @@ P(\textrm{ties})=2^{-5}\left[
 \disfrac{5!}{5!1!}\right) - \disfrac{5!}{3!2!}
 \right]\,.
 \end{equation}
-Equation~\ref{eq.coins4} results from  replacing $1!$ by $0!$:
+משוואה%
+~\ref{eq.coins4}
+מתקבלת על ידי הצבת
+$0!$
+במקום
+$1!$:
 \begin{equation}\label{eq.coins4}
 P(\textrm{ties})=2^{-5}\left[
 \left(\disfrac{5!}{0!5!} + \disfrac{5!}{1!4!} +
@@ -318,7 +514,10 @@ P(\textrm{ties})=2^{-5}\left[
 \disfrac{5!}{5!0!}\right) - \disfrac{5!}{3!2!}
 \right]\,.
 \end{equation}
-By expressing the factorials back as combinations we obtain  Equation~\ref{eq.coins5}:
+נבטא בחזרה את הביטוי עם עצרת ל
+combinations
+ונקבל את המשוואה%
+~\ref{eq.coins5}:
 \begin{equation}\label{eq.coins5}
 P(\textrm{ties})=2^{-5}\left[
 \dischoose{5}{0} + \dischoose{5}{1} +
@@ -326,26 +525,38 @@ P(\textrm{ties})=2^{-5}\left[
 \dischoose{5}{4} + \dischoose{5}{5} - \dischoose{5}{3}
 \right]\,.
 \end{equation}
-Finally, Equation~\ref{eq.coins6} results from the binomial theorem:
+לבסוף, מהוואה%
+~\ref{eq.coins6}
+מתקבלת ממשפט הבינום:
 \begin{equation}\label{eq.coins6}
 P(\textrm{ties})=2^{-5}\left(2^5 - 10\right)=\disfrac{11}{16}\approx 0.6875\,.
 \end{equation}
 
-\ans{3} Perform the same calculations as in \ans{2} but using arbitrary $N$. The result is:
+\ans{3}
+חשב את אותם חישובים כמו ב%
+\ans{2}
+עם 
+$N$
+שרירותי. התוצאה היא:
 \[
 P(\textrm{ties})=2^{-N+1}\left[2^{N-1} - \dischoose{N-1}{N/2}\right]= 
 \left[1 - \left.\dischoose{N-1}{N/2}\right/ 2^{N-1}\right]\,.
 \]
 
-\ans{4} The first tie on the $N+1$'st toss occurs only if the counts are nearly equal after the $N$th toss:
+\ans{4}
+התיקו הראשון בהטלה ה-%
+$N+1$
+מתרחש רק עם הספירה כמעט זהות לאחר ההטלה ה-%
+$N$:
 \[
 \begin{array}{l}
 ((N/2)-1,(N/2)+1)\\((N/2),(N/2))\\((N/2)+1,(N/2)-1)
 \end{array}
 \]
-but whatever the outcome of the final toss the counts will not be equal.
+אבל ללא תלות התוצאת ההטלה הסופית הספירות לא יהיו שוות.
 
-\textbf{Simulation}
+\textbf{סימולציה}
+\selectlanguage{english}
 \begin{verbatim}
 For  4 tosses:
 Probability of ties = 0.6250
@@ -363,6 +574,7 @@ For 20 tosses:
 Probability of ties = 0.8238
 Proportion of ties  = 0.8255
 \end{verbatim}
+\selectlanguage{hebrew}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -373,24 +585,55 @@ Proportion of ties  = 0.8255
 
 
 \begin{prob}{אורכים של מיתרים אקראיים}{S}{(Lengths of random chords)}
-Select a random chord in the unit circle. What is the probability that the length of the chord is greater than $1$?
 
-To solve the problem you first have to decide what ``select a random chord'' means. Solve the problem for each of the following possibilities:
+בחר מיתר אקראי במעגל היחידה. מה ההסתברות שאורכו של המיתר גדול מ-%
+$1$?
 
-\que{1} The distance of the chord from the center is uniformly distributed in the range $(0,1)$.
+כדי לפתור את הבעיה עליך בלהחליט איך "לבחור" מיתר אקראי. פתור את הבעיה עבור כל אחת מהאפשרויות שלהלן:
 
-\que{2} The midpoint of the chord is uniformly distributed within the circle.
+\que{1} 
+התפלגות אחידה של מרחק המיתר מהמרכז המעגל.
 
-\que{3} The endpoints of the chord are uniformly distributed on the circumference of the circle.
+\que{2}
+התפלגות אחידה של הנקודה האמצעית של המיתר בתוך המעגל.
+
+\que{3}
+התפלגות נקודות הקצה של המיתר על היקף המעגל.
 \end{prob}
 
 \solution{}
 
-\ans{1} A chord is larger than the radius if it is closer to the center than a chord of length $1$. Let $\overline{AB}$ be a chord of length $1$ and construct the altitude $\overline{OH}$ from $O$ to the chord (Figure~\ref{f.chord1}). Since $\triangle AOB$ is equilateral, $\triangle OHB$ is a right triangle and the length of the altitude is:
+\ans{1}
+מיתר ארוך יותר מהרדיוס אם הוא קרוב יותר למרכז ממיתר באורך 
+$1$.
+יהי 
+$\overline{AB}$
+מיתר באורך 
+$1$
+ובנה
+גובה
+$\overline{OH}$
+מהמרכז 
+$O$
+אל המיתר (איור%
+~\ref{f.chord1}). 
+בגלל 
+$\triangle AOB$
+שווי-צלעות,
+$\triangle OHB$ 
+הוא משולש ישר-זווית ואורכו של הגובה הוא:
 \[
 h = \sin \frac{\pi}{3} = \frac{\sqrt{3}}{2}\,.
 \]
-Let $d$ be the distance of a chord $\overline{DE}$ from the center and by assumption $d$ is uniformly distributed in $(0,1)$. Then:
+יהי
+$d$
+המרחק של המיתר 
+$\overline{DE}$
+מהמרכז. לפי ההנחה ההתפלגות של
+$d$
+אחידה ב-%
+$(0,1)$
+ולכן:
 \[
 P(\overline{DE}>1)=P(d<h)=\disfrac{h}{1}=\frac{\sqrt{3}}{2} \approx 0.866\,.
 \]
@@ -481,21 +724,52 @@ $(0,1)$%
 
 
 \ans{2}
-Consider any point on a circle of radius $h$, the altitude to a chord of length $1$. A tangent to this point will be a chord $\overline{FE}$ whose length is $1$. Any chord $\overline{EG}$ whose midpoint is within this circle will have a length greater than $1$ (Figure~\ref{f.chord2}). The probability is therefore the ratio of the areas of the two circles:
+בנה מעגל עם מרכז
+$O$
+ורדיוס 
+$h$
+כאשר 
+$h$
+הוא אורכו של גובה לגובה למיתר באורך 
+$1$.
+משיק לכל נקודה על המעגל יהיה המיתר
+$\overline{FE}$
+שאורכו 
+$1$.
+אורכו של כל מיתר
+$\overline{EG}$
+שנקודת האמצע שלו נמצאת בתוך המעגל יהיה גדול מ-%
+$1$
+(איור%
+~\ref{f.chord2}).
+לכן ההסתברות שאורכו של מיתר גדול מ-%
+$1$
+היא היחס בין השטחים של שני המעגלים:
 \[
-P(\overline{EG}>1)=\frac{\pi \cdot h^2}{\pi \cdot 1^2}=h^2=\frac{3}{4}\,,
+P(\overline{EG}>1)=\frac{\pi \cdot h^2}{\pi \cdot 1^2}=h^2=\frac{3}{4}\,.
 \]
-which happens to be the square of the probability computed in the first answer.
+הסתברות זו היא הריבוע של ההסתברות שחישבנו בשאלה הקודמת.
 
 \ans{3}
-To select the two endpoints of a chord, first arbitrarily choose one point ($E$ in Figure~\ref{f.chord2}). Any other point determines a chord whose length is greater than one unless that point falls on the arcs $\widehat{EF}$ or $\widehat{ED}$. The probability is therefore the ratio of the arc $\widehat{FD}$ to the circumference of the unit circle:
+בנקודה שרירותית על ההיקף של מעגל היחידה (%
+$E$
+באיור%
+~\ref{f.chord2}).
+כל נקודה אחרת על ההיקף (כגון 
+$G$
+באיור) מגדירה מיתר שאורכו גדול באחד אלא אם הנקודה שנבחרה נופל על הקשתות
+$\widehat{EF}$
+או
+$\widehat{ED}$.
+לכן ההסתברות היא היחס בין הקשת
+$\widehat{FD}$
+להיקף המעגל:
 \[
 P(\overline{EG}>1)=\frac{(2\pi-(2\pi/3))\cdot 1}{2\pi \cdot 1}=\frac{2}{3}\,.
 \]
 
-\textbf{Simulation}
-
-The simulation is for choosing two random points on the circumference.
+\textbf{סימולציה}
+הסימולציה היא עבור בחירת שתי נקודות על ההיקף.
 \selectlanguage{english}
 \begin{verbatim}
 Probability of long chords = 0.6667
@@ -507,18 +781,63 @@ Proportion of long chords  = 0.6627
 
 \begin{prob}{ממהרים לדו-קרב}{S}{(The hurried duelers)}
 
-$A$ and $B$ arrive at a meeting point at a random time with uniform distribution within a one-hour period.
-If $A$ arrives first and $B$ does not arrive within $5$ minutes, $A$ leaves. 
-Similarly, if $B$ arrives first and $A$ does not arrive within $5$ minutes, $B$ leaves. What is the probability that they meet?
+$A$
+ו-%
+$B$
+מגיעים לנקודת מפגש בזמן אקראי עם התלפגות אחידה בתוך פרק זמן של שעה. אם 
+$A$
+מגיע קודם ו-%
+$B$
+לא מגיע במשך 
+$5$
+דקות, 
+$A$
+עוזב. באופן דומה אם 
+$B$
+מגיע קודם ו-%
+$A$
+לא מגיע במשך 
+$5$
+דקות,
+$B$
+עוזה. מה ההסתברות שהם יפגשו?
 
-Time within the one-hour period is \emph{continuous} in the range $[0,1]$, that is, you cannot \emph{count} a discrete number of minutes or seconds to compute probabilities. You can compute the probabilities of \emph{durations}.
+בפרק הזמן של שעה הזמן הוא
+\textbf{רציף}
+בתחום
+$[0,1]$,
+כלומר,
+אי-אפשר 
+\textbf{לספור}
+מספר בדיד של דקות או שניות כדי לחשב הסתברויות. כן ניתן לחשב הסתברויות של 
+\textbf{פרקי זמן}.
 
-\textbf{Hint:} Draw a graph with $A$'s time of arrival as the the $x$-coordinate and $B$'s time of arrival as the $y$-coordinate.
+\textbf{רמז:}
+צייר גרף כאשר ציר ה-%
+$x$
+הוא זמן הגעתו של
+$A$
+וציר ה-%
+$y$
+הוא זמן הגעתו של 
+$B$.
 \end{prob}
 
 \solution{}
 
-Without loss of generality $A$ arrives first. If $A$ arrives at $t=0$ and if $B$ arrives before $t=5/60$ they meet, otherwise they do not. This is shown in Figure~\ref{f.duel} by the small square at the origin.
+ללא הגבלת הכלליות הנח ש-%
+$A$
+מגיע קודם. אם 
+$A$
+מגיע ב-%
+$t_A=0$
+ואם 
+$B$
+מגיע לפני
+$t_B=5/60$
+הם נפגשים, אחרת אין הם נפגשים. מצב זה מוצג באיור%
+~\ref{f.duel}
+על ידי ריבוע קטן בראשית הצירים.
 \begin{figure}[tb]
 \begin{center}
 \begin{tikzpicture}
@@ -541,75 +860,116 @@ Without loss of generality $A$ arrives first. If $A$ arrives at $t=0$ and if $B$
   (1.5,1.5) -- (1.5,0) node[below] {$\frac{15}{60}$};
 \end{tikzpicture}
 \end{center}
-\caption{Times that ensure a meeting between $A$ and $B$}\label{f.duel}
+\caption{זמנים המבטיחים מפגש בין $A$ ל-$B$}\label{f.duel}
 \end{figure}
-If $A$ arrives later then $B$ also has to arrive later by the same amount; for example, if $A$ arrives at $15$, $B$ must arrive between $15$ and $20$. Therefore, the meeting will take place during a square of time obtained by moving the small square by $15$ from $(0,0)$ to $(15/60,15/60)$.
+אם 
+$A$
+מגיע יותר מאוחר אזי גם
+$B$
+חייב להגיע באותו איחור; 
+למשל, אם 
+$A$
+מגיע ב-%
+$t_A=15$,
+$B$
+חייב להגיע בין
+$t_B=15$
+ו-%
+$t_B=20$.
+לכן הפגישה תתקיים בריבוע המתקבל על ידי הזזת הריבוע ב-%
+$15$
+מ-%
+$(0,0)$
+ל-%
+$(15/60,15/60)$.
 
-The probability that a meeting will occur is the ratio of the area of the graph colored gray to the area of the large square. It is easier to compute the complement which is the area of the white triangles in the upper left and lower right:
-\begin{eqnarray*}
-P(A,B\;\textrm{meet}) &=& 1- P(A,B\;\textrm{don't meet})\\
+ההסתברות לפגישה היא היחס בין השטח האפור בגרף לשטח הריבוע הגדול. קל יותר לחשב את המשלים שהוא היחס בין שטח המשולשים הלבנים לשטח הריבוע הגדול:
+\begin{eqn}
+P(\textrm{נפגשים}\;A,B) &=& 1- P(\textrm{נפגשים לא}\;A,B)\\
 &=&1- 2\cdot \left(\frac{1}{2}\cdot \frac{55}{60}\cdot \frac{55}{60}\right)=\frac{23}{144}\approx 0.1597\,.
-\end{eqnarray*}
+\end{eqn}
 
-\textbf{Simulation}
+\textbf{סימולציה}
+\selectlanguage{english}
 \begin{verbatim}
 Probability of meeting   = 0.1597
 Proportion of meetings   = 0.1549
 \end{verbatim}
+\selectlanguage{hebrew}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{לתפוס זייפן זהיר}{S}{(Catching the cautious counterfeiter)}
+\begin{prob}{לתפוס את הזייפן הזהיר}{S}{(Catching the cautious counterfeiter)}
 
-There are $n$ boxes each with $n$ coins and one coin in each box is counterfeit. Draw one coin from each box and test it to determine whether it is counterfeit or not. What is the probability that all the coins that are drawn are are real?
+נתון 
+$n$
+קופסאות ובכל אחת 
+$n$
+מטבעות כאשר מטבע אחד בכל קופסה מזויף. שלוף מטבע אחד מכל קופסה ובדוק אם הוא מזויף או אמיתי. מה ההסתברות שכל המטבעות שנשלפות מזויפים?
 
-\que{1} Solve for $n=10$.
+\que{1} 
+פתור עבור
+$n=10$.
 
-\que{2} Solve for $n=100$.
+\que{2} 
+פתור עבור 
+$n=100$.
 
-\que{3} Solve for arbitrary $n$.
+\que{3}
+פתור עבור 
+$n$
+שרירותי.
 
-\que{4} What is the limit, if it exists, of the probability as $n$ tends to infinity?
+\que{4}
+פתח נוסחה עבור ההסתברות כאשר
+$n$
+שואב לאיסוף.
 \end{prob}
 
 \solution{}
 
-The draws are independent so the probability is the product of the probabilities for each draw.
+השליפות בלתי תלויות ולכן ההסתברות היא מכפלת ההסתברות של כל שליפה.
 
 \ans{1}
 \[
-P(\textrm{all real}) = \left(\frac{9}{10}\right)^{10}=0.3487\,.
+P(\textrm{אמיתיים המטבעות כל}) = \left(\frac{9}{10}\right)^{10}=0.3487\,.
 \]
 
 
 \ans{2}
 \[
-P(\textrm{all real}) = \left(\frac{99}{100}\right)^{100}=0.3660\,.
+P(\textrm{אמיתיים המטבעות כל}) = \left(\frac{99}{100}\right)^{100}=0.3660\,.
 \]
 
 \ans{3}
 \[
-P(\textrm{all real}) = \left(\frac{n-1}{n}\right)^{n}\,.
+P(\textrm{אמיתיים המטבעות כל}) = \left(\frac{n-1}{n}\right)^{n}\,.
 \]
 
 \ans{4}
 \begin{equation}\label{eq.reciprocal}
-\lim_{n\rightarrow\infty}\left(1-\frac{1}{n}\right)^{n}=\frac{1}{e}\approx 0.3679\,.
+\lim_{n\rightarrow\infty}\left(1-\frac{1}{n}\right)^{n}=\frac{1}{e}\,.
 \end{equation}
 
-This limit can be proved using differential calculus. First we compute the limit of the natural logarithm of the lefthand side of Equation~\ref{eq.reciprocal}:
+ניתן להוכיח את הגבול בעזרת חשבון דיפרנציאלי. תחילה ניתן לחשב את הגבול של הלוגריתם של הצד השמולי של משוואה%
+~\ref{eq.reciprocal}:
 \[
 \lim_{n\rightarrow\infty}\ln \left(1-\frac{1}{n}\right)^{n}=
   \lim_{n\rightarrow\infty}n\ln \left(1-\frac{1}{n}\right)=
   \lim_{n\rightarrow\infty} \disfrac{\ln\left(1-\frac{1}{n}\right)}{1/n}\,.
 \]
-Taking the limit gives $\ln(1)/0=0/0$ but by l'H\^{o}pital's rule we can replace it by the quotient of the derivatives:
-\begin{eqnarray*}
+אם נחשב את הגבול נקבל
+$(ln \;1)/0=0/0$
+אבל לפי חוק
+\L{l'H\^{o}pital}
+נוכל להחליף את הביטוי בחילוק הנגזרות:
+\begin{eqn}
 \lim_{n\rightarrow\infty}\ln \left(1-\frac{1}{n}\right)^{n}&=&\lim_{n\rightarrow\infty}\frac{\left(1-\frac{1}{n}\right)^{-1}(-(-n^{-2}))}{-n^{-2}}=-1\\
-\lim_{n\rightarrow\infty}\left(1-\frac{1}{n}\right)^{n}&=&e^{-1}\,.
-\end{eqnarray*}
+\lim_{n\rightarrow\infty}\left(1-\frac{1}{n}\right)^{n}&=&e^{-1}\approx 0.3679\,.
+\end{eqn}
 
-\textbf{Simulation}
+\textbf{סימולציה}
+\selectlanguage{english}
 \begin{verbatim}
 For  10 boxes:
 Probability of all real = 0.3487
@@ -621,39 +981,63 @@ For 200 boxes:
 Probability of all real = 0.3670
 Proportion all real     = 0.3690
 \end{verbatim}
+\selectlanguage{hebrew}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{לתפוס את הזייפן החמדן}{S}{(Catching the greedy counterfeiter)}
-There are $n$ boxes each with $n$ coins and $m$ coins in each box are counterfeit. Draw one coin from each box and test it to determine whether it is counterfeit or not. What is the probability $P(n,m,r)$ that $r$ of the coins that are drawn are \emph{counterfeit}?
 
-\que{1} Develop a formula for $P(n,m,r)$.
+נתון 
+$n$
+קופסאות ובכל אחת 
+$n$
+מטבעות מהם
+$m$
+מזוייפים. שלוף מטבע אחת מכל קופסה ובדוק אם הוא מזויף או אמיתי. מה ההסתברות 
+$P(n,m,r)$
+ש-%
+$r$
+מתוך המטבעות הם מזוייפים?
 
-\que{2} Compute $P(20,10,2), P(20,10,8), P(20,5,2), P(20,5,4)$.
+\que{1} 
+פתח נוסחה עבור
+$P(n,m,r)$.
+
+\que{2}
+חשב
+$P(20,10,2), P(20,10,8), P(20,5,2), P(20,5,4)$.
 \end{prob}
 
 \solution{}
 
 \ans{1}
-There are ${n\choose r}$ choices of boxes from which the counterfeit coins can be drawn. From the binomial distribution:
+יש 
+${n\choose r}$
+אוספים של קופסאות מהן המטבעות המזוייפים נשלפו. מההתפלגות הבינומית:
 \[
 P(n,m,r) = {n \choose r} \left(\frac{m}{n}\right)^r \left(\frac{n-m}{n}\right)^{n-r}\,.
 \]
 
 \ans{2}
-\begin{eqnarray*}
+\begin{eqn}
 P(20,10,2) &=& \dischoose{20}{2} \left(\frac{10}{20}\right)^2 \left(\frac{10}{20}\right)^{18}\approx 0.0002\\
 P(20,10,8) &=& \dischoose{20}{8} \left(\frac{10}{20}\right)^{8} \left(\frac{10}{20}\right)^{12}\approx 0.1201\\
 P(20,5,2)&=&\dischoose{20}{2} \left(\frac{5}{20}\right)^2 \left(\frac{15}{20}\right)^{18}\approx 0.0669\\
 P(20,5,4)&=&\dischoose{20}{4} \left(\frac{5}{20}\right)^{4} \left(\frac{15}{20}\right)^{12}\approx 0.1952\,.
-\end{eqnarray*}
+\end{eqn}
 
-Mosteller shows that in as $n$ tends to infinity, for fixed $m,r$ the probability is:
+\L{Mosteller}
+מראה שעבור
+$m,r$
+נתונים, כאשר
+$n$
+שואף לאינסוף: 
 \begin{equation}\label{eq.bin-limit}
 \lim_{n\rightarrow \infty}P(n,m,r) = \frac{e^{-m}m^r}{r!}\,.
 \end{equation}
 
-\textbf{Simulation}
+\textbf{סימולציה}
+\selectlanguage{english}
 \begin{verbatim}
 For 10 bad coins,  2 draws:
 Probability of counterfeit  = 0.0002
@@ -668,25 +1052,52 @@ For  5 bad coins,  4 draws:
 Probability of counterfeit  = 0.1897
 Proportion counterfeit      = 0.1905
 \end{verbatim}
+\selectlanguage{hebrew}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{\protect עובש בג'לטין}{S}{(Moldy gelatin)}
 
-A rectangular plate is divided into $n$ small squares. There are an average of $r$ microbes in each square.
+נתון לוח מלבני שמחולק ל-%
+$n$
+משבצות ריבועיות קטנות. בכל משבצת יש 
+$r$ 
+חיידקים בממוצע.
 
-\que{1} Develop a formula for probability that there are exactly $r$ microbes in the $n$ squares.
+\que{1} 
+פתח נוסחה להסתברות שיש בדיוק 
+$r$
+חיידקים ב-%
+$n$
+המשבצות.
 
-\que{2} Compute the probability for $n=100,r=3$.
+\que{2}
+חשב את ההסתברות עבור
+$n=100,r=3$.
 
-\textbf{Hint:} This problem is similar the Problem~28.
+\textbf{רמז:}
+בעיה זו דומה לבעיה~28.
 
 \end{prob}
 
 \solution{}
 
 \ans{1}
-Let $p$ be the probability that a single square contains a microbe. (Ignore the possibility that a microbe is partially contained within two or more squares.) $m$, the average number of microbes per square, is the number of squares $n$ times the probability $p$ that a square contains a microbe. $P(n,m,r)$, the probability that there are exactly $r$ microbes in the $n$ squares is given by the binomial distribution:
+תהי 
+$p$
+ההסתברות שבמשבצת אחת נמצא חידק. (ניתן להתעלם מהאפשרות חידק את מוכל באופן חלקי בשתי משבצות או יותר.) 
+$m$,
+המספר הממוצע של חיידקים במשבצת, היא מספר המשבצות
+$n$
+כפול ההסברות 
+$p$
+שחידק נמצא במשבצת. 
+$P(n,m,r)$,
+ההסתברות שיש בדיוק 
+$r$
+חיידקים ב-%
+$n$
+משבצות ניתנת על ידי ההתפלגות הבינומית:
 \[
 P(n,m,r) = {n \choose r} \left(\frac{m}{n}\right)^r \left(\frac{n-m}{n}\right)^{n-r}\,.
 \]
@@ -695,11 +1106,14 @@ P(n,m,r) = {n \choose r} \left(\frac{m}{n}\right)^r \left(\frac{n-m}{n}\right)^{
 \[
 P(10,3,3) = {100 \choose 3} \left(\frac{3}{100}\right)^3 \left(\frac{97}{100}\right)^{97}\approx 0.2275\,.
 \]
-Equation~\ref{eq.bin-limit} also applies here:
+משוואה%
+~\ref{eq.bin-limit}
+מתאים גם כאן ולכן:
 \[
 \lim_{n\rightarrow \infty} P(n,3,3) = \frac{e^{-3}\cdot 3^3}{3!}\approx 0.2240\,.
 \]
-\textbf{Simulation}
+\textbf{סימולציה}
+\selectlanguage{english}
 \begin{verbatim}
 For  20 squares:
 Probability of exactly  3 microbes  = 0.2428
@@ -712,6 +1126,7 @@ Proportion of exactly   3 microbes  = 0.2247
 Probability of exactly  5 microbes  = 0.1800
 Proportion of exactly   5 microbes  = 0.1851
 \end{verbatim}
+\selectlanguage{hebrew}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

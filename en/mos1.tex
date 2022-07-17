@@ -150,10 +150,10 @@ E_d =
 \]
 
 For ten numbers:
-\begin{eqnarray*}
+\begin{eqn}
 P_d &=& P(EO) + P(OE) = \frac{3}{5}\cdot \frac{2}{4} + \frac{2}{5}\cdot \frac{3}{4} = \frac{3}{5}\\
 E_d &=& 4\cdot \frac{3}{5}=\frac{12}{5}=2.4\,.
-\end{eqnarray*}
+\end{eqn}
 
 \textbf{Simulation}
 \begin{verbatim}
@@ -249,14 +249,14 @@ P(a_1, a_2\;\textsf{play each other})=\frac{1}{7} + \frac{1}{4}\cdot \frac{2}{7}
 
 \ans{2}
 Let $P_n$ be the probability that in a tournament with $2^n$ players, $a_1$ and $a_2$ play each other. We have shown that $P_3=1/4$. What about $P_4$? Using the same approach:
-\begin{eqnarray*}
+\begin{eqn}
 P_4 &=& \frac{1}{15} + \frac{1}{4}\cdot \frac{2}{15}  + \frac{1}{16}\cdot \frac{4}{15}  + \frac{1}{64}\cdot \frac{8}{15} \\
 &=&\frac{1}{15}\left(1+\frac{1}{2}+\frac{1}{4}+\frac{1}{8}\right)=\frac{1}{8}\,.
-\end{eqnarray*}
+\end{eqn}
 It is reasonable to conjecture that $P_n=1/2^{n-1}$.
 
 \textbf{Proof 1:} Using the same approach and the formula for the sum of a geometric series:
-\begin{eqnarray*}
+\begin{eqn}
 P_n&=&\frac{1}{2^n-1}\sum_{i=0}^{n-1}2^i\cdot \left(\frac{1}{2}\right)^{2i}\\
 &=&\frac{1}{2^n-1}\sum_{i=0}^{n-1}2^{-i}\\
 &=&\frac{1}{2^n-1}
@@ -264,7 +264,7 @@ P_n&=&\frac{1}{2^n-1}\sum_{i=0}^{n-1}2^i\cdot \left(\frac{1}{2}\right)^{2i}\\
     \frac{1-\left(\frac{1}{2}\right)^{(n-1)+1}}
          {1-\frac{1}{2}}
   \right)=\frac{1}{2^{n-1}}\,.
-\end{eqnarray*}
+\end{eqn}
 
 \textbf{Proof 2:} By induction. The base case is $P_3=1/4=1/2^{3-1}$.
 
@@ -370,12 +370,12 @@ P(\textsf{at least two}\;6\textsf{s})=1-\left(\frac{5}{6}\right)^{12}-{12\choose
 This event is less probable than the previous one.
 
 \ans{3} The probability is the complement of the probability of obtain less than $n$ $6$s in $6n$ throws:
-\begin{eqnarray*}
+\begin{eqn}
 P(\textsf{at least}\;n\;6\textsf{s})&=&
   1-{6n \choose 0}\left(\frac{1}{6}\right)^0\left(\frac{5}{6}\right)^{6n-0}-
   {6n\choose 1}\left(\frac{1}{6}\right)^{1}\left(\frac{5}{6}\right)^{6n-1}-\cdots\\
 &=&1-\sum_{i=0}^{n-1}{6n\choose i}\left(\frac{1}{6}\right)^{i}\left(\frac{5}{6}\right)^{6n-i}\,.
-\end{eqnarray*}
+\end{eqn}
 
 \textbf{Simulation}
 \begin{verbatim}
@@ -452,12 +452,12 @@ If $A\stackrel{H}{\longrightarrow}B$ (probability $0.3$) then $A,C$ alternately 
 \end{array}
 \]
 The probability of $A$ wins by eventually hitting $C$ is the sum of the probabilities of the even-numbered scenarios in the list:
-\begin{eqnarray*}
+\begin{eqn}
 P(A\;\textsf{wins} \;| A\; \textsf{hits}\;B )&=&(0.5 \cdot 0.3) + \\
 &&(0.5 \cdot 0.7) (0.5 \cdot 0.3) + \\
 &&(0.5 \cdot 0.7) (0.5 \cdot 0.7) (0.5 \cdot 0.3)+ \cdots\\
 &=&0.15 \sum_{i=0}^{\infty} 0.35^i= \frac{0.15}{1-0.35}=\frac{3}{13}\approx 0.2308\,.
-\end{eqnarray*}
+\end{eqn}
 Similarly, the probability of $C$ winning is $\disfrac{0.5}{1-0.35}=\disfrac{1}{13}\approx 0.0760$.
 
 The expectation is:

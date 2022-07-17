@@ -3,40 +3,60 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{ימי הולדת זהים}{S}{(Birthday pairings)}
-Randomly select $23$ people and ask them what their birthdays are. Assume a uniform distribution of $365$ different birthdays (no one was born on February $29$). Show that the probability that at least two of them have the same birthday is greater than $0.5$.
+
+בחר באקראי 
+$23$
+אנשים ושאל כל אחד ליום ההולדת שלו. הנח התפלגות אחידה של 
+$365$
+ימי ההולדת השונים (אף אחד לא נולד ב-%
+$29$
+לפברואר). הראה שההסתברות שלפחות שניים מהם יהיו יום הולדת זהה היא גדולה מ-%
+$0.5$.
 \end{prob}
 
 \solution{}
 
-Compute the probability that \emph{none} of the $23$ people have the same birthday and show that it is less than $0.5$. Select the first birthday arbitrarily, then the next birthday from the remaining days, then the next birthday from the remaining days, and so on:
+נחשב את ההסתברות ש-%
+\textbf{אף אחד}
+מה-%
+$23$
+אין ימי הולדת זהים ונראה שהיא פחות מ-%
+$0.5$.
+בחר יום הולדת ראשון בצורה אקראית, את יום ההולדת הבא בחר מתוך שאר הימים, את יום ההולדת הבא בחר מתוך שאר הימים, כך הלאה:
 \[
 \renewcommand*{\arraystretch}{2.5}
 \begin{array}{rcl}
-P(\textrm{no birthday pair})&=&
+P(\textrm{אין זוג עם ימי הולדת זהים})&=&
   \overbrace{\disfrac{365}{365}\cdot\frac{364}{365}
   \cdot\frac{363}{365}\cdot \;\cdots \; \cdot \frac{344}{365}
   \cdot\frac{343}{365}}^{23\;\textrm{\small fractions}}\\
 &=&\disfrac{365!}{365^{23}\cdot 342!}\approx 0.4927\,.
 \end{array}
 \]
-Most people guess that more than $23$ people are needed to find two with the same birthday!
+רוב האנשים מנחשים שצריכים יותר מ-%
+$23$
+כדי למוצא שניים עם ימי הולדת זהים.
 
-A modern calculator can compute the probability, but it is worthwhile computing it using Stirling's approximation $\ln n! \approx n\ln n - n$:
+מחשבון מודרני מסוגל לחשב את ההסתברות, אבל שווה לחשבה באמצעות הקירוב של 
+\L{Stirling}
+שהוא
+$\ln n! \approx n\ln n - n$:
 \[
 \renewcommand*{\arraystretch}{2}
 \begin{array}{rcl}
-\ln P(\textrm{no birthday pair})&=&
+\ln P(\textrm{אין זוג עם ימי הולדת זהים})&=&
   \ln\left(\disfrac{365!}{342!\cdot 365^{23}}\right)=\ln 365! - \ln 342! -23 \ln 365\\
 &\approx& (365\ln 365 -365) - (342\ln 342 -342) - 23\,\ln 365 \\
 &\approx&-0.7404\\
-P(\textrm{no birthday pair})&\approx&e^{-0.7404}=0.4769\,.
+P(\textrm{אין זוג עם ימי הולדת זהים})&\approx&e^{-0.7404}=0.4769\,.
 \end{array}
 \]
-The reader is invited to compute the probability with the following better approximation:
+הקורא מוזמן לחשב את ההסתברות עם הקירוב המדוייק יותר:
 \[
 \ln n!  \approx n\ln n - n + \frac{1}{6}\left(8n^3+4n^2+n+\frac{1}{30}\right)+\frac{1}{2}\ln\pi\,.
 \]
-\textbf{Simulation}
+\textbf{סימולציה}
+\selectlanguage{english}
 \begin{verbatim}
 For 21 people:
 Expectation of no pairs = 0.5563
@@ -54,46 +74,65 @@ For 25 people:
 Expectation of no pairs = 0.4313
 Average no pairs        = 0.4345
 \end{verbatim}
+\selectlanguage{hebrew}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{למצוא עמית ליום ההולדת}{S}{(Finding your birthmate)}
-Your \emph{birthmate} is a person with the same birthday as yours.
 
-Why is finding a birthmate different from finding a birthday pairing?
+\textbf{עמית יום הולדת},
+בקיצור עמית, הוא אדם עם ביום הולדת זהה לשלך.
 
-\que{1} How many people do you have to ask until the probability of finding your brithmate is greater than $0.5$?
+מדוע מציאת עמית היא בעיה שונה ממציאת זוג עם ימי הולדת זהים?
+
+\que{1}
+כמה אנשים עליך לשאול כדי שההסתברות למציאת עמית גבוהה מ-%
+$0.5$?
 
 \que{2}
-Solve by using the approximation in Equation~\ref{eq.reciprocal} on page~\pageref{eq.reciprocal}.
+פתור את הבעיה על ידי שימוש במשוואה%
+~\ref{eq.reciprocal} 
+(עמוד%
+~\L{\pageref{eq.reciprocal}}).
 \end{prob}
 
 \solution{}
 
-Many people could have the same birthday which is considered a success for find a birthday pairing, but not for finding a birthmate unless that birthday is the same as yours.
+להרבה אנשים יכול להיות יום הולדת זהה שנחשב כהצלחה במציאת זוג, אבל לא הצלחה במציאת עמית אלא אם יום ההולדת שלו זהה לשלך.
 
 \ans{1}
-Find the smallest number of people for which the probability that \emph{none} of theme are birthmates is less than $0.5$. The probability that the first person you ask is not a birthmate is $364/365$, but that is also the probability that the second, third, \ldots, person is not a birthmate. The solution is the smallest $k$ such that:
+מצא את המספר הקטן של אנשים כך ההסתברות שאף אחד מהם הוא עמית היא פחות מ-%
+$0.5$.
+ההסתברות שהאדם הראשון שאתה שואל אינו עמית היא
+$364/365$,
+אבל זאת גם ההסתברות שהשני, השלילי, 
+\ldots, 
+אינו עמית. הפתרון הוא ה-%
+$k$
+הקטן ביותר כך ש:
 \[
-P(\textrm{not a birthmate})=\left(\frac{364}{365}\right)^k<\frac{1}{2}\,,
+P(\textrm{לא נמצא עמית})=\left(\frac{364}{365}\right)^k<\frac{1}{2}\,,
 \]
 which is $k=253$:
 \[
 \left(\frac{364}{365}\right)^{253} \approx 0.4995\,.
 \]
 \ans{2}
-Equation~\ref{eq.reciprocal} is:
+משוואה%
+~\ref{eq.reciprocal}
+היא:
 \[
 \lim_{n\rightarrow\infty}\left(\frac{n-1}{n}\right)^{n}=\frac{1}{e}\,,
 \]
-which can be used to approximate the probability:
-\begin{eqnarray*}
-P(\textrm{not a birthmate})&=&
+וניתן להשתמש בה לחשב את ההסתברות:
+\begin{eqn}
+P(\textrm{לא נמצא עמית})&=&
   \left(\disfrac{365-1}{365}\right)^k=\left[\left(\disfrac{364}{365}\right)^{365}\right]^{k/365}\\
 &\approx& e^{-k/365}\\
 e^{-253/365}&\approx&0.5000\,.
-\end{eqnarray*}
-\textbf{Simulation}
+\end{eqn}
+\textbf{סימולציה}
+\selectlanguage{english}
 \begin{verbatim}
 For 251 people:
 Probability of no match = 0.5023
@@ -111,23 +150,44 @@ For 255 people:
 Probability of no match = 0.4968
 Proportion no match     = 0.5078
 \end{verbatim}
-
+\selectlanguage{hebrew}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{השוואת הבעיות יום הולדת זהה ועמית ליום ההולדת}{}{\\(Relating the birthday pairings and the birthmate problems)}
-Let $P_{\textrm{\footnotesize pair}}(r)$ be the probability that two people out of $r$ are a birthday pair (Problem~$31$) and let $P_{\textrm{\footnotesize mate}}(n)$ be the probability that two people out of $n$ are birthmates (Problem~$32$). Given $r$ for what $n$ does $P_{\textrm{\footnotesize pair}}(r) \approx P_{\textrm{\footnotesize mate}}(n)$?
+
+תהי 
+$P_{\textrm{\footnotesize זוג}}(r)$
+ההסתברות שמתוך 
+$r$
+אנשים לשניים יש יום הולדת זהה (בעיה~$31$), ותהי
+$P_{\textrm{\footnotesize עמית}}(n)$
+ההסתברות שמתוך
+$n$
+אנשים לפחות אחד הוא עימית שלך (בעיה~$32$).
+נתון
+$r$
+עבור איזה
+$n$,
+$P_{\textrm{\footnotesize זוג}}(r) \approx P_{\textrm{\footnotesize עמית}}(n)$?
 \end{prob}
 
 \solution{1}
 
-The solution is based on \cite{birthday}.
+הפתרון מבוסס על
+\L{\cite{birthday}}.
 
-Using the notation $P_{\textrm{\footnotesize no pair}}(r)$ for the complement, from the solution to Problem~$31$ we have:
+סמן ב-%
+$P_{\textrm{\footnotesize זוג}}(r)$
+את המשלים ל-%
+$P_{\textrm{\footnotesize אין זוג}}(r)$.
+מהפתרון לבעיית%
+~$31$
+מתקבל:
 \[
 \renewcommand*{\arraystretch}{2.2}
 \begin{array}{lcl}
-P_{\textrm{\footnotesize no pair}}(r)&=&
+P_{\textrm{\footnotesize זוג אין}}(r)&=&
 \disfrac{365}{365}\cdot 
   \frac{365-1}{365}\cdot \frac{365-2}{365} \cdot\;
   \cdots \;\cdot \frac{365-(r-1)}{365}\\
@@ -140,13 +200,21 @@ P_{\textrm{\footnotesize no pair}}(r)&=&
 &=&1-\disfrac{r(r-1)/2}{365}\,,
 \end{array}
 \]
-where the approximation in the third equation results from deleting powers of $1/365$ greater than one because they are too small to significantly affect the result.
+כאשר הקירוב במשוואה השלישית מתקבל מהשמטת חזקות של
+$1/365$
+גדולות מאחת כי הן קטנות מדי להשפיע באופן מהותי על התוצאה.
 
-Using the notation $P_{\textrm{\footnotesize no mate}}(n)$ for the complement and the same approximation, from the solution to Problem~$32$ we have:
+נסמן ב-%
+$P_{\textrm{\footnotesize עמית אין}}(n)$
+את המשלים ל-%
+$P_{\textrm{\footnotesize עמית}}(n)$
+ונשתמש באותו קירוב. מהפתרון לבעיה%
+~$32$
+נקבל:
 \[
 \renewcommand*{\arraystretch}{2.2}
 \begin{array}{lcl}
-P_{\textrm{\footnotesize no mate}}(n)
+P_{\textrm{\footnotesize עמית אין}}(n)
 &=&\overbrace{\left(1-\frac{1}{365}\right)
   \left(1-\frac{1}{365}\right)\cdots
   \left(1-\frac{1}{365}\right)}^{n}\\
@@ -155,134 +223,217 @@ P_{\textrm{\footnotesize no mate}}(n)
 &\approx& 1-\disfrac{n}{365}\\
 \end{array}
 \]
-Therefore $P_{\textrm{\footnotesize no pair}}(r)\approx P_{\textrm{\footnotesize no mate}}(n)$ when:
+לכן
+$P_{\textrm{\footnotesize זוג אין}}(r)\approx P_{\textrm{\footnotesize עמית אין}}(n)$
+כאשר:
 \[
 n=\frac{r(r-1)}{2}\,.
 \]
-For $r=23$, $n=(23\cdot 22)/2=253$.
+עבור
+$r=23$, $n=(23\cdot 22)/2=253$.
 
 \solution{2}
 
-Mosteller \cite[p.~322]{birthday} gives the following intuitive solution:
+\L{Mosteller} \L{\cite[p.~322]{birthday}}
+מביא את הפתרון האיטואיטיבי שלהלן:
 \begin{quote}
-In comparing the birthday and birthmate problems, one observes that for $r$ people in the birthday problem, there are $r(r-1)/2$ pairs or \emph{opportunities} for like birthdays; whereas, if $n$ people are questioned in the birthmate problem, there are only $n$ opportunities for me to find one or more birthmates.
+כאשר משווים בין בעיית הזוג ובעיית העמית, אנו שמים לב שעבור 
+$r$
+אנשים בבעיית הזוג, קיימים 
+$r(r-1)/2$
+זוגות או 
+\textbf{הזדמנויות}
+לידי הולדת זהים; לעומת זאת, אם שואלים 
+$n$
+בבעיית העמית, קיימות רק 
+$n$
+הזדמנויות כדי שאמצא עמית אחד או יותר.
 \end{quote}
-From this he concludes that $n\approx r(r-1)/2$.
+מכאן הוא מסיק ש-%
+$n\approx r(r-1)/2$.
 
-This reasoning can be understood as follows. For the birthday problem choose an arbitrary date and ask if two people out of $r$ have \emph{that} birthday. There are:
+ניתן להבין את הטיעון כך: בבעיית הזוג, בחר תאריך שרירותי ושאל אם לשניים מתוך
+$r$
+\textbf{תאריך זה}
+הוא יום ההולדת שלהם. יש
 \[
 {r \choose 2}=\frac{r!}{2!(r-2)!} = \frac{r(r-1)}{2}
 \]
-ways of doing so. For the birthmate problem your own birthday is given. Any of the $n$ people can have the same birthday. By equating the two we have the $n$ such that $P_{\textrm{\footnotesize pair}}(r) \approx P_{\textrm{\footnotesize mate}}(n)$.
+דרכים שזה אפשרי. עבור בעיית העמית, יום ההולדת שלך נתון. יש אפשרות שלכל אחד מתוך
+$n$
+אנשים יש את אותו יום הולדת. על ידי השוואת שני ביוטיים נקבל 
+$n$
+עבורו
+$P_{\textrm{\footnotesize זוג}}(r) \approx P_{\textrm{\footnotesize עמית}}(n)$.
 
-You can run the simulations for Problems~31, 32 and check this result.
+תוכל להריץ את הסימולציות לבעיות
+~$31, 32$
+ולבדוק תוצאה זו.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{חופש בימי הולדת}{D,S}{(Birthday holidays)}
-A factory is closed whenever one of its workers has a birthday. There are no other holidays.
 
-\que{1} How many workers should be employed in order to maximize the number of work-days in a year?
+בית חרושת נסגר בכל יום שהוא יום הולדת של אחד העובדים. אין חופשות נוספות.
 
-\que{2} What is the expectation of the ratio of the maximum work-days to $365^2$, the number of possible work-days if each one of $365$ workers worked every day?
+\que{1} 
+כמה עובדים כדי להעסיק כדי לקבל את מספר ימי-העבודה המקסימליים בשנה אחת?
 
-\textbf{Hint:} Prove that there must be a maximum by considering extreme cases. Then develop a formula for the expectation of the number of work-days for a single day.
+\que{2}
+מה התוחלת של היחס בין מספר ימי-העבודה המקסימליים לבין
+$365^2$, 
+מספר ימי-העבודה עם כל אחד מ-%
+$365$
+העובדים עובדים כל יום?
+
+\textbf{רמז:}
+הוכח שחייב להיות מקסימום על ידי בדיקת מקרי הקצה. אחר כך פתח נוסחה של התוחלת של ימי-העבודה ביום אחד.
 \end{prob}
 
 \solution{}
 
 \ans{1}
-At one extreme if there is only one worker there are $364$ work-days. If there are two workers there are $363+363=726$ workers days (ignoring the very small possibility that both workers have the same birthday). At the other extreme if there are one million workers the number of work-days will almost certainly be zero. Since the number of work-days rises initially and then returns to zero, there must be a maximum in between.
+בקצה אחד אם יש רק עובד אחד, יהיו 
+$364$
+ימי-עבודה. אם יש שני עובדים מספר ימי-העבודה הוא
+$363+363=726$
+(כאשר נתעלם המאפשרות הזניחה שלשניהם אותו יום הולדת). בקצה השני אם יש מיליון עובדים, מספר ימי-העבודה יהיה אפס כמעט בוודאות. אם מספר ימי-העבודה עולה ואחר כך חוזר לאפס, חייב להיות מקסימום בין הקצבות.
 
-To simplify the notation we will denote the number of days in a year by $N$ and the number of workers by $n$.
+כדי לפשט את הסימונים, נסמן את המספר הימים בשנה ב-%
+$N$
+ומספר העובדים ב-%
+$n$.
 
-For any given day the probability that it is a work-day is the probability that each worker has a birthday on some other day:
+לכל יום נתון ההסתברות שהוא יום-עבודה היא ההסתברות שלכל עובד יום הולדת בתאריך אחר:
 \[
-P(\textrm{a given day is a work-day})=\overbrace{\disfrac{N-1}{N} \cdot \;\cdots\;\cdot \disfrac{N-1}{N}}^n = \left(1-\disfrac{1}{N}\right)^n\,.
+P(\textrm{עבודה יום הוא נתון יום})=\overbrace{\disfrac{N-1}{N} \cdot \;\cdots\;\cdot \disfrac{N-1}{N}}^n = \left(1-\disfrac{1}{N}\right)^n\,.
 \]
-Denote $\left(1-\disfrac{1}{N}\right)$ by $p$.
-
-The expectation of the number of work-days for a given day is:
+סמן ב-%
+$p$ 
+את
+$\left(1-\disfrac{1}{N}\right)$.
+אזי:
 \[
-E(\textrm{work-days for a given day}) = n \cdot p^n + 0\cdot (1-p^n) = np^n\,.
+E(\textrm{נתון ליום ימי-עבודה}) = n \cdot p^n + 0\cdot (1-p^n) = np^n\,.
 \]
-All the days in the year have this same expectation, so we just multiply by $N$ to get the expectation for a year:
+לכל ימי השנה אותה תוחלת כך שרק נותר להכפיל ב-%
+$N$
+כדי לקבל את התוחלת לשנה:
 \begin{equation}\label{eq.holidays}
-E(\textrm{work-days for a year}) = Nnp^n\,.
+E(\textrm{לשנה ימי-עבודה}) = Nnp^n\,.
 \end{equation}
-
-To find the maximum we take the derivative of Equation~\ref{eq.holidays} with respect to $n$ and use
-$(p^n)'=p^n\ln p$ which can be proved using the chain rule:
+כדי למצוא את המקסימום נגזור את משוואה%
+~\ref{eq.holidays}
+ביחס ל-%
+$n$
+ונשמתש ב-%
+$(p^n)'=p^n\ln p$
+ניתן להוכיח בעזרת כלל השרשרת:
 \[
 (p^n)' = ((e^{\ln p})^n)' =
 (e^{n\ln p})' =
 e^{n\ln p} (n\ln p)'=
 (e^{\ln p})^n \ln p = p^n\ln p\,.
 \]
-%$(a^x)'=a^x\ln a$ which can be proved using the chain rule:
-%\[
-%(a^x)' = ((e^{\ln a})^x)' =
-%(e^{x\ln a})' =
-%e^{x\ln a} (x\ln a)'=
-%(e^{\ln a})^x \ln a = a^x\ln a\,.
-%\]
-The derivative of Equation~\ref{eq.holidays} is therefore:
+הנגזרת של משוואה%
+~\ref{eq.holidays}
+
+היא:
 \[
 (Nnp^n)'= N (p^n + n (p^n)') = N (p^n + np^n\ln p)\,,
 \]
-which is $0$ when:
+שהיא $0$ כאשר:
 \[
 n=-\disfrac{1}{\ln p}\,.
 \]
-For $N=365$ this gives $n=364.5$. Since $n$ is a positive integer the maximum is achieved at $n=364$ or $n=365$ which give the same expectation of the number of work-days:
-\begin{eqnarray*}
-E(\textrm{work-days for a year}) &=&Nnp^n\\
+עבור
+$N=365$
+מתקבל
+$n=364.5$
+אבל
+$n$
+הוא מספר שלם ולכן המקסימום מתקבל ב-%
+$n=364$
+או
+$n=365$
+שנותנים אותו תוחלת של ימי-עבודה:
+\begin{eqn}
+E(\textrm{לשנה ימי-עבודה}) &=&Nnp^n\\
 &=&365\cdot 364 \cdot \left(\disfrac{364}{365}\right)^{364}\\
 &=&365\cdot 364  \cdot \disfrac{365}{365}\left(\disfrac{364}{365}\right)^{364}\\
 &=&365\cdot 365  \cdot \left(\disfrac{364}{365}\right)^{365}\\
 &=&48944\,.
-\end{eqnarray*}
+\end{eqn}
 
-\ans{2} 
-The expectation of the ratio is:
+\ans{2}
+התוחלת של היחס היא:
 \[
-E(\textrm{max work-days/possible work-days})=\disfrac{365\cdot 365  \cdot \left(\frac{364}{365}\right)^{365}}{365\cdot 365}=\left(\disfrac{364}{365}\right)^{365}\approx 0.3674\,.
+E(\textrm{מקסימליים ימי-עבודה}/\textrm{אפשריים ימי-עבודה})
+=\disfrac{365\cdot 365  \cdot \left(\frac{364}{365}\right)^{365}}{365\cdot 365}=\left(\disfrac{364}{365}\right)^{365}\approx 0.3674\,.
 \]
-By Equation~\ref{eq.reciprocal}:
+לפי משוואה%
+~\ref{eq.reciprocal}:
 \[
-\lim_{n\rightarrow\infty}E(\textrm{max work-days/possible work-days})=\lim_{N\rightarrow \infty} \left(1-\disfrac{1}{N}\right)= \disfrac{1}{e}\,.
+\lim_{n\rightarrow\infty}
+E(\textrm{מקסימליים ימי-עבודה}/\textrm{אפשריים ימי-עבודה})
+=\lim_{N\rightarrow \infty} \left(1-\disfrac{1}{N}\right)= \disfrac{1}{e}\,.
 \]
 
-\textbf{Simulation}
+\textbf{סימולציה}
+\selectlanguage{english}
 \begin{verbatim}
 For 100 people
-Expectation work-days    = 27742
-Average work days        = 27743
+Expectation work-days    =  27742
+Average work days        =  27743
 Ratio work-days / 365**2 = 0.2082
 For 250 people
-Expectation work-days    = 45958
-Average work days        = 45939
+Expectation work-days    =  45958
+Average work days        =  45939
 Ratio work-days / 365**2 = 0.3450
 For 364 people
-Expectation work-days    = 48944
-Average work days        = 48936
+Expectation work-days    =  48944
+Average work days        =  48936
 Ratio work-days / 365**2 = 0.3674
 For 365 people
-Expectation work-days    = 48944
-Average work days        = 48917
+Expectation work-days    =  48944
+Average work days        =  48917
 Ratio work-days / 365**2 = 0.3674
 \end{verbatim}
+\selectlanguage{hebrew}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{על שפת התהום}{S}{(The cliff-hanger)}
-A particle is initially placed on the $x$-axis at position $1$. At any position on the $x$-axis it can move right with probability $2/3$ and left with probability $1/3$ (Figure~\ref{f.ruin1}).
+חלקיק מוצב על ציר ה-%
+$x$
+במקום
+$1$.
+בכל מקום על ציר ה-%
+$x$
+הוא יכול לצעוד צעד ימינה עם הסתברות
+$2/3$
+וצעד שמאלה עם הסתברות
+$1/3$
+(איור%
+~\ref{f.ruin1}).
 
-\que{1} What is the probability that the particle will eventually be at position $0$?
+\que{1}
+מה ההסתברות שהחלקיק יגיע למקום
+$0$
+בסופו של דבר?
 
-\que{2} If the probability of moving right is $p$ and the probability of moving left is $1-p$, what is the probability that the particle will eventually be at position $0$? Analyze the result for various values of $p$.
+\que{2}
+אם ההסתברות של צעד ימינה היא
+$p$
+וההסתברות של צעד שמאלה היא
+$1-p$,
+מה ההסתברות שהחלקיק יגיע למקום
+$0$
+בסופו של דבר? נתח את האפשרויות לערכים שונים של
+$p$.
 
-\textbf{Hint:} Use conditional probabilities after the first move.
+\textbf{רמז:}
+השתשמש בהסתרויות מותנות לאחר הצעד הראשון.
 \begin{figure}[tb]
 \begin{center}
 \begin{tikzpicture}[scale=1.5]
@@ -303,36 +454,112 @@ A particle is initially placed on the $x$-axis at position $1$. At any position 
 }
 \end{tikzpicture}
 \end{center}
-\caption{Can the particle return to $0$ (infinite line)?}\label{f.ruin1}
+\caption{?האם חלקיק יכול להגיע ל-$0$ (הציר אינסופי לימין)}\label{f.ruin1}
 \end{figure}
 
 \end{prob}
 
 \solution{}
 
-It is just as easy to compute the probabilty for arbitrary $p$ as it is for $p=2/3$.
+ניתן את הפרתונות של שתי השאלות ביחד כי חישוב ההסתברות ל-%
+$p$
+לא קשה יותר מחישוב ל-%
+$p=2/3$.
 
 \ans{1,2}
-Let us try to compute the probability directly. Denote a move left by $L$ and a move right by $R$. The particle can reach $0$ directly by moving $L$ with probability $\frac{1}{3}$, or by moving $RLL$ with probability $\frac{2}{3}\cdot\frac{1}{3}\cdot\frac{1}{3}$, or by moving $RRLLL$ with probability $\left(\frac{2}{3}\right)^2\left(\frac{1}{3}\right)^3$, \ldots\ . This seems to be a straightforward geometric progression, but it ignores possibilities such as $RLRLL$.
+ננסה לחשב את ההסתברות בצורה ישירה. נסמן צעד שמאלה ב-%
+$L$
+וצעד ימינה ב-%
+$R$.
+החלקיק יכול להגיע ל-%
+$0$
+ישירות על ידי צעד
+$L$
+עם הסתברות
+$\frac{1}{3}$,
+או על ידי צעד
+$RLL$
+עם הסתברות
+$\frac{2}{3}\cdot\frac{1}{3}\cdot\frac{1}{3}$,
+או על ידי צעד
+$RRLLL$
+עם הסתברות
+$\left(\frac{2}{3}\right)^2\left(\frac{1}{3}\right)^3$, \ldots\ .
+החישוב נראה כמו סידרה הנדסית פשוטה אבל הוא מתעלם האפשרויות כגון
+$RLRLL$.
 
-Compute the probability that the particle reaches $0$ from $1$ conditioned on the first step:
-\begin{eqnarray*}
-P(\textrm{reaches}\;0\;\textrm{from}\;1) &=& P(\textrm{reaches}\;0\;\textrm{from}\;1|\textrm{first move left}) +\\
-&&P(\textrm{reaches}\;0\;\textrm{from}\;1|\textrm{first move right})\\
-&=& (1-p)\cdot 1 + pP(\textrm{reaches}\;1\;\textrm{from}\;2)P(\textrm{reaches}\;0\;\textrm{from}\;1)\,.
-\end{eqnarray*}
-But the probability of reaching $1$ from $2$ is exactly the same as the probability of reaching $0$ from $1$. Abbreviating $P(\textrm{reaches}\;0\;\textrm{from}\;1)$ as $P$ we have:
-\begin{eqnarray*}
+נחשב את ההתסתברות שהחלקיק מגיעה ל-%
+$0$
+מ-%
+$1$
+בתלות בצעד הראשון:
+\begin{eqn}
+P(1\textrm{מ-}\;0 \textrm{ל- מגיע}) &=& 
+P(1\textrm{מ-}\;0 \textrm{ל- מגיע}|\textrm{שמאלה ראשון צעד}) +\\
+&&P(1\textrm{מ-}\;0 \textrm{ל- מגיע}|\textrm{ימינה ראשון צעד})\\
+&=& (1-p)\cdot 1 + pP(2\textrm{מ-}\;1 \textrm{ל- מגיע})P(1\textrm{מ-}\;0 \textrm{ל- מגיע})\,.
+\end{eqn}
+אבל ההסתברות להגיע ל-%
+$1$
+מ-%
+$2$
+היא בדיוק ההסתברות להגיע ל-%
+$0$
+מ-%
+$1$. 
+נסמן ב-%
+$P$
+את 
+$P(1\textrm{מ-}\;0 \textrm{ל- מגיע})$
+ונקבל:
+\begin{eqn}
 P &=& (1-p) + pP^2\\
 pP^2 - P + (1-p) &=&0\\
 P&=& \frac{1\pm\sqrt{1-4p(1-p)}}{2p}\\
 P&=&1,\; (1-p)/p\,.
-\end{eqnarray*}
-If $p\leq 1/2$ then $(1-p)/p\geq 1$, so $P=1$ is the only solution and it is certain that the particle will reach $0$.
+\end{eqn}
+אם
+$p\leq 1/2$
+אזי
+$(1-p)/p\geq 1$, 
+כך ש-%
+$P=1$
+הוא הפתרון היחיד ובטוח שהחלקיק יגיע ל-%
+$0$.
 
-If $p=1$ then $P=0$ since if the particle always moves to the right it cannot return to $0$.
+אם 
+$p=1$
+אזי
+$P=0$
+כי אם החלקיק תמיד צועד ימינה הוא לא יכול להחזוור ל-%
+$0$.
 
-Suppose $P=1$ for $1/2<p < 1$, that is, $P$ \emph{does not depend on} $p$. Then $P$ cannot suddenly ``jump'' from $1$ to $0$ as $p$ approaches $1$: in Figure~\ref{f.ruin2} the dashed red line and the red dot at $(1,0)$. Therefore, for $p> 1/2$ the only solution is $P=(1-p)/p< 1$.\footnote{Mosteller writes that this follows by continuity but does not give a proof.}
+נניח ש-%
+$P=1$
+עבור
+$1/2<p < 1$,
+כלומר,
+$P$
+\textbf{לא תלוי ב-}$p$.
+אבל 
+$P$
+לא יכול "לקפוץ" פתאום מ-%
+$1$
+ל-%
+$0$
+כאשר
+$p$
+שואף ל-%
+$1$:
+באיור%
+~\ref{f.ruin2}
+הקו האדום המקווקוו והנקודה האדומה ב-%
+$(1,0)$.
+לכן, עבור
+$p> 1/2$
+הפתרון היחיד הוא
+$P=(1-p)/p< 1$.\footnote{\L{Mosteller}
+כותב שזה נובע מרציפות אבל הוא לא מספק הוכחה.}
 
 \begin{figure}[tb]
 \begin{center}
@@ -350,11 +577,22 @@ Suppose $P=1$ for $1/2<p < 1$, that is, $P$ \emph{does not depend on} $p$. Then 
 \fill[red] (1,0) circle[radius=.4pt];
 \end{tikzpicture}
 \end{center}
-\caption{Graph of $P=\min(p/(1-p),1)$ for $p\in [0,1]$}\label{f.ruin2}
+\caption{הגרף של $P=\min(p/(1-p),1)$ עבור $p\in [0,1]$}\label{f.ruin2}
 \end{figure}
-For $p=2/3, P=1/2$ and for $p=1/2, P=1$. This is a surprising result because one would not expect that the particle would always return to $0$ if the direction of the moves were determined by flipping a fair coin! You have to have a very unfair coin (probability of heads is $2/3$) to even the chances or returning to $0$ or not.
+עבור
+$p=2/3, P=1/2$
+ועבור
+$p=1/2, P=1$.
+זאת תוצאה מפתיעה כי לא היינו מצפים שהחלקיק יחזור תמיד ל-%
+$0$
+אם כיוון הצעד נקבע על ידי הטלת מטבע הוגן! אנו זקוקים למטבע ממש לא-הוגן (הסתברות של "עץ" שווה ל-%
+$2/3$)
+כדי להשוות את הסיכויים לחזור ל-%
+$0$
+או לא.
 
-\textbf{Simulation}
+\textbf{סימולציה}
+\selectlanguage{english}
 \begin{verbatim}
 For probability = 0.2500:
 Probability of reaching 0 = 1.0000
@@ -372,15 +610,40 @@ For probability = 0.8000:
 Probability of reaching 0 = 0.2500
 Proportion reaching 0     = 0.2502
 \end{verbatim}
+\selectlanguage{hebrew}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{המהמר פשט רגל}{D,S}{(Gambler's ruin)}
-A particle is initially placed on the $x$-axis at position $m\geq 1$. At any position on the $x$-axis it can move right with probability $p>1/2$ and left with probability $1-p$.
+חלקיק מוצב על ציר ה-%
+$x$
+במקום
+$m\geq 1$.
+בכל מקום על ציר ה-%
+$x$
+הוא יכול לצעוד צעד ימינה עם הסתברות
+$p>1/2$
+וצעד שמאלה עם הסתברות
+$1-p$.
 
-\que{1} What is the probability that the particle will eventually be at position $0$?
+\que{1}
+מה ההסתברות שהחלקיק יגיע למקום
+$0$
+בסופו של דבר?
 
-\que{2} Let $n>m$. If the particle reaches position $0$ or position $n$ its stops moving. What is the probability that the particle will eventually be at position $0$? What is the probability that the particle will eventually be at position $n$?
+\que{2} יהי 
+$n>m$.
+אם החלקיק מגיע למקום 
+$0$
+או למקום
+$n$
+הוא מפסיק לצעוד (איור%
+~\ref{f.ruin3}).
+מה ההסתברות שהחלקיק יגיע למקום 
+$0$?
+מה ההסתברות שהחלקיק יגיע למקום
+$n$
+בסופו של דבר?
 \begin{figure}[tb]
 \begin{center}
 \begin{tikzpicture}[scale=1.5]
@@ -396,62 +659,107 @@ A particle is initially placed on the $x$-axis at position $m\geq 1$. At any pos
 \draw[->] (2,5mm) -- node[above] {$2/3$} (3,5mm);
 \end{tikzpicture}
 \end{center}
-\caption{Can the particle return to $0$ (finite line)?}\label{f.ruin3}
+\caption{האם החלקיק יכול לחזור ל-%
+$0$ (ציר סופי)?}
+\label{f.ruin3}
 \end{figure}
 
-\textbf{Note:} Problem~35 is represents a player with a finite amount of money betting against a casino with unlimited money. The problem asks for the probabiliy that the player loses all his money. Of course the casino never runs out of money. This problem represents one player who starts with $m$ betting against a second player who starts with $n-m$. The problem asks for the probabilities that \emph{one} of the players loses all her money to the other player.
-
+\textbf{הערה:} 
+בעיה~35 מייצגת מהמר המשחק עם כמות סופית של כסף נגד קזינו עם כמות בלתי מוגבלת של כסף. הבעיה מבקשת את ההסתברות שהמהמר יפסיד את כל כספו. בעיה זו מייצגת מהמר אחד עם 
+$m$
+שמשחק נגד מהמר שני עם 
+$n-m$.
+הבעיה מבקשת את ההסתברויות ש%
+\textbf{אחד}
+מהם מפסיד את כל כספו לשני.
 \end{prob}
 
 \solution{}
 
-The solution is based on \cite[Chapter~2, Example~4m]{ross}.
+הפתרון מבוסס על
+\L{\cite[Chapter~2, Example~4m]{ross}}.
 
-\ans{1} The solution to Problem~35 showed that for $p>1/2$ (which is true here by assumption), if a particle is at position $1$ the probability of its reaching position $0$ is $r=(1-p)/p$. Notation: let $P(i,j)$ be the probability of reaching $i$ from $j$. Since the claim does not depend on the actual position of the particle, the probability of a particle reaching $0$ from position $m$ is:
+\ans{1}
+הבפתרון לבעיה~35 ראינו שעבור
+$p>1/2$
+(כאן ההנחה נתונה), אם חלקיק נמצא במקום 
+$1$
+ההסתברות שלו להגיע ל-%
+$0$
+היא
+$r=(1-p)/p$.
+סימון: תהי 
+$P(i,j)$
+ההסתברות להגיע מ-%
+$i$
+מ-%
+$j$.
+בגלל שההסתברות של חלקיק להגיע ממקום אחד לשני לא תלוי במקום האבסולוטי:
 \begin{equation}
 P(0,m)=P(m-1,m)P(m-2,m-1)\cdots P(1,2)P(0,1)=r^m\,.
 \end{equation}
 
-\ans{2} Let $P_i=P(n,i)$ and compute it using conditional probability:
-\begin{eqnarray*}
+\ans{2} 
+תהי
+$P_i=P(n,i)$
+וחשב אותה תוך שימוש בהסתברות מותנית:
+\begin{eqn}
 P_i &=& pP_{i+1} + (1-p)P_{i-1}\\
 pP_{i+1}&=&1\cdot P_i - (1-p)P_{i-1}\\
 pP_{i+1}&=&(p+(1-p))P_i - (1-p)P_{i-1}\\
 p(P_{i+1}-P_i)&=&(1-p)(P_i-P_{i-1})\\
 P_{i+1}-P_i&=&r(P_i-P_{i-1})\,.
-\end{eqnarray*}
-$P_0=0$ since if the particle is at $0$ it does not move. Therefore:
-\begin{eqnarray*}
+\end{eqn}
+$P_0=0$ 
+כי אם החלקיק נמצא ב-%
+$0$
+הוא מפסיק לצעוד. לכן:
+\begin{eqn}
 P_2 - P_1 &=& r(P_1 - P_0) = rP_1\\
 P_3 - P_2 &=& r(P_2 - P_1) = r^2P_1\\
 \cdots &=&\cdots\\
 P_i - P_{i-1} &=& r(P_{i-1} - P_{i-2}) = r^{i-1}P_1\,.
-\end{eqnarray*}
-Most of the terms on the lefthand sides cancel when we add the equations:
-\begin{eqnarray*}
+\end{eqn}
+רוב הגורמים בצד השמאלי מצטמצמים כאשר מחברים את המשוואות:
+\begin{eqn}
 P_i - P_1 &=& P_1\sum_{j=2}^{i}r^{j-1}\\
 &=& P_1 + P_1\sum_{j=2}^{i}r^{j-1} - P_1 \\
 P_i&=& P_1\sum_{j=0}^{i-1}r^j =P_1\left(\frac{1-r^i}{1-r}\right)\,.
-\end{eqnarray*}
-If the particle is at $n$ then it is already at $n$ so $P_n=1$:
-\begin{eqnarray*}
+\end{eqn}
+אם חלקיק נמצא ב-%
+$n$
+הוא כבר נמצא ב-%
+$n$
+כך ש-%
+$P_n=1$:
+\begin{eqn}
 1 &=& P_1\left(\frac{1-r^n}{1-r}\right)\\
 P_1 &=& \left(\frac{1-r}{1-r^n}\right)\,,
-\end{eqnarray*}
-and therefore (using a symmetrical argument exchanging $p$ and $1-p$): 
+\end{eqn}
+ולכן (בהוכחה סימטרית שמחליפה 
+$p$
+ו-%
+$1-p$):
+{
+\addtolength{\arraycolsep}{-3pt}
 \begin{eqnarray}
 \label{eq.ruin1}P(n,i) &=& \left(\frac{1-r^{i}}{1-r^n}\right)\\
 \label{eq.ruin2}P(0,i) &=& \left(\frac{1-(1/r)^{n-i}}{1-(1/r)^{n}}\right)\,.
 \end{eqnarray}
-We leave it to the reader to show that the sum of Eqs.~\ref{eq.ruin1},~\ref{eq.ruin2} is $1$ meaning that one of the players will certainly win and one will lose.
+}
+הקורא מוזמן להראות שהסכום של משוואות
+~\ref{eq.ruin1},~\ref{eq.ruin2}
+הוא $1$ כלומר שמובטח שאחד המהמרים ינצח והשני יפסיד.
 
-For $m=1, n=3, p=2/3$:
-\begin{eqnarray*}
+עבור
+$m=1, n=3, p=2/3$:
+\begin{eqn}
 P(0,1) &=& \left(\frac{1-\left(\frac{1}{2}\right)^{1}}{1-\left(\frac{1}{2}\right)^{3}}\right)=\frac{4}{7}\\
 P(3,1) &=& \left(\frac{1-2^{2}}{1-2^{3}}\right)=\frac{3}{7}\,.
-\end{eqnarray*}
+\end{eqn}
 
-\textbf{Simulation}
+\textbf{סימולציה}
+\selectlanguage{english}
 \begin{verbatim}
 For probability = 0.6667:
 Probability of reaching (0,10) from 1 = (0.4995,0.5005)
@@ -471,41 +779,59 @@ Proportion reaching     (0,10) from 4 = (0.0115,0.9885)
 Probability of reaching (0,10) from 6 = (0.0014,0.9986)
 Proportion reaching     (0,10) from 6 = (0.0015,0.9985)
 \end{verbatim}
-The greater the amount of money that the left player has and the greater his probability of winning each bet, the higher his probability of winning.
+\selectlanguage{hebrew}
+ככל שלמהמר בצד שמאל יש יותר והסתברות גבוהה היותר לנצח בכל צעד, כך ההסתברות שלו לנצח גדלה.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{משחק נועז או משחק זהיר}{S}{(Bold play vs. cautious play)}
-In roulette you can bet that the ball will fall into a pocket with an even number. The probability is $18/38$ since there are $18$ even numbers, $18$ odd numbers and $2$ green numbers where the casino wins.
+ברולט ניתן להמר שהכדור יפול בכיס המסומן במספר זוגי. ההסתברות היא 
+$18/38$
+כי יש
+$18$
+מספרים זוגיים,
+$18$
+מספרים אי-זוגיים ו-%
+$2$
+מספרים ירוקים עליהם הקזינו מנצח.
 
-Which of the following strategies is better?
+איזו מהאסטרגיות שלהלן עדיפה?
 \begin{enumerate}
-\item Bold play: betting $20$ in one round.
-\item Cautious play: $1$ per round until you win or lose $20$.
+\item 
+משחק נועז: להמר $20$ בסיבוב אחד.
+\item
+משחק זהיר: להמר $1$ בכל סיבוב עד שאתה מנצח או מפסיד $20$.
 \end{enumerate}
-\textbf{Hint:} Use the results of Problem~36.
+\textbf{רמז:} 
+השתמש בתוצאות של בעיה~36.
 \end{prob}
 
 \solution{}
 
-The probability of winning with bold play is $18/38\approx 0.4737$.
+ההסתברות לנצח עם משחק נועז היא
+$18/38\approx 0.4737$.
 
-The probability of winning with cautious play is $P(40,20)$ with $r=\frac{20}{38}/\frac{18}{38}=\frac{20}{18}$ (Equation~\ref{eq.ruin1}):
-\[
-P(\textrm{reaches}\;40\;\textrm{from}\;20) =
-\left(\frac{1-(20/18)^{20}}{1-(20/18)^{40}}\right)\approx 0.1084\,.
-\]
-Clearly, bold play is preferable to cautious play.
+ההסתברות לנצח עם משחק זהיר היא (משוואה~\ref{eq.ruin1}):
+\begin{eqnarray*}
+r&=&\frac{20}{38}\Big /\frac{18}{38}=\frac{20}{18}\\
+P(40,20) &=&
+\frac{1-(20/18)^{20}}{1-(20/18)^{40}}\approx 0.1084\,.
+\end{eqnarray*}
+ברור שמשחק נועז עדיף על משחק זהיר.
 
-Mosteller writes that the intuitive explanation for this result is that betting in more rounds exposes the player to the probability of $2/38$ that the casino wins.
+\L{Mosteller}
+כותב שהסבר איטואטיבי לתוצאה זו היא שהימור בסיבובים רבים חושף את המהמר לאפשרות שהקזינו מצנח בהסתברות 
+$2/38$.
 
-\textbf{Simulation}
+\textbf{סימולציה}
+\selectlanguage{english}
 \begin{verbatim}
 Probability of bold wins     = 0.4737
 Proportion bold wins         = 0.4677
 Probability of cautious wins = 0.1084
 Proportion cautious wins     = 0.1094
 \end{verbatim}
+\selectlanguage{hebrew}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -515,10 +841,15 @@ Proportion cautious wins     = 0.1094
 
 \begin{prob}{הכימאי המגושם}{S}{(The clumsy chemist)}
 
-You have a large number of glass rods of length $1$ with one end colored red and the other colored blue. When you drop them on the floor they each break into three pieces with a uniform distribution of the length of the pieces (Figure~\ref{f.rod1}). What is the expectation of the length of the piece whose end is colored blue?
+נתון מספר רב של מקלות מזכוכית באורף 
+$1$.
+קצה אחד צבוע באדום ושני בכחול. כאשר זורקים אותם על הרצפה, הם נשברים לשלושה חלקים עם התפלגות אחידה של האורכים
+(\ref{f.rod1}).
+מה התוחלת של אורכו של החלק בקצה הכחול?
 
-\textbf{Hint:}
-Instead of straight rods suppose that you are given (unmarked) glass rings that also break into three pieces (Figure~\ref{f.rod2}).
+\textbf{רמז:}
+במקום מקלות ישרים הנח שקבלת טבעות זכוכית ללא סימנים שגם הם נשברים לשלושה החלקים
+(\ref{f.rod2}).
 
 \begin{figure}[tb]
 
@@ -572,20 +903,46 @@ Instead of straight rods suppose that you are given (unmarked) glass rings that 
 
 \solution{1}
 
-The rods are not symmetric because the end pieces are different from the center piece. However, the ring is symmetric so the distributions of all three pieces must be uniform with expectation $1/3$. By choosing and coloring one of breaks, the problem is now the same as that of the rods so the distributions remain the same. Therefore the expectation of the breaks in the rod is also $1/3$.
+אין סימטריה במלקות כי הקצות שונים מהחלק האמצני. אולם הטבעת סימטרית ולכן ההתפלגויות של שלושת החלקים יהיו אחידות עם תוחלת
+$1/3$.
+על ידי צביעת אחת מנקודות השבירה כפי שמופיע ב%
+\ref{f.rod2},
+הבעיה הופכת להיות זהה לבעיית המקל כך שההתפלגויות זהות. לכן התוחלת של אורכי החלקים היא גם
+$1/3$.
 
 \solution{2}
 
-Here is an elegant solution from \cite{stack-rods}.
+הפתרון אלגנטי שלהלן מבוסס על
+\L{\cite{stack-rods}}.
 
-Assume that the rod represents the line segment $(0,1)$. The rod is broken in two places which are represented as two uniform independent random variables $X,Y\in (0,1)$. Let us compute the probability $P(|X-Y|>a)$.
+נניח שהמקל מייצג את קטע הקו 
+$(0,1)$.
+המקל נשבר בשני מקומות שניתן לייצג בני משתנים אקראיים בלתי-תלויים עם התפלגות אחידה
+$X,Y\in (0,1)$.
+נחשב את ההסתברות
+$P(|X-Y|>a)$.
 
-Table~\ref{t.rods} shows points $(x,y)$, where $x,y \in \{0.0, 0.1, 0.2, \ldots, 0.9\}$ and the decimal point is omitted. The values that appear in the table are $|X-Y|$. In the table, for $a=0.6$ the points in the upper left and lower right corners of $[0,1]\times [0,1]$: $(0,6)$--$(6,9)$ and above, $(6,0)$--$(9,6)$ and below, 
-are those outcomes that define $P(|X-Y|>a)$. The area of one corner is $\frac{1}{2}(1-a)(1-a)$, so:
+טבלה%
+~\ref{t.rods}
+מראה נקודות 
+$(x,y)$
+כאשר
+$x,y \in \{0.0, 0.1, 0.2, \ldots, 0.9\}$
+והנקודה העשרונית הושמטה. הערכים בטבלה הם
+$|X-Y|$.
+עבור
+$a=0.6$
+הערכים למעלה משמאל מ-%
+$(0,6)$--$(6,9)$,
+והערכים למטה ומימין מ-%
+$(6,0)$--$(9,6)$,
+הם התוצאות שמגדירות את
+$P(|X-Y|>a)$:
 \[
 P(|X-Y|>a)=2\cdot \frac{1}{2}(1-a)(1-a)=(1-a)^2\,.
 \]
-For $a=0.6$, $P(|X-Y|>0.6)=(0.4)^2=0.16$.
+עבור
+$a=0.6$, $P(|X-Y|>0.6)=(0.4)^2=0.16$.
 
 \begin{table}[bt]
 \[
@@ -619,47 +976,68 @@ y\\
 a\\\\
 \end{array}
 \]
-\caption{Distribution of breaks on $(0,1)\times (0,1)$}\label{t.rods}
+\caption{התפלגות נקודות השבירה ב-%
+$(0,1)\times (0,1)$}\label{t.rods}
 \end{table}
 
-Taking the complement gives:
+המשלים הוא:
 \[
 P(|X-Y|<a)=1-(1-a)^2\,.
 \]
-This is the cumulative probability distribution (CPD) for the interval $(0,1)$. The probability density function (CDF) can be obtained by differentiating the CDP:
+הסתברות זו היא ההתפלגות ההסתברות המצטברת
+\L{cumulative probability distribution (CPD)}
+בקטע.
+$(0,1)$.
+ניתן לקבל את פונצקית הסתברות הצפיפות
+\L{probability density function (PDF)}
+על ידי גזירת ה-%
+\L{CDP}:
 \[
 P(|X-Y|=a)= \frac{d}{da}P(|X-Y|<a) =
   \frac{d}{da}(1-(1-a)^2)=2(1-a)\,.
 \]
-The expectation is the integral of the probability density function multiplied by the value:
+התוחלת היא האינטגרל ה-%
+\L{PDF}
+כפול הערך:
 \[
 E(|X-Y|)= \int_{0}^{1} a\cdot2(1-a)\, da=
   2\left.\left(\frac{a^2}{2}-\frac{a^3}{3}\right)\right|_0^1=\frac{1}{3}\,.
 \]
 
-\textbf{Simulation}
+\textbf{סימולציה}
+\selectlanguage{english}
 \begin{verbatim}
 Expectation of length of right piece = 0.3333
 Average length of right piece        = 0.3359
 \end{verbatim}
+\selectlanguage{hebrew}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{האס הראשון}{S}{(The first ace)}
-Deal cards from a well-shuffled deck of cards until an ace appears. What is the expectation of the number of cards that must be dealt?
+חלק קלפים מחבילה מעורבת היטב עד שמופיע אס. מה התוחלת של מספר הקלפים שיש לחלק?
 
-\textbf{Hint:} Consider the deck of cards without the aces to be laid out in a line.
+\textbf{רמז:}
+חשוב על חבילה קלפים ללא האסים מסודרת בשורה.
 \end{prob}
 
 \solution{}
+הקלפים הם כמו "מקל" באורך 
+$48$
+"שנשבר" על ידי 
+$4$
+ל-%
+$5$
+חלקים. הפתרון של בעיה~39 מתאים גם כאן והתוחלת של חלק היא
+$48/5=9.6$.
 
-The cards form a ``rod'' of length $48$ which is ``broken'' by the $4$ aces into $5$ ``pieces.'' The solution of Problem~39 applies and the expectation of the length of a piece is $48/5=9.6$.
-
-\textbf{Simulation}
+\textbf{סימולציה}
+\selectlanguage{english}
 \begin{verbatim}
 Expectation of first ace = 9.6000
 Average first ace        = 9.5805
 \end{verbatim}
+\selectlanguage{hebrew}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

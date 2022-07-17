@@ -23,11 +23,11 @@ E(\textsf{length of smaller piece}) = \frac{1}{2}\cdot\frac{1}{2}=\frac{1}{4}\,.
 \]
 
 \ans{2} Without loss of generality assume that the break occurred in the right half of the rod (Figure~\ref{f.stick}). The ratio of the smaller piece to the larger piece is $(1-x)/x$ and the length of the larger piece $x$ is uniformly distributed in $(1/2,1)$. The expectation of the ratio is:
-\begin{eqnarray*}
+\begin{eqn}
 E(\textsf{ratio})&=&\left(\frac{1}{1-(1/2)}\right)\int_{1/2}^1 \frac{1-x}{x} \,dx\\
 &=& 2\int_{1/2}^1 \left(\frac{1}{x} -1\right) \,dx \\
 &=& 2\left.(\ln |x| - x)\right|_{1/2}^1 = 2\ln 2 -1\approx 0.3863\,.
-\end{eqnarray*}
+\end{eqn}
 \begin{figure}[tb]
 \begin{center}
 \begin{tikzpicture}
@@ -113,11 +113,11 @@ Figure~\ref{f.shaded1} shows the lines $y=2x$ (red) and $y=1-x$ (blue).  For the
 While the values of $(x,y)$ are in the range $(0,1)\times(0,1)$, the expectation is computed over the subset of $(0,1)\times(0,1)$ denoted by the shaded region of the unit square. Therefore, the expectation must be divided by the area of the shaded region  , which is $\frac{1}{2} (\frac{1}{3}\cdot 1)=\frac{1}{6}$.
 
 The expectation of the value of $x$ is:
-\begin{eqnarray*}
+\begin{eqn}
 E(x)&=& \frac{1}{1/6}\int_{0}^{1/3} x [(1-x)-2x]\,dx\\
 &=&\int_{0}^{1/3} (6x -18x^2)\,dx\\
 &=&\left. (3x^2-6x^3)\right|_0^{1/3}=\disfrac{2}{18}\approx 0.1111\,.
-\end{eqnarray*}
+\end{eqn}
 
 \begin{figure}[tb]
 \begin{center}
@@ -179,7 +179,7 @@ For the left piece to be the longest, $x>y-x$ and $x>1-y$, so
 $(x,y)$ must lie to the right of $y=2x$ (red) and to the right of $y=1-x$ (blue) (Figure~\ref{f.shaded2}). Furthermore, by the assumption that $x$ is to the left of $y$, $(x,y)$ must lie to the left of $y=x$ (dotted).
 
 For convenience we divide the shaded region into two triangles (dashed line) and compute the expectations separately. The area of the shaded region is the sum of the areas of the triangles $1/24+1/8=1/6$. Then:
-\begin{eqnarray*}
+\begin{eqn}
 E(x \textsf{\ in left triangle})&=& 6\int_{1/3}^{1/2} x [2x-(1-x)]\,dx  \\
 &=&\int_{1/3}^{1/2} \left(18x^2-6x\right)\,dx\\
 &=&\left. (6x^3-3x^2)\right|_{1/3}^{1/2}=\disfrac{1}{9}\\
@@ -187,7 +187,7 @@ E(x \textsf{\ in right triangle})&=& 6\int_{1/2}^{1} x [1-x]\,dx\\
 &=&\int_{1/2}^{1} (6x-6x^2)\,dx\\
 &=&\left. \left(3x^2-2x^3\right)\right|_{1/2}^{1}= \disfrac{1}{2}\\
 E(x)&=& \disfrac{1}{9}+\disfrac{1}{2} = \disfrac{11}{18}\approx 0.6111\,.
-\end{eqnarray*}
+\end{eqn}
 
 The expectation of the length of the middle-sized piece is $1-\frac{2}{18}-\frac{11}{18}=\frac{5}{18}\approx 0.2778$.
 
@@ -212,10 +212,10 @@ You are given an unfair coin whose probability of heads is $1/3 < p < 1/2$. Toss
 \solution{}
 
 \ans{1} To win the game head needs to appear in $i\in\{n+1, n+2, \ldots, 2n-1, 2n=N\}$ tosses. From the binomial distribution:
-\begin{eqnarray*}
+\begin{eqn}
 P_N &=& \sum_{i=n+1}^{2n} \dischoose{2n}{i} p^i (1-p)^{2n-i}\\
 T_N &=& \dischoose{2n}{n} p^n (1-p)^{n}\,.
-\end{eqnarray*}
+\end{eqn}
 
 \ans{2} For $N=2n$ to give the highest probability of winning we must have:
 \[
@@ -235,23 +235,23 @@ After toss $2n-2$ heads has appeared $n-1$ times and tails $n-1$ times (so you w
 \dischoose{2n-2}{n-1}p^{n-1}(1-p)^{n-1} p^2\,.
 \]
 For $P_{2n-2}\leq P_{2n}$ to hold $P_{2n-2}$ cannot increase while $P_{2n}$ remains the same (Case 1), although $P_{2n}$ can become greater than $P_{2n-2}$ (Case 2). Therefore:
-\begin{eqnarray*}
+\begin{eqn}
 \dischoose{2n-2}{n}p^n(1-p)^{n-2} (1-p)^2 &\leq&
 \dischoose{2n-2}{n-1}p^{n-1}(1-p)^{n-1} p^2\\
 \disfrac{1}{n} (1-p) &\leq& \disfrac{1}{n-1} p\\
 (n-1)(1-p) &\leq& np\\
 n &\leq& \disfrac{1-p}{1-2p}\\
 2n &\leq& \disfrac{1}{1-2p}+1\,.
-\end{eqnarray*}
+\end{eqn}
 Similarly, for $P_{2n}\geq P_{2n+2}$ to hold it must be true that:
-\begin{eqnarray*}
+\begin{eqn}
 \dischoose{2n}{n+1}p^{n+1}(1-p)^{n-1}  (1-p)^2 &\geq&
 \dischoose{2n}{n}p^{n}(1-p)^{n}  p^2\\
 \disfrac{1}{n+1} (1-p) &\geq& \disfrac{1}{n} p\\
 n(1-p)&\geq& (n+1)p\\
 n &\geq& \disfrac{p}{1-2p}\\
 2n &\geq&\disfrac{1}{1-2p}-1\,.
-\end{eqnarray*}
+\end{eqn}
 Therefore, the value for $N=2n$ that gives the highest probability for winning is the nearest even integer to $1/(1-2p)$. We leave to the reader to show that if $1/(1-2p)$ is odd then $P_{2n}=P_{2n+2}$.
 
 \textbf{Simulation}
@@ -361,23 +361,26 @@ The probability that any \emph{given} $r$ cards match is:
 \disfrac{1}{n}\cdot \disfrac{1}{n-1}\cdot \cdots \cdot \disfrac{1}{n+r-1}\,.
 \end{equation}
 To obtain exactly $r$ matches Equation~\ref{eq.r-match} must be multiplied by $P(n-r,0)$, the probability that there are no matches in the remaining $n-r$ cards. Finally, there are ${n\choose r}$ ways of choosing the $r$ matches. Therefore:
-\begin{eqnarray*}
+\begin{eqn}
 P(n,r)&=& \dischoose{n}{r}\disfrac{1}{n(n-1)(n+r-1)} P(n-r,0)\\
 &=& \disfrac{n!}{r!(n-r)!}\cdot\disfrac{1}{n!/(n-r)!}P(n-r,0)\\
 &=&\disfrac{1}{r!}P(n-r,0)\,,
-\end{eqnarray*}
+\end{eqn}
 which solves the problem since $P(k,0)$ is given.
 
 Mosteller develops a closed formula and a limit for $P(n,r)$:
+{
+\addtolength{\arraycolsep}{-3pt}
 \begin{eqnarray}
+\label{eq.r-matches-lim1}
 P(n,k)&=&\disfrac{1}{k!}\sum_{i=0}^{n-k} \disfrac{(-1)^i}{i!}\\
-\label{eq.r-matches-lim}
+\label{eq.r-matches-lim2}
 \lim_{n-r\rightarrow \infty} P(n,k)&\approx& \disfrac{1}{k!}e^{-1}\,.
 \end{eqnarray}
-
+}
 \textbf{Simulation}
 
-The simulation was run for $n=52$ cards and the probability computed from Equation~\ref{eq.r-matches-lim}.
+The simulation was run for $n=52$ cards and the probability computed from Equation~\ref{eq.r-matches-lim2}.
 \begin{verbatim}
 
 Probability of 1 matches = 0.3679
@@ -471,11 +474,11 @@ For large $n,r$ Equation~\ref{eq.dowry2} can be approximated by:
 P(\textsf{win})=\disfrac{r}{n}(\ln n - \ln r)=\disfrac{r}{n}\ln \disfrac{n}{r}=-\disfrac{r}{n}\ln \disfrac{r}{n}\,.
 \]
 Denote $x=r/n$ and find the maximum by taking derivatives:
-\begin{eqnarray*}
+\begin{eqn}
 (-x\ln x)' &=& -x\cdot \frac{1}{x} + (-1) \ln x=0\\
 \ln x &=& -1\\
 x &=& 1/e\,.
-\end{eqnarray*}
+\end{eqn}
 To maximize that probability of winning choose $r \approx n/e$.
 
 \textbf{Simulation}
@@ -548,11 +551,11 @@ If you reject the first card and select the second because $v_2>v_1$:
 \end{itemize}
 
 The indifference value $d$ is the value such that the probability of winning by selecting the first card equals the probability of winning by rejecting the first card:
-\begin{eqnarray*}
+\begin{eqn}
 d^2 &=& 2d(1-d) + \frac{1}{2}(1-d)^2\\
 5d^2 - 2d -1 &=&0\\
 d&=& \disfrac{1+\sqrt{6}}{5}\approx 0.6899\,.
-\end{eqnarray*}
+\end{eqn}
 Gilbert and Mosteller \cite[page~55]{gilbert} show that for $n=3$:
 \[
 P(\textsf{win}) = \disfrac{1}{3}+\disfrac{d}{2}+\disfrac{d^2}{1}-\disfrac{3d^3}{2}\approx 0.6617\,.
