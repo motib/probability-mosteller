@@ -7,7 +7,7 @@
 \usepackage{verbatim}
 \usepackage{url}
 \usepackage{subcaption}
-\pagestyle{plain}
+\usepackage{fancyhdr}
 
 % TikZ package
 \usepackage{tikz}
@@ -38,17 +38,13 @@
 \renewcommand*{\L}[1]{\textenglish{#1}}
 \newcommand*{\R}[1]{\texthebrew{#1}}
 
-% Layout
-\textwidth=155mm
-\textheight=230mm
-\topmargin=0pt
-\headheight=0pt
-\oddsidemargin=0mm
-\evensidemargin=0mm
-\headsep=0pt
-\parindent=0pt
-\renewcommand{\baselinestretch}{1.1}
-\setlength{\parskip}{0.3\baselineskip plus 1pt minus 1pt}
+% Use fancyhdr to make all page numbers uniform
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyfoot[C]{$\thepage$}
 
 % Format problem with counter
 \newcounter{problem}
@@ -87,6 +83,18 @@
 
 % Use english equation numbers in hebrew document
 \renewcommand{\theequation}{\L{\arabic{equation}}}
+
+% Layout
+\textwidth=155mm
+\textheight=230mm
+\topmargin=0pt
+\headheight=0pt
+\oddsidemargin=0mm
+\evensidemargin=0mm
+\headsep=0pt
+\parindent=0pt
+\renewcommand{\baselinestretch}{1.1}
+\setlength{\parskip}{0.3\baselineskip plus 1pt minus 1pt}
 
 %\includeonly{mos3}
 
