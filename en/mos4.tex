@@ -7,7 +7,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{The little end of the stick\annotate{S}}
-A large number of glass rods each of length $1$ are broken into two pieces each.
+A large number of glass rods each of length $1$ are broken into two pieces each. The breaking point is uniformly distributed along the lengths of the rods.
 
 \que{1} What is the expectation of the length of the \emph{smaller} piece?
 
@@ -17,14 +17,14 @@ A large number of glass rods each of length $1$ are broken into two pieces each.
 \solution{}
 
 \ans{1} The probability that the break is on the left half of a rod is $1/2$ as is the probability that it is on the right half.
-The smaller piece is on the same side as the break and since the break occurs at a random place, the expectation of its position is halfway between the end and the middle. Therefore:
+The smaller piece is on the same side as the break so the expectation of its position is halfway between the end and the middle:
 \[
 E(\textsf{length of smaller piece}) = \frac{1}{2}\cdot\frac{1}{2}=\frac{1}{4}\,.
 \]
 
-\ans{2} Without loss of generality assume that the break occurred in the right half of the rod (Figure~\ref{f.stick}). The ratio of the smaller piece to the larger piece is $(1-x)/x$ and the length of the larger piece $x$ is uniformly distributed in $(1/2,1)$. The expectation of the ratio is:
+\ans{2} Without loss of generality assume that the break occurred in the right half of the rod (Figure~\ref{f.stick}). The ratio of the smaller piece to the larger piece is $(1-x)/x$ and the length of the larger piece $x$ is uniformly distributed in $(1/2,1)$. Therefore:
 \begin{eqn}
-E(\textsf{ratio})&=&\left(\frac{1}{1-(1/2)}\right)\int_{1/2}^1 \frac{1-x}{x} \,dx\\
+E(\textsf{ratio of smaller to larger})&=&\left(\frac{1}{1-(1/2)}\right)\int_{1/2}^1 \frac{1-x}{x} \,dx\\
 &=& 2\int_{1/2}^1 \left(\frac{1}{x} -1\right) \,dx \\
 &=& 2\left.(\ln |x| - x)\right|_{1/2}^1 = 2\ln 2 -1\approx 0.3863\,.
 \end{eqn}
@@ -60,11 +60,11 @@ Average smaller/larger           = 0.3845
 
 A large number of glass rods of length $1$ are broken in two places (Figure~\ref{f.break1}).
 
-\que{1} What is the expectaton of the length of the shortest bar?
+\que{1} What is the expectaton of the length of the shortest piece?
 
-\que{2} What is the expectaton of the length of the longest bar?
+\que{2} What is the expectaton of the length of the longest piece?
 
-\textbf{Hint:} $x,y$ are selected independently in a uniform distribution from $(0,1)$. Each pair $(x,y)$ can be represented as a point in the unit square $(0,1)\times (0,1)$ (Figure~\ref{f.break2}). What is the probability that $(x,y) < (.5,.25)$? 
+\textbf{Hint:} $x,y$ are independent random variables with a uniform distribution from $(0,1)$. Each pair $(x,y)$ can be represented as a point in the unit square $(0,1)\times (0,1)$ (Figure~\ref{f.break2}). What is the probability that $(x,y) < (.5,.25)$? 
 
 \textbf{Hint:} For \que{1} assume that left piece is the shortest one and for \que{2} assume that the left piece is the longest one.
 \begin{figure}[tb]
@@ -110,9 +110,7 @@ A large number of glass rods of length $1$ are broken in two places (Figure~\ref
 
 Figure~\ref{f.shaded1} shows the lines $y=2x$ (red) and $y=1-x$ (blue).  For the inequalities to be true, $(x,y)$ must be in the shaded region left of the two lines. The point of intersection $(1/2,2/3)$ can be computed by solving the two equations.
 
-While the values of $(x,y)$ are in the range $(0,1)\times(0,1)$, the expectation is computed over the subset of $(0,1)\times(0,1)$ denoted by the shaded region of the unit square. Therefore, the expectation must be divided by the area of the shaded region  , which is $\frac{1}{2} (\frac{1}{3}\cdot 1)=\frac{1}{6}$.
-
-The expectation of the value of $x$ is:
+While the values of $(x,y)$ are in the square $(0,1)\times(0,1)$, the expectation is computed over the shaded subset of the square so the integral must be divided by the area of the shaded region: $\frac{1}{2} (\frac{1}{3}\cdot 1)=\frac{1}{6}$:
 \begin{eqn}
 E(x)&=& \frac{1}{1/6}\int_{0}^{1/3} x [(1-x)-2x]\,dx\\
 &=&\int_{0}^{1/3} (6x -18x^2)\,dx\\
@@ -202,7 +200,7 @@ Averages:     shortest = 0.1115, middle = 0.2783, longest = 0.6102
 \begin{prob}{Winning an unfair game\annotate{D,S}}
 You are given an unfair coin whose probability of heads is $1/3 < p < 1/2$. Toss a coin an even number of times $N=2n$. You win if and only \emph{more} than half of the tosses are heads.
 
-\que{1} Develop a formula for the probability $P_N$ of winning the game and develop a formula for the probability $T_N$ of a tie occurring.
+\que{1} Develop a formula for the probability $P_N$ of winning and develop a formula for the probability $T_N$ of a tie occurring.
 
 \que{2} Develop a formula for the $N$ that gives the highest probability of winning.
 
@@ -211,7 +209,7 @@ You are given an unfair coin whose probability of heads is $1/3 < p < 1/2$. Toss
 
 \solution{}
 
-\ans{1} To win the game head needs to appear in $i\in\{n+1, n+2, \ldots, 2n-1, 2n=N\}$ tosses. From the binomial distribution:
+\ans{1} To win, heads needs to appear in $i\in\{n+1, n+2, \ldots, 2n-1, 2n=N\}$ tosses. From the binomial distribution:
 \begin{eqn}
 P_N &=& \sum_{i=n+1}^{2n} \dischoose{2n}{i} p^i (1-p)^{2n-i}\\
 T_N &=& \dischoose{2n}{n} p^n (1-p)^{n}\,.
@@ -224,13 +222,13 @@ P_{2n-2} \leq P_{2n} \quad \textsf{and} \quad P_{2n}\geq P_{2n+2}\,.
 When is $P_{2n-2}\not = P_{2n}$?
 
 \textit{Case 1:}
-After toss $2n-2$ heads has appeared $n$ times and tails  $n-2$ times (so you would have won if you stop here), but tails appears in the next two tosses. You now have $n$ heads and $n$ tails, and therefore lose the game. The probability is:
+After toss $2n-2$, heads has appeared $n$ times and tails  $n-2$ times (so you would have won if you stop here), but tails appears in the next two tosses. You now have $n$ heads and $n$ tails, and therefore you lose. The probability is:
 \[
 \dischoose{2n-2}{n}p^n(1-p)^{n-2} (1-p)^2\,.
 \]
 
 \textit{Case 2:}
-After toss $2n-2$ heads has appeared $n-1$ times and tails $n-1$ times (so you would have lost if you stop here), but heads appears in the next two tosses. You now have $n+1$ heads and $n-1$ tails and therefore win the game. The probability is:
+After toss $2n-2$, heads has appeared $n-1$ times and tails $n-1$ times (so you would have lost if you stop here), but heads appears in the next two tosses. You now have $n+1$ heads and $n-1$ tails and therefore you win. The probability is:
 \[
 \dischoose{2n-2}{n-1}p^{n-1}(1-p)^{n-1} p^2\,.
 \]
@@ -252,7 +250,7 @@ n(1-p)&\geq& (n+1)p\\
 n &\geq& \disfrac{p}{1-2p}\\
 2n &\geq&\disfrac{1}{1-2p}-1\,.
 \end{eqn}
-Therefore, the value for $N=2n$ that gives the highest probability for winning is the nearest even integer to $1/(1-2p)$. We leave to the reader to show that if $1/(1-2p)$ is odd then $P_{2n}=P_{2n+2}$.
+Therefore, value for $N=2n$ that givs the highest probability for winning is the nearest even integer to $1/(1-2p)$. We leave to the reader to show that if $1/(1-2p)$ is odd then $P_{2n}=P_{2n+2}$.
 
 \textbf{Simulation}
 \begin{verbatim}
@@ -278,7 +276,7 @@ For 12 games, average won   = 0.2640
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{Average number of matches\annotate{S}}
-Lay out a deck of cards in a row in the standard order and then lay out a second deck in a row in a random order below the first (Figure~\ref{f.cards}). What is the expectation of the number of matches of a card in the first row with the card below it?
+Lay out a deck of cards in a row in the standard order and then lay out a second deck in a row in a random order below the first row (Figure~\ref{f.cards}). What is the expectation of the number of matches of a card in the first row with the card below it?
 \end{prob}
 
 \begin{figure}[tb]
@@ -335,7 +333,7 @@ Lay out a deck of cards in a row in the standard order and then lay out a second
 
 \solution{}
 
-The distribution is uniform because each card has the same probability of being matched with the card above it. Therefore:
+The distribution is uniform because each card in the second row has the same probability of being matched with the card above it. Therefore:
 \[
 E(\textsf{number of matches}) = 52\cdot \frac{1}{52} = 1\,.
 \]
@@ -349,14 +347,14 @@ Average of matches     = 1.01
 
 \begin{prob}{Probabilities of matches\annotate{S}}
 
-Lay out a deck of $n$ cards in a row in the standard order and then lay out a second deck in a row in a random order below the first (Figure~\ref{f.cards}). Develop a formula for $P(n,r)$, the probability that there will be exactly $r$ matches of a card in the first row with the card below? Assume that $P(k,0)$ is given for all $0\leq k\leq n$.
+Lay out a deck of $n$ cards in a row in the standard order and then lay out a second deck in a row in a random order below the first (Figure~\ref{f.cards}). Develop a formula for $P(n,r)$, the probability that there will be exactly $r$ matches of a card in the first row with the card below? Assume that $P(k,0)$ is given for $0\leq k\leq n$.
 \end{prob}
 
 \solution{}
 
-At first glance this problem seems to be related to Problem~28 but there is a major difference. The drawings from the boxes of counterfeit coins are independent, whereas here they are not. For example, if the first match occurs on the first card (with probability $1/n$), the probability that the second card matches is $1/(n-1)$.
+At first glance this problem seems to be related to Problem~28 but there is a major difference. The drawings from the boxes are independent, whereas here the matchings are not independent. For example, if the first match occurs on the first card (with probability $1/n$), the probability that the second card matches is $1/(n-1)$.
 
-The probability that any \emph{given} $r$ cards match is:
+The probability that any \emph{given} set of $r$ cards match is:
 \begin{equation}\label{eq.r-match}
 \disfrac{1}{n}\cdot \disfrac{1}{n-1}\cdot \cdots \cdot \disfrac{1}{n+r-1}\,.
 \end{equation}
@@ -382,7 +380,6 @@ P(n,k)&=&\disfrac{1}{k!}\sum_{i=0}^{n-k} \disfrac{(-1)^i}{i!}\\
 
 The simulation was run for $n=52$ cards and the probability computed from Equation~\ref{eq.r-matches-lim2}.
 \begin{verbatim}
-
 Probability of 1 matches = 0.3679
 Proportion 1 matches     = 0.3710
 Probability of 2 matches = 0.1839
@@ -396,26 +393,26 @@ Proportion 4 matches     = 0.0168
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{Choosing the largest dowry\annotate{D,S}}
-Place a sequence of $n$ cards face down. There is a positive integer written on the face of each card but you have no knowledge as to their distribution. Turn the cards over one-by-one and look at the numbers. After turning over each card you can declare that it is the largest number. If you are correct you win the game, otherwise you lose. For example, let the sequence of cards be $(47, 23, 55, 4)$. You win only if you choose the third card.
+Place $n$ cards in a row face down. There is a positive integer written on the face of each card but you have no knowledge as to their distribution. Turn the cards over one-by-one and look at the numbers. After turning over each card you can declare that it is the largest number. If you are correct you win the game, otherwise you lose. For example, let the sequence of cards be $(47, 23, 55, 4)$. You win only if you choose the third card.
 
 Consider the following strategy: for some fixed $r$ reject the first $r-1$ cards and select the first card whose number is greater than all the $r-1$ cards.
 
-\que{1} For $n=4$ and $r=3$ check all permutations to determine how many games you will win.
+\que{1} For $n=4$ and $r=3$ check all permutations and determine the number of permutations where you win.
 
 \que{2} Develop a formula for the probability of a win for arbitrary $n, r$.
 
 \que{3} Find an approximation for the probability when $n,r\rightarrow \infty$.
 
-\textbf{Hint:} Given $r$ where must the largest number $m$ and the numbers less or equal to $m$ be? 
+\textbf{Hint:} Given $r$ in what positions can the largest number $m$ be and in what positions are numbers less or equal to $m$? 
 
 \end{prob}
 
 \solution{}
 
 \ans{1} 
-To simplify notation we write the rank of the numbers $1,2,3,4$, although the actual numbers are not known, say they are $4,23,47,55$. If you uncover cards $1,2,3$ ($4,23,47$) you do not know whether to accept $47$ or to reject it and select the last card.
+To simplify notation we write the rank of the numbers as $1,2,3,4$, although the actual numbers are not known, say they are $4,23,47,55$. If you uncover cards $1,2,3$ (which are actually $4,23,47$), you do not know whether to accept $47$ or to reject it and select the last card.
 
-There are $24$ permutations of the four numbers. By the strategy you select either the third card or the fourth card, so you lose if the  permutation has $4$ in the first position. What about the permutation $(1,2,3,4)$? You ignore $1,2$ and select $3$ since it  greater than $1,2$ but this is not the largest card so you lose. What about the permutation $(1,3,2,4)$? Again, $1,3$ are ignored by the strategy, but $2$ is also rejected because it is \emph{not} larger than $1,3$. Now you select $4$ and win. Carry out this reasoning for all the permutations and check that permutations with boxed $4$s are wins:
+There are $24$ permutations of the four numbers. By the strategy you reject the first two cards and select either the third card or the fourth card, so you lose if the  permutation has $4$ in the first position. What about the permutation $(1,2,3,4)$? You reject $1,2$ and select $3$ since it  greater than $1,2$ but this is not the largest card so you lose. What about the permutation $(1,3,2,4)$? Again, $1,3$ are rejected by the strategy, but $2$ is also rejected because it is \emph{not} larger than $1,3$. Now you select $4$ and win. Carry out this reasoning for all the permutations and check that permutations with boxed $4$s are wins:
 \[
 \addtolength{\arraycolsep}{-2pt}
 \renewcommand*{\arraystretch}{1.5}
@@ -452,7 +449,7 @@ The probability of winning is $10/24$.
 \[
 1\quad 2\quad \cdots\quad r-2 \quad r-1 \quad \overbrace{r \quad r+1 \quad \cdots\quad m-1\quad  m \quad m+1\quad \cdots \quad n}^{\textsf{largest number must be here}}\,.
 \]
-By the strategy you reject the first $r-1$ cards. You will choose position $m$ only if \emph{all} the numbers in $(r,\ldots,m-1)$ are less than \emph{all} the numbers in $(1,\ldots,r)$. In other words, the largest card in the entire sequence $(1,\ldots,m-1)$, the sequence up until $m$, is \emph{not} in the second part of the sequence $(r,\ldots m-1)$ but in the first part $(1,\ldots,r-1)$. The probability is:
+By the strategy you reject the first $r-1$ cards. You will choose position $m$ only if \emph{all} the numbers in $(r,\ldots,m-1)$ are less than \emph{all} the numbers in $(1,\ldots,r)$. In other words, the largest card in the sequence $(1,\ldots,m-1)$ is \emph{not} in the second part of the sequence $(r,\ldots m-1)$ but in the first part $(1,\ldots,r-1)$. The probability is:
 \[
 P(\textsf{largest card in}\;(1,\ldots,m-1)\;\textsf{is in}\; (1,\ldots,r-1)) = \disfrac{r-1}{m-1}\,.
 \]
@@ -502,7 +499,7 @@ Proportion wins       = 0.3601
 
 \begin{prob}{Choosing the largest random number\annotate{D,S}}
 
-Place a sequence of $n$ cards face down. On the face of each card is a real number with uniform distribution in $0.0\leq x<1.0$. Turn the cards over one-by-one and look at the numbers. After turning over each card you can declare that it is the largest number. If you are correct you win the game, otherwise you lose.
+Place a sequence of $n$ cards face down. On the face of each card is a real number with uniform distribution in $0.0\leq x<1.0$. Turn the cards over one-by-one and look at the numbers. After turning over each card you can declare that it is the largest number in the sequence. If you are correct you win the game, otherwise you lose.
 
 Use the strategy of Problem~37: decide upon a value $r$ such that you reject the first $r-1$ cards and then select the first card that is larger than the largest value in the first $r-1$ cards.
 
@@ -528,22 +525,22 @@ Let $v_1,v_2,v_3$ be the values of the three cards.
 
 Here is the formula for the probability of winning:
 \[
-P(\textsf{win with two cards}) = p(\textsf{win} \,|\,v_1<0.5)\,p(v_1<0.5)+ p(\textsf{win}\,|\,v_1>0.5)\,p(v_1>0.5)\,.
+P(\textsf{win}) = p(\textsf{win} \,|\,v_1<0.5)\,p(v_1<0.5)+ p(\textsf{win}\,|\,v_1>0.5)\,p(v_1>0.5)\,.
 \]
-$p(v_1<0.5)=0.5$ is immediate by uniform distribution. What about $p(\textsf{win} \,|\,v_1<0.5)$? By the strategy you win if $0.5<v_2<1$, but you also win if $v_1<v_2<0.5$. Since $v_1$ is uniformly distributed in $(0,0.5)$:
+$p(v_1<0.5)=0.5$ follows by the uniform distribution. What about $p(\textsf{win} \,|\,v_1<0.5)$? By the strategy you win if $0.5<v_2<1$, but you also win if $v_1<v_2<0.5$. Since $v_1$ is uniformly distributed in $(0,0.5)$:
 \[
 p(\textsf{win} \,|\,v_1<0.5)=\disfrac{1}{2} + \disfrac{1}{4}=\disfrac{3}{4}\,.
 \]
-A similar computation holds for $v_1>0.5$. Putting this together gives:
+A similar computation holds for $v_1>0.5$. Putting the partial computations together gives:
 \[
-P(\textsf{win with two cards})=\disfrac{3}{4}\cdot\disfrac{1}{2}+\disfrac{3}{4}\cdot\disfrac{1}{2}=\disfrac{3}{4}\,.
+P(\textsf{win})=\disfrac{3}{4}\cdot\disfrac{1}{2}+\disfrac{3}{4}\cdot\disfrac{1}{2}=\disfrac{3}{4}\,.
 \]
 
 \ans{3}
 
 If you select the first card $P(\textsf{win})=v_1^2$ because the second and third cards must be smaller than the first.
 
-If you reject the first card and select the second because $v_2>v_1$:
+If you reject the first card and select the second because $v_2>v_1$ then:
 \begin{itemize}
 \item $P(\textsf{win})=(1-v_1)v_1$ if $v_2>v_1$ and $v_3<v_1$.
 \item $P(\textsf{win})=v_1(1-v_1)$ if $v_2<v_1$ and $v_3>v_1$.

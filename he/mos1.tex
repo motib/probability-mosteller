@@ -595,7 +595,7 @@ $a_2$
 \[
 P(a_1,a_2\;\textrm{שונים בחצאים משחקות})=\frac{2^{n-1}-1}{2^n-1}\,.
 \]
-בגלל ששתי השחקניות משחקות באותו חצי הבעיה מצטמטת בדרישה למצוא
+שתי השחקניות משחקות באותו חצי ולכן הבעיה היא למצוא
 $P_{n-1}$.
 לפי הנחת האינדוקציה:
 \begin{equation}\label{eq.17b}
@@ -949,16 +949,14 @@ E(\textrm{מנצחת}\;A) =E(\textrm{מנצחת}\;A\;|\;B\;\textrm{ את מחט�
 \qquad
 \overbrace{1\cdot (0.7\cdot 1\cdot 0.3)}%
 ^{A\stackrel{M}{\longrightarrow}B, B\stackrel{H}{\longrightarrow}C, A\stackrel{H}{\longrightarrow}B}+
-
 \overbrace{0\cdot (0.7\cdot 1\cdot 0.7\cdot 1)}%
-^{A\stackrel{M}{\longrightarrow}B, B\stackrel{H}{\longrightarrow}C,A\stackrel{M}{\longrightarrow}B,B\stackrel{H}{\longrightarrow}A} +
-
+^{A\stackrel{M}{\longrightarrow}B, B\stackrel{H}{\longrightarrow}C,A\stackrel{M}{\longrightarrow}B,B\stackrel{H}{\longrightarrow}A} +\\
+\qquad
 \overbrace{1\cdot (0.2308)}%
-^{A\stackrel{H}{\longrightarrow}B, C\stackrel{H}{\longleftrightarrow*}A,C\stackrel{H}{\longrightarrow}A} +
+^{A\stackrel{H}{\longrightarrow}B, C\stackrel{H}{\longleftrightarrow*}A,C\stackrel{H}{\longrightarrow}A}\!\!\! +\;\;
 \overbrace{0\cdot (0.3\cdot (0.0769))}%
 ^{A\stackrel{H}{\longrightarrow}B, C\stackrel{H}{\longleftrightarrow}A,C\stackrel{H}{\longrightarrow}A}
-\approx\\
-\qquad 0.2792\,,
+\;\approx\; 0.2792\,,
 \end{array}
 \]
 שהיא גבוהה יותר מהתוחלת לנצח על ידי ירי תחילה לעבר 
