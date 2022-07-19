@@ -15,7 +15,6 @@ A drawer contains both red socks and black socks. If two socks are drawn at rand
 
 \que{2} How small can the number of black socks in the drawer be if the number of black socks is \emph{even}? What is the corresponding number of red socks?
 \end{prob}
-
 \solution{1}
 
 \ans{1} Let $r$ be the number of red socks in the drawer and let $b$ the number of black socks.  $r\geq 2$ since two red socks are drawn, and $b\geq 1$ since otherwise the probability of drawing two red socks would be $1$. Multiplying the probabilities for the two selections gives:
@@ -154,7 +153,6 @@ You play a sequence of three games alternately against two players and you win t
 \item You play against $P_2,P_1,P_2$ in that order.
 \end{itemize}
 \end{prob}
-
 \solution{1}
 
 You win if: (a) you win the first two games and lose the last game, (b) you lose the first game and win the last two games, or (c) you win all three games.
@@ -198,7 +196,6 @@ Explain why the proportions don't add up to $1$.
 \begin{prob}{The flippant juror\annotate{S}}
 There are two options to reach a decision: (a) A three-person panel consisting of two members who independently make the correct decision with probability $p$ and one member who makes the correct decision with probability $1/2$. The final decision is determined by a majority vote. (b) A one-person panel whose only member has probability $p$ of making the correct decision. Which option has the higher probability of making the correct decision?
 \end{prob}
-
 \solution{}
 
 The three-person panel makes the correct decision if all three members make the correct decision or if any subset of two members makes the correct decision. The probability is:
@@ -221,7 +218,6 @@ For p = 0.75, proportion correct of (a) = 0.5062, (b) = 0.5040
 \label{p.four}
 What is the expectation of the number of throws of a die until a $6$ appears?
 \end{prob}
-
 \solution{1}
 
 The probability that the $i$th throw will be the first occurrence of $6$ is the probability of $i-1$ throws of one of the other five numbers times the probability that the $i$th throw will give $6$. To simplify the notation we use $p$ for $1/6$:
@@ -297,7 +293,6 @@ Average of first success     = 6.0161
 
 \que{3} Develop a formula for the probability of the coin landing within the square if the side of the square is $a$ and the radius of the coin is $r<a/4$.
 \end{prob}
-
 \solution{}
 
 \ans{1} Figure~\ref{f.coins1} shows a square of side $8$ and four circles of radius $3$ inscribed within the corners of the square. The centers of the circles form an inner square of side $2$. Any coin whose center is outside the inner square will touch an edge of the outer square. Since the center of the coin is uniformly distributed, the probability that the coin lands entirely within the square is the ratio of the area of the inner square to the area of the outer square:
@@ -391,7 +386,6 @@ Proportion landing within the square     = 0.0000
 \begin{prob}{Chuck-a-luck\annotate{S}}
 Choose number $n$ between $1$ and $6$. Throw three dice. If $n$ does not appear on any of the dice you lose $1$; if $n$ appears on one die you win $1$; if $n$ appears on two dice you win $2$; if $n$ appears on three dice you win $3$. What is the expectation of your winnings?
 \end{prob}
-
 \solution{}
 
 Let $P(k)$ be the probability of $n$ appearing on $k$ dice. Then:
@@ -424,7 +418,6 @@ Roulette is a game played with a wheel having $38$ numbered pockets: $18$ red, $
 
 \que{2} Your friend offers to bet you $20$ that after $36$ rounds you will have \emph{lost} money. What is the expectation of your winnings, taking into account the money won or lost from both the game and your friend's bet?
 \end{prob}
-
 \solution{}
 
 \ans{1} The probability of winning a single round is $1/38$ so:
@@ -465,7 +458,6 @@ The simulation showed a large variance which was reduced by running one million 
 \begin{prob}{Perfect bridge hand}
 Randomly select $13$ cards from a deck. What is the probability that they will all be of the same suit?
 \end{prob}
-
 \solution{1}
 
 Since there are $13$ cards of each suit there are $\dischoose{52}{13}$ ways of selecting $13$ cards of a single suit, say hearts. Only one of them consists of $13$ hearts so:
@@ -494,7 +486,6 @@ Craps is a played with a pair of dice. On the first throw you win if the sum of 
 
 \que{2} What is the probability of a win?
 \end{prob}
-
 \solution{1}
 
 \ans{1} The probability of any outcome in a throw of a die is uniformly distributed and is equal to $1/6$. Since the outcomes of a throw of a pair of dice are independent, the probability of any outcome is $1/36$. The number of ways of obtaining each of the events (the sums of a pair of dice) $2,\ldots,12$ is:

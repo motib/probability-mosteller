@@ -5,7 +5,6 @@
 \begin{prob}{Birthday pairings\annotate{S}}
 Randomly select $23$ people and ask them what their birthdays are. Assume a uniform distribution of $365$ different birthdays (no one was born on February $29$). Show that the probability that at least two of them have the same birthday is greater than $0.5$.
 \end{prob}
-
 \solution{}
 
 Compute the probability that none of the $23$ people have the same birthday and show that it is less than $0.5$. Select the first birthday arbitrarily, then the next birthday from the remaining days, then the next birthday from the remaining days, and so on:
@@ -67,7 +66,6 @@ Why is finding a birthmate a different problem than finding a birthday pairing?
 \que{2}
 Solve the problem by using the approximation in Equation~\ref{eq.reciprocal} (page~\pageref{eq.reciprocal}).
 \end{prob}
-
 \solution{}
 
 Many people could have the same birthday which is considered a success for find a birthday pairing, but not for finding a birthmate unless that birthday is the same as yours.
@@ -118,7 +116,6 @@ Proportion no match     = 0.5078
 \begin{prob}{Relating the birthday pairings and the birthmate problems}
 Let $P_{\textsf{\footnotesize pair}}(r)$ be the probability that out of $r$ people two are a birthday pair (Problem~$31$) and let $P_{\textsf{\footnotesize mate}}(n)$ be the probability that out of $n$ people at least one is your birthmate (Problem~$32$). Given $r$, for what $n$ does $P_{\textsf{\footnotesize pair}}(r) \approx P_{\textsf{\footnotesize mate}}(n)$?
 \end{prob}
-
 \solution{1}
 
 The solution is based on \cite{birthday}.
@@ -188,7 +185,6 @@ A factory is closed whenever one of its workers has a birthday. There are no oth
 
 \textbf{Hint:} Prove that there must be a maximum by considering extreme cases. Then develop a formula for the expectation of the number of work-days for a single day.
 \end{prob}
-
 \solution{}
 
 \ans{1}
@@ -295,9 +291,7 @@ A particle is initially placed on the $x$-axis at position $1$. At any position 
 \end{center}
 \caption{Can the particle return to $0$ (axis is infinite to the right)?}\label{f.ruin1}
 \end{figure}
-
 \end{prob}
-
 \solution{}
 
 It is no more difficult to compute the probabilty for arbitrary $p$ as it is for $p=2/3$, so we give solutions for both questions together.
@@ -392,7 +386,6 @@ A particle is initially placed on the $x$-axis at position $m\geq 1$. At any pos
 \textbf{Note:} Problem~35 is represents a gambler with a finite amount of money playing against a casino with unlimited money. The problem asks for the probabiliy that the gambler loses all his money. This problem represents one gambler who starts with $m$ playing against a second gambler who starts with $n-m$. The problem asks for the probabilities that \emph{one} of the gamblers loses all her money to the other one.
 
 \end{prob}
-
 \solution{}
 
 The solution is based on \cite[Chapter~2, Example~4m]{ross}.
@@ -476,7 +469,6 @@ Which of the following strategies is better?
 \end{enumerate}
 \textbf{Hint:} Use the results of Problem~36.
 \end{prob}
-
 \solution{}
 
 The probability of winning with bold play is $18/38\approx 0.4737$.
@@ -550,7 +542,6 @@ Instead of straight rods suppose that you are given (unmarked) glass rings that 
 \end{center}
 \end{figure}
 \end{prob}
-
 \solution{1}
 
 The rods are not symmetric because the end pieces are different from the center piece. However, the ring is symmetric so the distributions of all three pieces must be uniform with expectation $1/3$. By choosing and coloring one of breaks as shown in Figure~\ref{f.rod2}, the problem is now the same as that of the rods so the distributions remain the same. Therefore the expectation of the lengths of the pieces is also $1/3$.
@@ -630,7 +621,6 @@ Deal cards from a well-shuffled deck of cards until an ace appears. What is the 
 
 \textbf{Hint:} Consider the deck of cards without the aces to be laid out in a line.
 \end{prob}
-
 \solution{}
 
 The cards form a ``rod'' of length $48$ which is ``broken'' by the $4$ aces into $5$ ``pieces.'' The solution of Problem~39 applies and the expectation of the length of a piece is $48/5=9.6$.
