@@ -2,12 +2,10 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{Doubling you accuracy}
-You are given two rods of lengths $L_1<L_2$ and a measuring instrument whose possible error is given by a normal distribution with mean $0$ and variance $\sigma^2$. The lengths of the two rods can be measured by measuring each one separately. Is there a more accurate method?
+\begin{prob}{Doubling your accuracy}
+You are given two rods of lengths $L_1<L_2$ and a length-measuring instrument whose possible error is given by a normal distribution with mean $0$ and variance $\sigma^2$. The lengths of the two rods can be measured by measuring each one separately. Is there a more accurate method?
 \end{prob}
-
 \solution{}
-
 \begin{figure}[bt]
 \begin{center}
 \begin{tikzpicture}
@@ -35,7 +33,7 @@ The errors in the measurements are $e_s, e_d$ so the errors in the results are:
 \textstyle\frac{1}{2}((L_s+e_s)-(L_d+e_d))&=&L_1+\textstyle\frac{1}{2}(e_s-e_d)\\
 \textstyle\frac{1}{2}((L_s+e_s)+(L_d+e_d))&=&L_2+\textstyle\frac{1}{2}(e_s+e_d)\,.
 \end{eqn}
-Since the mean of the measurement instrument is $0$, the mean of the errors of these measurements is also zero. The variance is reduced to half its previous value:\footnote{We use the fact that the measurements are independent so the covariance is zero.}
+Since the mean of the measurement instrument is $0$, the mean of the errors of the two measurements is also $0$. The variance is reduced to half its previous value:\footnote{The measurements are independent so the covariance is $0$.}
 \begin{eqn}
 \mathrm{Var}\left(\textstyle\frac{1}{2}\left(e_s-e_d\right)\right)&=&
   \textstyle\frac{1}{4}(\sigma^2+(-1)^2\sigma^2)=\frac{1}{2}\sigma^2\\
@@ -54,7 +52,6 @@ Consider the quadratic equation $x^2+2bx+c=0$ defined on $[-B,B]\times[-B,B]$ fo
 
 \que{2} As $B\rightarrow \infty$ what is the probability that the roots are real?
 \end{prob}
-
 \solution{}
 
 \ans{1}
@@ -126,11 +123,11 @@ Proportion real roots     = 0.9582
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{Two-dimensional random walk\annotate{S}}
-A particle is placed at the origin of a two-dimensional coordinate system. The particle moves left or right on the $x$-axis with probabilities $1/2$ \emph{and} up or down the $y$-axis with probabilities $1/2$. Figure~\ref{f.2d-random-walk} shows a random walk of $22$ steps starting at and returning to the origin.
+A particle is placed at the origin of a two-dimensional coordinate system. The particle moves left or right on the $x$-axis with probabilities $1/2$ for each direction and \emph{simultaneouly} up or down the $y$-axis with probabilities $1/2$ for each direction. Figure~\ref{f.2d-random-walk} shows a random walk of $22$ steps starting at and returning to the origin.
 
-\que{1} What is the probability of returning to the origin in $2$ moves?
+\que{1} What is the probability that the particle returns to the origin in $2$ moves?
 
-\que{2} What is the probability that the particle returns (one or more times) to the origin?
+\que{2} Develop a formula for the probability that the particle returns (one or more times) to the origin.
 
 \que{3} Use Stirling's approximation to obtain an estimate of the probability for large $n$.
 
@@ -167,9 +164,7 @@ A particle is placed at the origin of a two-dimensional coordinate system. The p
 \end{center}
 \caption{Two-dimensional random walk}\label{f.2d-random-walk}
 \end{figure}
-
 \end{prob}
-
 \solution{}
 
 \ans{1}
@@ -206,17 +201,17 @@ P(\textsf{return to origin in two moves})=\frac{4}{16}\,.
 \caption{Two moves of the random walk}\label{f.two-moves}
 \end{figure}
 
-\ans{3} The choices of direction for $x$ and $y$ are independent so for $2n$ moves:
+\ans{3} The choice of direction for both axes are independent so for $2n$ moves:
 \begin{equation}\label{eq.2d-1}
 P_{2n}(\textsf{return to origin}) =
-P_{2n}(\textsf{return to}\;x=0)\,P_{2n}(\textsf{return to}\;y=0)\,.
+P_{2n}(\textsf{return to}\;x\!=\!0)\,P_{2n}(\textsf{return to}\;y\!=\!0)\,.
 \end{equation}
 The particle will return to the origin if and only if for both axes the number of $+1$ moves equals the number of $-1$ moves. There are ${2n \choose n}$ ways to arrange $+1$s and $-1$s so:
 {
 \addtolength{\arraycolsep}{-3pt}
 \begin{eqnarray}
 \label{eq.return-to-origin1}
-P_{2n}(\textsf{return to}\;x=0) =P_{2n}(\textsf{return to}\;y=0)&=&
+P_{2n}(\textsf{return to}\;x\!=\!0) =P_{2n}(\textsf{return to}\;y\!=\!0)&=&
 \dischoose{2n}{n}\left(\disfrac{1}{2}\right)^n\left(\disfrac{1}{2}\right)^{n}\\
 P_{2n}(\textsf{return to origin}) &=&
 \left[\dischoose{2n}{n}\left(\disfrac{1}{2}\right)^{2n}\right]^2\\
@@ -246,10 +241,10 @@ P_{2n}(\textsf{return to origin}) &=&
 &=& \disfrac{1}{\pi n}\\
 P(\textsf{return to origin}) &=& \disfrac{1}{\pi}\sum_{n=1}^{\infty}\disfrac{1}{n}\,,
 \end{eqn}
-which is the \emph{harmonic series} that diverges. This means that with probability $1$ the particle returns to the origin.
+which is the \emph{harmonic series} that diverges, therefore, with probability $1$ the particle returns to the origin!
 
 \textbf{Simulation}
-The simulation was run one million times instead of ten thousand times but still there is no certainty of returning to the origin:
+The simulation was run one million times instead of ten thousand times but the result doesn't show that the particle must return to the origin.
 \begin{verbatim}
 Proportion returned to origin      = 0.8700
 \end{verbatim}
@@ -263,24 +258,22 @@ A particle is placed at the origin of a three-dimensional coordinate system. The
 
 \textbf{Hint:} Compute the probability and then use an indicator variable.
 
-\que{2} What is the probability that the particle will return to the origin (at least once)?
+\que{2} What is the probability that the particle will return to the origin at least once?
 
 \textbf{Hint:} Use the technique from Problem~4.
 \end{prob}
-
 \solution{}
 
-$P_{2n}$, probability of returning to the origin after $2n$ steps, is given by the analogue of Equation~\ref{eq.return-to-origin1}:
+$P_{2n}$, probability of returning to the origin after $2n$ steps, is given by generalizing Equation~\ref{eq.return-to-origin1} to three dimensions:
 \[
 P_{2n} =
-P_{2n}(\textsf{return to}\;x=0)\,P_{2n}(\textsf{return to}\;y=0\, P_{2n}(\textsf{return to}\;z=0)\,.
+P_{2n}(\textsf{return to}\;x\!=\!0)\,P_{2n}(\textsf{return to}\;y\!=\!0\, P_{2n}(\textsf{return to}\;z\!=\!0)\,.
 \]
 $P_r$, the probability of returning to the origin one or more times, is given by the analogue of Equation~\ref{eq.return-to-origin2}:
 \[
 P_r =\sum_{n=1}^{\infty}P_{2n} =
 \sum_{n=1}^{\infty}\left[\dischoose{2n}{n}\left(\disfrac{1}{2}\right)^{2n}\right]^3\,.
 \]
-
 From Stirling's approximation:\footnote{Mosteller used $18$ terms in his computation and obtained $0.315$. My program used $500$ terms to obtain $0.3772$.}
 \begin{eqn}
 P_{2n} &=&
@@ -301,8 +294,8 @@ Let $I_k$ be the indicator variable for a return to the origin on step $k$:
 I_k=
 \left\{
 \begin{array}{ll}
-1,\quad\textsf{if particle returns to origin on step}\;k\\
-0, \quad\textsf{if particle does not returns to origin on step}\;k\,.
+1,\quad\textsf{if the particle returns to origin on step}\;k\\
+0, \quad\textsf{if the particle does not returns to origin on step}\;k\,.
 \end{array}
 \right.
 \end{equation}
@@ -312,15 +305,14 @@ E(\textsf{number of returns to the origin})=\sum_{n=1}^{\infty}P_{2n}\, I_{2n} =
 \]
 so the expectation of the number of returns is equal to the probability.
 
-\que{2} Let $P_1$ be the probability that the particle returns to the origin \emph{at least once}.  From Problem~4 we know that the expectation of the number of trials until the first one where the particle \emph{does not} return to the origin is $1/(1-P_1)$. Therefore, the expectation of the number of trials for which the particle does return to the origin is one less, because the particle can return to the origin many times until finally it does not.\footnote{Mosteller's presentation is not easy to follow. I would like to thank Aaron Montgomery for clarification \cite{montgomery}.}
+\que{2} Let $P_1$ be the probability that the particle returns to the origin \emph{at least once}.  From Problem~4 we know that the expectation of the number of trials until the first one where the particle \emph{does not} return to the origin is $1/(1-P_1)$. Therefore, the expectation of the number of trials for which the particle does return to the origin is one less, because the particle can return to the origin many times until finally it does not.\footnote{Mosteller's presentation is not easy to follow. I would like to thank Aaron Montgomery for clarifying the solution \cite{montgomery}.}
 
 Let $E_r=E(\textsf{number of returns to the origin})$, then:
 \begin{eqn}
 E_r &=& \disfrac{1}{1-P_1} - 1\\
 P_1&=& \disfrac{E_r}{1+E_r}\,.
 \end{eqn}
-In \ans{1} we computed that $E_r\approx 0.3772$ so:
-Then:
+In \ansnc{1} we computed that $E_r\approx 0.3772$ so:
 \[
 P_1 \approx 1- \disfrac{1}{1+0.3772}
 \approx 0.2739\,.
@@ -339,7 +331,7 @@ Proportion reached origin      = 0.2790
 \begin{prob}{Buffon's needle\annotate{D, S}}
 Consider a needle of length $a\leq 1$ and a surface ruled with parallel lines $1$ apart. Throw the needle onto the surface. What is the probability that the needle crosses a line?\footnote{The problem has been simplified by specifying the distance between the parallel lines as $1$. We ignore the possibility that the needle lies completely along the line or just touches two lines since the probability of these events is zero.}
 
-\textbf{Hint:} There are two independent random variables (Figure~\ref{f.buffon1}): $x$, the position of the center of the needle relative to the closest line which is uniformly distributed in the range $[0,1]$, and $\theta$, the angle formed by the needle relative to the parallel lines which is uniformly distributed in the range $[0,\pi/2]$.
+\textbf{Hint:} There are two independent random variables (Figure~\ref{f.buffon1}): $x$, the position of the center of the needle relative to the closest line which is uniformly distributed in the range $[0,1/2]$, and $\theta$, the angle between the needle and the parallel lines which is uniformly distributed in the range $[0,\pi/2]$.
 
 \begin{figure}[tb]
 \begin{center}
@@ -358,9 +350,7 @@ Consider a needle of length $a\leq 1$ and a surface ruled with parallel lines $1
 \end{center}
 \caption{Buffon's needle}\label{f.buffon1}
 \end{figure}
-
 \end{prob}
-
 \solution{1}
 
 Let $p(a)$ be the probability that a needle of length $a$ crosses a line and define the indicator variable:
@@ -429,7 +419,7 @@ E(\textsf{lines crossed}) =
   \right|_0^{\pi/2}=\disfrac{2a}{\pi}\,.
 \end{equation}
 
-\solution{2} This solution is taken from \cite[Chapter~26]{proofs}.
+\solution{2} This solution is based upon \cite[Chapter~26]{proofs}.
 
 \begin{figure}[tb]
 \begin{center}
@@ -444,11 +434,11 @@ E(\textsf{lines crossed}) =
 \caption{Solving Buffon's needle with circles}\label{f.buffon3}
 \end{figure}
 
-Let $E(x)$ be the expectation of the number of parallel lines crossed by a line $x$. Consider a line formed into a circle $C$ of \emph{diameter} $1$ and circumference $\pi$. If the circle is thrown onto the surface it will have \emph{exactly} two intersections with the lines (Figure~\ref{f.buffon3}), that is:
+Let $E(x)$ be the expectation of the number of parallel lines crossed by a line of length $x$. Consider a line formed into a circle $C$ of \emph{diameter} $1$ and circumference $\pi$. If the circle is thrown onto the surface it will cross lines \emph{exactly} twice (Figure~\ref{f.buffon3}) so:
 \begin{equation}\label{eq.buffon-2}
 E(C)=2\,.
 \end{equation}
-Inscribe a regular polygon $Q_n$ (red) within $c$ (green) and circumscribe a regular polygon $R_n$ (blue) around $c$ (Figure~\ref{f.buffon4}). Any line (red) that $Q_n$ crosses must also cross the circle and any line (blue) that crosses the circle must also cross $R_n$. Therefore:
+Inscribe a regular polygon $Q_n$ (red) within $c$ (green) and circumscribe a regular polygon $R_n$ (blue) around $c$ (Figure~\ref{f.buffon4}). Any line that $Q_n$ crosses (red) must also cross the circle and any line that crosses the circle (blue) must also cross $R_n$. Therefore:
 \begin{equation}\label{eq.buffon3}
 E(Q_n)\leq E(C)\leq E(R_n)\,.
 \end{equation}
@@ -456,8 +446,8 @@ Let $a_Q, a_R$ be the sums of the lengths of the sides of $Q_n,R_n$, respectivel
 {
 \addtolength{\arraycolsep}{-3pt}
 \begin{eqnarray}\label{eq.buffon1}
-E(Q_n)&=&\sum_{i=1}^n E(\textsf{segments of}\;a_Q)=a_QE(1)\\
-\label{eq.buffon2}E(R_n)&=&\sum_{i=1}^n E(\textsf{segments of}\;a_R)=a_RE(1)\,. 
+E(Q_n)&=&\sum_{i=1}^n E(\textsf{sides of}\;a_Q)=a_QE(1)\\
+\label{eq.buffon2}E(R_n)&=&\sum_{i=1}^n E(\textsf{sides of}\;a_R)=a_RE(1)\,. 
 \end{eqnarray}
 }
 As $n\rightarrow\infty$ both polygons approximate the circle so:
@@ -495,7 +485,7 @@ E(a)=aE(1)=\disfrac{2a}{\pi}\,.
 
 \textbf{Simulation}
 
-Since $\pi=2a/E$ the simulation (or actually throwing needles on a table!) can be used to obtain an approximation of $\pi$.
+Since $\pi=2a/E$ you can obtain an approximation of its value by running the simulation or throwing needles on a table!
 
 \begin{verbatim}
 For length = 0.2:
@@ -534,20 +524,19 @@ Solve Buffon's needle problem for a surface that is covered by a grid with squar
     \draw[color=\c,very thick] (\x,\y) -- +(\a:1.7);
 \end{tikzpicture}
 \end{center}
-\caption{Buffon's needle with horizonal and vertical crossings}\label{f.buffon5}
+\caption{Buffon's needle with horizonal and vertical lines}\label{f.buffon5}
 \end{figure}
 \end{prob}
-
 \textbf{Hint:} Are the numbers of crossings of the horizontal and vertical lines independent?
 
 \solution{}
 
-The numbers of crossings of the horizontal and vertical lines are independent and expectation is linear so:
+The numbers of crossings of the horizontal and vertical lines are independent and by the linearity of expectation:
 \begin{eqn}
-E(\textsf{lines crossed by\ } a)&=&E(\textsf{vertical lines crossed by\ } a +
-     \textsf{horizontal lines crossed by\ } a)\\
-&=&E(\textsf{vertical lines crossed by\ } a) +
-   E(\textsf{horizontal lines crossed by\ } a)\\
+E(\textsf{lines crossed by a needle of length}\; a)&=&E(\textsf{vertical lines crossed by a needle of length}\; a +\\
+&&\quad\:\textsf{horizontal lines crossed by a needle of length}\;a)\\
+&=&E(\textsf{vertical lines crossed by a needle of length}\;a) +\\
+&&E(\textsf{horizontal lines crossed by a needle of length}\;a)\\
 &=&\disfrac{2a}{\pi}+\disfrac{2a}{\pi}=\disfrac{4a}{\pi}\,.
 \end{eqn}
 
@@ -565,7 +554,6 @@ Let the length of the needle in Buffon's problem be $a>1$.
 \textbf{Hint:} For what angles $\theta$ is the probability a crossing $1$?
 
 \end{prob}
-
 \solution{}
 
 \ans{1} Break the needle into pieces of lengths $\{a_1,a_2,\ldots, a_n\}$, $a_i< 1$, such that $\sum_{i=1}^n a_i=a$. By the linearity of expectation and the solution of Problem~53:
@@ -575,7 +563,7 @@ E(a)= \sum_{i=1}^n E(a_i)= \disfrac{2a}{\pi}\,.
 
 \ans{2} This solution is based on \cite{wiki-buffon} and \cite[Chapter~26]{proofs}.
 
-By Equation~\ref{eq.cross} the probability that a needle will cross a line is $a\sin\theta$ \emph{if} $a\sin\theta \leq 1$, that is, if $0\leq\theta\leq\sin^{-1}(1/a)$. However, if $a\sin\theta > 1$ then the probability is $1$ (Figure~\ref{f.buffon6}). Let us generalize Equation~\ref{eq.buffon-integral} for arbitrary $a>0$. The integral is divided into two, one for $\theta<\sin^{-1}(1/a))$ and one for $\theta>\sin^{-1}(1/a))$:
+By Equation~\ref{eq.cross} the probability that the needle will cross a line is $a\sin\theta$ \emph{if} $a\sin\theta \leq 1$, that is, if $0\leq\theta\leq\sin^{-1}(1/a)$. However, if $a\sin\theta > 1$ then the probability is $1$ (Figure~\ref{f.buffon6}). Let us generalize Equation~\ref{eq.buffon-integral} for arbitrary $a>0$. The integral is computed in two parts, one for $\theta<\sin^{-1}(1/a))$ and one for $\theta>\sin^{-1}(1/a))$:
 \begin{eqn}
 E(a) &=& \disfrac{2}{\pi}
    \left(\int_{0}^{\sin^{-1}(1/a)} 
@@ -646,27 +634,24 @@ Average crossings        = 0.8897
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{Molina's urns}
-Let $U_1,U_2$ be two urns containing $m$ balls each. $U_1$ has $w_1$ white balls and $b_1$ blacks while $U_2$ has $w_2$ white balls and $b_2$ blacks. $n$ balls are drawn \emph{with replacement} from each urn. Find $w_1,b_1,w_2,b_2$ such that:
+Let $U_1,U_2$ be two urns containing $m$ balls each. $U_1$ has $w_1$ white balls and $b_1$ black balls, while $U_2$ has $w_2$ white balls and $b_2$ black balls. $n$ balls are drawn \emph{with replacement} from each urn.
+
+\que{1} For different values of $n>1$ find $w_1,b_1,w_2,b_2$ such that:
 \[
-p(\textsf{balls drawn from} \;U_1\; \textsf{are all white})=
-p(\textsf{balls drawn from} \;U_2\; \textsf{are all white or all black})\,.
+P(\textsf{balls drawn from} \;U_1\; \textsf{are all white})=
+P(\textsf{balls drawn from} \;U_2\; \textsf{are all white or all black})\,.
 \]
-
-\que{1} Find values of $w_1,b_1,w_2,b_2$ for $n=2$.
-
-\que{2} Explain why the problem cannot be solved for $n\geq 3$.
 \end{prob}
-
 \solution{}
 
-\ans{1} The equation that must be solved is:
+\ans{1} For $n=2$ the equation that must be solved is:
 \begin{eqn}
 \left(\disfrac{w_1}{m}\right)^2&=&\left(\disfrac{w_2}{m}\right)^2+\left(\disfrac{b_2}{m}\right)^2\\
 w_1^2&=&w_2^2+b_2^2\,.
 \end{eqn}
 One solution is $w_1=10,b_1=4,w_2=6,b_2=8$.
 
-\ans{2} By Fermat's Last Theorem, proved in 1995 by Andrew Wiles, there are no solutions to $w_1^n=w_2^n+b_2^n$ for $n\geq 3$.
+By Fermat's Last Theorem, proved in $1995$ by Andrew Wiles, there are no solutions to $w_1^n=w_2^n+b_2^n$ for $n\geq 3$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

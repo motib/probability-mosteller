@@ -12,4 +12,4 @@ Python programs for most of the problems can be found in the directory `program`
 
 The document is currently a draft and you are encouraged to download it and to send me comments, corrections and suggestions. I would appreciate it if you do not fork the repository until I release a (more-or-less!) final version.
 
-The same request applies to the Hebrew translation I am working on.
+The same request applies to the Hebrew translation.

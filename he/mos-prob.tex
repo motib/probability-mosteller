@@ -9,165 +9,311 @@
 \end{center}
 \addcontentsline{toc}{section}{\Large סקירה של הסתברות}
 
-This section reviews concepts of probability. An example of each concept is given using the activity of throwing fair six-sided dice.
+סעיף זה סוקר מושגים בהתסבתרות. אביא דוגמה של כל מושג עבור הטלת קוביה הונגת עם שישה משטחים. 
 
-\textbf{Experiment} This is an undefined primitive concept, the intention being an action that has a possible result. An experiment is also called a \emph{trial}. Throwing a die is an experiment.\footnote{\emph{Die} is the singular of the more familiar plural noun \emph{dice}.}
+\textbf{ניסוי \L{\small (experiment)}}
+מושג לא מוגדר כאשר הכוונה היא לפעולה שיש לה תוצאות אפשריות. מונח אחר היא trial?? הטלת קוביה היא ניסוי.
 
-\textbf{Outcome} The result of an experiment. If you throw a die one outcome is $4$.
+\textbf{תוצאה \L{\small (outcome)}} 
+התוצאה של ניסוי. אם אתה מטיל קוביה אחת, תוצאה אפשרית היא 
+$4$.
 
-\textbf{Sample space} The set of all possible outcomes of an experiment. The set $S=\{1,2,3,4,5,6\}$ is the sample space of the outcomes of throwing a die.
+\textbf{מרחב מדגם \L{\small (sample space)}}
+קבוצת כל התוצאות האפשריות של ניסוי. הקבוצה 
+$S=\{1,2,3,4,5,6\}$
+היא מרחב המדגם של הטלת קוביה.
 
-\textbf{Event} A subset of the sample space. The subset $e=\{2,4,6\}\subseteq S$ is the event of a die showing an even number.
+\textbf{אירוע \L{\small (event)}}
+תת-קבוצה של מרחב מדגם. תת-הקבוצה 
+$e=\{2,4,6\}\subseteq S$
+היא האירוע של הופעת מספר זוגי בהטלת קוביה.
 
-\textbf{Random variable} A function from a sample space to (real) numbers. Let $T$ be the sample space of throwing two dice:
+\textbf{משתנה אקראי \L{\small (random variable)}}
+פונקציה ממרחב המדגם למספרים (ממשיים). יהי 
+$T$
+מרחב המדגם של הטלת זוג קוביות:
 \[
 T=\{(a,b)| a,b\in \{1,2,3,4,5,6\} \}\,.
 \]
-Define the random variable $X$ as the function $X:T \mapsto \{2,3,\ldots,11,12\}$ which gives the sum of the numbers on the two dice:
+הגדר משתנה אקראי 
+$X$
+כפונקציה
+$X:T \mapsto \{2,3,\ldots,11,12\}$
+שממפה תוצאות של הטלת זוג קוביות לסכום המספרים על הקוביות:
 \begin{equation}\label{eq.sum}
 X((a,b)) = a+b\,.
 \end{equation}
 
-\textbf{Union, intersection, complement} Since events are sets these concepts take on their normal set-theoretical meaning. Let  $e_1=\{2,4,6\}$ and $e_2=\{1,2,3\}$. Then:
+\textbf{איחוד, חיתוך, משלים \L{\small (union, intersection, complement)}} 
+אירועים הם קבוצות ולכן למושגים הללו יש את המשמעות הרגילה בתורת הקבוצות. יהי
+$e_1=\{2,4,6\}$
+ו-%
+$e_2=\{1,2,3\}$. 
+אזי:
 \[
-e_1 \cup E_2=\{1,2,3,4,6\}\quad e_1 \cap e_2=\{2\}\quad \overline{e_1} = S\setminus e_1=\{1,3,5\}\,.
+e_1 \cup e_2=\{1,2,3,4,6\}\quad e_1 \cap e_2=\{2\}\quad \overline{e_1} = S\setminus e_1=\{1,3,5\}\,.
 \]
-The intersection is the set of even numbers among the first three outcomes in the sample space. The complement is the set of odd outcomes in the sample space.
+החיתוך הוא קבוצת המספרים הזוגיים מתוך שלושת האיברים הראשונים במרחב המדגם. המשלים הוא קבוצת המספרים האי-זוגיים מתוך מרחב המדגם.
 
-\textbf{Mutually exclusive} Two or more events are mutually exclusive if their intersection is the empty set. $e_1=\{2,4,6\}$ and $e_2=\{1,3,5\}$ are mutually exclusive since $e_1 \cap e_2=\emptyset$, that is, there are no outcomes which are both even and odd.
+\textbf{זרים \L{\small (mutually exclusive)}} 
+שני אירועים או יותר זרים אם החיתוך שלהם הוא הקבוצה הריקה.
+$e_1=\{2,4,6\}$
+ו-%
+$e_2=\{1,3,5\}$
+זרים כי
+$e_1 \cap e_2=\emptyset$,
+כלומר, אין תוצאות שהן מספרים שהם גם זוגיים וגם אי-זוגיים.
 
-\textbf{Probability} Probability is the limiting relative frequency of an event. Let $e$ be an event and let $n_e$ be the number of times that $e$ occurs in $n$ repetitions of the event. Then $P(e)$, the probability of the event $e$, is:
+\textbf{הסתברות \L{\small (probability)}}
+הסתברות היא הגבול של התדירות היחסית של אירוע. יהי
+$e$ 
+אירוע ויהי
+$n_e$
+מספר הפעמים שהאירוע 
+$e$
+מתרחש ב-%
+$n$
+חזרות על הניסוי. 
+$P(e)$,
+ההסתברות של האירוע
+$e$,
+היא:
 \[
 P(e) = \lim_{n\rightarrow \infty} \frac{n_e}{n}\,.
 \]
-This is not a very good definition because we don't actually know that the limit exists. The definition also depends on ``repetitions of an event'' but we want to define probability without reference to a specific sequence of events.
+הגדרה זו היא בעייתית כי אנחנו לאממש יודעים שהגבול קיים. ההגדרה מוגדרת על "חזרות על הניסוי" אולם אנו רוצים להגדיר הסתברות ללא קשר לסדרה מסויימת של ניסויים.
 
-Modern probability theory is based on a set of three axioms, but we won't develop this theory, though two of the axioms are clearly seen to be fundamental:
+הסתברות מודרנית מבוסס על קבוצה של שלוש אקסיומות. לא נפתח את התיאוריה, אולם החשיבות של שתיים מהאקסיומות ברורה:
 \begin{eqn}
 P(e) &\geq& 0\\
 P(S) &=& 1\,.
-\end{eqn} 
-Any event either occurs with some non-zero probability or it doesn't occur, and the outcome space is by definition all the possible outcomes.
+\end{eqn}
+אירוע מתרחשת עם התסתברות כלשהי או שהיא לא מתרחשת, ומרחב המדגם הוא לפי ההגדרה כל התוצאות האפשריות.
 
-The \emph{laws of large numbers} ensure that our intuitive concept of probability as relative frequency is very similar to what happens when an event is repeated many times.
+\textbf{חוק המספרים הגדולים}
+מבטיח שהתפיסה האינטואיטיבית שלנו שהתסברות היא תדירות יחסית דומה מאוד למה שקורה כאשר ניסוי מתבצע פעמים רבות.
 
-\textbf{Uniformly distributed} If all outcomes in the sample space have equal probability (are equally likely to occur), the probability is said to be uniformly distributed. If $S$ is finite and the probability is uniformly distributed then:
+\textbf{התפלגות אחידה \L{\small (uniformly distributed)}} 
+אם הסתברות של כל התוצאת במרחב שוות, להסתברות התפלגות אחידה. אם 
+$S$
+היא קבוצה סופית ולהסתברות שלה התפלגות אחידה אזי:
 \[
 P(e)=\frac{|e|}{|S|}\,.
 \]
-For example, if you throw a \emph{fair} die the probability of the outcomes is uniformly distributed, so for $e=\{2,4,6\}$:
+אם אתה מטיל קוביה
+\textbf{הוגנת}
+ההסתברות של התוצאות מתפלגת אחידה ולכן עבור
+$e=\{2,4,6\}$:
 \[
 P(e) = \frac{|e|}{|S|} = \frac{|\{2,4,6\}|}{|\{1,2,3,4,5,6\}|}=\frac{1}{2}\,.
 \]
 
-
-\textbf{Conditional probability} Let $e_1,e_2$ be events.  $P(e_1 | e_2)$, the conditional probability that $e_1$ occurs given that $e_2$ occurs, is given by:
+\textbf{הסתברות מותנית \L{\small (conditional probability)}} 
+יהי 
+$e_1,e_2$
+אירועים. 
+$P(e_1 | e_2)$,
+ההסתברות המותנית ש-%
+$e_1$
+מתרחש אם נתון ש-%
+$e_2$
+מתרחש, נתונה על ידי:
 \[
 P(e_1 | e_2) = \disfrac{P(e_1 \cap e_2)}{P(e_2)}\,.
 \]
-Let $e_1=\{1,2,3\}$ be the event that a die shows a number less than or equal to $3$ and let $e_2=\{2,4,6\}$ be the event that the die shows an even number. Then:
+יהי 
+$e_1=\{1,2,3\}$
+האירוע שקוביה מראה מספר פחות או שווה ל-%
+$3$
+ויהי
+$e_2=\{2,4,6\}$
+האירוע שהקוביה מראה מספר זוגי. אזי:
 \[
 P(e_2 | e_1) = \disfrac{P(E_2 \cap E_1)}{P(e_1)}=\disfrac{P(\{2\})}{P(\{2,4,6\})}= \disfrac{1/6}{1/2}=\disfrac{1}{3}\,.
 \]
-This makes sense since if you know that a number less than or equal to $3$ is thrown, only one out of the three outcomes is an even number.
+זה מתקבל על דעת כי אם אתה יודע שמספר הוא פחות או שווה ל-%
+$3$,
+רק אחת משלושת התוצאה היא מספר זוגי.
 
-\textbf{Independence} Two events are independent if the probability of their intersection is the product of their individual probabilities:
+\textbf{בלתי-תלוי \L{\small (independence)}}
+שני אירועים בלתי-תלויים אם ההסתברות של החיתוך שלהם היא המכפלה של ההסתברויות הנפרדות:
 \[
 P(e_1 \cap e_2)=P(e_1)\,P(e_2)\,.
 \]
-In terms of conditional probability:
+במונחים של הסבתרות מותנית:
 \[
 P(e_1 | e_2)=\frac{P(e_1)\cap P(e_2)}{P(e_2)} = \frac{P(e_1)\,P(e_2)}{P(e_2)}=P(e_1)\,. 
 \]
-For independent events $e_1,e_2$, if you know the probability of $e_2$ it gives you no information as to the probability of $e_1$. Three throws of a fair die are independent so the probability of all of them showing an even number is $\frac{1}{2}\cdot \frac{1}{2}\cdot \frac{1}{2}=\frac{1}{8}$. 
+עבור אירועים בלתי-תלויים
+$e_1,e_2$,
+ידיעה של הההסתברות של
+$e_2$
+לא מספק מידע על ההסתברות של
+$e_1$.
+שלוש הטלות של קוביה הוגנת בלתי-תלויות ולכן ההסתברות שכולם מראות מספר זוגי היא
+$\frac{1}{2}\cdot \frac{1}{2}\cdot \frac{1}{2}=\frac{1}{8}$. 
 
-\textbf{Average}
-Let $S=\{a_1,\ldots,a_n\}$ be a set of values. Then:
+\textbf{ממוצע \L{\small (average)}}
+תהי
+$S=\{a_1,\ldots,a_n\}$
+קבוצה של ערכים. אזי:
 \[
 \mathit{Average}(S)=\disfrac{\sum_{i=1}^{n} a_i}{n}\,.
 \]
-An average is computed over a set of values but the average may not be an element of the set. If there are $1000$ families in a town and $3426$ children, the average number of children per family is $3.426$ although clearly no family has $3.426$ children. If you throw a die six times and receive the numbers $\{2,2,4,4,5,6\}$. The average is:
+ממוצע מחושב מעל לקבוצה של ערכים אבל הממוצע לא חייב להיות איבר בקבוצה. אם יש
+$1000$
+בעיירה ולהם
+$3426$
+ילדים, הממוצע של מספר הילדים למשפחה היא
+$3.426$
+למרות שברור שאין משפחה עם
+$3.426$
+ילדים. אם אתה מטיל קוביה שש פעמים ומקבל את המספרים
+$\{2,2,4,4,5,6\}$
+הממוצע הוא:
 \[
 \frac{2+2+4+4+5+6}{6}=\frac{23}{6}\approx 3.8\,,
 \]
-again, a value not in the set.
+שוב, לא איבר בקבוצה.
 
-\textbf{Expectation}
-The expectation of a random variable is the sum of the probability of each outcome times the value of random variable for that outcome. For a fair die each outcome has the same probability:
+\textbf{תוחלת \L{\small (expectation)}}
+התוחלת של משתנה אקראי היא סכום ההסתברויות של כל תוצאה כפול הערך של משתנה עבור אותה תוצאה. עבור קוביה הוגנת לכל תוצאה יש הסתברות זהה ולכן:
 \[
-E(\textrm{value of a die})=1\cdot \frac{1}{6} + 2\cdot\frac{1}{6} + 3\cdot\frac{1}{6} + 4\cdot\frac{1}{6} + 5\cdot\frac{1}{6} + 6\cdot\frac{1}{6}=3.5\,.
+E(\textrm{קוביה ערך})=1\cdot \frac{1}{6} + 2\cdot\frac{1}{6} + 3\cdot\frac{1}{6} + 4\cdot\frac{1}{6} + 5\cdot\frac{1}{6} + 6\cdot\frac{1}{6}=3.5\,.
 \]
-Consider the random variable defined by the function $X$ (Equation~\ref{eq.sum}) that maps the numbers appearing in a pair of dice to the sum of the numbers. The probability of each pair is $1/36$, but since the pairs $(2,5)$ and $(5,2)$ have the same sum they belong to the same outcome. The values of the random variable are $\{2,\ldots,12\}$ and that the number of ways of obtaining each one is:
+השתנה האקראי
+$X$
+ממשוואה%
+~\ref{eq.sum}
+ממפה את המספרים המופיעים על זוג קוביות לסכום המספרים. ההסתברות של כל זוג היא
+$1/36$,
+אבל לזוגות
+$(2,5)$
+ו-%
+$(5,2)$
+אותו סכום ולכן הם שייכים לאותה תוצאה. הערכים של המשתנה האקראי הם
+$\{2,\ldots,12\}$
+ומספר הדרכים לקבל כל אחד הם:
 \[
 \begin{array}{l|rrrrrrrrrrr}
-\textrm{Sum} & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12\\\hline
-\textrm{Pairs} & 1 & 2 & 3 & 4 & 5 & 6 & 5 & 4 & 3 & 2 & 1
+\textrm{סכום} & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12\\\hline
+\textrm{זוגות} & 1 & 2 & 3 & 4 & 5 & 6 & 5 & 4 & 3 & 2 & 1
 \end{array}
 \]
-The expectation is the average of the values of the random variable \emph{weighted} by the probability of each outcome:
+התוחלת היא הממוצע של ערכי המשתנה האקראי כפול 
+\textbf{המשקל}
+שהוא ההסתברות של כל תוצאה:
 \[
-E(\textrm{sum of two dice})=2\cdot \frac{1}{36} + 3\cdot \frac{2}{36} + 4\cdot \frac{3}{36} + 
+E(\textrm{קוביות זוג סכום})=2\cdot \frac{1}{36} + 3\cdot \frac{2}{36} + 4\cdot \frac{3}{36} + 
 \cdots + 10\cdot \frac{3}{36} + 11\cdot \frac{2}{36} + 12\cdot \frac{1}{36} = 7\,.
 \]
-For an arbitrary set of events $\{e_1,\ldots,e_n\}$ the expectation is:
+עבור קבוצה שרירותית של אירועים
+$\{e_1,\ldots,e_n\}$
+התוחלת היא:
 \[
 E=\sum_{i=1}^{n} e_iP(e_i)\,.
 \]
 
-\textbf{Linearity of expectation}\label{p.linearity}
-Expectation is a linear function $E(ae_1 + be_2) = aE(e_1) + bE(e_2)$ and for an arbitrary linear expression:
+\textbf{ליניאריות של התוחלת \L{\small (linearity of expectation)}}\label{p.linearity}
+התוחלת היא פונקציה ליניארית
+$E(ae_1 + be_2) = aE(e_1) + bE(e_2)$
+ועבור ביטויים ליניאריים שרירותיים:
 \[
 E\left(\sum_{i=1}^{n} a_ie_i\right)=\sum_{i=1}^{n} a_iE(e_i)\,.
 \]
-For a proof see \L{\cite[Section~4.9]{ross}}.
+הוכחה אפשר למצוא ב-%
+\L{\cite[Section~4.9]{ross}}.
 
-\textbf{Indicator variable} Let $e$ be an event whose probability is $P(e)$. Define $I_e$, an indicator variable for $e$, as follows \L{\cite[Chapter~4, Example~3b]{ross}}:
+\textbf{משתנה מסמן \L{\small (indicator variable)}}
+יהי
+$e$
+אירוע שההסתברות שלה היא
+$P(e)$.
+הגדר
+$I_e$,
+משתנה מסמן עבור 
+$e$,
+כך
+\L{\cite[Chapter~4, Example~3b]{ross}}:
 \[
 I_e=
 \left\{
 \begin{array}{ll}
-1,\quad \textrm{if}\; e\;\textrm{occurs}\\
-0, \quad \textrm{if}\;e\;\textrm{does not occur}\,.
+1,\quad \textrm{מתרחש}\; e\;\textrm{אם}\\
+0, \quad \textrm{מתרחש לא}\;e\;\textrm{אם}\,.
 \end{array}
 \right.
 \]
-Then $E(I_e)=1\cdot P(e) + 0\cdot (1-P(e))=P(e)$.
+מכאן
+$E(I_e)=1\cdot P(e) + 0\cdot (1-P(e))=P(e)$.
 
 \bigskip
 
-\textbf{\large Mathematical formulas}
+\textbf{\large נוסחאות מתמטיות}
 
-\textbf{Binomial theorem}
-If the probability of an event $e$ is $p$ then the probability that a sequence of $n$ independent trials results in \emph{exactly} $k$ events $e$ is given by the \emph{binomial coefficient}:
+\textbf{משפט הבינום \L{\small (binomial theorem)}}
+אם
+$p$
+היא ההסתברות של אירוע
+$e$
+אזי ההסתברות שהתוצאה של סדרה של 
+$n$
+ניסויים בלתי-תלויים היא
+\textbf{בדיוק}
+$k$
+אירועים 
+$e$
+ניתנת על ידי
+\textbf{המקדם הבינומי (\L{binomial coefficient})}:
 \[
 \dischoose{n}{k} p^k (1-p)^{n-k}\,.
 \]
-By the \emph{binomial theorem}:
+לפי משפט הבינום:
 \[
 (x+y)^n=\sum_{i=0}^{n} \dischoose{n}{i} x^i y^{n-i}\,.
 \]
-For $p,1-p$ the is $(p+(1-p))^n=1$, as expected, since one of the outcomes must occur.
+עבור
+$p,1-p$
+המשוואה היא
+$(p+(1-p))^n=1$,
+כפי שאפשר לצפות כי אחת התוצאות חייבת להתרחש.
 
-\textbf{Sum of a geometric series}
-For $0<r<1$:
+\textbf{סכום סדרה הנדסית \L{\small (sum of a geometric series)}}
+עבור
+$0<r<1$:
 \[
 \sum_{i=0}^{n} r^i = \disfrac{1-r^{n+1}}{1-r},\quad\quad
 \sum_{i=0}^{\infty} r^i = \disfrac{1}{1-r}\,.
 \]
 
-\textbf{Sum of a harmonic series}\label{p.harmonic}
-For positive integer $n$ the harmonic series is:
+\textbf{סכום סדרה הרמונית \L{\small (sum of a harmonic series)}}\label{p.harmonic}
+עבור 
+$n$
+מספר שלם חיובי, הסדרה ההרמונית היא:
 \[
 H_n=\sum_{k=1}^{n}\disfrac{1}{k}\approx \ln n + \frac{1}{2n} + \gamma\,,
 \]
-where $\gamma \approx 0.5772$ is \emph{Euler's constant}. As $n$ approaches infinity the series diverges:
+כאשר
+$\gamma \approx 0.5772$
+הוא
+\textbf{הקבוע של \L{Euler} \L{(Euler's constant)}}.
+כאשר
+$n$
+שואף לאינסוף הסדרה מתבדרת:
 \[
 \sum_{k=1}^{\infty}\disfrac{1}{k}=\infty\,,
 \]
-because $\ln n$ is unbounded.
+כי
+$\ln n$
+אינו חסום.
 
-\textbf{Stirling's approximation}
-Computing $n!$ for large $n$ is very difficult. It is convenient to use one of the formulas of \emph{Stirling's approximation}:
+\textbf{הקירוב של \L{Stirling} \L{\small (Stirling's approximation)}}
+קשה מאוד לחשב
+$n!$ 
+עבור 
+$n$ 
+גדול. נוח להשתמש באחת הנוסחאות של הקירוב של
+\L{Stirling}:
 \begin{eqn}
 n! &\approx& \sqrt{2\pi n}\left(\disfrac{n}{e}\right)^n\\
 \ln (n!) &\approx& n\ln n - n\\
@@ -176,40 +322,66 @@ n! &\approx& \sqrt{2\pi n}\left(\disfrac{n}{e}\right)^n\\
 
 \medskip
 
-\textbf{\large Continuous probability distribution}\label{p.continuous}
+\textbf{\large התפלגות הסתברותית רציפה\L{\large (Continuous probability distribution)}}\label{p.continuous}
 
-A beginning student may not have learned continuous probability distributions, but they do not appear very often in the book. For readers with the appropriate background, we review the basic concepts.
+התפלגויות הסתברות רציפות לא מופיעות לעתים קרובות בסבר אבל עבור קוראים עם הרקע המתאים אנו סורקים את המושגים הבסיסיים.
 
-Probabilities can be defined over continuous random variables. A  \emph{probability density function (PDF)} $f(x): \mathcal{R}\rightarrow \mathcal{R}$ maps an outcome $x$ to the value of the function, thus defining:
+ניתן להגדיר הסתברויות מעל למשתנים אקראים רציפים.  
+\textbf{פונקציית הסתברות צפיפות \L{\small (probability density function (PDF))}} $f(x): \mathcal{R}\rightarrow \mathcal{R}$
+ממפה תוצאה 
+$x$
+לערך של הפונקציה וכך להגדיר:
 \[
 P(x) = f(x)\,.
 \]
-The reason for this terminology is that each \emph{individual} real number has zero probability of occurring, so the proper interpretation is to assign probabilities to neighborhoods of points.
+הסיבות למונח זו היא שההסתברות של ההופעה של כל מספר ממשי
+\textbf{אחד}
+היא אפס, ולכן הדרך הנכונה היא לתת הסתברויות לסביבות של נקודות.
 
-The \emph{cumulative probability distribution (CPD)} for the interval $[-\infty,a]$ is obtained by integrating the PDF:
+\textbf{התפלגות הסתברות מצטברת \L{\small (cumulative probability distribution (CPD))}}
+עבור הסביבה
+$[-\infty,a]$
+מתקבל על ידי אינטגרציה של ה-PDF:
 \[
 P(x<a) = \int_{-\infty}^{a} f(x)\, dx\,.
 \]
-Of course this is also $P(x\leq a)$ since $P(a)=0$.
+זו גם 
+$P(x\leq a)$
+כי
+$P(a)=0$.
 
-Like probabilities, for a PDF, $P(x)\geq 0$ for all $x$, and:
+כמו כל הסתברות,
+$P(x)\geq 0$
+לכל
+$x$
+ו-%
 \[
 \int_{-\infty}^{\infty} P(x)\, dx=\int_{-\infty}^{\infty} f(x)\, dx=1\,.
 \]
-If the integral does not evaluate to $1$ a \emph{normalization constant} must be used. For example, if a PDF is uniformly distributed in the range $[a,b]$ then:
+אם ערכו של האיטגרל אינו
+$1$
+חייבים להשתמש 
+\textbf{בקבוע נירמול \L{(normalization constant)}}.
+אם 
+PDF
+מתפלגת אחידה בסביבה
+$[a,b]$
+אזי:
 \[
 P(a\leq x \leq b)=\int_{a}^{b} 1\, dx=(b-a)\,,
 \]
-and therefore we must define:
+ולכן חייבים להגדיר:
 \[
 P(a\leq x \leq b)=\disfrac{1}{b-a}\int_{a}^{b} 1\, dx=\disfrac{1}{b-a}\cdot (b-a)=1\,.
 \]
-The expectation can be obtained by integrating the PDF $f(x)$ multiplied by $x$:
+ניתן לחשב את התוחלת על ידי אינטגרציה של ה-PDF
+$f(x)$
+כפול
+$x$:
 \[
 E(x)=\int_{-\infty}^{\infty} xf(x)\, dx\,.
 \]
-The PDF can be obtained by differentiating the CPD:
+ניתן לקבל את ה-PDF על ידי גזירה של ה-CPD:
 \[
 P(x<a)= \frac{d}{da}\mathit{CDP}(x<a)\,.
 \]
-

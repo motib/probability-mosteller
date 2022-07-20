@@ -11,4 +11,5 @@
 *.toc
 *.idx
 *.docx
-./*.pdf
+probability-mosteller*.pdf
+*.txt
