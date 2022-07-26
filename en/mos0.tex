@@ -8,13 +8,14 @@
 
 \addcontentsline{toc}{section}{\large Problems and solutions}
 
-\begin{prob}{The sock drawer\annotate{S}}
+\begin{prob}{The sock drawer}
 A drawer contains both red socks and black socks. If two socks are drawn at random (without replacement) the probability that both are red is $\frac{1}{2}$. 
 
 \que{1} How small can the number of black socks in the drawer be? What is the corresponding number of red socks?
 
 \que{2} How small can the number of black socks in the drawer be if the number of black socks is \emph{even}? What is the corresponding number of red socks?
 \end{prob}
+
 \solution{1}
 
 \ans{1} Let $r$ be the number of red socks in the drawer and let $b$ the number of black socks.  $r\geq 2$ since two red socks are drawn, and $b\geq 1$ since otherwise the probability of drawing two red socks would be $1$. Multiplying the probabilities for the two selections gives:
@@ -146,13 +147,14 @@ Using a computer program I found the following solutions where the number of bla
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{Successive wins\annotate{S}}
+\begin{prob}{Successive wins}
 You play a sequence of three games alternately against two players and you win the sequence if you win at least two of the three games. The probability that you will win a game against player $P_1$ is $p_1$ and the probability that you will win a game against player $P_2$ is $p_2$. It is given that $p_1>p2$. Which of these scenarios gives you a better chance of winning the sequence?
 \begin{itemize}
 \item You play against $P_1,P_2,P_1$ in that order.
 \item You play against $P_2,P_1,P_2$ in that order.
 \end{itemize}
 \end{prob}
+
 \solution{1}
 
 You win if: (a) you win the first two games and lose the last game, (b) you lose the first game and win the last two games, or (c) you win all three games.
@@ -193,9 +195,10 @@ Explain why the proportions don't add up to $1$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{The flippant juror\annotate{S}}
+\begin{prob}{The flippant juror}
 There are two options to reach a decision: (a) A three-person panel consisting of two members who independently make the correct decision with probability $p$ and one member who makes the correct decision with probability $1/2$. The final decision is determined by a majority vote. (b) A one-person panel whose only member has probability $p$ of making the correct decision. Which option has the higher probability of making the correct decision?
 \end{prob}
+
 \solution{}
 
 The three-person panel makes the correct decision if all three members make the correct decision or if any subset of two members makes the correct decision. The probability is:
@@ -214,10 +217,11 @@ For p = 0.75, proportion correct of (a) = 0.5062, (b) = 0.5040
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{Trials until first success\annotate{S}}
+\begin{prob}{Trials until first success}
 \label{p.four}
 What is the expectation of the number of throws of a die until a $6$ appears?
 \end{prob}
+
 \solution{1}
 
 The probability that the $i$th throw will be the first occurrence of $6$ is the probability of $i-1$ throws of one of the other five numbers times the probability that the $i$th throw will give $6$. To simplify the notation we use $p$ for $1/6$:
@@ -285,7 +289,7 @@ Average of first success     = 6.0161
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\begin{prob}{Coin in a square\annotate{S}}
+\begin{prob}{Coin in a square}
 
 \que{1} Given a square of side $8$ and a coin of radius $3$, throw the coin onto the square. The location of the center of the coin is uniformly distributed within the square. What is the probability that the coin lands entirely within the square?
 
@@ -293,6 +297,7 @@ Average of first success     = 6.0161
 
 \que{3} Develop a formula for the probability of the coin landing within the square if the side of the square is $a$ and the radius of the coin is $r<a/4$.
 \end{prob}
+
 \solution{}
 
 \ans{1} Figure~\ref{f.coins1} shows a square of side $8$ and four circles of radius $3$ inscribed within the corners of the square. The centers of the circles form an inner square of side $2$. Any coin whose center is outside the inner square will touch an edge of the outer square. Since the center of the coin is uniformly distributed, the probability that the coin lands entirely within the square is the ratio of the area of the inner square to the area of the outer square:
@@ -383,9 +388,10 @@ Proportion landing within the square     = 0.0000
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{Chuck-a-luck\annotate{S}}
+\begin{prob}{Chuck-a-luck}
 Choose number $n$ between $1$ and $6$. Throw three dice. If $n$ does not appear on any of the dice you lose $1$; if $n$ appears on one die you win $1$; if $n$ appears on two dice you win $2$; if $n$ appears on three dice you win $3$. What is the expectation of your winnings?
 \end{prob}
+
 \solution{}
 
 Let $P(k)$ be the probability of $n$ appearing on $k$ dice. Then:
@@ -411,13 +417,14 @@ Average winnings        = -0.0724
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{Curing the compulsive gambler\annotate{S}}
+\begin{prob}{Curing the compulsive gambler}
 Roulette is a game played with a wheel having $38$ numbered pockets: $18$ red, $18$ black and $2$ green.\footnote{There are two green pockets in American roulette and one green pocket in European roulette.} The wheel is spun and a ball lands in one of the pockets. The casino wins if the ball lands in a green pocket; otherwise, you win $36$ for each $1$ bet on the number of the (red or black) pocket where the ball lands. You play $36$ rounds of roulette,  betting $1$ in each round.
 
 \que{1} What is the expectation your winnings?
 
 \que{2} Your friend offers to bet you $20$ that after $36$ rounds you will have \emph{lost} money. What is the expectation of your winnings, taking into account the money won or lost from both the game and your friend's bet?
 \end{prob}
+
 \solution{}
 
 \ans{1} The probability of winning a single round is $1/38$ so:
@@ -458,6 +465,7 @@ The simulation showed a large variance which was reduced by running one million 
 \begin{prob}{Perfect bridge hand}
 Randomly select $13$ cards from a deck. What is the probability that they will all be of the same suit?
 \end{prob}
+
 \solution{1}
 
 Since there are $13$ cards of each suit there are $\dischoose{52}{13}$ ways of selecting $13$ cards of a single suit, say hearts. Only one of them consists of $13$ hearts so:
@@ -475,17 +483,25 @@ There are $52$ ways of selecting the first card. Then there are $12$ ways of sel
 \[
 P(\textsf{selecting}\;13\;\textsf{cards of the same suit})=\frac{52}{52}\cdot \frac{12}{51}\cdot \frac{11}{50} \cdots  \frac{1}{40}= \frac{12!}{51!/39!}\approx 6.2991\times 10^{-12}\,.
 \]
-There is no point in running a simulation because the result would almost certainly be zero.
+
+\textbf{Simulation}
+There is no point in running a simulation with $52$ cards because the result would almost certainly be zero. A simulation was run with a deck of $16$ cards and $4$ suits.
+
+\begin{verbatim}
+Probability of perfect hand = 0.0022
+Proportion perfect hand     = 0.0020
+\end{verbatim}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{Craps\annotate{D,S}}
+\begin{prob}{Craps\annotate{D}}
 Craps is a played with a pair of dice. On the first throw you win if the sum of the numbers is $7$ or $11$ and you lose if the sum is $2$, $3$ or $12$. If the sum on the first throw is $n=4,5,6,8,9,10$ (called a \emph{point}), continue to throw the dice until the sum is the point $n$ (a win) or $7$ (a loss).
 
 \que{1} What are the probabilities of the events on the first throw: winning, losing, neither?
 
 \que{2} What is the probability of a win?
 \end{prob}
+
 \solution{1}
 
 \ans{1} The probability of any outcome in a throw of a die is uniformly distributed and is equal to $1/6$. Since the outcomes of a throw of a pair of dice are independent, the probability of any outcome is $1/36$. The number of ways of obtaining each of the events (the sums of a pair of dice) $2,\ldots,12$ is:

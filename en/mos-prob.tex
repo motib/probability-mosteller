@@ -103,22 +103,39 @@ Consider the random variable defined by the function $X$ (Equation~\ref{eq.sum})
 \textrm{Pairs} & 1 & 2 & 3 & 4 & 5 & 6 & 5 & 4 & 3 & 2 & 1
 \end{array}
 \]
-The expectation is the average of the values of the random variable \emph{weighted} by the probability of each outcome:
-\[
-E(\textsf{sum of a pair of dice})=2\cdot \frac{1}{36} + 3\cdot \frac{2}{36} + 4\cdot \frac{3}{36} + 
+The expectation is the average of the values of the random variable \emph{weighted} by the probability of each outcome. Let $E_s$ be the expectation of the sum of the values appearing when two dice are thrown. Then:
+\begin{equation}\label{eq.two-dice}
+E_s=2\cdot \frac{1}{36} + 3\cdot \frac{2}{36} + 4\cdot \frac{3}{36} + 
 \cdots + 10\cdot \frac{3}{36} + 11\cdot \frac{2}{36} + 12\cdot \frac{1}{36} = 7\,.
-\]
+\end{equation}
 For an arbitrary set of events $\{e_1,\ldots,e_n\}$ the expectation is:
 \[
 E=\sum_{i=1}^{n} e_iP(e_i)\,.
 \]
 
 \textbf{Linearity of expectation}\label{p.linearity}
-Expectation is a linear function $E(ae_1 + be_2) = aE(e_1) + bE(e_2)$ and for an arbitrary linear expression:
+Consider again at the expectation of the sum of a pair of dice (Equation~\ref{eq.two-dice}). Let $E(e_6)$ be the expectation of the event of obtaining a $6$. Then:
+\[
+E(e_6) = X(e_6)P(e_6)=6\cdot \frac{5}{36}\,,
+\]
+because $5$ out of the possible $36$ combinations sum to $6$: $(1,5), (2,4), (3,3), (4,2), (5,1)$. But the expectation can also be computed as follows where $P(i,j)$ is the probability of obtaining the pair $(i,j)$ and $E(i,j)$ is the expectation of $i+j$:
+\begin{eqn}
+E(X(e_6)) &=& 6\cdot P(1,5)+6\cdot P(2,4)+6\cdot P(3,3)+6\cdot P(4,2)+6\cdot P(5,1)\\
+&=& (1+5)\cdot \frac{1}{36}+(2+4)\cdot \frac{1}{36}+(3+3)\cdot \frac{1}{36}+(4+2)\cdot \frac{1}{36} +(5+1)\frac{1}{36}\\
+&=&E(1,5)+E(2,4)+E(3,3)+E(4,2)+E(5,1)\\
+E(X(k=i+j=6))&=&\sum_{k, k=i+j=6}E(k)\,.
+\end{eqn}
+The computation is dependent on the fact that the events are mutually exclusive. Obviously, the events $(2,4)$ and $(3,3)$ cannot both appear in the same trial.
+
+By performing a similar computation for all pairs:
+\[
+E(X(\textsf{all pairs}))=\sum_{k=\textsf{\footnotesize  sum of a pair}}E(k)\,.
+\]
+The same method can be used to prove the generalization \cite[Section~4.9]{ross}:
 \[
 E\left(\sum_{i=1}^{n} a_ie_i\right)=\sum_{i=1}^{n} a_iE(e_i)\,.
 \]
-For a proof see \cite[Section~4.9]{ross}.
+This is called the linearity of expectation. In the special case of two random variables $E(ae_1 + be_2) = aE(e_1) + bE(e_2)$.
 
 \textbf{Indicator variable} Let $e$ be an event whose probability is $P(e)$. Define $I_e$, an indicator variable for $e$, as follows \cite[Chapter~4, Example~3b]{ross}:
 \[
@@ -211,4 +228,3 @@ The PDF can be obtained by differentiating the CPD:
 \[
 P(x<a)= \frac{d}{da}\mathit{CDP}(x<a)\,.
 \]
-

@@ -9,7 +9,6 @@
 *.blg
 *.synctex.gz
 *.toc
-*.idx
 *.docx
 probability-mosteller*.pdf
 *.txt

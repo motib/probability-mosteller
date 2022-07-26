@@ -21,7 +21,7 @@
 \bigskip
 \bigskip
 
-Version $0.2$
+Version $0.3$
 
 \bigskip
 
@@ -81,27 +81,30 @@ Many of the problems have been modified to make them accessible: they are simpli
 
 The numbering and titles of the problems have been retained to facilitate comparison with Mosteller's book.
 
-Modern scientific calculators, including applications for smartphones, can perform the computations with no difficultly.
+Modern scientific calculators, including applications for smartphones, can perform the computations with no difficultly, although we use Stirling's approximation in two problems so that readers can see how it is used.
 
-Simulations written in the Python programming language are given for most problems.
+Basic concepts of probability are reviewed in the final section which is based on \cite{ross}. Since students may not be familiar with random variables and expectation, those concepts are presented in more detail.
 
-Basic concepts of probability are reviewed in the final section which is based on \cite{ross}.
+Problems that are more difficult are annotated with $D$. Even a problem not marked $D$ can be difficult so do not be discouraged if you cannot solve it. However, it is worthwhile attempting to solve all the problems because any progress you make will be encouraging.
 
-Problems are annotated as follows:
-\begin{itemize}
-\item Problems annotated with $D$ are more difficult.
-\item Problems for which a simulation is available are annotated with $S$.
-\end{itemize}
+\textbf{Acknowledgments}
 
-Even a problem not marked $D$ can be difficult so do not be discouraged if you cannot solve it. However, it is worthwhile attempting to solve all the problems because any progress you make will be encouraging.
+David Fortus, Aaron Montgomery, Michael Woltermann
 
-\newpage
+\bigskip
+\bigskip
 
-\textbf{Simulations}
+\begin{center}
+\textbf{\LARGE Simulations}
+\end{center}
 
-\emph{Monte Carlo simulations} (named after the famous casino in Monaco) were written in the Python 3 programming language. A computer program ``performs an experiment,'' such as ``tossing a pair of dice'' or ``flipping a coin,'' a very large number of times and computes averages which are displayed. The random number generators built into Python, \verb+random.random()+ and \verb+random.randint()+, are used to obtain random outcomes for each experiment.
+\addcontentsline{toc}{section}{\large Simulations}
 
-The programs run each simulation $10000$ times and the results are displayed to four decimal places. A simulated result will almost certainly not be exactly the same as that obtained from computing the expectation or the probability. You can run the program many times to see how the results vary.
+\bigskip
+
+\emph{Monte Carlo simulations} (named after the famous casino in Monaco) written in the Python 3 programming language are provided for most problems. A computer program ``performs an experiment,'' such as ``tossing a pair of dice'' or ``flipping a coin,'' a very large number of times and computes averages which are displayed. The random number generators built into Python, \verb+random.random()+ and \verb+random.randint()+, are used to obtain random outcomes for each experiment.
+
+The programs run each simulation $10000$ times and the results are displayed to four decimal places. A simulated result will almost certainly not be exactly the same as that obtained from computing the expectation or the probability.
 
 Python source code is available at \url{https://github.com/motib/probability-mosteller}. The files are named \verb+N-name.py+ where \verb+N+ is the problem number and \verb+name+ is the problem title.
 
@@ -112,6 +115,6 @@ For each simulation two results are displayed:
 \end{itemize}
 It is important to understand that ``probability'' and ``expectation'' are theoretical concepts. The \emph{law of large numbers} ensures that the outcomes of many trials are very close to the theoretical values, but they won't be exactly the same. For example, the probability of obtaining a $6$ when a fair die is thrown is $1/6\approx 0.1667$. Running a simulation for $10000$ throws resulted in a range of values: $0.1684, 0.1693, 0.1687, 0.1665, 0.1656$.
 
-\textbf{Acknowledgments}
+The simulation programs are very short and straightforward once a problem is understood. I suggest running the simulations for various numbers of trials and other parameters to help understand their sensitivity to these parameters.
 
-David Fortus
+. You can run the program many times to see how the results vary

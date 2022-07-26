@@ -29,7 +29,7 @@ def collect_coupons(coupons):
 
     print('Expectation of draws = {:.4f}'.
           format(coupons * (math.log(coupons) +
-                            1.0/coupons + 0.5772)))
+                            1.0/(2.0*coupons) + 0.5772)))
     print('Average draws        = {:.4f}'.
           format(draws/n))
 

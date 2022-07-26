@@ -16,6 +16,7 @@ Three prisoners $A,B,C$ are eligible for parole. The parole board will release t
 
 For a comprehensive article on the prisoner's dilemma problem and the related Monty Hall problem see \cite{carlton}.
 \end{prob}
+
 \solution{1}
 
 Let $P(A), P(B), P(C)$ be the probabilities that $A,B,C$ are released. $A$ is interested in the conditional probability $P(A|B)$ of his being released if $B$ will be released:
@@ -62,9 +63,11 @@ P(A|R_{AB}) = \frac{P(e_1\cap(e_1\cup e_3))}{P(e_1\cup e_3)}=\frac{P(e_1)}{P(e_1
 
 A riddle attributed to Abraham Lincoln asks: ``If you call the tail of a dog a leg, how many legs does the dog have?'' The answer is that calling a tail a leg doesn't make it a leg, so the dog still has four legs. Clearly, whether $A$ knows $B$'s future doesn't change his chances of being released.
 
+There is no simulation because the problem asks if the probability changes as the result of some knowledge, but we have shown that it does not change.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{Collecting coupons\annotate{S}}
+\begin{prob}{Collecting coupons}
 Given a sequence of boxes each of which contains coupons numbered $1$ to $5$. You randomly draw one coupon from each box one after another.
 
 \que{1} What is the expectation of the number of coupons drawn until you have all five of the numbers?
@@ -73,6 +76,7 @@ Given a sequence of boxes each of which contains coupons numbered $1$ to $5$. Yo
 
 \textbf{Hint:} Use the solution to Problem~4 on page~\pageref{p.four} and the approximation for the sum of harmonic numbers (page~\pageref{p.harmonic}).
 \end{prob}
+
 \solution{}
 
 \ans{1} What is the expectation of the number of draws until you get a  number that is \emph{different from} all the previous ones? By  Problem~4 this is $1/p$ where $p$ is the probability of drawing a different number. For the first draw the probability is $1$ so the expectation is also $1$, for the second draw the probability is $4/5$ so expectation is $5/4$, and so on. Therefore:
@@ -91,19 +95,19 @@ E(\textsf{all five numbers}) =5H_5\approx 5(\ln 5 + \frac{1}{10} + 0.5772) \appr
 \textbf{Simulation}
 \begin{verbatim}
 For  5 coupons:
-Expectation of draws = 11.9332
-Average draws        = 11.4272
+Expectation of draws = 11.4332
+Average draws        = 11.3506
 For 10 coupons:
-Expectation of draws = 29.7979
-Average draws        = 29.2929
+Expectation of draws = 29.2979
+Average draws        = 29.4428
 For 20 coupons:
-Expectation of draws = 72.4586
-Average draws        = 72.2136
+Expectation of draws = 71.9586
+Average draws        = 72.2191
 \end{verbatim}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{The theater row\annotate{S}}
+\begin{prob}{The theater row}
 Arrange eight even numbers and seven odd numbers randomly in a row, for example:
 \[
 10\quad 12\quad 3\quad 2\quad 9\quad 6 \quad 1\quad 13\quad 7\quad 10\quad 3\quad 8\quad 8\quad 5\quad 20\,,
@@ -118,6 +122,7 @@ In the example there are $10$ $EO$ or $OE$ adjacent pairs.
 
 \textbf{Hint:} Consider each adjacent pair of separately. What is the probability that they are different?
 \end{prob}
+
 \solution{}
 
 The following table shows the ten possible arrangements of three even and two odd numbers. The total number of different adjacent pairs is $24$ and the average is $24/10=2.4$.
@@ -129,7 +134,7 @@ EEOEO & 3\\
 EEOOE & 2&
 EOEOE & 4\\
 EOEEO & 3&
-EOOEE & 1\\
+EOOEE & 2\\
 OEEOE & 3&
 OEEEO & 2\\
 OEOEE & 3&
@@ -170,7 +175,7 @@ Average different pairs        = 24.4725
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{Will the second-best be runner-up?\annotate{S}}
+\begin{prob}{Will the second-best be runner-up?}
 Eight players in a tournament $\{a_1,\ldots,a_8\}$ are randomly assigned to play games $\{g_1,\ldots,g_8\}$ in a schedule such that player $a_{k_{i}}$ initially plays in position $g_{k_{i}}$ (Figure~\ref{f.tournament}). The players are ranked from the best $a_1$ to the worst $a_8$ and the better player will \emph{always} defeat her opponent.  Clearly $a_1$ will win the tournament.
 
 \que{1} What is the probability that $a_2$ will be the runner-up by playing $a_1$ in the final round and losing to her?
@@ -202,6 +207,7 @@ Eight players in a tournament $\{a_1,\ldots,a_8\}$ are randomly assigned to play
 \end{center}
 \caption{A tournament schedule}\label{f.tournament}
 \end{figure}
+
 \solution{}
 
 \ans{1}
@@ -227,7 +233,7 @@ Proportion of games where a2 is runner-up  = 0.5060
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{Twin knights\annotate{D,S}}
+\begin{prob}{Twin knights\annotate{D}}
 
 Eight players in a tournament $\{a_1,\ldots,a_8\}$ are randomly assigned to play games $\{g_1,\ldots,g_8\}$ in a schedule such that $a_{k_{i}}$ initially plays in position $g_{k_{i}}$ (Figure~\ref{f.tournament}). For all $i,j$, the probability that $a_i$ wins in a game against $a_j$ is $1/2$ as is the probability that $a_j$ wins against $a_i$.
 
@@ -235,6 +241,7 @@ Eight players in a tournament $\{a_1,\ldots,a_8\}$ are randomly assigned to play
 
 \que{2} If there are $2^n$ players, what is the probability that $a_1,a_2$ play each other?
 \end{prob}
+
 \solution{}
 
 \ans{1} Without loss of generality assign $a_1$ to $g_1$. Consider the different possibilities that $a_1,a_2$ play each other. With probability $1/7$, $a_2$ is assigned to $g_2$. With probability $2/7$, $a_2$ is assigned to $g_3$ or $g_4$, but he doesn't play $a_1$ unless \emph{both} of them win their first game, so we need to multiply the probability of this assignment by $1/4$. With probability $4/7$, $a_2$ is assigned to $g_5,g_6,g_7,g_8$, but he doesn't play $a_1$ unless \emph{both} of them win their first two  games, so we need to multiply the probability of this assignment by $1/16$. Therefore:
@@ -312,11 +319,12 @@ Proportion a1, a2 meet       = 0.0137
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{An even split at coin tossing\annotate{S}}
+\begin{prob}{An even split at coin tossing}
 \que{1} If you toss a fair coin $20$ times, what is the probability of obtaining exactly $10$ heads?
 
 \que{2} If you toss a fair coin $40$ times, what is the probability of obtaining exactly $20$ heads?
 \end{prob}
+
 \solution{}
 
 \ans{1} Since the coin is fair the probability of obtaining $10$ heads in $20$ tosses is given by the binomial coefficient:
@@ -342,13 +350,14 @@ Proportion  of 50 heads for 100 tosses = 0.0785
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{Isaac Newton helps Samuel Pepys\annotate{S}}
+\begin{prob}{Isaac Newton helps Samuel Pepys}
 \que{1} What is the probability of obtaining \emph{at least one} $6$ when $6$ dice are thrown?
 
 \que{2} What is the probability of obtaining \emph{at least two} $6$s when $12$ dice are thrown?
 
 \que{3} Develop a formula for the probability of obtaining at least $n$ $6$s when $6n$ dice are thrown.
 \end{prob}
+
 \solution{}
 
 \ans{1} The probability is the complement of the probability of obtain zero $6$s in $6$ throws, which is the product of obtaining a number different from $6$ in all throws:
@@ -391,7 +400,7 @@ Proportion  = 0.5250
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{The three-cornered duel\annotate{S}}
+\begin{prob}{The three-cornered duel}
 $A,B,C$ fight a sequence of duels. Each of them has a fixed probability of winning a duel regardless of who the opponent is:
 \[
 P(A)=0.3,\quad P(B)=1, \quad P(C)=0.5\,.
@@ -404,6 +413,7 @@ A person who is hit no longer participates in the duels. The shots are fired one
 
 \textbf{Hint:} Compute the conditional probabilities of $A$ winning depending on whether he chooses to shoot first at $B$ or $C$.
 \end{prob}
+
 \solution{}
 
 Notation: $X\stackrel{H}{\longrightarrow}Y$ denotes that $X$ shoots at $Y$ and hits. $X\stackrel{M}{\longrightarrow}Y$ denotes that $X$ shoots at $Y$ and misses.

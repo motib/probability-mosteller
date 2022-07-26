@@ -2,7 +2,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{Should you sample with or without replacement?\annotate{D,S}}
+\begin{prob}{Should you sample with or without replacement?\annotate{D}}
 Urn $A$ contains $2$ red balls and $1$ green ball, and urn $B$ contains $101$ red balls and $100$ green balls. An urn is chosen at random and two balls are randomly drawn from the selected urn. You win if you correctly identify whether the selected urn was $A$ or $B$.
 
 Compute the probabilities of winning for each of the following rules and decide which gives you the highest probability of winning.
@@ -18,6 +18,7 @@ Compute the probabilities of winning for each of the following rules and decide 
 \disfrac{101}{201}\approx \disfrac{100}{201} \approx \disfrac{100}{200} \approx \disfrac{1}{2}\,.
 \]
 \end{prob}
+
 \solution{}
 
 There are four outcomes which we denote by $RR, RG, GR, GG$. For each rule compute the conditional probabilities of the four outcomes given that urn $A$ or urn $B$ was selected initially. These probabilities are multiplied by $1/2$ to take into account the random selection of a urn.
@@ -124,7 +125,7 @@ Average wins           = 0.6379
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\begin{prob}{The ballot box\annotate{S}}
+\begin{prob}{The ballot box}
 In an election there are two candidates $A$ and $B$.  $A$ receives $a$ votes and $B$ receives $b$ votes, $a>b$. The votes are counted one-by-one and the running totals $(a_i,b_i), 1\leq i \leq a+b$ are updated as each vote is counted. What is the probability that for at least one $i$, $a_i=b_i$?
 
 \que{1} Solve for $a=3, b=2$ by listing $(a_i,b_i)$ for $1\leq i\leq 5$.
@@ -135,6 +136,7 @@ In an election there are two candidates $A$ and $B$.  $A$ receives $a$ votes and
 
 \textbf{Hint 2:} What is the significance of the first vote counted?
 \end{prob}
+
 \solution{}
 
 \ans{1}
@@ -230,7 +232,7 @@ Proportion of ties   = 0.9354
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{Ties in matching pennies\annotate{D,S}}
+\begin{prob}{Ties in matching pennies\annotate{D}}
 Toss a pair of fair coins $N$ times, $N$ even, and keep count of how many times the parity is even (heads-heads or tails-tails) and how many times the parity is odd (heads-tails or tails-heads). What is the probability of obtaining a tie (not counting the $0-0$ tie at the start)?
 
 \que{1} Solve for $N=4$ by writing out all the possible outcomes.
@@ -243,6 +245,7 @@ Toss a pair of fair coins $N$ times, $N$ even, and keep count of how many times 
 
 \textbf{Hint:} Use the solution of Problem~22.
 \end{prob}
+
 \solution{}
 
 \ans{1} Denote tosses with even parity by $E$ and tosses with odd parity by $O$. Ten out of the sixteen arrangements of tosses have ties (emphasized):
@@ -367,7 +370,7 @@ Proportion of ties  = 0.8255
 
 
 
-\begin{prob}{Lengths of random chords\annotate{S}}
+\begin{prob}{Lengths of random chords}
 Select a random chord in the unit circle. What is the probability that the length of the chord is greater than $1$?
 
 To solve the problem you first have to decide what ``select a random chord'' means. Solve the problem for each of the following possibilities:
@@ -378,6 +381,7 @@ To solve the problem you first have to decide what ``select a random chord'' mea
 
 \que{3} The endpoints of the chord are uniformly distributed on the circumference of the circle.
 \end{prob}
+
 \solution{}
 
 \ans{1} A chord is larger than the radius if it is closer to the center than a chord of length $1$. Let $\overline{AB}$ be a chord of length $1$ and construct the altitude $\overline{OH}$ from the center $O$ to the chord (Figure~\ref{f.chord1}). Since $\triangle AOB$ is equilateral, $\triangle OHB$ is a right triangle and the length of the altitude is:
@@ -485,13 +489,14 @@ Proportion of long chords  = 0.6627
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{The hurried duelers\annotate{S}}
+\begin{prob}{The hurried duelers}
 $A$ and $B$ arrive at a meeting point at a random time with uniform distribution within a one-hour period. If $A$ arrives first and $B$ does not arrive within $5$ minutes, $A$ leaves. Similarly if $B$ arrives first and $A$ does not arrive within $5$ minutes, $B$ leaves. What is the probability that they meet?
 
 Time within the one-hour period is \emph{continuous} in the range $[0,1]$, that is, you cannot \emph{count} a discrete number of minutes or seconds to compute probabilities. You can compute the probabilities of \emph{durations}.
 
 \textbf{Hint:} Draw a graph with $A$'s time of arrival as the the $x$-axis and $B$'s time of arrival as the $y$-axis.
 \end{prob}
+
 \solution{}
 
 Without loss of generality assume that $A$ arrives first. If $A$ arrives at $t_A=0$ and if $B$ arrives before $t_B=5/60$ they meet, otherwise they do not. This is shown in Figure~\ref{f.duel} by the small square at the origin.
@@ -535,7 +540,7 @@ Proportion of meetings   = 0.1549
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{Catching the cautious counterfeiter\annotate{S}}
+\begin{prob}{Catching the cautious counterfeiter}
 
 There are $n$ boxes each with $n$ coins one of which is counterfeit. Draw one coin from each box and test it to determine whether it is counterfeit or genuine. What is the probability that all the coins that are drawn are are real?
 
@@ -547,6 +552,7 @@ There are $n$ boxes each with $n$ coins one of which is counterfeit. Draw one co
 
 \que{4} Develop a formula for limit of the probability as $n$ tends to infinity.
 \end{prob}
+
 \solution{}
 
 The draws are independent so the probability is the product of the probabilities for each draw.
@@ -599,13 +605,14 @@ Proportion all real     = 0.3690
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{Catching the greedy counterfeiter\annotate{S}}
+\begin{prob}{Catching the greedy counterfeiter}
 There are $n$ boxes each with $n$ coins $m$ of which are counterfeit. Draw one coin from each box and test it to determine whether it is counterfeit or not. What is the probability $P(n,m,r)$ that $r$ of the coins that are drawn are counterfeit?
 
 \que{1} Develop a formula for $P(n,m,r)$.
 
 \que{2} Compute $P(20,10,2), P(20,10,8), P(20,5,2), P(20,5,4)$.
 \end{prob}
+
 \solution{}
 
 \ans{1}
@@ -645,7 +652,7 @@ Proportion counterfeit      = 0.1905
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{Moldy gelatin\annotate{S}}
+\begin{prob}{Moldy gelatin}
 
 A rectangular plate is divided into $n$ small squares. There are an average of $r$ microbes in each square.
 
@@ -656,6 +663,7 @@ A rectangular plate is divided into $n$ small squares. There are an average of $
 \textbf{Hint:} This problem is similar the Problem~28.
 
 \end{prob}
+
 \solution{}
 
 \ans{1}

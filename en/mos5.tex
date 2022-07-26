@@ -5,6 +5,7 @@
 \begin{prob}{Doubling your accuracy}
 You are given two rods of lengths $L_1<L_2$ and a length-measuring instrument whose possible error is given by a normal distribution with mean $0$ and variance $\sigma^2$. The lengths of the two rods can be measured by measuring each one separately. Is there a more accurate method?
 \end{prob}
+
 \solution{}
 \begin{figure}[bt]
 \begin{center}
@@ -41,10 +42,9 @@ Since the mean of the measurement instrument is $0$, the mean of the errors of t
   \textstyle\frac{1}{4}( \sigma^2+\sigma^2)=\frac{1}{2}\sigma^2\,.
 \end{eqn}
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{Random quadratic equations\annotate{S}}
+\begin{prob}{Random quadratic equations}
 
 Consider the quadratic equation $x^2+2bx+c=0$ defined on $[-B,B]\times[-B,B]$ for $B\geq 1$.
 
@@ -52,6 +52,7 @@ Consider the quadratic equation $x^2+2bx+c=0$ defined on $[-B,B]\times[-B,B]$ fo
 
 \que{2} As $B\rightarrow \infty$ what is the probability that the roots are real?
 \end{prob}
+
 \solution{}
 
 \ans{1}
@@ -122,7 +123,7 @@ Proportion real roots     = 0.9582
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{Two-dimensional random walk\annotate{S}}
+\begin{prob}{Two-dimensional random walk}
 A particle is placed at the origin of a two-dimensional coordinate system. The particle moves left or right on the $x$-axis with probabilities $1/2$ for each direction and \emph{simultaneouly} up or down the $y$-axis with probabilities $1/2$ for each direction. Figure~\ref{f.2d-random-walk} shows a random walk of $22$ steps starting at and returning to the origin.
 
 \que{1} What is the probability that the particle returns to the origin in $2$ moves?
@@ -165,6 +166,7 @@ A particle is placed at the origin of a two-dimensional coordinate system. The p
 \caption{Two-dimensional random walk}\label{f.2d-random-walk}
 \end{figure}
 \end{prob}
+
 \solution{}
 
 \ans{1}
@@ -251,7 +253,7 @@ Proportion returned to origin      = 0.8700
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{Three-dimensional random walk\annotate{D,S}}
+\begin{prob}{Three-dimensional random walk\annotate{D}}
 A particle is placed at the origin of a three-dimensional coordinate system. The particle moves left or right on the $x$-axis with probabilities $1/2$ \emph{and} up or down the $y$-axis with probabilities $1/2$ \emph{and} in or out on the $z$-axis with probabilities $1/2$.
 
 \que{1} What is the expectation of the number of times that the particle returns to the origin?
@@ -262,6 +264,7 @@ A particle is placed at the origin of a three-dimensional coordinate system. The
 
 \textbf{Hint:} Use the technique from Problem~4.
 \end{prob}
+
 \solution{}
 
 $P_{2n}$, probability of returning to the origin after $2n$ steps, is given by generalizing Equation~\ref{eq.return-to-origin1} to three dimensions:
@@ -305,7 +308,7 @@ E(\textsf{number of returns to the origin})=\sum_{n=1}^{\infty}P_{2n}\, I_{2n} =
 \]
 so the expectation of the number of returns is equal to the probability.
 
-\que{2} Let $P_1$ be the probability that the particle returns to the origin \emph{at least once}.  From Problem~4 we know that the expectation of the number of trials until the first one where the particle \emph{does not} return to the origin is $1/(1-P_1)$. Therefore, the expectation of the number of trials for which the particle does return to the origin is one less, because the particle can return to the origin many times until finally it does not.\footnote{Mosteller's presentation is not easy to follow. I would like to thank Aaron Montgomery for clarifying the solution \cite{montgomery}.}
+\que{2} Let $P_1$ be the probability that the particle returns to the origin \emph{at least once}.  From Problem~4 we know that the expectation of the number of trials until the first one where the particle \emph{does not} return to the origin is $1/(1-P_1)$. Therefore, the expectation of the number of trials for which the particle does return to the origin is one less, because the particle can return to the origin many times until finally it does not \cite{montgomery}.
 
 Let $E_r=E(\textsf{number of returns to the origin})$, then:
 \begin{eqn}
@@ -351,6 +354,7 @@ Consider a needle of length $a\leq 1$ and a surface ruled with parallel lines $1
 \caption{Buffon's needle}\label{f.buffon1}
 \end{figure}
 \end{prob}
+
 \solution{1}
 
 Let $p(a)$ be the probability that a needle of length $a$ crosses a line and define the indicator variable:
@@ -526,8 +530,10 @@ Solve Buffon's needle problem for a surface that is covered by a grid with squar
 \end{center}
 \caption{Buffon's needle with horizonal and vertical lines}\label{f.buffon5}
 \end{figure}
-\end{prob}
+
 \textbf{Hint:} Are the numbers of crossings of the horizontal and vertical lines independent?
+
+\end{prob}
 
 \solution{}
 
@@ -543,7 +549,7 @@ E(\textsf{lines crossed by a needle of length}\; a)&=&E(\textsf{vertical lines c
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{Long needles\annotate{D,S}}
+\begin{prob}{Long needles\annotate{D}}
 
 Let the length of the needle in Buffon's problem be $a>1$.
 
@@ -554,6 +560,7 @@ Let the length of the needle in Buffon's problem be $a>1$.
 \textbf{Hint:} For what angles $\theta$ is the probability a crossing $1$?
 
 \end{prob}
+
 \solution{}
 
 \ans{1} Break the needle into pieces of lengths $\{a_1,a_2,\ldots, a_n\}$, $a_i< 1$, such that $\sum_{i=1}^n a_i=a$. By the linearity of expectation and the solution of Problem~53:
@@ -642,6 +649,7 @@ P(\textsf{balls drawn from} \;U_1\; \textsf{are all white})=
 P(\textsf{balls drawn from} \;U_2\; \textsf{are all white or all black})\,.
 \]
 \end{prob}
+
 \solution{}
 
 \ans{1} For $n=2$ the equation that must be solved is:
