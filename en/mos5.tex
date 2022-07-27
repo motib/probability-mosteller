@@ -3,22 +3,22 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{Doubling your accuracy}
-You are given two rods of lengths $L_1<L_2$ and a length-measuring instrument whose possible error is given by a normal distribution with mean $0$ and variance $\sigma^2$. The lengths of the two rods can be measured by measuring each one separately. Is there a more accurate method?
+You are given two rods of lengths $L_1>L_2$ and a length-measuring instrument whose possible error is given by a normal distribution with mean $0$ and variance $\sigma^2$. The lengths of the two rods can be measured by measuring each one separately. Is there a more accurate method?
 \end{prob}
 
 \solution{}
 \begin{figure}[bt]
 \begin{center}
 \begin{tikzpicture}
-\draw (0,0) -- ++(6,0) -- ++(0,12pt) -- ++(-6,0) -- cycle;
+\draw (0,0) -- ++(8,0) -- ++(0,12pt) -- ++(-8,0) -- cycle;
 \draw[<->] (0,24pt) --
   node[fill=white] {$\scriptstyle L_1+L_2$} ++(14,0);
-\draw (6,0) -- ++(8,0) -- ++(0,12pt) -- ++(-8,0) -- cycle;
+\draw (8,0) -- ++(6,0) -- ++(0,12pt) -- ++(-6,0) -- cycle;
 \begin{scope}[yshift=-48pt]
-\draw (0,0) -- ++(8,0) -- ++(0,12pt) -- ++(-8,0) -- cycle;
-\draw[yshift=12pt] (0,0) -- ++(0,12pt) -- ++(6,0) -- ++(0,-12pt);
-\draw[<->] (6,20pt) --
-  node[fill=white] {$\scriptstyle L_2-L_1$} ++(2,0);
+\draw[yshift=12pt] (0,0) -- ++(8,0) -- ++(0,12pt) -- ++(-8,0) -- cycle;
+\draw (0,0) -- ++(0,12pt) -- ++(6,0) -- ++(0,-12pt) -- cycle;
+\draw[<->] (6,4pt) --
+  node[fill=white] {$\scriptstyle L_1-L_2$} ++(2,0);
 \end{scope}
 \end{tikzpicture}
 \end{center}
@@ -26,21 +26,35 @@ You are given two rods of lengths $L_1<L_2$ and a length-measuring instrument wh
 \end{figure}
 Place the rods end-to-end and measure $L_s=L_1+L_2$ and then place the rods side-by-side and measure $L_d=L_2-L_1$ (Figure~\ref{f.rods}). Compute $L_1,L_2$:
 \begin{eqn}
-\textstyle\frac{1}{2}(L_s-L_d)=\frac{1}{2}((L_1+L_2)-(L_2-L_1))&=&L_1\\
-\textstyle\frac{1}{2}(L_s+L_d)=\frac{1}{2}((L_1+L_2)+(L_2-L_1))&=&L_2\,.
+\textstyle\frac{1}{2}(L_s+L_d)&=&\textstyle\frac{1}{2}((L_1+L_2)+(L_1-L_2))=L_1\\
+\textstyle\frac{1}{2}(L_s-L_d)&=&\textstyle\frac{1}{2}((L_1+L_2)-(L_1-L_2))=L_2\,.
 \end{eqn}
-The errors in the measurements are $e_s, e_d$ so the errors in the results are:
+The errors in the measurements of the sum and the difference are $e_s, e_d$, respectively, so the errors in the results are:
 \begin{eqn}
-\textstyle\frac{1}{2}((L_s+e_s)-(L_d+e_d))&=&L_1+\textstyle\frac{1}{2}(e_s-e_d)\\
-\textstyle\frac{1}{2}((L_s+e_s)+(L_d+e_d))&=&L_2+\textstyle\frac{1}{2}(e_s+e_d)\,.
+\textstyle\frac{1}{2}((L_s+e_s)+(L_d+e_d))&=&L_1+\textstyle\frac{1}{2}(e_s+e_d)\\
+\textstyle\frac{1}{2}((L_s+e_s)-(L_d+e_d))&=&L_2+\textstyle\frac{1}{2}(e_s-e_d)\,.
 \end{eqn}
 Since the mean of the measurement instrument is $0$, the mean of the errors of the two measurements is also $0$. The variance is reduced to half its previous value:\footnote{The measurements are independent so the covariance is $0$.}
 \begin{eqn}
-\mathrm{Var}\left(\textstyle\frac{1}{2}\left(e_s-e_d\right)\right)&=&
-  \textstyle\frac{1}{4}(\sigma^2+(-1)^2\sigma^2)=\frac{1}{2}\sigma^2\\
-\mathrm{Var}\left(\textstyle\frac{1}{2}(e_s+e_d)\right)&=&
-  \textstyle\frac{1}{4}( \sigma^2+\sigma^2)=\frac{1}{2}\sigma^2\,.
+\mathrm{Var}\left(\textstyle\frac{1}{2}\left(L_s+L_d\right)\right)&=&
+  \textstyle\frac{1}{4}(\sigma^2+\sigma^2)=\frac{1}{2}\sigma^2\\
+\mathrm{Var}\left(\textstyle\frac{1}{2}(L_s-L_d)\right)&=&
+  \textstyle\frac{1}{4}( \sigma^2+(-1)^2\sigma^2)=\frac{1}{2}\sigma^2\,.
 \end{eqn}
+
+\textbf{Simulation}
+
+In the simulation values calculated for $L_1,L_2$ from the sum and difference of two measurements are denoted by \texttt{sd}. The errors of the mean remain close to zero but the variances are reduced by one half.
+
+\begin{verbatim}
+For L1 = 10, L2 = 6, variance = 1.00:
+Errors of means:
+    L1 = 0.0076, L1_sd = 0.0005
+    L2 = 0.0001, L2_sd = 0.0057
+Variances:
+    L1 = 1.0273, L1_sd = 0.5102
+    L2 = 1.0009, L2_sd = 0.5012
+\end{verbatim}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -209,9 +223,7 @@ P_{2n}(\textsf{return to origin}) =
 P_{2n}(\textsf{return to}\;x\!=\!0)\,P_{2n}(\textsf{return to}\;y\!=\!0)\,.
 \end{equation}
 The particle will return to the origin if and only if for both axes the number of $+1$ moves equals the number of $-1$ moves. There are ${2n \choose n}$ ways to arrange $+1$s and $-1$s so:
-{
-\addtolength{\arraycolsep}{-3pt}
-\begin{eqnarray}
+\begin{eqnlabels}
 \label{eq.return-to-origin1}
 P_{2n}(\textsf{return to}\;x\!=\!0) =P_{2n}(\textsf{return to}\;y\!=\!0)&=&
 \dischoose{2n}{n}\left(\disfrac{1}{2}\right)^n\left(\disfrac{1}{2}\right)^{n}\\
@@ -220,8 +232,7 @@ P_{2n}(\textsf{return to origin}) &=&
 P(\textsf{return to origin}) =
 \sum_{n=1}^{\infty}P_{2n}(\textsf{return to origin}) &=&
 \sum_{n=1}^{\infty}\left[\dischoose{2n}{n}\left(\disfrac{1}{2}\right)^{2n}\right]^2\,.\label{eq.return-to-origin2}
-\end{eqnarray}
-}
+\end{eqnlabels}
 
 \ans{3}
 By Stirling's approximation $n! \approx \sqrt{2\pi n}\left(n/e\right)^n$:
@@ -447,13 +458,10 @@ Inscribe a regular polygon $Q_n$ (red) within $c$ (green) and circumscribe a reg
 E(Q_n)\leq E(C)\leq E(R_n)\,.
 \end{equation}
 Let $a_Q, a_R$ be the sums of the lengths of the sides of $Q_n,R_n$, respectively. By the linearity of expectation:
-{
-\addtolength{\arraycolsep}{-3pt}
-\begin{eqnarray}\label{eq.buffon1}
+\begin{eqnlabels}\label{eq.buffon1}
 E(Q_n)&=&\sum_{i=1}^n E(\textsf{sides of}\;a_Q)=a_QE(1)\\
 \label{eq.buffon2}E(R_n)&=&\sum_{i=1}^n E(\textsf{sides of}\;a_R)=a_RE(1)\,. 
-\end{eqnarray}
-}
+\end{eqnlabels}
 As $n\rightarrow\infty$ both polygons approximate the circle so:
 \begin{equation}\label{eq.buffon-pi}
 \lim_{n\rightarrow\infty}a_Q = \lim_{n\rightarrow\infty} a_R=\pi\,,
@@ -545,7 +553,19 @@ E(\textsf{lines crossed by a needle of length}\; a)&=&E(\textsf{vertical lines c
 &&E(\textsf{horizontal lines crossed by a needle of length}\;a)\\
 &=&\disfrac{2a}{\pi}+\disfrac{2a}{\pi}=\disfrac{4a}{\pi}\,.
 \end{eqn}
+\textbf{Simulation}
 
+\begin{verbatim}
+For length = 0.2:
+Expectation of crossings = 0.2546
+Average crossings        = 0.2532
+For length = 0.5:
+Expectation of crossings = 0.6366
+Average crossings        = 0.6355
+For length = 1.0:
+Expectation of crossings = 1.2732
+Average crossings        = 1.2736
+\end{verbatim}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -641,13 +661,14 @@ Average crossings        = 0.8897
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{Molina's urns}
-Let $U_1,U_2$ be two urns containing $m$ balls each. $U_1$ has $w_1$ white balls and $b_1$ black balls, while $U_2$ has $w_2$ white balls and $b_2$ black balls. $n$ balls are drawn \emph{with replacement} from each urn.
+Let $U_1,U_2$ be two urns containing the same number of balls. $U_1$ has $w_1$ white balls and $b_1$ black balls, while $U_2$ has $w_2$ white balls and $b_2$ black balls. $n$ balls are drawn \emph{with replacement} from each urn.
 
 \que{1} For different values of $n>1$ find $w_1,b_1,w_2,b_2$ such that:
 \[
 P(\textsf{balls drawn from} \;U_1\; \textsf{are all white})=
 P(\textsf{balls drawn from} \;U_2\; \textsf{are all white or all black})\,.
 \]
+\vspace{-6ex}
 \end{prob}
 
 \solution{}
@@ -657,9 +678,21 @@ P(\textsf{balls drawn from} \;U_2\; \textsf{are all white or all black})\,.
 \left(\disfrac{w_1}{m}\right)^2&=&\left(\disfrac{w_2}{m}\right)^2+\left(\disfrac{b_2}{m}\right)^2\\
 w_1^2&=&w_2^2+b_2^2\,.
 \end{eqn}
-One solution is $w_1=10,b_1=4,w_2=6,b_2=8$.
-
 By Fermat's Last Theorem, proved in $1995$ by Andrew Wiles, there are no solutions to $w_1^n=w_2^n+b_2^n$ for $n\geq 3$.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Simulation}
 
+The simulation was run for $n=2$ and several Pythagorean triples.
+\begin{verbatim}
+For w1 = 17, w2 = 8, b2 =15:
+Proportion of two whites in urn 1          = 0.5523
+Proportion of two whites or black in urn 2 = 0.5387
+For w1 = 29, w2 = 20, b2 =21:
+Proportion of two whites in urn 1          = 0.5003
+Proportion of two whites or black in urn 2 = 0.5026
+For w1 = 65, w2 = 33, b2 =56:
+Proportion of two whites in urn 1          = 0.5381
+Proportion of two whites or black in urn 2 = 0.5384
+\end{verbatim}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

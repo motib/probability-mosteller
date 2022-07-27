@@ -30,12 +30,12 @@ def simulate():
                        right_break-left_break,
                        1-right_break)
 
-    print('Expectations: shortest = {:.4}'.format(2/18) +
-          ', middle = {:.4}'.format(5/18) +
-          ', longest = {:.4}'.format(11/18))
-    print('Averages:     shortest = {:.4}, '.
+    print('Expectations: shortest = {:.4f}'.format(2/18) +
+          ', middle = {:.4f}'.format(5/18) +
+          ', longest = {:.4f}'.format(11/18))
+    print('Averages:     shortest = {:.4f}, '.
           format(sum_min/n) +
-          'middle = {:.4}, longest = {:.4}'.
+          'middle = {:.4}, longest = {:.4f}'.
           format(1-(sum_min+sum_max)/n, sum_max/n))
 
 simulate()

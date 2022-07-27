@@ -18,6 +18,9 @@
   decorations.pathmorphing}
 \tikzset {>=Stealth}
 
+% Display output of matplotlib
+\usepackage{pgfplots}
+
 % Display vertex not affected by tikz scale
 \newcommand*{\vertex}[1]
   {\fill[shift only] (#1) circle (2.5pt)}
@@ -30,7 +33,7 @@
   \bigskip\bigskip\refstepcounter{problem}
   \addcontentsline{toc}{subsection}
   {\bfseries\theproblem{}.\ #1}
-  \textbf{\Large\theproblem.\ #1\medskip\\}}{\bigskip}
+  \textbf{\Large\theproblem.\ #1\medskip\\}}{\smallskip}
 
 \newcommand*{\que}[1]{\textbf{Question #1:}}
 
@@ -50,8 +53,14 @@
 
 % Reduce space around c column in eqnarray*
 \newenvironment{eqn}
-  {\addtolength{\arraycolsep}{-3pt}\begin{eqnarray*}}
+  {\addtolength{\arraycolsep}{-3pt}
+   \begin{eqnarray*}}
   {\end{eqnarray*}}
+
+\newenvironment{eqnlabels}
+  {\addtolength{\arraycolsep}{-3pt}
+   \begin{eqnarray}}
+  {\end{eqnarray}}
 
 % Layout
 \textwidth=155mm
@@ -65,7 +74,7 @@
 \renewcommand{\baselinestretch}{1.1}
 \setlength{\parskip}{0.3\baselineskip plus 1pt minus 1pt}
 
-%\includeonly{mos-prob}
+%\includeonly{mos3}
 
 \begin{document}
 

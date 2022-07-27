@@ -71,15 +71,11 @@ This work is licensed under Attribution-ShareAlike 4.0 International. To view a 
 
 Frederick Mosteller ($1916$--$2006$) founded the Department of Statistics at Harvard University and served as its chairman from $1957$ until $1971$, retiring from the university in $2003$. Mosteller was deeply interested in statistics education and wrote pioneering textbooks including \cite{pwsa} which emphasized the probabilistic approach to statistics, and \cite{bsda} which was one of the first texts on data analysis. In an interview Mosteller described the development of his approach to statistics education \cite{gse}.
 
-\medskip
-
 \textbf{This document}
 
 This document is a ``reworking'' of Mosteller's delightful book \textit{Fifty Challenging Problems in Probability with Solutions} \cite{fifty}. The problems and their solutions are presented as far as possible in a manner accessible to readers with an elementary knowledge of probability, and many of the problems are accessible to secondary-school students and teachers. The problems and solutions have been rewritten to include detailed calculations and additional explanations and diagrams. I have sometimes included additional solutions.
 
-Many of the problems have been modified to make them accessible: they are simplified, divided into subproblems and hints are provided. As a personal preference I have rephrased the problems in a more abstract way than Mosteller does and I have not given units like inches or currencies like dollars.
-
-The numbering and titles of the problems have been retained to facilitate comparison with Mosteller's book.
+Many of the problems have been modified to make them accessible: they are simplified, divided into subproblems and hints are provided. As a personal preference I have rephrased the problems in a more abstract way than Mosteller does and I have not given units like inches or currencies like dollars. The numbering and titles of the problems have been retained to facilitate comparison with Mosteller's book.
 
 Modern scientific calculators, including applications for smartphones, can perform the computations with no difficultly, although we use Stirling's approximation in two problems so that readers can see how it is used.
 
@@ -87,12 +83,18 @@ Basic concepts of probability are reviewed in the final section which is based o
 
 Problems that are more difficult are annotated with $D$. Even a problem not marked $D$ can be difficult so do not be discouraged if you cannot solve it. However, it is worthwhile attempting to solve all the problems because any progress you make will be encouraging.
 
+\textbf{Source code}
+
+The CC-BY-SA copyright license allows readers to freely distribute and modify the document as described in the license. \LaTeX{} and Python source code is available at:
+\vspace*{-2ex}
+\begin{center}
+\url{https://github.com/motib/probability-mosteller}
+\end{center}
 \textbf{Acknowledgments}
 
 David Fortus, Aaron Montgomery, Michael Woltermann
 
-\bigskip
-\bigskip
+\newpage
 
 \begin{center}
 \textbf{\LARGE Simulations}
@@ -106,7 +108,7 @@ David Fortus, Aaron Montgomery, Michael Woltermann
 
 The programs run each simulation $10000$ times and the results are displayed to four decimal places. A simulated result will almost certainly not be exactly the same as that obtained from computing the expectation or the probability.
 
-Python source code is available at \url{https://github.com/motib/probability-mosteller}. The files are named \verb+N-name.py+ where \verb+N+ is the problem number and \verb+name+ is the problem title.
+The files are named \verb+N-name.py+ where \verb+N+ is the problem number and \verb+name+ is the problem title.
 
 For each simulation two results are displayed: 
 \begin{itemize}
@@ -117,4 +119,4 @@ It is important to understand that ``probability'' and ``expectation'' are theor
 
 The simulation programs are very short and straightforward once a problem is understood. I suggest running the simulations for various numbers of trials and other parameters to help understand their sensitivity to these parameters.
 
-. You can run the program many times to see how the results vary
+For Problem 36, \textit{The Gambler's Ruin}, I have written a Python program that plots the results of each step. You can use this as a template to write other plotting programs.

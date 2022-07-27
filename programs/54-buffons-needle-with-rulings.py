@@ -1,4 +1,4 @@
-# Problem 53. Buffon's needle
+# Problem 54. Buffon's needle with horizontal and vertical rulings
 
 # Copyright 2022. Moti Ben-Ari
 # Creative Commons Attribution-ShareAlike
@@ -16,17 +16,17 @@ def probability_of_crossing(length):
 
         center = random.random()
         theta = (math.pi/2.0) * random.random()
-        # Compute if projection crosses
+        # Compute if projection crosses horizontal or vertical
         if center <= length*math.sin(theta):
+            crossings += 1
+        if center <= length*math.cos(theta):
             crossings += 1
 
     print('Expectation of crossings = {:.4f}'.
-          format(2.0*length/math.pi))
+          format(4.0*length/math.pi))
     avg_crossings = crossings/n
     print('Average crossings        = {:.4f}'.
           format(avg_crossings))
-    print('Empirical value for pi   = {:.5}\n'.
-          format(2.0*length/avg_crossings))
 
 def simulate():
     for length in [0.2,0.5,1.0]:

@@ -52,4 +52,3 @@ def search_values():
 
 simulate()
 search_values()
-

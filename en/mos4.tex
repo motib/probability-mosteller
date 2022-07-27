@@ -366,15 +366,12 @@ P(n,r)&=& \dischoose{n}{r}\disfrac{1}{n(n-1)(n+r-1)} P(n-r,0)\\
 which solves the problem since $P(k,0)$ is given.
 
 Mosteller develops a closed formula and a limit for $P(n,r)$:
-{
-\addtolength{\arraycolsep}{-3pt}
-\begin{eqnarray}
+\begin{eqnlabels}
 \label{eq.r-matches-lim1}
 P(n,k)&=&\disfrac{1}{k!}\sum_{i=0}^{n-k} \disfrac{(-1)^i}{i!}\\
 \label{eq.r-matches-lim2}
 \lim_{n-r\rightarrow \infty} P(n,k)&\approx& \disfrac{1}{k!}e^{-1}\,.
-\end{eqnarray}
-}
+\end{eqnlabels}
 \textbf{Simulation}
 
 The simulation was run for $n=52$ cards and the probability computed from Equation~\ref{eq.r-matches-lim2}.
