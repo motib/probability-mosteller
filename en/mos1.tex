@@ -178,7 +178,7 @@ Average different pairs        = 24.4725
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{Will the second-best be runner-up?}
-Eight players in a tournament $\{a_1,\ldots,a_8\}$ are randomly assigned to play games $\{g_1,\ldots,g_8\}$ in a schedule such that player $a_{k_{i}}$ initially plays in position $g_{k_{i}}$ (Figure~\ref{f.tournament}). The players are ranked from the best $a_1$ to the worst $a_8$ and the better player will \emph{always} defeat her opponent.  Clearly $a_1$ will win the tournament.
+Eight players $\{a_1,\ldots,a_8\}$ are randomly assigned to play games $\{g_1,\ldots,g_8\}$ in a schedule such that player $a_{k_{i}}$ initially plays in position $g_{k_{i}}$ (Figure~\ref{f.tournament}). The players are ranked from the best $a_1$ to the worst $a_8$ and the better player will \emph{always} defeat her opponent.  Clearly $a_1$ will win the tournament.
 
 \que{1} What is the probability that $a_2$ will be the runner-up by playing $a_1$ in the final round and losing to her?
 
@@ -237,7 +237,7 @@ Proportion of games where a2 is runner-up  = 0.5060
 
 \begin{prob}{Twin knights\annotate{D}}
 
-Eight players in a tournament $\{a_1,\ldots,a_8\}$ are randomly assigned to play games $\{g_1,\ldots,g_8\}$ in a schedule such that $a_{k_{i}}$ initially plays in position $g_{k_{i}}$ (Figure~\ref{f.tournament}). For all $i,j$, the probability that $a_i$ wins in a game against $a_j$ is $1/2$ as is the probability that $a_j$ wins against $a_i$.
+Eight players $\{a_1,\ldots,a_8\}$ are randomly assigned to play games $\{g_1,\ldots,g_8\}$ in a schedule such that $a_{k_{i}}$ initially plays in position $g_{k_{i}}$ (Figure~\ref{f.tournament}). For all $i,j$, the probability that $a_i$ wins in a game against $a_j$ is $1/2$ as is the probability that $a_j$ wins against $a_i$.
 
 \que{1} What is the probability that $a_1,a_2$ play each other?
 
@@ -367,13 +367,13 @@ Proportion  of 50 heads for 100 tosses = 0.0785
 P(\textsf{at least one}\; 6)=1-\left(\frac{5}{6}\right)^6\approx 0.6651\,.
 \]
 
-\ans{2} The probability is the complement of the probability of obtain zero or one $6$s in $12$ throws:
+\ans{2} The probability is the complement of the probability of obtaining zero or one $6$s in $12$ throws:
 \[
 P(\textsf{at least two}\;6\textsf{s})=1-\left(\frac{5}{6}\right)^{12}-{12\choose 1}\left(\frac{1}{6}\right)^{1}\left(\frac{5}{6}\right)^{11}\approx 0.6187\,.
 \]
 This event is less probable than the previous one.
 
-\ans{3} The probability is the complement of the probability of obtain less than $n$ $6$s in $6n$ throws:
+\ans{3} The probability is the complement of the probability of obtaining less than $n$ $6$s in $6n$ throws:
 \begin{eqn}
 P(\textsf{at least}\;n\;6\textsf{s})&=&
   1-{6n \choose 0}\left(\frac{1}{6}\right)^0\left(\frac{5}{6}\right)^{6n-0}-
@@ -465,24 +465,23 @@ P(A\;\textsf{wins} \;| A\; \textsf{hits}\;B )&=&(0.5 \cdot 0.3) + \\
 Similarly, the probability of $C$ winning is $\disfrac{0.5}{1-0.35}=\disfrac{1}{13}\approx 0.0760$.
 
 The expectation is:
-\vspace*{-4ex}
+\vspace*{-1ex}
 \[
-\renewcommand*{\arraystretch}{2.5}
+\renewcommand*{\arraystretch}{1.5}
 \begin{array}{l}
 E(A \;\textsf{wins}) =E(A \;\textsf{wins}\;|\;A\;\textsf{misses}\;B) + E(A \;\textsf{wins}\;|\;A\;\textsf{hits}\;B)=\\
-\qquad
+\quad
 \overbrace{1\cdot (0.7\cdot 1\cdot 0.3)}%
-^{A\stackrel{M}{\longrightarrow}B, B\stackrel{H}{\longrightarrow}C, A\stackrel{H}{\longrightarrow}B}+
+^{A\stackrel{M}{\longrightarrow}B, B\stackrel{H}{\longrightarrow}C, A\stackrel{H}{\longrightarrow}B}+\!
 
 \overbrace{0\cdot (0.7\cdot 1\cdot 0.7\cdot 1)}%
-^{A\stackrel{M}{\longrightarrow}B, B\stackrel{H}{\longrightarrow}C,A\stackrel{M}{\longrightarrow}B,B\stackrel{H}{\longrightarrow}A} +
-
+^{A\stackrel{M}{\longrightarrow}B, B\stackrel{H}{\longrightarrow}C,A\stackrel{M}{\longrightarrow}B,B\stackrel{H}{\longrightarrow}A} +\!
 \overbrace{1\cdot (0.2308)}%
 ^{A\stackrel{H}{\longrightarrow}B, C\stackrel{H}{\longleftrightarrow*}A,C\stackrel{H}{\longrightarrow}A} +
 \overbrace{0\cdot (0.3\cdot (0.0769))}%
 ^{A\stackrel{H}{\longrightarrow}B, C\stackrel{H}{\longleftrightarrow}A,C\stackrel{H}{\longrightarrow}A}
 \approx\\
-\qquad 0.2792\,,
+\quad\qquad 0.2792\,,
 \end{array}
 \]
 which is higher than the expectation of winning by shooting at $C$ first.

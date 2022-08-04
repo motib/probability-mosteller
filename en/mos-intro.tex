@@ -21,7 +21,7 @@
 \bigskip
 \bigskip
 
-Version $0.3$
+Version $0.4$
 
 \bigskip
 
@@ -75,7 +75,7 @@ Frederick Mosteller ($1916$--$2006$) founded the Department of Statistics at Har
 
 This document is a ``reworking'' of Mosteller's delightful book \textit{Fifty Challenging Problems in Probability with Solutions} \cite{fifty}. The problems and their solutions are presented as far as possible in a manner accessible to readers with an elementary knowledge of probability, and many of the problems are accessible to secondary-school students and teachers. The problems and solutions have been rewritten to include detailed calculations and additional explanations and diagrams. I have sometimes included additional solutions.
 
-Many of the problems have been modified to make them accessible: they are simplified, divided into subproblems and hints are provided. As a personal preference I have rephrased the problems in a more abstract way than Mosteller does and I have not given units like inches or currencies like dollars. The numbering and titles of the problems have been retained to facilitate comparison with Mosteller's book.
+To make the problems more accessible they were simplified, divided into subproblems and hints were provided. As a personal preference I have rephrased the problems in a more abstract way than Mosteller does and I have not given units like inches or currencies like dollars. The numbering and titles of the problems have been retained to facilitate comparison with Mosteller's book.
 
 Modern scientific calculators, including applications for smartphones, can perform the computations with no difficultly, although we use Stirling's approximation in two problems so that readers can see how it is used.
 
@@ -92,7 +92,7 @@ The CC-BY-SA copyright license allows readers to freely distribute and modify th
 \end{center}
 \textbf{Acknowledgments}
 
-David Fortus, Aaron Montgomery, Michael Woltermann
+I would like to thank David Fortus, Aaron Montgomery and Michael Wolterman for their helpful comments and suggestions.
 
 \newpage
 
@@ -104,7 +104,7 @@ David Fortus, Aaron Montgomery, Michael Woltermann
 
 \bigskip
 
-\emph{Monte Carlo simulations} (named after the famous casino in Monaco) written in the Python 3 programming language are provided for most problems. A computer program ``performs an experiment,'' such as ``tossing a pair of dice'' or ``flipping a coin,'' a very large number of times and computes averages which are displayed. The random number generators built into Python, \verb+random.random()+ and \verb+random.randint()+, are used to obtain random outcomes for each experiment.
+\emph{Monte Carlo simulations} (named after the famous casino in Monaco) written in the Python 3 programming language are provided for most problems. A computer program performs a trial---``tossing a pair of dice'' or ``flipping a coin''---a very large number of times and computes the average or the proportion of successes. The random number generators built into Python (\verb+random.random()+, \verb+random.randint()+) were used to obtain random outcomes for each trial.
 
 The programs run each simulation $10000$ times and the results are displayed to four decimal places. A simulated result will almost certainly not be exactly the same as that obtained from computing the expectation or the probability.
 
@@ -112,11 +112,11 @@ The files are named \verb+N-name.py+ where \verb+N+ is the problem number and \v
 
 For each simulation two results are displayed: 
 \begin{itemize}
-\item The theoretical value which is either a \emph{probability} or an \emph{expectation}. In general, rather than copy the values from the text they are calculated from the formulas. 
-\item The result of the simulation is either a \emph{proportion} of successes relative to the number of trials corresponding to a probability, or the \emph{average} number of successes corresponding to an expectation.
+\item The theoretical value which is either a \emph{probability} or an \emph{expectation}. In general, rather than copy these values from the text they are calculated from the formulas. 
+\item The result of the simulation is either a \emph{proportion} of successes relative to the number of trials which corresponds to a theorectical probability, or the \emph{average} number of successes which corresponds to a theoretical expectation.
 \end{itemize}
-It is important to understand that ``probability'' and ``expectation'' are theoretical concepts. The \emph{law of large numbers} ensures that the outcomes of many trials are very close to the theoretical values, but they won't be exactly the same. For example, the probability of obtaining a $6$ when a fair die is thrown is $1/6\approx 0.1667$. Running a simulation for $10000$ throws resulted in a range of values: $0.1684, 0.1693, 0.1687, 0.1665, 0.1656$.
+It is important to understand that ``probability'' and ``expectation'' are theoretical concepts. The \emph{law of large numbers} ensures that the outcomes of many trials are very close to the theoretical values but they won't be exactly the same. For example, the probability of obtaining a $6$ when a fair die is thrown is $1/6\approx 0.1667$. Running a simulation for $10000$ throws resulted in a range of values: $0.1684, 0.1693, 0.1687, 0.1665, 0.1656$.
 
 The simulation programs are very short and straightforward once a problem is understood. I suggest running the simulations for various numbers of trials and other parameters to help understand their sensitivity to these parameters.
 
-For Problem 36, \textit{The Gambler's Ruin}, I have written a Python program that plots the results of each step. You can use this as a template to write other plotting programs.
+For Problem 36, \textit{the gambler's ruin}, I have written a Python program that plots the results of each step. You can use this as a template to write other plotting programs.

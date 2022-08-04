@@ -10,5 +10,6 @@
 *.synctex.gz
 *.toc
 *.docx
-probability-mosteller*.pdf
+*.pdf
 *.txt
+*.out

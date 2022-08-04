@@ -90,11 +90,12 @@ A large number of glass rods of length $1$ are broken in two places (Figure~\ref
 \draw (-3,-3) rectangle +(6,6);
 \draw[thick,fill=white!70!black] (-3,-3) -- ++(0,1.5) -- 
   ++(3,0) -- ++(0,-1.5) -- cycle;
-\path (-3,-3) node[below left] {$\scriptstyle (0,0)$} --
+\path (-3,-3) node[below] {$\scriptstyle (0,0)$} --
   node[below] {$x$} (3,-3)
-  node[below right] {$\scriptstyle (1,0)$};
+  node[below] {$\scriptstyle (1,0)$};
 \path (-3,-3) -- node[left] {$y$} (-3,3)
-  node[above left] {$\scriptstyle (0,1)$};
+  node[above] {$\scriptstyle (0,1)$};
+\node[above] at (3,3) {$\scriptstyle (1,1)$};
 \fill (0,-1.5) circle [radius=2pt]
   node[above right] {$\scriptstyle (.5,.25)$};
 \end{tikzpicture}

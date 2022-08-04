@@ -8,7 +8,8 @@
 \usepackage{microtype}
 \usepackage{verbatim}
 \usepackage{url}
-\usepackage{caption,subcaption}
+\usepackage{subcaption}
+\usepackage{hyperref}
 
 % TikZ package
 \usepackage{tikz}
@@ -19,7 +20,9 @@
 \tikzset {>=Stealth}
 
 % Display output of matplotlib
+% pgfplot complains for compatibility issues
 \usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
 
 % Display vertex not affected by tikz scale
 \newcommand*{\vertex}[1]
@@ -27,7 +30,16 @@
 \newcommand*{\vertexcolor}[2]
   {\fill[shift only,#2] (#1) circle (2.5pt)}
 
-% Format problem with counter
+% Format subcaptions as Figure N(a): ...
+\DeclareCaptionSubType*{figure}
+\captionsetup[subfigure]{labelformat=simple}
+\renewcommand\thesubfigure{Figure~\thefigure(\alph{subfigure})}
+
+% Annotate chapter headings
+%   But hyperref does not accept annotation
+\newcommand*{\annotate}[1]{\texorpdfstring{$\,^{#1}$}{}}
+
+% Format problems with counter
 \newcounter{problem}
 \newenvironment{prob}[1]{
   \bigskip\bigskip\refstepcounter{problem}
@@ -35,17 +47,16 @@
   {\bfseries\theproblem{}.\ #1}
   \textbf{\Large\theproblem.\ #1\medskip\\}}{\smallskip}
 
+% Format questions
 \newcommand*{\que}[1]{\textbf{Question #1:}}
 
-% Format solution
+% Format solutions
 \newcommand*{\solution}[1]{\bigskip%
   \textbf{\Large Solution #1} \medskip}
 
+% Format answers
 \newcommand*{\ans}[1]{\textbf{Answer #1:}}
 \newcommand*{\ansnc}[1]{\textbf{Answer #1}}
-
-% Annotate chapter headings
-\newcommand*{\annotate}[1]{$\,^{#1}$}
 
 % Displaystyle for fractions and combinations
 \newcommand*{\disfrac}[2]{\displaystyle\frac{#1}{#2}}
@@ -57,24 +68,25 @@
    \begin{eqnarray*}}
   {\end{eqnarray*}}
 
+% Reduce space around c column in eqnarray with labels
 \newenvironment{eqnlabels}
   {\addtolength{\arraycolsep}{-3pt}
    \begin{eqnarray}}
   {\end{eqnarray}}
 
 % Layout
-\textwidth=155mm
-\textheight=230mm
+\textwidth=150mm
+\textheight=225mm
 \topmargin=0pt
-\headheight=0pt
-\oddsidemargin=0mm
+\headheight=11pt
+\oddsidemargin=1em
 \evensidemargin=0mm
 \headsep=0pt
 \parindent=0pt
 \renewcommand{\baselinestretch}{1.1}
 \setlength{\parskip}{0.3\baselineskip plus 1pt minus 1pt}
 
-%\includeonly{mos3}
+%\includeonly{mos-prob}
 
 \begin{document}
 

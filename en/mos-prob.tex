@@ -11,15 +11,15 @@
 
 This section reviews concepts of probability. An example of each concept is given using the activity of throwing fair six-sided dice.
 
-\textbf{Experiment} This is an undefined primitive concept, the intention being an action that has possible results. An experiment is also called a \emph{trial}. Throwing a die is an experiment.\footnote{\emph{Die} is the singular of the more familiar plural noun \emph{dice}.}
+\textbf{Trial} This is an undefined primitive concept, the intention being an action that has possible results. Throwing a die is a trial.\footnote{\emph{Die} is the singular of the more familiar plural noun \emph{dice}.}
 
-\textbf{Outcome} The result of an experiment. If you throw a die one outcome is $4$.
+\textbf{Outcome} The result of an trial. If you throw a die one outcome is $4$.
 
-\textbf{Sample space} The set of all possible outcomes of an experiment. The set $S=\{1,2,3,4,5,6\}$ is the sample space of the outcomes of throwing a die.
+\textbf{Sample space} The set of all possible outcomes of a trial. The set $S=\{1,2,3,4,5,6\}$ is the sample space of the outcomes of throwing a die.
 
-\textbf{Event} A subset of the sample space. The subset $e=\{2,4,6\}\subseteq S$ is the event of a die showing an even number.
+\textbf{Event} A subset of the sample space. The subset $e=\{2,4,6\}\subseteq S$ is the event of an even number is shown when a die is thrown.
 
-\textbf{Random variable} A function from a sample space to (real) numbers. Let $T$ be the sample space of throwing a pair of dice:
+\textbf{Random variable} A function from a sample space to a set of numbers. Let $T$ be the sample space of (ordered) results from throwing a pair of dice:
 \[
 T=\{(a,b)| a,b\in \{1,2,3,4,5,6\} \}\,.
 \]
@@ -36,20 +36,23 @@ The intersection is the set of even numbers among the first three elements of th
 
 \textbf{Mutually exclusive} Two or more events are mutually exclusive if their intersection is the empty set. $e_1=\{2,4,6\}$ and $e_2=\{1,3,5\}$ are mutually exclusive since $e_1 \cap e_2=\emptyset$, that is, there are no outcomes which are numbers that are both even and odd.
 
-\textbf{Probability} Probability is the limiting relative frequency of an event. Let $e$ be an event and let $n_e$ be the number of times that $e$ occurs in $n$ repetitions of the trial. $P(e)$, the probability of the event $e$, is:
+\textbf{Probability} The intuitive concept of probability is given by the definition: probability is the limiting relative frequency of an event. Let $e$ be an event and let $n_e$ be the number of times that $e$ occurs in $n$ repetitions of the trial. $P(e)$, the probability of the event $e$, is:
 \[
 P(e) = \lim_{n\rightarrow \infty} \frac{n_e}{n}\,.
 \]
-This definition is problematic because we don't actually know that the limit exists. The definition also depends on ``repetitions of an event'' but we want to define probability without reference to a specific sequence of trials.
+This definition is problematic because we don't actually know that the limit exists. The definition also depends on ``repetitions of an event'' but we want to define probability without reference to a specific sequence of trials. The \emph{law of large numbers} ensure that our intuitive concept of probability as relative frequency is very similar to what happens when an trial is repeated many times.
 
-Modern probability theory is based on a set of three axioms, but we won't develop this theory, although the importance of two of the axioms is clear:
-\begin{eqn}
-P(e) &\geq& 0\\
-P(S) &=& 1\,.
-\end{eqn} 
-Any event either occurs with some non-zero probability or it doesn't occur, and the outcome space is by definition all the possible outcomes.
+Modern probability theory is based on a set of three axioms that are quite intuitive:
+\begin{itemize}
+\item For an event $e$, $0\leq P(e) \leq 1$.
+\item For a sample space $S$, $P(S) = 1$.
+\item For a set of mutually exclusive events $\{e_1,\ldots,e_n\}$:
+\[
+P\left(\bigcup_{i=1}^{n} e_i\right)=\sum_{i=1}^{n} P(e_i)\,.
+\]
+\end{itemize}
 
-The \emph{law of large numbers} ensure that our intuitive concept of probability as relative frequency is very similar to what happens when an trial is repeated many times.
+\textbf{Replacement} Drawing colored balls from an urn is frequently used in problems in probability. It is important to specify whether the balls are drawn with or without replacement: after a ball is drawn is it replaced in the urn before the next draw? Consider an urn with three red balls and three black balls, and draw two balls. Let the color of the first ball be red an event with probability $\frac{3}{3+3}=\frac{1}{2}$. If you replace the ball the probability of drawing a second red ball is still $\frac{1}{2}$ so the probability that both are red is $\frac{1}{4}$. If you don't replace the ball the probability that the second ball is red is reduced to $\frac{2}{2+3}=\frac{2}{5}$ so the probability that both are red is $\frac{1}{2}\cdot\frac{2}{5}=\frac{1}{5}<\frac{1}{4}$.
 
 \textbf{Uniformly distributed} If all outcomes in the sample space have equal probability, the probability is said to be uniformly distributed. If $S$ is a finite set with probability that is uniformly distributed then:
 \[
@@ -68,17 +71,17 @@ Let $e_1=\{1,2,3\}$ be the event that a die shows a number less than or equal to
 \[
 P(e_2 | e_1) = \disfrac{P(E_2 \cap E_1)}{P(e_1)}=\disfrac{P(\{2\})}{P(\{2,4,6\})}= \disfrac{1/6}{1/2}=\disfrac{1}{3}\,.
 \]
-This makes sense since if you know that a number is less than or equal to $3$, only one out of the three outcomes is an even number.
+If you know that a number is less than or equal to $3$, only one out of the three outcomes is an even number.
 
 \textbf{Independence} Two events are independent if the probability of their intersection is the product of their individual probabilities:
 \[
-P(e_1 \cap e_2)=P(e_1)\,P(e_2)\,.
+P(e_1 \cap e_2)=P(e_1)P(e_2)\,.
 \]
 In terms of conditional probability:
 \[
-P(e_1 | e_2)=\frac{P(e_1)\cap P(e_2)}{P(e_2)} = \frac{P(e_1)\,P(e_2)}{P(e_2)}=P(e_1)\,. 
+P(e_1 | e_2)=\frac{P(e_1)\cap P(e_2)}{P(e_2)} = \frac{P(e_1)P(e_2)}{P(e_2)}=P(e_1)\,. 
 \]
-For independent events $e_1,e_2$, if you know the probability of $e_2$ it gives you no information as to the probability of $e_1$. Three throws of a fair die are independent so the probability of all of them showing an even number is $\frac{1}{2}\cdot \frac{1}{2}\cdot \frac{1}{2}=\frac{1}{8}$. 
+For independent events $e_1,e_2$, even if you know the probability of $e_2$ you have no information as to the probability of $e_1$. Three throws of a fair die are independent so the probability of all of them showing an even number is $\frac{1}{2}\cdot \frac{1}{2}\cdot \frac{1}{2}=\frac{1}{8}$. 
 
 \textbf{Average}
 Let $S=\{a_1,\ldots,a_n\}$ be a set of values. Then:
@@ -92,11 +95,11 @@ An average is computed over a set of values but the average may not be an elemen
 again, a value not in the set.
 
 \textbf{Expectation}
-The expectation of a random variable is the sum of the probability of each outcome times the value of random variable for that outcome. For a fair die each outcome has the same probability so:
+The expectation of a random variable is the sum of the probability of each outcome times the value of the random variable for that outcome. For a fair die each outcome has the same probability so:
 \[
 E(\textsf{value of a die})=1\cdot \frac{1}{6} + 2\cdot\frac{1}{6} + 3\cdot\frac{1}{6} + 4\cdot\frac{1}{6} + 5\cdot\frac{1}{6} + 6\cdot\frac{1}{6}=3.5\,.
 \]
-Consider the random variable defined by the function $X$ (Equation~\ref{eq.sum}) that maps the numbers appearing in a pair of dice to the sum of the numbers. The probability of each pair is $1/36$, but since the pairs $(2,5)$ and $(5,2)$ have the same sum they belong to the same outcome. The values of the random variable are $\{2,\ldots,12\}$ and that the number of ways of obtaining each one is:
+Consider the random variable defined by the function $X$ (Equation~\ref{eq.sum}) that maps the numbers appearing in a pair of dice to the sum of the numbers. The probability of each pair is $1/36$, but since the pairs $(2,5)$ and $(5,2)$ have the same sum they belong to the same outcome. The values of the random variable are $\{2,\ldots,12\}$ and the number of ways of obtaining each one is:
 \[
 \begin{array}{l|rrrrrrrrrrr}
 \textrm{Sum} & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12\\\hline
@@ -118,26 +121,22 @@ Consider again at the expectation of the sum of a pair of dice (Equation~\ref{eq
 \[
 E(e_6) = X(e_6)P(e_6)=6\cdot \frac{5}{36}\,,
 \]
-because $5$ out of the possible $36$ combinations sum to $6$: $(1,5), (2,4), (3,3), (4,2), (5,1)$. But the expectation can also be computed as follows where $P(i,j)$ is the probability of obtaining the pair $(i,j)$ and $E(i,j)$ is the expectation of $i+j$:
+because $5$ out of the $36$ possible pairs sum to $6$: $(1,5), (2,4), (3,3), (4,2), (5,1)$. But the expectation can also be computed as follows where $P(i,j)$ is the probability of obtaining the pair $(i,j)$ and $E(i,j)$ is the expectation of $i+j$:
 \begin{eqn}
 E(X(e_6)) &=& 6\cdot P(1,5)+6\cdot P(2,4)+6\cdot P(3,3)+6\cdot P(4,2)+6\cdot P(5,1)\\
-&=& (1+5)\cdot \frac{1}{36}+(2+4)\cdot \frac{1}{36}+(3+3)\cdot \frac{1}{36}+(4+2)\cdot \frac{1}{36} +(5+1)\frac{1}{36}\\
+&=& (1+5)\cdot \textstyle\frac{1}{36}+(2+4)\cdot \frac{1}{36}+(3+3)\cdot \frac{1}{36}+(4+2)\cdot \frac{1}{36} +(5+1)\frac{1}{36}\\
 &=&E(1,5)+E(2,4)+E(3,3)+E(4,2)+E(5,1)\\
-E(X(k=i+j=6))&=&\sum_{k, k=i+j=6}E(k)\,.
+&=&\sum_{i,j | i+j=6}E(i,j)\,.
 \end{eqn}
-The computation is dependent on the fact that the events are mutually exclusive. Obviously, the events $(2,4)$ and $(3,3)$ cannot both appear in the same trial.
+The computation is dependent on the fact that the events are mutually exclusive, but obviously the events $(2,4)$ and $(3,3)$ cannot both appear in the same trial.
 
-By performing a similar computation for all pairs:
-\[
-E(X(\textsf{all pairs}))=\sum_{k=\textsf{\footnotesize  sum of a pair}}E(k)\,.
-\]
 The same method can be used to prove the generalization \cite[Section~4.9]{ross}:
 \[
 E\left(\sum_{i=1}^{n} a_ie_i\right)=\sum_{i=1}^{n} a_iE(e_i)\,.
 \]
 This is called the linearity of expectation. In the special case of two random variables $E(ae_1 + be_2) = aE(e_1) + bE(e_2)$.
 
-\textbf{Indicator variable} Let $e$ be an event whose probability is $P(e)$. Define $I_e$, an indicator variable for $e$, as follows \cite[Chapter~4, Example~3b]{ross}:
+\textbf{Indicator variable} Let $e$ be an event whose probability is $P(e)$. Define $I_e$, the indicator variable for $e$, as follows \cite[Chapter~4, Example~3b]{ross}:
 \[
 I_e=
 \left\{
@@ -149,27 +148,21 @@ I_e=
 \]
 Then $E(I_e)=1\cdot P(e) + 0\cdot (1-P(e))=P(e)$.
 
-\bigskip
-
-\textbf{\large Mathematical formulas}
-
-\textbf{Binomial theorem}
-If $p$ is the probability of event $e$ then the probability that a sequence of $n$ independent trials results in \emph{exactly} $k$ events $e$ is given by the \emph{binomial coefficient}:
+\textbf{Binomial distribution}
+If $p$ is the probability of event $e$ then the probability that a sequence of $n$ independent trials results in \emph{exactly} $k$ events $e$ is given by the \emph{binomial distribution}:
 \[
-\dischoose{n}{k} p^k (1-p)^{n-k}\,.
+\dischoose{n}{k} p^k (1-p)^{n-k}\,,
+\]
+and more generally the probability that $e$ occurs between $i$ and $j$ times is:
+\[
+\sum_{k=i}^{j}\dischoose{n}{k} p^k (1-p)^{n-k}\,,
 \]
 By the binomial theorem:
-\[
-(x+y)^n=\sum_{i=0}^{n} \dischoose{n}{i} x^i y^{n-i}\,.
-\]
-For $p,1-p$ the equation gives $(p+(1-p))^n=1$, as expected, since one of the outcomes must occur.
-
-\textbf{Sum of a geometric series}
-For $0<r<1$:
-\[
-\sum_{i=0}^{n} r^i = \disfrac{1-r^{n+1}}{1-r},\quad\quad
-\sum_{i=0}^{\infty} r^i = \disfrac{1}{1-r}\,.
-\]
+\begin{eqn}
+\sum_{i=0}^{n} \dischoose{n}{i} x^i y^{n-i}&=&(x+y)^n\\
+\sum_{i=0}^{n} \dischoose{n}{i} p^i (1-p)^{n-i}&=&(p+(1-p))^n=1\,,
+\end{eqn}
+as expected since one of the outcomes must occur.
 
 \textbf{Sum of a harmonic series}\label{p.harmonic}
 For positive integer $n$ the harmonic series is:
@@ -190,25 +183,20 @@ n! &\approx& \sqrt{2\pi n}\left(\disfrac{n}{e}\right)^n\\
 \ln (n!)  &\approx& n\ln n - n + \frac{1}{6}\left(8n^3+4n^2+n+\frac{1}{30}\right)+\frac{1}{2}\ln\pi\,.
 \end{eqn}
 
-\medskip
-
 \textbf{\large Continuous probability distribution}\label{p.continuous}
-
 Continuous probability distributions do not appear very often in the book but for readers with the appropriate background we review the basic concepts.
 
-Probabilities can be defined over continuous random variables. A  \emph{probability density function (PDF)} $f(x): \mathcal{R}\rightarrow \mathcal{R}$ maps an outcome $x$ to the value of the function, thus defining:
+Probabilities can be defined over continuous random variables. A  \emph{probability density function (PDF)} $f(x): \mathcal{R}\rightarrow \mathcal{R}$ maps an outcome $x$ to the value of the function so that:
 \[
 P(x) = f(x)\,.
 \]
-The reason for this terminology is that each \emph{individual} real number has zero probability of occurring, so the proper interpretation is to assign probabilities to neighborhoods of points.
-
-The \emph{cumulative probability distribution (CPD)} for the interval $[-\infty,a]$ is obtained by integrating the PDF:
+Each \emph{individual} real number has zero probability of occurring, so the proper interpretation is to assign probabilities to intervals:
 \[
-P(x<a) = \int_{-\infty}^{a} f(x)\, dx\,.
+P(a<x<b) = \int_{a}^{b} f(x)\, dx\,.
 \]
-This is also $P(x\leq a)$ since $P(a)=0$.
+This is also $P(a\leq x\leq b)$ since the probability is zero for individual points.
 
-Like all probabilities, for a PDF $P(x)\geq 0$ for all $x$, and:
+Like all probabilities for a PDF, $P(x)\geq 0$ for all $x$, and:
 \[
 \int_{-\infty}^{\infty} P(x)\, dx=\int_{-\infty}^{\infty} f(x)\, dx=1\,.
 \]
@@ -223,6 +211,10 @@ P(a\leq x \leq b)=\disfrac{1}{b-a}\int_{a}^{b} 1\, dx=\disfrac{1}{b-a}\cdot (b-a
 The expectation can be obtained by integrating the PDF $f(x)$ multiplied by $x$:
 \[
 E(x)=\int_{-\infty}^{\infty} xf(x)\, dx\,.
+\]
+The \emph{cumulative probability distribution (CPD)} for $[-\infty,a]$ is obtained by integrating the PDF:
+\[
+P(x<a) = \int_{-\infty}^{a} f(x)\, dx\,.
 \]
 The PDF can be obtained by differentiating the CPD:
 \[

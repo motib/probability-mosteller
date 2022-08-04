@@ -342,7 +342,7 @@ Proportion reached origin      = 0.2790
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{Buffon's needle\annotate{D, S}}
+\begin{prob}{Buffon's needle\annotate{D}}
 Consider a needle of length $a\leq 1$ and a surface ruled with parallel lines $1$ apart. Throw the needle onto the surface. What is the probability that the needle crosses a line?\footnote{The problem has been simplified by specifying the distance between the parallel lines as $1$. We ignore the possibility that the needle lies completely along the line or just touches two lines since the probability of these events is zero.}
 
 \textbf{Hint:} There are two independent random variables (Figure~\ref{f.buffon1}): $x$, the position of the center of the needle relative to the closest line which is uniformly distributed in the range $[0,1/2]$, and $\theta$, the angle between the needle and the parallel lines which is uniformly distributed in the range $[0,\pi/2]$.
@@ -545,12 +545,10 @@ Solve Buffon's needle problem for a surface that is covered by a grid with squar
 
 \solution{}
 
-The numbers of crossings of the horizontal and vertical lines are independent and by the linearity of expectation:
+The numbers of crossings of the horizontal and vertical lines are independent and by the linearity of expectation. Let $n_a$ denote a needle of length $a$. Then:
 \begin{eqn}
-E(\textsf{lines crossed by a needle of length}\; a)&=&E(\textsf{vertical lines crossed by a needle of length}\; a +\\
-&&\quad\:\textsf{horizontal lines crossed by a needle of length}\;a)\\
-&=&E(\textsf{vertical lines crossed by a needle of length}\;a) +\\
-&&E(\textsf{horizontal lines crossed by a needle of length}\;a)\\
+E(\textsf{lines crossed by}\; n_a)&=&E(\textsf{vertical lines crossed by}\; n_a + \textsf{horizontal lines crossed by}\;n_a)\\
+&=&E(\textsf{vertical lines crossed by}\;n_a) + E(\textsf{horizontal lines crossed by}\;n_a)\\
 &=&\disfrac{2a}{\pi}+\disfrac{2a}{\pi}=\disfrac{4a}{\pi}\,.
 \end{eqn}
 \textbf{Simulation}
