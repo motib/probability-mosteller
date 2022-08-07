@@ -17,6 +17,7 @@
   calc,arrows.meta,shapes,%
   through,intersections,%
   decorations.pathmorphing}
+\usetikzlibrary{patterns}
 \tikzset {>=Stealth}
 
 % Display output of matplotlib
@@ -74,6 +75,10 @@
    \begin{eqnarray}}
   {\end{eqnarray}}
 
+% Result of a single duel for problem 20
+\newcommand*{\duel}[3]{$#1\stackrel{#2}{\longrightarrow}#3$}
+\newcommand*{\duelmath}[3]{#1\stackrel{#2}{\longrightarrow}#3}
+
 % Layout
 \textwidth=150mm
 \textheight=225mm
@@ -86,11 +91,11 @@
 \renewcommand{\baselinestretch}{1.1}
 \setlength{\parskip}{0.3\baselineskip plus 1pt minus 1pt}
 
-%\includeonly{mos-prob}
+%\includeonly{mos4}
 
 \begin{document}
 
-% \input prevents unnecessary page breakss
+% \input prevents unnecessary page breaks
 
 %\input{mos-intro}
 %\input{mos0}

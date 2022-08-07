@@ -3,7 +3,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{Should you sample with or without replacement?\annotate{D}}
-Urn $A$ contains $2$ red balls and $1$ green ball, and urn $B$ contains $101$ red balls and $100$ green balls. An urn is chosen at random and two balls are randomly drawn from the selected urn. You win if you correctly identify whether the selected urn was $A$ or $B$.
+Urn $A$ contains $2$ red balls and $1$ green ball, and urn $B$ contains $101$ red balls and $100$ green balls. An urn is chosen at random and two balls are randomly drawn from the selected urn. You win if you correctly identify whether the selected urn was $A$ or $B$ based on the colors of the balls that were drawn.
 
 Compute the probabilities of winning for each of the following rules and decide which gives you the highest probability of winning.
 
@@ -21,7 +21,7 @@ Compute the probabilities of winning for each of the following rules and decide 
 
 \solution{}
 
-There are four outcomes which we denote by $RR, RG, GR, GG$. For each rule compute the conditional probabilities of the four outcomes given that urn $A$ or urn $B$ was selected initially. These probabilities are multiplied by $1/2$ to take into account the random selection of a urn.
+There are four outcomes which we denote by $RR, RG, GR, GG$. For each rule compute the conditional probabilities of the four outcomes given that urn $A$ or urn $B$ was selected initially. These probabilities must be multiplied by $1/2$ because the selection of an urn is random.
 
 \ans{1} Drawing with replacement:
 \[
@@ -39,7 +39,7 @@ P(GR|B) &=& \frac{1}{2} \cdot \frac{1}{2} &=& \frac{1}{4}\\
 P(GG|A) &=& \frac{1}{3} \cdot \frac{1}{3} &=& \frac{1}{9}\\
 P(GG|B) &=& \frac{1}{2} \cdot \frac{1}{2} &=& \frac{1}{4}\end{array}
 \]
-If the outcome is $RR$ there is a higher probability that urn $A$ was selected ($4/9$) than that urn $B$ was selected ($1/4$); otherwise, there is a higher probability that urn $B$ was selected. Therefore:
+If the outcome is $RR$ there is a higher probability that urn $A$ was selected ($4/9$) than that urn $B$ was selected ($1/4$); otherwise, there is a higher probability that urn $B$ was selected:
 \[
 P(\textsf{winning})=\frac{1}{2}\left(\frac{4}{9} + \frac{1}{4}+ \frac{1}{4}+ \frac{1}{4}\right)=\disfrac{43}{72}\approx 0.5972\,.
 \]
@@ -61,7 +61,7 @@ P(GG|A) &=& \frac{1}{3} \cdot 0 &=& 0\\
 P(GG|B) &=& \frac{1}{2} \cdot \frac{1}{2} &=& \frac{1}{4}
 \end{array}
 \]
-If the outcome is $GG$ there is (of course!) a higher probability that urn $B$ was selected than that urn $A$ was selected; otherwise, there is a higher probability that urn $A$ was selected. Therefore:
+If the outcome is $GG$ there is (of course!) a higher probability that urn $B$ was selected than that urn $A$ was selected; otherwise, there is a higher probability that urn $A$ was selected:
 \[
 P(\textsf{winning})=\frac{1}{2}\left(\frac{1}{3} + \frac{1}{3}+ \frac{1}{3}+ \frac{1}{4}\right)=\frac{5}{8}=0.6250\,,
 \]
@@ -69,7 +69,7 @@ which is greater than the probability of winning when sampling with replacement.
 
 \ans{3} The decision is based on the outcome of the first draw.
 
-If the first drawing is from urn $A$ the probabilities must be conditioned on the decision to sample with or without replacement. Drawing first from urn $B$ does not affect the probabilities because of the approximation in the hint.
+If the first drawing is from urn $A$ the probabilities must also be conditioned on the decision to sample with or without replacement. Drawing first from urn $B$ does not affect the probabilities because of the approximation in the hint.
 \[
 \renewcommand*{\arraystretch}{1.5}
 \begin{array}{lcccc}
@@ -94,19 +94,19 @@ P(GG|A,w) &=& \frac{1}{3} \cdot \frac{1}{3} &=& \frac{1}{9}\\
 P(GG|A,w/o) &=& \frac{1}{3} \cdot 0 &=&0\\
 P(GG|B) &=& \frac{1}{2} \cdot \frac{1}{2} &=& \frac{1}{4}\\\end{array}
 \]
-If a red ball is drawn first then $\frac{4}{9}>\frac{1}{4}$ and $\frac{2}{9}<\frac{1}{4}$ with replacement, whereas $\frac{1}{3}>\frac{1}{4}$ and $\frac{1}{3}>\frac{1}{4}$ without replacement, so the second ball can help identify the urn only if the drawing is done \emph{with} replacement: urn $A$ if red, urn $B$ if green. Choose the draw with replacement and:
+If a red ball is drawn first then $\frac{4}{9}>\frac{1}{4}$ and $\frac{2}{9}<\frac{1}{4}$ with replacement, whereas $\frac{1}{3}>\frac{1}{4}$ and $\frac{1}{3}>\frac{1}{4}$ without replacement, so the second ball can help identify the urn only if the drawing is done \emph{with} replacement: urn $A$ if red, urn $B$ if green. Choose draw with replacement:
 \[
 P(\textsf{winning if red first})=\frac{1}{2}\left(\frac{4}{9}+\frac{1}{4}\right)=\frac{25}{72}\,.
 \]
-If a green ball is drawn first then $\frac{2}{9}<\frac{1}{4}$ and $\frac{1}{9}<\frac{1}{4}$ with replacement, whereas $\frac{1}{3}>\frac{1}{4}$ and $0<\frac{1}{4}$ without replacement, so the second ball can help identify the urn only if the drawing is done \emph{without} replacement: urn $A$ if red, urn $B$ if green. Choose the draw without replacement and:
+If a green ball is drawn first then $\frac{2}{9}<\frac{1}{4}$ and $\frac{1}{9}<\frac{1}{4}$ with replacement, whereas $\frac{1}{3}>\frac{1}{4}$ and $0<\frac{1}{4}$ without replacement, so the second ball can help identify the urn only if the drawing is done \emph{without} replacement: urn $A$ if red, urn $B$ if green. Choose draw without replacement:
 \[
 P(\textsf{winning if green first})=\frac{1}{2}\left(\frac{1}{3}+\frac{1}{4}\right)=\frac{7}{24}\,.
 \]
 The probability of winning is:
 \[
-P(\textsf{winning})=\frac{25}{72} + \frac{7}{24}=\frac{23}{36}\approx 0.6389\,.
+P(\textsf{winning})=\frac{25}{72} + \frac{7}{24}=\frac{23}{36}\approx 0.6389\,,
 \]
-The highest probability of winning is obtained when the decision to draw with or without replacement depends on the result of the first draw.
+which is greater than the probability of winning when the decision to draw with or without replacement is made before drawing the first ball.
 
 \textbf{Simulation}
 \begin{verbatim}
@@ -128,11 +128,11 @@ Average wins           = 0.6379
 \begin{prob}{The ballot box}
 In an election there are two candidates $A$ and $B$.  $A$ receives $a$ votes and $B$ receives $b$ votes, $a>b$. The votes are counted one-by-one and the running totals $(a_i,b_i), 1\leq i \leq a+b$ are updated as each vote is counted. What is the probability that for at least one $i$, $a_i=b_i$?
 
-\que{1} Solve for $a=3, b=2$ by listing $(a_i,b_i)$ for $1\leq i\leq 5$.
+\que{1} Solve for $a=3, b=2$ by listing the running totals $(a_i,b_i)$ for $1\leq i\leq 5$.
 
 \que{2} Solve for all $a>b$.
 
-\textbf{Hint 1:} What can you say about the identity of the candidate who leads until the \emph{first} tie occurs?
+\textbf{Hint 1:} What can you say about the identity of the candidate who leads until the \emph{first} tie?
 
 \textbf{Hint 2:} What is the significance of the first vote counted?
 \end{prob}
@@ -140,7 +140,7 @@ In an election there are two candidates $A$ and $B$.  $A$ receives $a$ votes and
 \solution{}
 
 \ans{1}
-The number of arrangements of running totals is ${5\choose 2}={5\choose 3}=10$, because the positions of the votes for one candidate determine the positions of the votes for the other candidate. The following table lists the possible arrangements of the votes and of running totals with first ties emphasized:
+The number of arrangements of running totals is ${5\choose 2}={5\choose 3}=10$, because the positions of the votes for one candidate determine the positions of the votes for the other candidate. The following table lists the possible arrangements of the votes and the corresponding running totals $(a_i,b_i)$ with the first ties emphasized:
 \begin{center}
 \begin{minipage}{.48\textwidth}
 \[
@@ -188,11 +188,11 @@ B & B & A & A & A
 \end{center}
 There are ties in all the arrangements except for the first two so:
 \[
-P(\textsf{tie occurs with}\;(3,2)\;\textsf{votes})=\disfrac{8}{10}=\disfrac{4}{5}\,.
+P(\textsf{tie occurs for}\;(3,2)\;\textsf{votes})=\disfrac{8}{10}=\disfrac{4}{5}\,.
 \]
 
 \ans{2} 
-We begin the solution with a discussion on how to approach the second question. Here are some arrangements for $(a,b)=(3,2)$ votes until the \emph{first tie} occurs:
+We begin with a discussion on how to approach the second question. Here are four arrangements for $(a,b)=(3,2)$ votes until the \emph{first tie} occurs:
 \[
 \begin{array}{rrrrr|rrrrr}
 \multicolumn{5}{c|}{A \;\textsf{leads until tie}} &
@@ -201,19 +201,17 @@ A & B &&& &B & A & & &\\
 A & A & B & B && B & B & A & A&\\
 \end{array}
 \]
-For every arrangement where $A$ leads until the first tie, there is a mirror image arrangement where $B$ leads until the first tie. The mirror image is obtained by exchanging all $A$'s and $B$'s.
-
-Before the first tie one of the candidates must be leading. If the first vote counted is for $B$ there must be a tie later in the count since $a>b$. The probability that the first vote is for $B$ is:
+For every arrangement where $A$ leads until the first tie, there is a mirror image arrangement where $B$ leads until the first tie. Before the first tie one of the candidates must be leading. If the first vote counted is for $B$ there must be a tie later in the count since $a>b$. The probability that the first vote is for $B$ is:
 \[
-P(\textsf{first vote for}\;B)=\frac{b}{a+b}\,.
+P(\textsf{tie occurs for}\;(a,b)\;\textsf{votes} \;|\; \textsf{first vote is for}\;B)=\frac{b}{a+b}\,.
 \]
 By mirroring the positions of the votes, the number of sequences resulting in a tie that begin with a vote for $A$ is the same as the number of sequences resulting in a tie that begin with a vote for $B$. Therefore:
 \[
-P(\textsf{tie occurs})=2\cdot\frac{b}{a+b}\,.
+P(\textsf{tie occurs for}\;(a,b)\;\textsf{votes})=2\cdot\frac{b}{a+b}\,.
 \]
 Check:
 \[
-P(\textsf{tie occurs with}\;(3,2)\;\textsf{votes})=2\cdot\frac{2}{2+3}=\frac{4}{5}\,.
+P(\textsf{tie occurs for}\;(3,2)\;\textsf{votes})=2\cdot\frac{2}{2+3}=\frac{4}{5}\,.
 \]
 
 \textbf{Simulation}
@@ -233,15 +231,15 @@ Proportion of ties   = 0.9354
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{Ties in matching pennies\annotate{D}}
-Toss a pair of fair coins $N$ times, $N$ even, and keep count of how many times the parity is even (heads-heads or tails-tails) and how many times the parity is odd (heads-tails or tails-heads). What is the probability of obtaining a tie (not counting the $0-0$ tie at the start)?
+Toss two fair coins $N$ times, $N$ even, and keep count of how many times the parity is even (heads-heads or tails-tails) and how many times the parity is odd (heads-tails or tails-heads). What is the probability of obtaining a tie (not counting the $0$-$0$ tie at the start)?
 
 \que{1} Solve for $N=4$ by writing out all the possible outcomes.
 
 \que{2} Solve for $N=6$ by developing a formula for the probability.
 
-\que{3} Develop a formula for arbitrary even $N$.
+%\que{3} Develop a formula for arbitrary even $N$.
 
-\que{4} Explain why the probability for the odd number $N+1$ is the same as the probability for the even number $N$.
+\que{3} Explain why the probability for the odd number $N+1$ is the same as the probability for the even number $N$.
 
 \textbf{Hint:} Use the solution of Problem~22.
 \end{prob}
@@ -251,8 +249,8 @@ Toss a pair of fair coins $N$ times, $N$ even, and keep count of how many times 
 \ans{1} Denote tosses with even parity by $E$ and tosses with odd parity by $O$. Ten out of the sixteen arrangements of tosses have ties (emphasized):
 \begin{center}
 \begin{tabular}{llllllll}
-EEEE & EEEO & EEOE & \textbf{EEOO} & \textbf{EOEE} & \textbf{EOEO} &\textbf{EOOE} & \textbf{EOOO}\\
-\textbf{OEEE} & \textbf{OEEO} & \textbf{OEOE} & \textbf{OEOO} & \textbf{OOEE} & OOEO&OOOE & OOOO
+EEEE & EEEO & EEOE & \textbf{EEOO} & \textbf{EO}EE & \textbf{EO}EO &\textbf{EO}OE & \textbf{EO}OO\\
+\textbf{OE}EE & \textbf{OE}EO & \textbf{OE}OE & \textbf{OE}OO & \textbf{OOEE} & OOEO&OOOE & OOOO
 \end{tabular}
 \end{center}
 
@@ -269,13 +267,35 @@ P(\textsf{tie on toss}\;i)=
 \end{equation}
 since the ballot box problem showed that the smaller value determines the probability.
 
-The following computations are quite complex so we justify each step in detail.
 
 The probability of $i$ evens is given by the binomial distribution:
 \begin{equation}\label{eq.coins00}
 P(i\;\textsf{evens})=\dischoose{N}{i} \left(\disfrac{1}{2}\right)^i \left(\disfrac{1}{2}\right)^{N-i}=\dischoose{N}{i} \left(\disfrac{1}{2}\right)^N =  2^{-N}\dischoose{N}{i}\,.
 \end{equation}
-The probability of a tie is the sum over $i$ of the probability of obtaining $i$ evens times the probability of a tie on the $i$th toss (Equation~\ref{eq.coins-ties}). For $N=6$:
+The probability of a tie is the sum over $i$ of the probability of obtaining $i$ evens times the probability of a tie on the $i$th toss (Equation~\ref{eq.coins-ties}). For $N=6$ and using ${N \choose i}={N\choose N-i}$:
+
+\begin{eqn}
+P(\textsf{ties})&=&\disfrac{2\cdot 2^{-6}}{6}\sum_{i=0}^{6}i\dischoose{i}{6}\\
+%
+&=&\disfrac{1}{192}\left(
+0\cdot \dischoose{6}{0}+
+1\cdot \dischoose{6}{1}+
+2\cdot \dischoose{6}{2}+
+3\cdot \dischoose{6}{3}+
+4\cdot \dischoose{6}{2}+
+5\cdot \dischoose{6}{1}+
+6\cdot \dischoose{6}{0}
+\right)\\
+%
+&=&\disfrac{1}{192}\left(
+2\cdot \dischoose{6}{1}+
+4\cdot \dischoose{6}{2}+
+3\cdot \dischoose{6}{3}
+\right)\\
+&=&\disfrac{132}{192}\approx 0.6875\,.
+\end{eqn}
+
+\begin{comment}
 \begin{equation}\label{eq.coins0}
 P(\textsf{ties})=2\cdot 2^{-6}\left[
 \frac{0}{6}\dischoose{6}{0} + \frac{1}{6}\dischoose{6}{1} +
@@ -328,14 +348,15 @@ Finally, Equation~\ref{eq.coins6} results from the binomial theorem:
 \begin{equation}\label{eq.coins6}
 P(\textsf{ties})=2^{-5}\left(2^5 - 10\right)=\disfrac{11}{16}\approx 0.6875\,.
 \end{equation}
+\end{comment}
 
-\ans{3} Perform the same calculations as in \ansnc{2} but using arbitrary $N$. The result is:
-\[
-P(\textsf{ties})=2^{-N+1}\left[2^{N-1} - \dischoose{N-1}{N/2}\right]= 
-\left[1 - \left.\dischoose{N-1}{N/2}\right/ 2^{N-1}\right]\,.
-\]
+%\ans{3} Perform the same calculations as in \ansnc{2} but using arbitrary $N$. The result is:
+%\[
+%P(\textsf{ties})=2^{-N+1}\left[2^{N-1} - \dischoose{N-1}{N/2}\right]= 
+%\left[1 - \left.\dischoose{N-1}{N/2}\right/ 2^{N-1}\right]\,.
+%\]
 
-\ans{4} The first tie on the $N+1$'st toss occurs only if the counts are nearly equal after the $N$th toss:
+\ans{3} The first tie on the $N+1$'st toss occurs only if the counts are nearly equal after the $N$th toss:
 \[
 \begin{array}{l}
 ((N/2)-1,(N/2)+1)\\((N/2),(N/2))\\((N/2)+1,(N/2)-1)
@@ -375,7 +396,7 @@ Select a random chord in the unit circle. What is the probability that the lengt
 
 To solve the problem you first have to decide what ``select a random chord'' means. Solve the problem for each of the following possibilities:
 
-\que{1} The distance of the chord from the center is uniformly distributed.
+\que{1} The distance of the chord from the center of the circle is uniformly distributed.
 
 \que{2} The midpoint of the chord is uniformly distributed within the circle.
 
@@ -384,9 +405,9 @@ To solve the problem you first have to decide what ``select a random chord'' mea
 
 \solution{}
 
-\ans{1} A chord is larger than the radius if it is closer to the center than a chord of length $1$. Let $\overline{AB}$ be a chord of length $1$ and construct the altitude $\overline{OH}$ from the center $O$ to the chord (Figure~\ref{f.chord1}). Since $\triangle AOB$ is equilateral, $\triangle OHB$ is a right triangle and the length of the altitude is:
+\ans{1} A chord is larger than the radius if it is closer to the center than a chord of length $1$. Let $\overline{AB}$ be a chord of length $1$ and construct the altitude $h=\overline{OH}$ from the center $O$ to the chord (\ref{f.chord1}). Since $\triangle AOB$ is equilateral $\angle ABO=\pi/3$ and since $\triangle OHB$ is a right triangle:
 \[
-h = \sin \frac{\pi}{3} = \frac{\sqrt{3}}{2}\,.
+h = \sin \frac{\pi}{3}\Big/ 1 = \frac{\sqrt{3}}{2}\,.
 \]
 Let $d$ be the distance of a chord $\overline{DE}$ from the center. By assumption $d$ is uniformly distributed in $(0,1)$ so: 
 \[
@@ -394,7 +415,7 @@ P(\overline{DE}>1)=P(d<h)=\disfrac{h}{1}=\frac{\sqrt{3}}{2} \approx 0.866\,.
 \]
 \begin{figure}[tb]
 \begin{center}
-\begin{subfigure}[t]{.45\textwidth}
+\begin{subfigure}[t]{.48\textwidth}
 \begin{tikzpicture}[scale=.9]
 \coordinate (O) at (0,0) node[below] {$O$};
 \node (hexagon) [minimum size=6cm,regular polygon,
@@ -415,8 +436,8 @@ P(\overline{DE}>1)=P(d<h)=\disfrac{h}{1}=\frac{\sqrt{3}}{2} \approx 0.866\,.
 \node[below left,xshift=-3pt,yshift=1pt] at 
   (hexagon.corner 1) {$\scriptstyle \pi/3$};
 \path (hexagon.corner 2) -- 
-  node[below,xshift=3pt] {$\scriptstyle 1/2$} (H) --
-  (hexagon.corner 1);
+%  node[below,xshift=3pt] {$\scriptstyle 1/2$} 
+  (H) -- (hexagon.corner 1);
 \node[xshift=15mm,yshift=-8mm]  at (hexagon.corner 4)
   {};
 \path[name path=chord] (-3.5,2) -- +(7,0);
@@ -425,8 +446,8 @@ P(\overline{DE}>1)=P(d<h)=\disfrac{h}{1}=\frac{\sqrt{3}}{2} \approx 0.866\,.
 \end{tikzpicture}
 \caption{Distance of chord from center uniformly distributed in $(0,1)$}\label{f.chord1}
 \end{subfigure}
-\hspace{3em}
-\begin{subfigure}[t]{.45\textwidth}
+\hspace{1em}
+\begin{subfigure}[t]{.48\textwidth}
 \begin{tikzpicture}[scale=.9]
 \coordinate (O) at (0,0) node[right] {$O$};
 \node (hexagon) [minimum size=6cm,regular polygon,
@@ -437,6 +458,7 @@ P(\overline{DE}>1)=P(d<h)=\disfrac{h}{1}=\frac{\sqrt{3}}{2} \approx 0.866\,.
   node[above] {$\scriptstyle 1$} (O) --
   node[right] {$\scriptstyle 1$} (hexagon.corner 4) -- cycle;
 \coordinate (H) at ($(hexagon.corner 3)!.5!(hexagon.corner 4)$);
+\node[left,xshift=3pt,yshift=-2pt] at (H) {$H$};
 \draw[thick] (O) -- 
   node[above,near end] {$\scriptstyle h$} (H);
 \draw[rotate=-60] (H) rectangle +(6pt,6pt);
@@ -448,8 +470,7 @@ P(\overline{DE}>1)=P(d<h)=\disfrac{h}{1}=\frac{\sqrt{3}}{2} \approx 0.866\,.
 \node[xshift=15mm,yshift=-8mm]  at (hexagon.corner 4)
   {$\frac{\pi}{3}$};
 \node[below right] at (hexagon.corner 5) {$D$};
-\draw[thick]  (hexagon.corner 3) --
-     node[left] {$\scriptstyle 1$} (hexagon.corner 4) --
+\draw[thick]  (hexagon.corner 3) -- (hexagon.corner 4) --
      node[below,yshift=1pt] {$\scriptstyle 1$}
      (hexagon.corner 5);
 \node[draw,thick,name path=circle,
@@ -459,22 +480,22 @@ P(\overline{DE}>1)=P(d<h)=\disfrac{h}{1}=\frac{\sqrt{3}}{2} \approx 0.866\,.
 \node[right] at (L) {$G$};
 \draw[ultra thick,dotted] (hexagon.corner 4) -- (L);
 \coordinate (center) at ($(hexagon.corner 4)!.5!(L)$);
-\vertex{center};
+\fill (center) circle (2pt);
 \end{tikzpicture}
-\caption{Midpoint of chord uniformly distributed within the circle and endpoints of chord uniformly distributed on the circumference}\label{f.chord2}
+\caption{Midpoint of chord uniformly distributed within the circle}\label{f.chord2}
 \end{subfigure}
 \end{center}
 \end{figure}
 
 \ans{2}
-Construct a circle with center $O$ and radius $h$, where $h$ is the length of the altitude to a chord of length $1$. A tangent to any point on this circle will be a chord $\overline{FE}$ whose length is $1$. Any chord $\overline{EG}$ whose midpoint is within this circle will have a length greater than $1$ (Figure~\ref{f.chord2}). The probability that the length of the chord is greater than $1$ is therefore the ratio of the areas of the two circles:
+Construct a circle with center $O$ and radius $h$, where $h$ is the length of the altitude to a chord of length $1$. A tangent to any point $H$ on this circle will be a chord $\overline{FE}$ whose length is $1$. Any chord $\overline{EG}$ whose midpoint is within this circle will have a length greater than $1$ (\ref{f.chord2}). The probability that the length of the chord is greater than $1$ is therefore the ratio of the areas of the two circles:
 \[
 P(\overline{EG}>1)=\frac{\pi \cdot h^2}{\pi \cdot 1^2}=h^2=\frac{3}{4}\,.
 \]
 This is the square of the probability computed in the previous question.
 
 \ans{3}
-Choose an arbitrary point on the circumference of the unit circle ($E$ in Figure~\ref{f.chord2}). Any other point on the circumference (such as $G$ in the Figure) determines a chord whose length is greater than one unless that point falls on the arcs $\widehat{EF}$ or $\widehat{ED}$. The probability is therefore the ratio of the arc $\widehat{FD}$ to the circumference of the unit circle:
+Choose an arbitrary point on the circumference of the unit circle ($E$ in \ref{f.chord2}). Any other point on the circumference (such as $G$ in the Figure) determines a chord whose length is greater than one unless that point falls on the arcs $\widehat{EF}$ or $\widehat{ED}$. The probability is therefore the ratio of the longer arc $\widehat{FD}$ to the circumference of the unit circle:
 \[
 P(\overline{EG}>1)=\frac{(2\pi-(2\pi/3))\cdot 1}{2\pi \cdot 1}=\frac{2}{3}\,.
 \]
@@ -502,8 +523,8 @@ Time within the one-hour period is \emph{continuous} in the range $[0,1]$, that 
 Without loss of generality assume that $A$ arrives first. If $A$ arrives at $t_A=0$ and if $B$ arrives before $t_B=5/60$ they meet, otherwise they do not. This is shown in Figure~\ref{f.duel} by the small square at the origin.
 \begin{figure}[tb]
 \begin{center}
-\begin{tikzpicture}
-\draw (0,0) -- node[below] {$t_A$} (6,0) -- (6,6) -- (0,6) -- node[left] {$t_B$} cycle;
+\begin{tikzpicture}[scale=.9]
+\draw (0,0) -- node[below,xshift=12pt] {$t_A$} (6,0) -- (6,6) -- (0,6) -- node[left,yshift=12pt] {$t_B$} cycle;
 \node[below left]  at (0,0) {$0$};
 \node[below right] at (6,0) {$1$};
 \node[above left]  at (0,6) {$1$};
@@ -524,9 +545,9 @@ Without loss of generality assume that $A$ arrives first. If $A$ arrives at $t_A
 \end{center}
 \caption{Times that ensure a meeting between $A$ and $B$}\label{f.duel}
 \end{figure}
-If $A$ arrives later then $B$ also has to arrive later by the same amount; for example, if $A$ arrives at $t_A=15$, $B$ must arrive between $t_B=15$ and $t_B=20$. Therefore, the meeting will take place during a square of time obtained by moving the square by $15$ from $(0,0)$ to $(15/60,15/60)$.
+If $A$ arrives later, $B$ also has to arrive later by the same amount. For example, if $A$ arrives at $t_A=15$, $B$ must arrive between $t_B=15$ and $t_B=20$. Therefore, the meeting will take place during a square of time obtained by moving the square by $15$ along both axes from $(0,0)$ to $(15/60,15/60)$.
 
-The probability of a meeting is the ratio of the area of the graph colored gray to the area of the large square. It is easier to compute the complement which is the ratio of the area of the two white triangles to the area of the large square:
+The probability of a meeting is the ratio of the area of the graph colored gray to the area of the large square. It is easier to compute the complement which is the ratio of the area of the two triangles to the area of the large square:
 \begin{eqn}
 P(A,B\;\textsf{meet}) &=& 1- P(A,B\;\textsf{don't meet})\\
 &=&1- 2\cdot \left(\frac{1}{2}\cdot \frac{55}{60}\cdot \frac{55}{60}\right)=\frac{23}{144}\approx 0.1597\,.
@@ -542,7 +563,7 @@ Proportion of meetings   = 0.1549
 
 \begin{prob}{Catching the cautious counterfeiter}
 
-There are $n$ boxes each with $n$ coins one of which is counterfeit. Draw one coin from each box and test it to determine whether it is counterfeit or genuine. What is the probability that all the coins that are drawn are are real?
+There are $n$ boxes each containing $n$ coins one of which is counterfeit. Draw one coin from each box and test it to determine whether it is counterfeit or genuine. What is the probability that all the coins that are drawn are real?
 
 \que{1} Solve for $n=10$.
 
@@ -555,7 +576,7 @@ There are $n$ boxes each with $n$ coins one of which is counterfeit. Draw one co
 
 \solution{}
 
-The draws are independent so the probability is the product of the probabilities for each draw.
+The draws are independent so the probability is the product of the individual probabilities.
 
 \ans{1}
 \[
@@ -578,15 +599,15 @@ P(\textsf{all coins are genuine}) = \left(\frac{n-1}{n}\right)^{n}\,.
 \lim_{n\rightarrow\infty}\left(1-\frac{1}{n}\right)^{n}=\frac{1}{e}\approx 0.3679\,.
 \end{equation}
 
-This limit can be proved using differential calculus. First we compute the limit of the natural logarithm of the lefthand side of Equation~\ref{eq.reciprocal}:
+This limit can be proved using differential calculus. Compute the limit of the natural logarithm of the lefthand side of Equation~\ref{eq.reciprocal}:
 \[
 \lim_{n\rightarrow\infty}\ln \left(1-\frac{1}{n}\right)^{n}=
   \lim_{n\rightarrow\infty}n\ln \left(1-\frac{1}{n}\right)=
   \lim_{n\rightarrow\infty} \disfrac{\ln\left(1-\frac{1}{n}\right)}{1/n}\,.
 \]
-Taking the limit gives $(ln \;1)/0=0/0$ but by l'H\^{o}pital's rule we can replace expression by the quotient of the derivatives:
+Taking the limit gives $(ln \;1)/0=0/0$ but by l'H\^{o}pital's rule we can replace expression by the quotient of the derivatives where we recall that $(\ln x)'=x'(1/x)$:
 \begin{eqn}
-\lim_{n\rightarrow\infty}\ln \left(1-\frac{1}{n}\right)^{n}&=&\lim_{n\rightarrow\infty}\frac{\left(1-\frac{1}{n}\right)^{-1}(-(-n^{-2}))}{-n^{-2}}=-1\\
+\lim_{n\rightarrow\infty}\ln \left(1-\frac{1}{n}\right)^{n}&=&\lim_{n\rightarrow\infty}\frac{(-(-n^{-2}))\left(1-\frac{1}{n}\right)^{-1}}{-n^{-2}}=\lim_{n\rightarrow\infty}-\disfrac{1}{\left(1-\frac{1}{n}\right)}=-1\\
 \lim_{n\rightarrow\infty}\left(1-\frac{1}{n}\right)^{n}&=&e^{-1}\,.
 \end{eqn}
 
@@ -606,7 +627,7 @@ Proportion all real     = 0.3690
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{Catching the greedy counterfeiter}
-There are $n$ boxes each with $n$ coins $m$ of which are counterfeit. Draw one coin from each box and test it to determine whether it is counterfeit or not. What is the probability $P(n,m,r)$ that $r$ of the coins that are drawn are counterfeit?
+There are $n$ boxes each containing $n$ coins $m$ of which are counterfeit. Draw one coin from each box and test it to determine whether it is counterfeit or genuine. What is the probability $P(n,m,r)$ that $r$ of the coins that are drawn are counterfeit?
 
 \que{1} Develop a formula for $P(n,m,r)$.
 
@@ -626,13 +647,8 @@ P(n,m,r) = {n \choose r} \left(\frac{m}{n}\right)^r \left(\frac{n-m}{n}\right)^{
 P(20,10,2) &=& \dischoose{20}{2} \left(\frac{10}{20}\right)^2 \left(\frac{10}{20}\right)^{18}\approx 0.0002\\
 P(20,10,8) &=& \dischoose{20}{8} \left(\frac{10}{20}\right)^{8} \left(\frac{10}{20}\right)^{12}\approx 0.1201\\
 P(20,5,2)&=&\dischoose{20}{2} \left(\frac{5}{20}\right)^2 \left(\frac{15}{20}\right)^{18}\approx 0.0669\\
-P(20,5,4)&=&\dischoose{20}{4} \left(\frac{5}{20}\right)^{4} \left(\frac{15}{20}\right)^{12}\approx 0.1952\,.
+P(20,5,4)&=&\dischoose{20}{4} \left(\frac{5}{20}\right)^{4} \left(\frac{15}{20}\right)^{16}\approx 0.1897\,.
 \end{eqn}
-
-Mosteller shows that for given $m,r$, as $n$ tends to infinity:
-\begin{equation}\label{eq.bin-limit}
-\lim_{n\rightarrow \infty}P(n,m,r) = \frac{e^{-m}m^r}{r!}\,.
-\end{equation}
 
 \textbf{Simulation}
 \begin{verbatim}
@@ -650,15 +666,28 @@ Probability of counterfeit  = 0.1897
 Proportion counterfeit      = 0.1905
 \end{verbatim}
 
+Using the limit from Problem~27, Mosteller shows that for $m,r$ given, as $n$ tends to infinity:
+\begin{equation}\label{eq.bin-limit}
+\lim_{n\rightarrow \infty}P(n,m,r) = \frac{e^{-m}m^r}{r!}\,.
+\end{equation}
+Here is a comparison of the probabilities for $m=10, r=8$ for increasing values of $n$:
+
+\begin{verbatim}
+Limit = 0.11259903, binomial = 0.11482303, n = 100
+Limit = 0.11259903, binomial = 0.11282407, n = 1000
+Limit = 0.11259903, binomial = 0.11262155, n = 10000
+Limit = 0.11259903, binomial = 0.11259926, n = 1000000
+\end{verbatim}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{Moldy gelatin}
 
-A rectangular plate is divided into $n$ small squares. There are an average of $r$ microbes in each square.
+A rectangular plate is divided into $n$ squares with an average of $m$ microbes per square.
 
 \que{1} Develop a formula for probability that there are exactly $r$ microbes in the $n$ squares.
 
-\que{2} Compute the probability for $n=100,r=3$.
+\que{2} Compute the probability for $n=100, m=3, r=3$.
 
 \textbf{Hint:} This problem is similar the Problem~28.
 
@@ -667,7 +696,7 @@ A rectangular plate is divided into $n$ small squares. There are an average of $
 \solution{}
 
 \ans{1}
-Let $p$ be the probability that a single square contains a microbe. (Ignore the possibility that a microbe is partially contained within two or more squares.) $m$, the average number of microbes per square, is the number of squares $n$ times the probability $p$ that a square contains a microbe. $P(n,m,r)$, the probability that there are exactly $r$ microbes in the $n$ squares is given by the binomial distribution:
+$p$, the probability that a single square contains a microbe (ignoring the possibility that a microbe is partially contained within two or more squares), is $m/n$. Then $P(n,m,r)$, the probability that there are exactly $r$ microbes in the $n$ squares, is given by the binomial distribution:
 \[
 P(n,m,r) = {n \choose r} \left(\frac{m}{n}\right)^r \left(\frac{n-m}{n}\right)^{n-r}\,.
 \]
@@ -676,11 +705,8 @@ P(n,m,r) = {n \choose r} \left(\frac{m}{n}\right)^r \left(\frac{n-m}{n}\right)^{
 \[
 P(10,3,3) = {100 \choose 3} \left(\frac{3}{100}\right)^3 \left(\frac{97}{100}\right)^{97}\approx 0.2275\,.
 \]
-Equation~\ref{eq.bin-limit} also applies here:
-\[
-\lim_{n\rightarrow \infty} P(n,3,3) = \frac{e^{-3}\cdot 3^3}{3!}\approx 0.2240\,.
-\]
 \textbf{Simulation}
+The simulations were run for $m=r=3$ and $m=r=5$.
 \begin{verbatim}
 For  20 squares:
 Probability of exactly  3 microbes  = 0.2428
@@ -693,6 +719,13 @@ Proportion of exactly   3 microbes  = 0.2247
 Probability of exactly  5 microbes  = 0.1800
 Proportion of exactly   5 microbes  = 0.1851
 \end{verbatim}
+
+Equation~\ref{eq.bin-limit} also applies here to compute the limit as $n$ tends to infinity:
+\begin{eqnarray*}
+\lim_{n\rightarrow \infty}P(n,m,r) &=& \frac{e^{-m}m^r}{r!}\\
+\lim_{n\rightarrow \infty} P(n,3,3) &=& \frac{e^{-3}\cdot 3^3}{3!}\approx 0.2240\\
+\lim_{n\rightarrow \infty} P(n,5,5) &=& \frac{e^{-5}\cdot 5^5}{5!}\approx 0.1755\,.
+\end{eqnarray*}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

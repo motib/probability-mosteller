@@ -14,7 +14,7 @@
 
 Three prisoners $A,B,C$ are eligible for parole. The parole board will release two of them with equal probability for $\{A,B\}, \{A,C\}, \{B,C\}$, so the probability that $A$ will be released is $2/3$. Prisoner $A$ is told the name of one of the other prisoners who will be released. If he is told that prisoner $B$ will be released, what is the probability that $A$ too will be released?
 
-For a comprehensive article on the prisoner's dilemma problem and the related Monty Hall problem see \cite{carlton}.
+The article \cite{carlton} is devoted to the prisoner's dilemma and the related Monty Hall problem.
 \end{prob}
 
 \solution{1}
@@ -35,7 +35,7 @@ Now:
 \[
 P(R_{AB})=P(\{A,B\})+P(\{B,C\})=\disfrac{1}{3}+\disfrac{1}{2}\cdot \disfrac{1}{3}=\disfrac{1}{2}\,.
 \]
-If $\{B,C\}$ are to be released, $A$ could be told that either $B$ or $C$ is to be released, hence the factor of $1/2$. Therefore:
+If $\{B,C\}$ are to be released $A$ could be \emph{told} that either $B$ or $C$ is to be released, hence the factor of $1/2$. Therefore:
 \[
 P(A|R_{AB}) = \frac{P(A\cap R_{AB})}{P(R_{AB})} = \disfrac{1/3}{1/2}=\disfrac{2}{3}\,,
 \]
@@ -54,7 +54,7 @@ Each pair of prisoners has equal probability of being released so:
 \[
 P(e_1)=P(e_2)=P(e_3\cup e_4)=\frac{1}{3}\,.
 \]
-We assume that if $\{B,C\}$ are to be released, $A$ is told $B$ or $C$ with equal probability, so $P(e_3)=P(e_4)=1/6$. Therefore the probability that $A$ will be released given the event $R_{AB}=e_1\cup e_3$ that he is told that $B$ will be released is:
+We assume that if $\{B,C\}$ are to be released, $A$ is told either that $B$ or $C$ will be released with equal probability, so $P(e_3)=P(e_4)=1/6$. Therefore the probability that $A$ will be released given the event $R_{AB}=e_1\cup e_3$ that he is told that $B$ will be released is:
 \[
 P(A|R_{AB}) = \frac{P(e_1\cap(e_1\cup e_3))}{P(e_1\cup e_3)}=\frac{P(e_1)}{P(e_1\cup e_3)}=\frac{1/3}{(1/3)+(1/6)}=\frac{2}{3}\,.
 \]
@@ -70,22 +70,22 @@ There is no simulation: the problem asks if the probability changes as the resul
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{Collecting coupons}
-Given a sequence of boxes each of which contains coupons numbered $1$ to $5$. You randomly draw one coupon from each box one after another.
+Given a unbounded sequence of boxes each of which contains coupons numbered $1$ to $5$, you randomly draw one coupon sequentially from each box.
 
 \que{1} What is the expectation of the number of coupons drawn until you have all five of the numbers?
 
 \que{2} Develop a formula for the expectation for $n$ numbers.
 
-\textbf{Hint:} Use the solution to Problem~4 on page~\pageref{p.four} and the approximation for the sum of harmonic numbers (page~\pageref{p.harmonic}).
+\textbf{Hint:} Use the solution to Problem~4 on page~\pageref{p.four} and the approximation for $H_n$, the sum of harmonic numbers (page~\pageref{p.harmonic}).
 \end{prob}
 
 \solution{}
 
-\ans{1} What is the expectation of the number of draws until you get a  number that is \emph{different from} all the previous ones? By  Problem~4 this is $1/p$ where $p$ is the probability of drawing a different number. For the first draw the probability is $1$ so the expectation is also $1$, for the second draw the probability is $4/5$ so expectation is $5/4$, and so on. Therefore:
+\ans{1} What is the expectation of the number of draws until you get a  number that is \emph{different from} all the previous ones? By  Problem~4 this is $1/p$ where $p$ is the probability of drawing a different number. For the first draw the probability is $1=5/5$ so the expectation is also $1/(5/5)=5/5$, for the second draw the probability is $4/5$ so expectation is $5/4$, and so on. Therefore:
 \[
 E(\textsf{all five numbers}) = \frac{5}{5}+\frac{5}{4} + \frac{5}{3} + \frac{5}{2} + \frac{5}{1} = \frac{}{} =\frac{1370}{120}\approx 11.4167\,.
 \]
-\ans{2} Use the same method and the approximation for $H_n$, the $n$th harmonic number (page~\pageref{p.harmonic}):
+\ans{2} Use the same method and the approximation for $H_n$:
 \[
 E(\textsf{all}\;n \;\textsf{numbers}) = n\left(\frac{1}{n}+\frac{1}{n-1} + \cdots \frac{1}{2} + \frac{1}{1}\right) =nH_n\approx n\left(\ln n + \frac{1}{2n} + 0.5772\right)\,. 
 \]
@@ -98,19 +98,19 @@ E(\textsf{all five numbers}) =5H_5\approx 5(\ln 5 + \frac{1}{10} + 0.5772) \appr
 \begin{verbatim}
 For  5 coupons:
 Expectation of draws = 11.4332
-Average draws        = 11.3506
+Average draws        = 11.3339
 For 10 coupons:
 Expectation of draws = 29.2979
-Average draws        = 29.4428
+Average draws        = 29.3001
 For 20 coupons:
 Expectation of draws = 71.9586
-Average draws        = 72.2191
+Average draws        = 71.6250
 \end{verbatim}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{The theater row}
-Arrange eight even numbers and seven odd numbers randomly in a row, for example:
+Arrange $8$ even numbers and $7$ odd numbers randomly in a row, for example:
 \[
 10\quad 12\quad 3\quad 2\quad 9\quad 6 \quad 1\quad 13\quad 7\quad 10\quad 3\quad 8\quad 8\quad 5\quad 20\,,
 \]
@@ -122,12 +122,12 @@ What is the expectation of the number of even-odd or odd-even adjacent pairs?
 
 In the example there are $10$ $EO$ or $OE$ adjacent pairs.
 
-\textbf{Hint:} Consider each adjacent pair of separately. What is the probability that they are different?
+\textbf{Hint:} What is the probability that a pair of adjacent number are different?
 \end{prob}
 
 \solution{}
 
-The following table shows the ten possible arrangements of three even and two odd numbers. The total number of different adjacent pairs is $24$ and the average is $24/10=2.4$.
+The following table shows the $10$ possible arrangements of $3$ even and $2$ odd numbers. The total number of different adjacent pairs is $24$ and the average is $24/10=2.4$.
 \[
 \begin{array}{l|r@{\hspace{2em}}|@{\hspace{2pt}}|@{\hspace{2em}}l|r}
 \textsf{Arrangement}&\textsf{Pairs}&\textsf{Arrangement}&\textsf{Pairs}\\\hline
@@ -143,17 +143,17 @@ OEOEE & 3&
 OOEEE & 1\\
 \end{array}
 \]
-Return to the example with $15$ numbers. Let $P_d$ be the probability that a given pair in an arrangement is $EO$ or $OE$.  Then:
+Returning to the example with $15$ numbers, let $P_d$ be the probability that a given pair in an arrangement is $EO$ or $OE$:
 \[
 P_d =P(EO) + P(OE) = \frac{8}{15}\cdot \frac{7}{14} + \frac{7}{15}\cdot \frac{8}{14} = 2\cdot \frac{8}{15}\cdot \frac{7}{14} = \frac{8}{15}\,.
 \]
-Let $E_d$ be the expectation of the number of pairs in an arrangement that are $EO$ or $OE$. Since an $(EO,OE)$ pair contributes $1$ to the count of different pairs and an $(EE,OO)$ pair contributes $0$:
+Let $E_d$ be the expectation of the number of pairs in an arrangement that are $EO$ or $OE$. Since an $EO$ or $OE$ pair contributes $1$ to the count of different pairs and an $EE$ or an $OO$ pair contributes $0$:
 \[
 E_d =
-\sum_{\textsf{\footnotesize pairs}} 1\cdot P_d= 14\cdot \frac{8}{15} \approx 7.4667\,.
+\sum_{\textsf{\footnotesize all pairs}} (1\cdot P_d + 0\cdot (1-P_d))= 14\cdot \frac{8}{15} \approx 7.4667\,.
 \]
 
-For ten numbers:
+Check for $10$ numbers:
 \begin{eqn}
 P_d &=& P(EO) + P(OE) = \frac{3}{5}\cdot \frac{2}{4} + \frac{2}{5}\cdot \frac{3}{4} = \frac{3}{5}\\
 E_d &=& 4\cdot \frac{3}{5}=\frac{12}{5}=2.4\,.
@@ -178,33 +178,35 @@ Average different pairs        = 24.4725
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{Will the second-best be runner-up?}
-Eight players $\{a_1,\ldots,a_8\}$ are randomly assigned to play games $\{g_1,\ldots,g_8\}$ in a schedule such that player $a_{k_{i}}$ initially plays in position $g_{k_{i}}$ (Figure~\ref{f.tournament}). The players are ranked from the best $a_1$ to the worst $a_8$ and the better player will \emph{always} defeat her opponent.  Clearly $a_1$ will win the tournament.
+Eight players $\{a_1,\ldots,a_8\}$ are randomly assigned to play eight games $\{g_1,\ldots,g_8\}$ in a tournament (Figure~\ref{f.tournament}). The players are ranked from the best $a_1$ to the worst $a_8$ and the better player will \emph{always} defeat his opponent.  Clearly $a_1$ will win the tournament.
 
-\que{1} What is the probability that $a_2$ will be the runner-up by playing $a_1$ in the final round and losing to her?
+\que{1} What is the probability that $a_2$ will be the runner-up by playing $a_1$ in the final round and losing?
 
-\que{2} If there are $2^n$ players what is the probability that $a_2$ will be the runner-up by playing $a_1$ in the final round and losing to her?
+\que{2} If there are $2^n$ players what is the probability that $a_2$ will be the runner-up by playing $a_1$ in the final round and losing?
 \end{prob}
 \begin{figure}[tb]
 \begin{center}
 \begin{tikzpicture}[scale=.75]
 \foreach \n in {1,2,3,4,5,6,7,8}
-  \node (\n) at (0,\n*10mm) {$g_{\n}$};
+  \node (\n) at (0,\n*10mm) {$g_{\n}:$};
 \foreach \n in {1,2,3,4}
-  \node[inner sep=-4pt] (r\n) at (30mm,-5mm+\n*20mm) {};
+  \node[inner sep=-4pt] (r\n) at (40mm,-5mm+\n*20mm) {};
 \foreach \n/\r in {1/1,2/1,3/2,4/2,5/3,6/3,7/4,8/4}
   \draw (\n) --
-     node[fill=white] {$a_{k_{\n}}$} +(20mm,0) -- (r\r);
+     node[very near start,fill=white] {$a_{k_{\n}}$} +(30mm,0)
+     -- ($(r\r)+(1pt,0)$);
 \foreach \n/\v in {1/25mm,2/65mm}
-  \node[inner sep=-5pt] (rr\n) at (60mm,\v) {};
+  \node[inner sep=-5pt] (rr\n) at (70mm,\v) {};
 \foreach \n/\r in {1/1,2/1,3/2,4/2}
-  \draw ($(r\n)+(-1pt,0)$) -- +(20mm,0) -- (rr\r);
-\node[inner sep=-5pt] (rrr) at (90mm,45mm) {};
+  \draw ($(r\n)+(1pt,0)$) -- ++(21mm,0) -- 
+  ($(rr\r)+(-1pt,0)$) -- ++(20mm,0);
+\node[inner sep=-5pt] (rrr) at ($(rr1)+(40mm,22.5mm)$) {};
 \foreach \n/\r in {1,2}
-  \draw ($(rr\n)+(-1pt,0)$) -- +(20mm,0) -- (rrr); 
-\draw ($(rrr)+(-1pt,0)$) -- +(20mm,0);
-\node at (22mm,88mm) {\textsf{\small Quarterfinals}};
-\node at (52mm,88mm) {\textsf{\small Semifinals}};
-\node at (82mm,88mm) {\textsf{\small Final}};
+ \draw ($(rr\n)+(19.6mm,0)$) -- ($(rrr)+(1pt,0)$); 
+\draw ($(rrr)+(1pt,0)$) -- +(40mm,0);
+\node at (32mm,88mm) {\textsf{\small Quarterfinals}};
+\node at (62mm,88mm) {\textsf{\small Semifinals}};
+\node at (90mm,88mm) {\textsf{\small Final}};
 \end{tikzpicture}
 \end{center}
 \caption{A tournament schedule}\label{f.tournament}
@@ -213,7 +215,7 @@ Eight players $\{a_1,\ldots,a_8\}$ are randomly assigned to play games $\{g_1,\l
 \solution{}
 
 \ans{1}
-If $a_1$ is assigned to one of the games $\{g_1,g_2,g_3,g_4\}$ none of the other players assigned to these games will reach the final, so $a_2$ must be assigned to one of $\{g_5,g_6,g_7,g_8\}$. The temptation is to conclude that the probability of $a_2$ being the runner-up is $1/2$ since he must be assigned to one of the four games $\{g_1,g_2,g_3,g_4\}$. However, whatever game $a_1$ is  assigned to, $a_2$ will be the runner up only if he is assigned to one of four of the remaining seven games so the probability is $4/7$.
+If $a_1$ is assigned to one of the games $\{g_1,g_2,g_3,g_4\}$ none of the other players assigned to these games will reach the final, so $a_2$ must be assigned to one of $\{g_5,g_6,g_7,g_8\}$. The temptation is to conclude that the probability of $a_2$ being the runner-up is $1/2$ since he must be assigned to one of the four games $\{g_1,g_2,g_3,g_4\}$. However, whatever game $a_1$ is  assigned to, $a_2$ will be the runner up only if he is assigned to one of the four \emph{remaining} seven games so the probability is $4/7$.
 
 \ans{2} Similarly, of the $2^n-1$ games that $a_1$ is not assigned to, $a_2$ must be assigned to one of the $2^{n-1}$ games not in the same half as $a_1$. Therefore:
 \[
@@ -237,11 +239,11 @@ Proportion of games where a2 is runner-up  = 0.5060
 
 \begin{prob}{Twin knights\annotate{D}}
 
-Eight players $\{a_1,\ldots,a_8\}$ are randomly assigned to play games $\{g_1,\ldots,g_8\}$ in a schedule such that $a_{k_{i}}$ initially plays in position $g_{k_{i}}$ (Figure~\ref{f.tournament}). For all $i,j$, the probability that $a_i$ wins in a game against $a_j$ is $1/2$ as is the probability that $a_j$ wins against $a_i$.
+Eight players $\{a_1,\ldots,a_8\}$ are randomly assigned to play games $\{g_1,\ldots,g_8\}$ in a tournament (Figure~\ref{f.tournament}). Let $P(i,j)$ be the probability that $a_i$ wins against $a_j$. For all $i,j$, $P(i,j)=P(j,i)=1/2$.
 
 \que{1} What is the probability that $a_1,a_2$ play each other?
 
-\que{2} If there are $2^n$ players, what is the probability that $a_1,a_2$ play each other?
+\que{2} If there are $2^n$ players what is the probability that $a_1,a_2$ play each other?
 \end{prob}
 
 \solution{}
@@ -252,7 +254,7 @@ P(a_1, a_2\;\textsf{play each other})=\frac{1}{7} + \frac{1}{4}\cdot \frac{2}{7}
 \]
 
 \ans{2}
-Let $P_n$ be the probability that in a tournament with $2^n$ players, $a_1$ and $a_2$ play each other. We have shown that $P_3=1/4$. What about $P_4$? Using the same approach:
+Let $P_n$ be the probability that in a tournament with $2^n$ players $a_1$ and $a_2$ play each other. We have shown that $P_3=1/4$. What about $P_4$? Using the same approach:
 \begin{eqn}
 P_4 &=& \frac{1}{15} + \frac{1}{4}\cdot \frac{2}{15}  + \frac{1}{16}\cdot \frac{4}{15}  + \frac{1}{64}\cdot \frac{8}{15} \\
 &=&\frac{1}{15}\left(1+\frac{1}{2}+\frac{1}{4}+\frac{1}{8}\right)=\frac{1}{8}\,.
@@ -265,8 +267,8 @@ P_n&=&\frac{1}{2^n-1}\sum_{i=0}^{n-1}2^i\cdot \left(\frac{1}{2}\right)^{2i}\\
 &=&\frac{1}{2^n-1}\sum_{i=0}^{n-1}2^{-i}\\
 &=&\frac{1}{2^n-1}
   \left(
-    \frac{1-\left(\frac{1}{2}\right)^{(n-1)+1}}
-         {1-\frac{1}{2}}
+    \frac{1-(1/2)^{(n-1)+1}}
+         {1-(1/2)}
   \right)=\frac{1}{2^{n-1}}\,.
 \end{eqn}
 
@@ -322,19 +324,19 @@ Proportion a1, a2 meet       = 0.0137
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{An even split at coin tossing}
-\que{1} If you toss a fair coin $20$ times, what is the probability of obtaining exactly $10$ heads?
+\que{1} Toss a fair coin $20$ times. What is the probability of obtaining $10$ heads?
 
-\que{2} If you toss a fair coin $40$ times, what is the probability of obtaining exactly $20$ heads?
+\que{2} Toss a fair coin $40$ times. What is the probability of obtaining $20$ heads?
 \end{prob}
 
 \solution{}
 
-\ans{1} Since the coin is fair the probability of obtaining $10$ heads in $20$ tosses is given by the binomial coefficient:
+\ans{1} Since the coin is fair the probability of obtaining $10$ heads in $20$ tosses is given by the binomial distribution:
 \[
 P(10\;\textsf{heads in}\; 20\; \textsf{tosses})={20 \choose 10} \left(\frac{1}{2}\right)^{10}\left(\frac{1}{2}\right)^{10} \approx 0.1762\,.
 \]
 
-\ans{2} You might expect the probability to be the same as in the previous question, but:
+\ans{2} You might expect the probability to be the same before but:
 \[
 P(20\;\textsf{heads in}\; 40\; \textsf{tosses})={40 \choose 20} \left(\frac{1}{2}\right)^{20}\left(\frac{1}{2}\right)^{20}\approx 0.1254\,.
 \]
@@ -355,25 +357,25 @@ Proportion  of 50 heads for 100 tosses = 0.0785
 \begin{prob}{Isaac Newton helps Samuel Pepys}
 \que{1} What is the probability of obtaining \emph{at least one} $6$ when $6$ dice are thrown?
 
-\que{2} What is the probability of obtaining \emph{at least two} $6$s when $12$ dice are thrown?
+\que{2} What is the probability of obtaining \emph{at least two} $6$'s when $12$ dice are thrown?
 
-\que{3} Develop a formula for the probability of obtaining at least $n$ $6$s when $6n$ dice are thrown.
+\que{3} Develop a formula for the probability of obtaining at least $n$ $6$'s when $6n$ dice are thrown.
 \end{prob}
 
 \solution{}
 
-\ans{1} The probability is the complement of the probability of obtain zero $6$s in $6$ throws, which is the product of obtaining a number different from $6$ in all throws:
+\ans{1} The probability is the complement of the probability of obtaining zero $6$'s in $6$ throws:
 \[
 P(\textsf{at least one}\; 6)=1-\left(\frac{5}{6}\right)^6\approx 0.6651\,.
 \]
 
-\ans{2} The probability is the complement of the probability of obtaining zero or one $6$s in $12$ throws:
+\ans{2} The probability is the complement of the probability of obtaining zero or one $6$'s in $12$ throws:
 \[
 P(\textsf{at least two}\;6\textsf{s})=1-\left(\frac{5}{6}\right)^{12}-{12\choose 1}\left(\frac{1}{6}\right)^{1}\left(\frac{5}{6}\right)^{11}\approx 0.6187\,.
 \]
 This event is less probable than the previous one.
 
-\ans{3} The probability is the complement of the probability of obtaining less than $n$ $6$s in $6n$ throws:
+\ans{3} The probability is the complement of the probability of obtaining less than $n$ $6$'s in $6n$ throws:
 \begin{eqn}
 P(\textsf{at least}\;n\;6\textsf{s})&=&
   1-{6n \choose 0}\left(\frac{1}{6}\right)^0\left(\frac{5}{6}\right)^{6n-0}-
@@ -407,43 +409,64 @@ $A,B,C$ fight a sequence of duels. Each of them has a fixed probability of winni
 \[
 P(A)=0.3,\quad P(B)=1, \quad P(C)=0.5\,.
 \]
-A person who is hit no longer participates in the duels. The shots are fired one at a time sequentially in the order $A,B,C$. If two opponents are still standing the shooter can decide whom to fire at. Assume that each person always makes an optimal decision.
+A person who is hit no longer participates in the duels. The shots are fired one at a time sequentially in the order $A,B,C$. If two opponents are still standing the shooter can decide whom to fire at. Assume that each person makes the optimal decision for each duel.
 
-\que{1} What is $A$'s optimal strategy?
+\que{1} What is $A$'s best strategy?
 
 \que{2} Suppose that $A$ fires the first shot into the air. Is this a better strategy?
+
+\textbf{Hint:} Give a formal definition for one strategy is better than another.
 
 \textbf{Hint:} Compute the conditional probabilities of $A$ winning depending on whether he chooses to shoot first at $B$ or $C$.
 \end{prob}
 
 \solution{}
 
-Notation: $X\stackrel{H}{\longrightarrow}Y$ denotes that $X$ shoots at $Y$ and hits. $X\stackrel{M}{\longrightarrow}Y$ denotes that $X$ shoots at $Y$ and misses.
+Let $I_X$ be the indicator variable for $X$ winning the sequence of duels:
+\begin{equation}
+I_X=
+\left\{
+\begin{array}{ll}
+1,\quad X\;\textsf{wins the sequence of duels}\\
+0, \quad X\; \textsf{loses the sequence of duels}\,.
+\end{array}
+\right.
+\end{equation}
+Strategy $s_1$ for $X$ is better strategy $s_2$ if the expectation of $I_X$ is greater for $s_1$ than for $s_2$.
+
+Notation: \duel{X}{H}{Y} denotes that $X$ shoots at $Y$ and hits. \duel{X}{M}{Y} denotes that $X$ shoots at $Y$ and misses.
 
 \ans{1}
 Compute the conditional probabilities of $A$ winning.
 
 \textit{Case 1:} $A$ chooses to shoot first at $C$.
 
-If $A\stackrel{M}{\longrightarrow}C$ (probability $0.7$) then $B\stackrel{H}{\longrightarrow}C$ since $C$ is more dangerous than $A$. $A$ now shoots again at $B$ with probability $0.3$ of hitting, but if $A$ misses then $B\stackrel{H}{\longrightarrow}A$ with probability $1$ and $A$ loses.
+If \duel{A}{M}{C} (probability $0.7$) then \duel{B}{H}{C} since $C$ is more dangerous than $A$. $A$ now shoots again at $B$ with probability $0.3$ of hitting, but if $A$ misses then \duel{B}{H}{A} with probability $1$ and $A$ loses.
 
-If $A\stackrel{H}{\longrightarrow}C$ (probability $0.3$) then $B\stackrel{H}{\longrightarrow}A$ with probability $1$ and $A$ loses.
+If \duel{A}{H}{C} (probability $0.3$) then \duel{B}{H}{A} with probability $1$ and $A$ loses.
 
-Compute the expectation with $1$ when $A$ wins and $0$ when $A$ loses:
+Compute the expectation of $I_A$:
 \vspace*{-3ex}
 \[
 \renewcommand*{\arraystretch}{2.5}
 \begin{array}{l}
 E(A \;\textsf{wins}\;|A\;\textsf{chooses to shoot first at}\;C) =\\
-%\qquad E(A \;\textsf{wins}\;|\;A\;\textsf{misses}\;C) + E(A \;\textsf{wins}\;|\;A\;\textsf{hits}\;C)=\\
-\qquad \overbrace{1\cdot (0.7\cdot 0.3)}^{A\stackrel{M}{\longrightarrow}C, A\stackrel{H}{\longrightarrow}B}+ \overbrace{0\cdot (0.7\cdot 0.7\cdot 1)}^{A\stackrel{M}{\longrightarrow}C, A\stackrel{M}{\longrightarrow}B, B\stackrel{H}{\longrightarrow}A}+ \overbrace{0\cdot (0.3\cdot 1)}^{A\stackrel{M}{\longrightarrow}C, B\stackrel{H}{\longrightarrow}A}=0.2100\,.
+%
+\qquad\quad \overbrace{1\cdot (0.7\cdot 1 \cdot 0.3)}^%
+{\duelmath{A}{M}{C}, \duelmath{B}{H}{C}, \duelmath{A}{H}{B}}\; +
+%
+\overbrace{0\cdot (0.7\cdot 1\cdot 0.7\cdot 1)}^%
+{\duelmath{A}{M}{C},  \duelmath{B}{H}{C}, \duelmath{A}{M}{B}, \duelmath{B}{H}{A}}+
+%
+\;\;\overbrace{0\cdot (0.3\cdot 1)}^%
+{\duelmath{A}{H}{C}, \duelmath{B}{H}{A}}=0.2100\,.
 \end{array}
 \]
 \textit{Case 2:} $A$ chooses to shoot first at $B$.
 
-If $A\stackrel{M}{\longrightarrow}B$ (probability $0.7$) then as before $B\stackrel{H}{\longrightarrow}C$ and $A$ has one more chance to hit $B$ (probability $0.3$), otherwise $B\stackrel{H}{\longrightarrow}A$ with probability $1$ and $A$ loses.
+If \duel{A}{M}{B} (probability $0.7$) then as before \duel{B}{H}{C} and $A$ has one more chance to hit $B$ (probability $0.3$), otherwise \duel{B}{H}{A} with probability $1$ and $A$ loses.
 
-If $A\stackrel{H}{\longrightarrow}B$ (probability $0.3$) then $A,C$ alternately shoot at each other until one is hit. The possibilities are:
+If \duel{A}{H}{B} (probability $0.3$) then $A,C$ alternately shoot at each other until one is hit. The possibilities are:
 \[
 \begin{array}{ll}
 (1)&C\stackrel{H}{\longrightarrow}A\\
@@ -462,7 +485,7 @@ P(A\;\textsf{wins} \;| A\; \textsf{hits}\;B )&=&(0.5 \cdot 0.3) + \\
 &&(0.5 \cdot 0.7) (0.5 \cdot 0.7) (0.5 \cdot 0.3)+ \cdots\\
 &=&0.15 \sum_{i=0}^{\infty} 0.35^i= \frac{0.15}{1-0.35}=\frac{3}{13}\approx 0.2308\,.
 \end{eqn}
-Similarly, the probability of $C$ winning is $\disfrac{0.5}{1-0.35}=\disfrac{1}{13}\approx 0.0760$.
+Similarly, the probability of $C$ winning is $\disfrac{0.5}{1-0.35}=\disfrac{10}{13}\approx 0.7692$.
 
 The expectation is:
 \vspace*{-1ex}
@@ -470,25 +493,33 @@ The expectation is:
 \renewcommand*{\arraystretch}{1.5}
 \begin{array}{l}
 E(A \;\textsf{wins}) =E(A \;\textsf{wins}\;|\;A\;\textsf{misses}\;B) + E(A \;\textsf{wins}\;|\;A\;\textsf{hits}\;B)=\\
-\quad
+\qquad\qquad
 \overbrace{1\cdot (0.7\cdot 1\cdot 0.3)}%
-^{A\stackrel{M}{\longrightarrow}B, B\stackrel{H}{\longrightarrow}C, A\stackrel{H}{\longrightarrow}B}+\!
-
+^{A\stackrel{M}{\longrightarrow}B, B\stackrel{H}{\longrightarrow}C, A\stackrel{H}{\longrightarrow}B}\;+
+%
 \overbrace{0\cdot (0.7\cdot 1\cdot 0.7\cdot 1)}%
-^{A\stackrel{M}{\longrightarrow}B, B\stackrel{H}{\longrightarrow}C,A\stackrel{M}{\longrightarrow}B,B\stackrel{H}{\longrightarrow}A} +\!
-\overbrace{1\cdot (0.2308)}%
-^{A\stackrel{H}{\longrightarrow}B, C\stackrel{H}{\longleftrightarrow*}A,C\stackrel{H}{\longrightarrow}A} +
-\overbrace{0\cdot (0.3\cdot (0.0769))}%
-^{A\stackrel{H}{\longrightarrow}B, C\stackrel{H}{\longleftrightarrow}A,C\stackrel{H}{\longrightarrow}A}
-\approx\\
-\quad\qquad 0.2792\,,
+^{A\stackrel{M}{\longrightarrow}B,
+B\stackrel{H}{\longrightarrow}C,
+A\stackrel{M}{\longrightarrow}B,
+B\stackrel{H}{\longrightarrow}A}\; +
+%
+\overbrace{1\cdot 0.2308}%
+^{A\stackrel{H}{\longrightarrow}B,
+C\stackrel{H}{\longleftrightarrow*}A,
+A\stackrel{H}{\longrightarrow}C}\; +\\
+%
+\qquad\;\,\overbrace{0\cdot 0.7692}%
+^{A\stackrel{H}{\longrightarrow}B,
+C\stackrel{H}{\longleftrightarrow*}A,
+C\stackrel{H}{\longrightarrow}A}
+\approx \; 0.2792\,,
 \end{array}
 \]
 which is higher than the expectation of winning by shooting at $C$ first.
 
-\ans{2} If $A$ shoots into the air not hitting anyone then $B\stackrel{H}{\longrightarrow}C$ with probability $1$ and $A$ can try to hit $B$ with probability $0.3$. The expectation is:
+\ans{2} If $A$ shoots into the air not hitting anyone (probability $1$) then $B\stackrel{H}{\longrightarrow}C$ with probability $1$ and $A$ can try to hit $B$ with probability $0.3$. The expectation is:
 \[
-E(A \;\textsf{wins}|A\;\textsf{shoots in the air}) = 1\cdot(0.3) + 0\cdot(0.7)=0.3\,,
+E(A \;\textsf{wins}|A\;\textsf{shoots in the air}) = 1\cdot (1\cdot 1 \cdot 0.3) + 0\cdot(1\cdot 1\cdot 0.7)=0.3\,,
 \]
 which is better than the expectation for the other two strategies!
 

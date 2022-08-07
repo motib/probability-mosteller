@@ -31,9 +31,6 @@ def check_coins(boxes, bad, drawn):
 
     print('For {:2d} bad coins, {:2d} draws:'.
           format(bad, drawn))
-#     print('Limit (n->infnty)           = {:.4f}'.
-#           format(((math.e)**(-bad) * bad**drawn) /
-#                  math.factorial(drawn)))
     print('Probability of counterfeit  = {:.4f}'.
           format(expectation_all_real(boxes, bad, drawn)))
     print('Proportion counterfeit      = {:.4f}'.
@@ -44,5 +41,25 @@ def simulate():
     # Tuple is (boxes, coins, drawn)
     for i in [(20,10,2), (20,10,8), (20,5,2), (20,5,4)]:
         check_coins(i[0], i[1], i[2])
+ 
+# Limit according to Mosteller's derivation
+#   of the Poisson distribution
+def limit(bad, drawn):
+    return (math.e**(-bad) * bad**drawn) / \
+        math.factorial(drawn)
+
+# Compare limit and binomial computation of p for
+#   increasing n
+def limit_of_probability():
+    print()
+    bad = 10
+    drawn = 8
+    for n in (100, 1000, 10000, 1000000):
+        print('Limit = {:.8f}'.format(limit(bad,drawn)) +
+              ', binomial = {:.8f}'.
+            format(expectation_all_real(n, bad, drawn)) +
+              ', n = {:d}'.format(n))
 
 simulate()
+limit_of_probability()
+    

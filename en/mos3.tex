@@ -3,35 +3,42 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{Birthday pairings}
-Randomly select $23$ people and ask them what their birthdays are. Assume a uniform distribution of $365$ different birthdays (no one was born on February $29$). Show that the probability that at least two of them have the same birthday is greater than $0.5$.
+
+\que{1} For $n$ people what is the probability $P(n)$ that two or more have the same birthday?
+
+\que{2} What is the smallest value of $n$ such that $P(n)>0.5$?
+
+Assume that the distribution of birthdays is uniform in the range $[1,365]$.
+
+\textbf{Hint:} Compute the probability that $n$ people have \emph{different} birthdays and take the complement.
 \end{prob}
 
 \solution{}
 
-Compute the probability that none of the $23$ people have the same birthday and show that it is less than $0.5$. Select the first birthday arbitrarily, then the next birthday from the remaining days, then the next birthday from the remaining days, and so on:
+\que{1}
+Select the $n$ people one-by-one and check if they have the same birthday as the previous ones selected. For the first person you have $365$ days, for the second person you have $364$ days to choose from and so on:
 \[
-\renewcommand*{\arraystretch}{2.5}
-\begin{array}{rcl}
-P(\textsf{no birthday pair})&=&
+1-P(n)=
   \overbrace{\disfrac{365}{365}\cdot\frac{364}{365}
-  \cdot\frac{363}{365}\cdot \;\cdots \; \cdot \frac{344}{365}
-  \cdot\frac{343}{365}}^{23\;\textsf{\small fractions}}\\
-&=&\disfrac{365!}{365^{23}\cdot 342!}\approx 0.4927\,.
-\end{array}
+  \cdot \;\cdots \; \cdot \frac{365-(n-2)}{365}
+  \cdot\frac{365-(n-1)}{365}}^{n}
+=\disfrac{365!/(365-n)!}{365^{n}}\,.
 \]
-Most people guess that more than $23$ people are needed to find two with the same birthday!
-
-A modern calculator can compute the probability, but it is worthwhile computing it using Stirling's approximation $\ln n! \approx n\ln n - n$:
+\que{2}
+Compute this value for various values of $n$ or use a computer to loop from $1$ to $365$ until you find the first $n$ such that $1-P(n)<0.5$. This turns out to be $23$:
 \[
-\renewcommand*{\arraystretch}{2}
-\begin{array}{rcl}
-\ln P(\textsf{no birthday pair})&=&
+1-P(23)=\disfrac{365!}{365^{23}\cdot 342!}\approx 0.4927\,.
+\]
+Most people are surprised that $23$ is the smallest value of $n$.
+
+A modern calculator can compute $1-P(23)$ but it is a worthwhile exercise to compute it with Stirling's approximation $\ln n! \approx n\ln n - n$:
+\begin{eqnarray*}
+\ln (1-P(n))&=&
   \ln\left(\disfrac{365!}{342!\cdot 365^{23}}\right)=\ln 365! - \ln 342! -23 \ln 365\\
 &\approx& (365\ln 365 -365) - (342\ln 342 -342) - 23\,\ln 365 \\
 &\approx&-0.7404\\
-P(\textsf{no birthday pair})&\approx&e^{-0.7404}=0.4769\,.
-\end{array}
-\]
+1-P(n)&\approx&e^{-0.7404}=0.4769\,.
+\end{eqnarray*}
 The reader is invited to compute the probability with the following better approximation:
 \[
 \ln n!  \approx n\ln n - n + \frac{1}{6}\left(8n^3+4n^2+n+\frac{1}{30}\right)+\frac{1}{2}\ln\pi\,.
@@ -60,9 +67,9 @@ Average no pairs        = 0.4345
 \begin{prob}{Finding your birthmate}
 Your \emph{birthmate} is a person with the same birthday as yours.
 
-Why is finding a birthmate a different problem than finding a birthday pairing?
+Why is finding a birthmate a different problem than finding a birthday pair?
 
-\que{1} How many people do you have to ask until the probability of finding your brithmate becomes greater than $0.5$?
+\que{1} How many people do you have to ask until the probability $Q(n)$ of finding your birthmate becomes greater than $0.5$?
 
 \que{2}
 Solve the problem by using the approximation in Equation~\ref{eq.reciprocal} (page~\pageref{eq.reciprocal}).
@@ -70,28 +77,28 @@ Solve the problem by using the approximation in Equation~\ref{eq.reciprocal} (pa
 
 \solution{}
 
-Many people could have the same birthday which is considered a success for find a birthday pairing, but not for finding a birthmate unless that birthday is the same as yours.
+Many people could have the same birthday which is considered a success for find a birthday pair, but not for finding a birthmate unless that birthday is the same as yours.
 
 \ans{1}
-Find the smallest number of people for which the probability that none of them are birthmates is less than $0.5$. The probability that the first person you ask is not a birthmate is $364/365$, but that is also the probability that the second, third, \ldots, person is not a birthmate. The solution is the smallest $k$ such that:
+We find $1-Q(n)$ the smallest number of people for which the probability that none of them are birthmates is less than $0.5$. The probability that the first person you ask is not a birthmate is $364/365$, but that is also the probability that the second, third, \ldots, person is not a birthmate. The solution is the smallest $n$ such that:
 \[
-P(\textsf{birthmate not found})=\left(\frac{364}{365}\right)^k<\frac{1}{2}\,,
+1-Q(n)=\left(\frac{364}{365}\right)^n<\frac{1}{2}\,.
 \]
-which is $k=253$:
+By searching or writing a computer program we find that $n=253$:
 \[
 \left(\frac{364}{365}\right)^{253} \approx 0.4995\,.
 \]
 \ans{2}
 Equation~\ref{eq.reciprocal} is:
 \[
-\lim_{n\rightarrow\infty}\left(\frac{n-1}{n}\right)^{n}=\frac{1}{e}\,,
+\lim_{n\rightarrow\infty}\left(1-\frac{1}{n}\right)^{n}=\frac{1}{e}\,,
 \]
 which can be used to approximate the probability:
 \begin{eqn}
-P(\textsf{birthmate not found})&=&
-  \left(\disfrac{365-1}{365}\right)^k=\left[\left(\disfrac{364}{365}\right)^{365}\right]^{k/365}\\
-&\approx& e^{-k/365}\\
-e^{-253/365}&\approx&0.5000\,.
+1-Q(n)&\approx &
+  \left(1-\disfrac{1}{365}\right)^n=\left[\left(\disfrac{364}{365}\right)^{365}\right]^{n/365}\\
+&\approx& e^{-n/365}\\
+1-Q(253)&\approx&e^{-253/365}\approx 0.5000\,.
 \end{eqn}
 \textbf{Simulation}
 \begin{verbatim}
@@ -116,37 +123,37 @@ Proportion no match     = 0.5078
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{Relating the birthday pairings and the birthmate problems}
-Let $P_{\textsf{\footnotesize pair}}(r)$ be the probability that out of $r$ people two are a birthday pair (Problem~$31$) and let $P_{\textsf{\footnotesize mate}}(n)$ be the probability that out of $n$ people at least one is your birthmate (Problem~$32$). Given $r$, for what $n$ does $P_{\textsf{\footnotesize pair}}(r) \approx P_{\textsf{\footnotesize mate}}(n)$?
+Let $P(r)$ be the probability of finding a birthday pair (Problem~$31$) and let $Q(n)$ be the probability that out of $n$ people at least one is your birthmate (Problem~$32$). Given $r$ for what $n$ does $P(r) \approx Q(n)$?
 \end{prob}
 
 \solution{1}
 
 The solution is based on \cite{birthday}.
 
-Using the notation $P_{\textsf{\footnotesize no pair}}(r)$ for the complement of $P_{\textsf{\footnotesize pair}}(r)$, from the solution to Problem~$31$ we have:
+From the solution to Problem~$31$ we have:
 \[
 \renewcommand*{\arraystretch}{2.2}
 \begin{array}{lcl}
-P_{\textsf{\footnotesize no pair}}(r)&=&
+1-P(r)&=&
 \disfrac{365}{365}\cdot 
   \frac{365-1}{365}\cdot \frac{365-2}{365} \cdot\;
   \cdots \;\cdot \frac{365-(r-1)}{365}\\
 &=&1\left(1-\disfrac{1}{365}\right)
   \left(1-\disfrac{2}{365}\right) \cdot\;
   \cdots \;\cdot \left(1-\disfrac{r-1}{365}\right)\\
-&\approx&1-\disfrac{1}{365} - \disfrac{2}{365} -
-  \cdots - \disfrac{r-1}{365}\\
-&=&1-\disfrac{1+2+3+\cdots + (r-1)}{365}\\
+%&\approx&1-\disfrac{1}{365} - \disfrac{2}{365} -
+%  \cdots - \disfrac{r-1}{365}\\
+&\approx &1-\disfrac{1+2+3+\cdots + (r-1)}{365}\\
 &=&1-\disfrac{r(r-1)/2}{365}\,,
 \end{array}
 \]
 where the approximation in the third equation results from deleting powers of $1/365$ greater than one because they are too small to significantly affect the result.
 
-Using the notation $P_{\textsf{\footnotesize no mate}}(n)$ for the complement and the same approximation, from the solution to Problem~$32$ we have:
+Using the same approximation, from the solution to Problem~$32$ we have:
 \[
 \renewcommand*{\arraystretch}{2.2}
 \begin{array}{lcl}
-P_{\textsf{\footnotesize no mate}}(n)
+1-Q(n)
 &=&\overbrace{\left(1-\frac{1}{365}\right)
   \left(1-\frac{1}{365}\right)\cdots
   \left(1-\frac{1}{365}\right)}^{n}\\
@@ -155,7 +162,7 @@ P_{\textsf{\footnotesize no mate}}(n)
 &\approx& 1-\disfrac{n}{365}\\
 \end{array}
 \]
-Therefore $P_{\textsf{\footnotesize no pair}}(r)\approx P_{\textsf{\footnotesize no mate}}(n)$ when:
+Therefore $P(r)\approx Q(n)$ when:
 \[
 n=\frac{r(r-1)}{2}\,.
 \]
@@ -163,9 +170,9 @@ For $r=23$, $n=(23\cdot 22)/2=253$.
 
 \solution{2}
 
-Mosteller \cite[p.~322]{birthday} gives the following intuitive solution:
+Mosteller gives the following intuitive solution:
 \begin{quote}
-In comparing the birthday and birthmate problems, one observes that for $r$ people in the birthday problem, there are $r(r-1)/2$ pairs or \emph{opportunities} for like birthdays; whereas, if $n$ people are questioned in the birthmate problem, there are only $n$ opportunities for me to find one or more birthmates.
+In comparing the birthday and birthmate problems, one observes that for $r$ people in the birthday problem, there are $r(r-1)/2$ pairs or \emph{opportunities} for like birthdays; whereas, if $n$ people are questioned in the birthmate problem, there are only $n$ opportunities for me to find one or more birthmates \cite[p.~322]{birthday}.
 \end{quote}
 From this he concludes that $n\approx r(r-1)/2$.
 
@@ -188,7 +195,7 @@ A factory is closed whenever one of its workers has a birthday. There are no oth
 
 \que{2} What is the expectation of the ratio of the maximum work-days to $365^2$, the number of possible work-days if each one of $365$ workers worked every day?
 
-\textbf{Hint:} Prove that there must be a maximum by considering extreme cases. Then develop a formula for the expectation of the number of work-days for a single day.
+\textbf{Hint:} Prove that there must be a maximum by considering extreme cases, then develop a formula for the expectation of the number of work-days for a single day.
 \end{prob}
 
 \solution{}
@@ -196,17 +203,17 @@ A factory is closed whenever one of its workers has a birthday. There are no oth
 \ans{1}
 At one extreme if there is only one worker there are $364$ work-days. If there are two workers there are $363+363=726$ workers days (ignoring the very small possibility that both workers have the same birthday). At the other extreme if there are one million workers the number of work-days will almost certainly be zero. Since the number of work-days rises initially and then returns to zero, there must be a maximum in between the extremes.
 
-To simplify the notation we will denote the number of days in a year by $N$ and the number of workers by $n$.
+To simplify notation denote the number of days in a year by $N$ and the number of workers by $n$.
 
-For any given day the probability that it is a work-day is the probability that each worker has a birthday on some other day:
+Let $p$ be the probability that a given day is a work-day, which is the probability that each worker has a birthday on some other day:
 \[
-P(\textsf{a given day is a work-day})=\overbrace{\disfrac{N-1}{N} \cdot \;\cdots\;\cdot \disfrac{N-1}{N}}^n = \left(1-\disfrac{1}{N}\right)^n\,.
+p=\overbrace{\disfrac{N-1}{N} \cdot \;\cdots\;\cdot \disfrac{N-1}{N}}^n = \left(1-\disfrac{1}{N}\right)^n\,.
 \]
-Denote $\left(1-\disfrac{1}{N}\right)$ by $p$. Then:
+On a work-day all workers work and on a holiday none do, so:
 \[
 E(\textsf{work-days for a given day}) = n \cdot p^n + 0\cdot (1-p^n) = np^n\,.
 \]
-All the days in the year have this same expectation, so we just multiply by $N$ to get the expectation for a year:
+All the days in the year have this same expectation so multiply by $N$ to get the expectation for a year:
 \begin{equation}\label{eq.holidays}
 E(\textsf{work-days for a year}) = Nnp^n\,.
 \end{equation}
@@ -215,7 +222,8 @@ To find the maximum we take the derivative of Equation~\ref{eq.holidays} with re
 \[
 (p^n)' = ((e^{\ln p})^n)' =
 (e^{n\ln p})' =
-e^{n\ln p} (n\ln p)'=
+(e^{n\ln p})' (n\ln p)'=
+e^{n\ln p} \ln p=
 (e^{\ln p})^n \ln p = p^n\ln p\,.
 \]
 The derivative of Equation~\ref{eq.holidays} is therefore:
@@ -232,7 +240,7 @@ E(\textsf{work-days for a year}) &=&Nnp^n\\
 &=&365\cdot 364 \cdot \left(\disfrac{364}{365}\right)^{364}\\
 &=&365\cdot 364  \cdot \disfrac{365}{365}\left(\disfrac{364}{365}\right)^{364}\\
 &=&365\cdot 365  \cdot \left(\disfrac{364}{365}\right)^{365}\\
-&=&48944\,.
+&\approx &48944\,.
 \end{eqn}
 
 \ans{2} 
@@ -268,7 +276,7 @@ Ratio work-days / 365**2 = 0.3674
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{The cliff-hanger}
-A particle is initially placed on the $x$-axis at position $1$. At any position on the $x$-axis it can move right with probability $2/3$ and left with probability $1/3$ (Figure~\ref{f.ruin1}).
+A particle is initially placed on the $x$-axis at position $1$. At any position on the $x$-axis moves right with probability $2/3$ and left with probability $1/3$ (Figure~\ref{f.ruin1}).
 
 \que{1} What is the probability that the particle will eventually be at position $0$?
 
@@ -286,7 +294,7 @@ A particle is initially placed on the $x$-axis at position $1$. At any position 
 }
 \draw[fill] (1,5mm) circle[radius=.5pt];
 \draw[->] (1,5mm) -- node[above] {$1/3$} (0,5mm);
-\draw[->,very thick] (1,5mm) -- node[above] {$2/3$} (2,5mm);
+\draw[->] (1,5mm) -- node[above] {$2/3$} (2,5mm);
 
 \foreach \x/\y in {2/10mm,3/15mm,4/20mm} {
   \draw[fill] (\x,\y) circle[radius=.5pt];
@@ -301,29 +309,26 @@ A particle is initially placed on the $x$-axis at position $1$. At any position 
 
 \solution{}
 
-It is no more difficult to compute the probabilty for arbitrary $p$ as it is for $p=2/3$, so we give solutions for both questions together.
-
 \ans{1,2}
-Let us try to compute the probability directly. Denote a move left by $L$ and a move right by $R$. The particle can reach $0$ directly by moving $L$ with probability $\frac{1}{3}$, or by moving $RLL$ with probability $\frac{2}{3}\cdot\frac{1}{3}\cdot\frac{1}{3}$, or by moving $RRLLL$ with probability $\left(\frac{2}{3}\right)^2\left(\frac{1}{3}\right)^3$, \ldots\ . This computations seems to be a straightforward geometric progression, but it ignores possibilities such as $RLRLL$.
+Denote a move left by $L$ and a move right by $R$. The particle can reach $0$ directly by moving $L$ with probability $\frac{1}{3}$, or by moving $RLL$ with probability $\frac{2}{3}\cdot\frac{1}{3}\cdot\frac{1}{3}$, or by moving $RRLLL$ with probability $\left(\frac{2}{3}\right)^2\left(\frac{1}{3}\right)^3$, \ldots\ . This computations seems to be a straightforward geometric progression, but it ignores possibilities such as $RLRLL$ so a different approach is needed.
 
-Compute the probability that the particle reaches $0$ from $1$ conditioned on the first step:
+Denote by $P(i,j)$ the probability that the particle reaches $i$ from $j$. Compute the probability that the particle reaches $0$ from $1$ conditioned on the first step:
 \begin{eqn}
-P(\textsf{reaches}\;0\;\textsf{from}\;1) &=& P(\textsf{reaches}\;0\;\textsf{from}\;1|\textsf{first move left}) +\\
-&&P(\textsf{reaches}\;0\;\textsf{from}\;1|\textsf{first move right})\\
-&=& (1-p)\cdot 1 + pP(\textsf{reaches}\;1\;\textsf{from}\;2)P(\textsf{reaches}\;0\;\textsf{from}\;1)\,.
+P(0,1) &=& P(0,1|\textsf{first move left}) +P(0,1|\textsf{first move right})\\
+&=& (1-p)\cdot 1 + pP(1,2)P(0,1)\,.
 \end{eqn}
-But the probability of reaching $1$ from $2$ is exactly the same as the probability of reaching $0$ from $1$. Denoting $P(\textsf{reaches}\;0\;\textsf{from}\;1)$ by $P$ we have:
+But $P(1,2) = P(0,1)$ giving a quadratic equation in $P(0,1)$:
 \begin{eqn}
-P &=& (1-p) + pP^2\\
-pP^2 - P + (1-p) &=&0\\
-P&=& \frac{1\pm\sqrt{1-4p(1-p)}}{2p}\\
-P&=&1,\; (1-p)/p\,.
+P(0,1) &=& (1-p) + pP(0,1)^2\\
+pP(0,1)^2 - P(0,1) + (1-p) &=&0\\
+%P&=& \frac{1\pm\sqrt{1-4p(1-p)}}{2p}\\
+P(0,1)&=&1,\; \textsf{or}\; (1-p)/p\,.
 \end{eqn}
-If $p\leq 1/2$ then $(1-p)/p\geq 1$, so $P=1$ is the only solution and it is certain that the particle will reach $0$.
+If $p\leq 1/2$ then $(1-p)/p\geq 1$, so $P(0,1)=1$ is the only solution and it is certain that the particle will reach $0$.
 
-If $p=1$ then $P=0$ since if the particle always moves to the right it cannot return to $0$.
+If $p=1$ then $P(0,1)=0$: if the particle always moves to the right it cannot return to $0$.
 
-Suppose $P=1$ for $1/2<p < 1$, that is, $P$ \emph{does not depend on} $p$. But $P$ cannot suddenly ``jump'' from $1$ to $0$ as $p$ approaches $1$: in Figure~\ref{f.ruin2} the dashed red line and the red dot at $(1,0)$. Therefore, for $p> 1/2$ the only solution is $P=(1-p)/p< 1$.\footnote{Mosteller writes that this follows by continuity but does not give a proof.}
+Suppose $P(0,1)=1$ for $1/2<p < 1$, that is, $P(0,1)$ \emph{does not} depend on $p$. In Figure~\ref{f.ruin2} the dashed red line shows the value $P(0,1)=1$ as $p$ approaches $1$ and the red dot shows $P(1,0)=0$ when $p$ becomes $1$. Since $P(0,1)$ cannot suddenly ``jump'' from $1$ to $0$,  the only solution is $P(0,1)=(1-p)/p$ for $p> 1/2$.\footnote{Mosteller writes that this follows by continuity but does not give a proof.}
 
 \begin{figure}[tb]
 \begin{center}
@@ -343,7 +348,7 @@ Suppose $P=1$ for $1/2<p < 1$, that is, $P$ \emph{does not depend on} $p$. But $
 \end{center}
 \caption{Graph of $P=\min(p/(1-p),1)$ for $p\in [0,1]$}\label{f.ruin2}
 \end{figure}
-For $p=2/3, P=1/2$ and for $p=1/2, P=1$. This is a surprising result because one would not expect that the particle would always return to $0$ if the direction of the moves were determined by flipping a fair coin! You have to have a very unfair coin (probability of heads is $2/3$) to even the chances or returning to $0$ or not.
+For $p=2/3, P$p> 1/2$=1/2$ and for $p=1/2, P$p> 1/2$=1$. This is surprising because one would not expect that the particle always returns to $0$ if the direction of the moves were determined by flipping a fair coin! You have to have a very unfair coin (probability of heads is $2/3$) to even the chances of returning to $0$.
 
 \textbf{Simulation}
 \begin{verbatim}
@@ -367,7 +372,7 @@ Proportion reaching 0     = 0.2502
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{Gambler's ruin\annotate{D}}
-A particle is initially placed on the $x$-axis at position $m\geq 1$. At any position on the $x$-axis it can move right with probability $p>1/2$ and left with probability $1-p$.
+A particle is initially placed on the $x$-axis at position $m\geq 1$. At any position on the $x$-axis moves right with probability $p>1/2$ and left with probability $1-p$.
 
 \que{1} What is the probability that the particle will eventually be at position $0$?
 
@@ -387,25 +392,31 @@ A particle is initially placed on the $x$-axis at position $m\geq 1$. At any pos
 \draw[->] (2,5mm) -- node[above] {$2/3$} (3,5mm);
 \end{tikzpicture}
 \end{center}
-\caption{Can the particle return to $0$ (axis is finite)?}\label{f.ruin3}
+\caption{What is the probability that the particle reaches $0$ or $n$?}\label{f.ruin3}
 \end{figure}
 
-\textbf{Note:} Problem~35 is represents a gambler with a finite amount of money playing against a casino with unlimited money. The problem asks for the probabiliy that the gambler loses all his money. This problem represents one gambler who starts with $m$ playing against a second gambler who starts with $n-m$. The problem asks for the probabilities that \emph{one} of the gamblers loses all her money to the other one.
+\textbf{Note:} Problem~35 is represents a gambler with a finite amount of money playing against a casino with unlimited money. The problem asks for the probabiliy that the gambler loses all his money. Problem~36(2) represents one gambler who starts with $m$ playing against a second gambler who starts with $n-m$. The problem asks for the probabilities that \emph{one} of the gamblers loses all his money to the other one.
 \end{prob}
 
 \solution{}
 
 The solution is based on \cite[Chapter~3, Example~4m]{ross}.
 
-\ans{1} The solution to Problem~35 showed that for $p>1/2$ (here it is given), if a particle is at position $1$ the probability of its reaching position $0$ is $r=(1-p)/p$. Notation: let $P(i,j)$ be the probability of reaching $i$ from $j$. Since the probability of a particle reaching one position from another does not depend on the absolute position:
+Denote by $P(i,j)$ the probability of reaching $i$ from $j$
+
+\ans{1} The solution to Problem~35 showed that for $p>1/2$ (here it is given), if a particle is at position $1$ the probability of reaching position $0$ is $r=(1-p)/p$. This probability does not depend on the absolute position of the particle, that is:
+\[
+P(i,j) = P(i+k,k+1) = P(i-k,j-k)\,,
+\]
+therefore:
 \begin{equation}
 P(0,m)=P(m-1,m)P(m-2,m-1)\cdots P(1,2)P(0,1)=r^m\,.
 \end{equation}
 
-\ans{2} Let $P_i=P(n,i)$ and compute it using conditional probability:
+\ans{2} Abbreviate $P(n,i)$ by $P_i$ and compute $P_i$:
 \begin{eqn}
 P_i &=& pP_{i+1} + (1-p)P_{i-1}\\
-pP_{i+1}&=&1\cdot P_i - (1-p)P_{i-1}\\
+%pP_{i+1}&=&1\cdot P_i - (1-p)P_{i-1}\\
 pP_{i+1}&=&(p+(1-p))P_i - (1-p)P_{i-1}\\
 p(P_{i+1}-P_i)&=&(1-p)(P_i-P_{i-1})\\
 P_{i+1}-P_i&=&r(P_i-P_{i-1})\,.
@@ -418,22 +429,25 @@ P_3 - P_2 &=& r(P_2 - P_1) = r^2P_1\\
 P_i - P_{i-1} &=& r(P_{i-1} - P_{i-2}) = r^{i-1}P_1\,.
 \end{eqn}
 Most of the terms on the lefthand sides cancel when we add the equations:
-\begin{eqn}
-P_i - P_1 &=& P_1\sum_{j=2}^{i}r^{j-1}\\
-&=& P_1 + P_1\sum_{j=2}^{i}r^{j-1} - P_1 \\
-P_i&=& P_1\sum_{j=0}^{i-1}r^j =P_1\left(\frac{1-r^i}{1-r}\right)\,.
-\end{eqn}
-If the particle is at $n$ then it is already at $n$ so $P_n=1$:
-\begin{eqn}
-1 &=& P_1\left(\frac{1-r^n}{1-r}\right)\\
-P_1 &=& \left(\frac{1-r}{1-r^n}\right)\,,
-\end{eqn}
-and therefore (using a symmetrical argument exchanging $p$ and $1-p$):
 \begin{eqnlabels}
-\label{eq.ruin1}P(n,i) &=& \left(\frac{1-r^{i}}{1-r^n}\right)\\
-\label{eq.ruin2}P(0,i) &=& \left(\frac{1-(1/r)^{n-i}}{1-(1/r)^{n}}\right)\,.
+\nonumber{}P_i - P_1 &=& P_1\sum_{j=2}^{i}r^{j-1}\\
+\nonumber{}&=& P_1 + P_1\sum_{j=2}^{i}r^{j-1} - P_1 \\
+\label{eq.ruin0}P_i&=& P_1\sum_{j=0}^{i-1}r^j =P_1\left(\frac{1-r^i}{1-r}\right)\,.
 \end{eqnlabels}
-We leave it to the reader to show that the sum of Eqs.~\ref{eq.ruin1},~\ref{eq.ruin2} is $1$ meaning that one of the players will certainly win and one will lose. For $m=1, n=3, p=2/3$:
+If the particle is at $n$ then it is already at $n$ so $P_n=1$:
+\begin{eqnlabels}
+\nonumber{}1 &=& P_1\left(\frac{1-r^n}{1-r}\right)\\
+\label{eq.ruin00}P_1 &=& \left(\frac{1-r}{1-r^n}\right)\,.
+\end{eqnlabels}
+From Equations~\ref{eq.ruin0}, \ref{eq.ruin00}:
+\begin{equation}
+\label{eq.ruin1}P(n,i) = \left(\frac{1-r^{i}}{1-r^n}\right)\,.
+\end{equation}
+Using a symmetrical argument exchanging $p$ and $1-p$:
+\begin{equation}
+\label{eq.ruin2}P(0,i) = \left(\frac{1-(1/r)^{n-i}}{1-(1/r)^{n}}\right)\,.
+\end{equation}
+We leave it to the reader to show that the sum of Equations~\ref{eq.ruin1},~\ref{eq.ruin2} is $1$ meaning that one of the players will certainly win and one will lose. For $m=1, n=3, p=2/3$, r=1/2:
 \begin{eqn}
 P(0,1) &=& \left(\frac{1-\left(\frac{1}{2}\right)^{1}}{1-\left(\frac{1}{2}\right)^{3}}\right)=\frac{4}{7}\\
 P(3,1) &=& \left(\frac{1-2^{2}}{1-2^{3}}\right)=\frac{3}{7}\,.
@@ -471,12 +485,10 @@ This plot was generated by the Python library \texttt{matplotlib}; the source co
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{Bold play vs. cautious play}
-In roulette you can bet that the ball will fall into a pocket with an even number. The probability is $18/38$ since there are $18$ even numbers, $18$ odd numbers and $2$ green numbers where the casino wins.
-
-Which of the following strategies is better?
+In roulette you can bet that the ball will fall into a pocket with an even number. The probability is $18/38$ since there are $18$ even numbers, $18$ odd numbers and $2$ green numbers. Which of the following strategies is better?
 \begin{enumerate}
-\item Bold play: betting $20$ in one round.
-\item Cautious play: bettin $1$ per round until you win or lose $20$.
+\item Bold play: bet $20$ in one round.
+\item Cautious play: bet $1$ per round until you win or lose $20$.
 \end{enumerate}
 \textbf{Hint:} Use the results of Problem~36.
 \end{prob}
@@ -485,15 +497,14 @@ Which of the following strategies is better?
 
 The probability of winning with bold play is $18/38\approx 0.4737$.
 
-The probability of winning with cautious play is (Equation~\ref{eq.ruin1}):
-\begin{eqn}
-r&=&\frac{20}{38}\Big/ \frac{18}{38}=\frac{20}{18}\\
-P(40,20) &=&
+Cautious play is the gambler's ruin problem (Problem~36): you start with $20$ and play until you reach $40$ (have won $20$) or until you reach $20$ (have lost it all). The probability of winning with cautious play is therefore given by Equation~\ref{eq.ruin1} with $p=18/38$ and $1-p=20/38$ so that $r=20/18$:
+\[
+P(40,20) =
 \frac{1-(20/18)^{20}}{1-(20/18)^{40}}\approx 0.1084\,.
-\end{eqn}
-Clearly, bold play is preferable to cautious play.
+\]
+Bold play is preferable to cautious play.
 
-Mosteller writes that the intuitive explanation for this result is that betting in more rounds exposes the player to the probability of $2/38$ that the casino wins.
+Mosteller writes that the intuitive explanation for this result is that betting in more rounds exposes the player to the probability of $2/38$ that the casino wins when the ball falls on a green number.
 
 \textbf{Simulation}
 \begin{verbatim}
@@ -511,17 +522,19 @@ Proportion cautious wins     = 0.1094
 
 \begin{prob}{The clumsy chemist}
 
-You have a large number of glass rods of length $1$ with one end colored red and the other colored blue. When you drop them on the floor they each break into three pieces with a uniform distribution of the length of the pieces (Figure~\ref{f.rod1}). What is the expectation of the length of the piece whose end is colored blue?
+You have a large number of glass rods of length $1$ with one end colored red (hatched) and the other colored blue (dotted). When you drop them on the floor they each break into three pieces with a uniform distribution of the length of the pieces (\ref{f.rod1}). What is the expectation of the length of the piece whose end is colored blue?
 
 \textbf{Hint:}
-Instead of straight rods suppose that you are given (unmarked) glass rings that also break into three pieces (Figure~\ref{f.rod2}).
+Instead of straight rods suppose that you are given (unmarked) glass rings that also break into three pieces (\ref{f.rod2}).
 \begin{figure}[tb]
 \begin{center}
 \begin{subfigure}{.4\textwidth}
 \begin{tikzpicture}
 \draw (0,0) -- ++(6,0) -- ++(0,12pt) -- ++(-6,0) -- cycle;
-\fill[red] (0,0) rectangle +(12pt,12pt);
-\fill[blue] (6,0) rectangle +(-12pt,12pt);
+\fill[pattern=crosshatch,pattern color=red]
+  (0,0) rectangle +(12pt,12pt);
+\fill[pattern=crosshatch dots,pattern color=blue]
+  (6,0) rectangle +(-12pt,12pt);
 \draw[<->] (0,23pt) --
   node[fill=white] {$1$} ++(6,0);
 \draw[decorate,decoration=saw] (1.8,35pt) -- +(0,-55pt);
@@ -544,9 +557,11 @@ Instead of straight rods suppose that you are given (unmarked) glass rings that 
 \draw[decorate,decoration=saw] (30:1) -- +(30:1.5);
 \draw[decorate,decoration=saw] (190:1) -- +(190:1.5);
 \draw[decorate,decoration=saw] (-90:1) -- +(-90:1.5);
-\node[rotate=-4,fill=red,minimum width=11pt,minimum height=11pt]
+\node[rotate=-4,minimum width=11pt,minimum height=11pt,
+      pattern=crosshatch,pattern color=red]
   at (-94:1.8) {};
-\node[rotate=6,fill=blue,minimum width=11pt,minimum height=11pt]
+\node[rotate=6,minimum width=11pt,minimum height=11pt,
+      pattern=crosshatch dots, pattern color=blue]
   at (-82:1.8) {};
 \end{tikzpicture}
 \caption{Breaking a ring into three pieces}\label{f.rod2}
@@ -557,7 +572,7 @@ Instead of straight rods suppose that you are given (unmarked) glass rings that 
 
 \solution{1}
 
-The rods are not symmetric because the end pieces are different from the center piece. However, the ring is symmetric so the distributions of all three pieces must be uniform with expectation $1/3$. By choosing and coloring one of breaks as shown in Figure~\ref{f.rod2}, the problem is now the same as that of the rods so the distributions remain the same. Therefore the expectation of the lengths of the pieces is also $1/3$.
+The rods are not symmetric because the end pieces are different from the center piece. However, the ring is symmetric so the distributions of all three pieces must be uniform with expectation $1/3$. By choosing and coloring one of breaks as shown in \ref{f.rod2}, the problem is now the same as that of the rods so the distributions remain the same, and therefore the expectation of the lengths of the pieces is also $1/3$.
 
 \solution{2}
 
@@ -565,12 +580,15 @@ Here is an elegant solution from \cite{stack-rods}.
 
 Assume that the rod represents the line segment $(0,1)$. The rod is broken in two places which are represented as two uniform independent random variables $X,Y\in (0,1)$. Let us compute the probability $P(|X-Y|>a)$.
 
-Table~\ref{t.rods} shows points $(x,y)$, where $x,y \in \{0.0, 0.1, 0.2, \ldots, 0.9\}$ and the decimal point is omitted. The values that appear in the table are $|X-Y|$. For $a=0.6$ the entries in the upper left corner $(0,6)$--$(6,9)$ and above, and the entries in the lower right corner $(6,0)$--$(9,6)$ and below, are those outcomes that define $P(|X-Y|>a)$:
+Table~\ref{t.rods} shows points $(x,y)$, where $x,y \in \{0.0, 0.1, 0.2, \ldots, 0.9\}$ and the decimal point is omitted. The values that appear in the table are $|X-Y|$. For $a=0.6$ the entries in the upper left corner (denoted in bold) and the entries in the lower right corner (denoted in bold) are the outcomes for which $P(|X-Y|>a)$:
 \[
-P(|X-Y|>a)=2\cdot \frac{1}{2}(1-a)(1-a)=(1-a)^2\,.
+G(a) = P(|X-Y|>a)=2\cdot \frac{1}{2}(1-a)(1-a)=(1-a)^2\,.
 \]
-For $a=0.6$, $P(|X-Y|>0.6)=(0.4)^2=0.16$.
-
+We are interested in the complment:
+\[
+F(a)=1-G(a)=P(|X-Y|<a)=1-(1-a)^2=2a-a^2\,.
+\]
+This is the cumulative probability distribution (CPD) for the interval $(0,1)$. 
 \begin{table}[bt]
 \[
 \begin{array}{c}
@@ -583,16 +601,16 @@ y\\
 \begin{array}{|c|cccccccccc|}
 \multicolumn{11}{l}{\qquad \qquad \qquad a}\\
 \hline
-9& 9 & 8 & 7 & 6 & 5 & 4 & 3 & 2 & 1 & 0  \\
-8& 8 & 7 & 6 & 5 & 4 & 3 & 2 & 1 & 0 & 1  \\
-7& 7 & 6 & 5 & 4 & 3 & 2 & 1 & 0 & 1 & 2  \\
-6& 6 & 5 & 4 & 3 & 2 & 1 & 0 & 1 & 2 & 3  \\
+9& \mathbf{9} & \mathbf{8} & \mathbf{7} & \mathbf{6} & 5 & 4 & 3 & 2 & 1 & 0  \\
+8& \mathbf{8} & \mathbf{7} & \mathbf{6} & 5 & 4 & 3 & 2 & 1 & 0 & 1  \\
+7& \mathbf{7} & \mathbf{6} & 5 & 4 & 3 & 2 & 1 & 0 & 1 & 2  \\
+6& \mathbf{6} & 5 & 4 & 3 & 2 & 1 & 0 & 1 & 2 & 3  \\
 5& 5 & 4 & 3 & 2 & 1 & 0 & 1 & 2 & 3 & 4  \\
 4& 4 & 3 & 2 & 1 & 0 & 1 & 2 & 3 & 4 & 5  \\
-3& 3 & 2 & 1 & 0 & 1 & 2 & 3 & 4 & 5 & 6  \\
-2& 2 & 1 & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7  \\
-1& 1 & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8  \\
-0& 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9  \\
+3& 3 & 2 & 1 & 0 & 1 & 2 & 3 & 4 & 5 & \mathbf{6}  \\
+2& 2 & 1 & 0 & 1 & 2 & 3 & 4 & 5 & \mathbf{6} & \mathbf{7}  \\
+1& 1 & 0 & 1 & 2 & 3 & 4 & 5 & \mathbf{6} & \mathbf{7} & \mathbf{8}  \\
+0& 0 & 1 & 2 & 3 & 4 & 5 & \mathbf{6} & \mathbf{7} & \mathbf{8} & \mathbf{9}  \\
 \hline
 &0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9  \\
 \hline
@@ -605,15 +623,10 @@ a\\\\
 \]
 \caption{Distribution of breaks on $(0,1)\times (0,1)$}\label{t.rods}
 \end{table}
-
-Taking the complement gives:
+The probability density function (PDF) can be obtained by differentiating the CDP:
 \[
-P(|X-Y|<a)=1-(1-a)^2\,.
-\]
-This is the cumulative probability distribution (CPD) for the interval $(0,1)$. The probability density function (PDF) can be obtained by differentiating the CDP:
-\[
-P(|X-Y|=a)= \frac{d}{da}P(|X-Y|<a) =
-  \frac{d}{da}(1-(1-a)^2)=2(1-a)\,.
+f(a)=P(|X-Y|=a)= \frac{d}{da}F(a) =
+  \frac{d}{da}(2a-a^2)=2(1-a)\,.
 \]
 The expectation is the integral of the PDF multiplied by the value:
 \[
@@ -630,14 +643,14 @@ Average length of right piece        = 0.3359
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{The first ace}
-Deal cards from a well-shuffled deck of cards until an ace appears. What is the expectation of the number of cards that must be dealt?
+Deal cards from the top of a well-shuffled deck of cards until an ace appears. What is the expectation of the number of cards that must be dealt?
 
-\textbf{Hint:} Consider the deck of cards without the aces to be laid out in a line.
+\textbf{Hint:} Consider the deck of cards without the aces laid out in a row.
 \end{prob}
 
 \solution{}
 
-The cards form a ``rod'' of length $48$ which is ``broken'' by the $4$ aces into $5$ ``pieces.'' The solution of Problem~39 applies and the expectation of the length of a piece is $48/5=9.6$.
+The cards form a ``rod'' of length $48$ which is ``broken'' by the $4$ aces into $5$ ``pieces.'' From Problem~39 the expectation of the length of a ``piece'' is $48/5=9.6$.
 
 \textbf{Simulation}
 \begin{verbatim}
@@ -646,4 +659,3 @@ Average first ace        = 9.5805
 \end{verbatim}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-

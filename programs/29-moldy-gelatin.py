@@ -39,9 +39,5 @@ def simulate():
         print('For {:3d} squares:'.format(i))
         for j in [3,5]:
             check_cells(i, j)
-#         # Display theoretical limit
-#         print('Theoretical limit (n->infnty) = {:.4f}'.
-#               format(((math.e)**(-i[1]) *  i[1]**i[1]) /
-#                      math.factorial(i[1])))
 
 simulate()
