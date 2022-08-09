@@ -12,7 +12,7 @@
 
 \begin{prob}{The prisoner's dilemma\annotate{D}}
 
-Three prisoners $A,B,C$ are eligible for parole. The parole board will release two of them with equal probability for $\{A,B\}, \{A,C\}, \{B,C\}$, so the probability that $A$ will be released is $2/3$. Prisoner $A$ is told the name of one of the other prisoners who will be released. If he is told that prisoner $B$ will be released, what is the probability that $A$ too will be released?
+Three prisoners $A,B,C$ are eligible for parole. The parole board will release two of them with equal probability for $\{A,B\}, \{A,C\}, \{B,C\}$, so the probability that $A$ will be released is $2/3$. Prisoner $A$ is told the name of one of the other prisoners who will be released. If $A$ is told that prisoner $B$ will be released, what is the probability that $A$ too will be released?
 
 The article \cite{carlton} is devoted to the prisoner's dilemma and the related Monty Hall problem.
 \end{prob}
@@ -39,7 +39,7 @@ If $\{B,C\}$ are to be released $A$ could be \emph{told} that either $B$ or $C$ 
 \[
 P(A|R_{AB}) = \frac{P(A\cap R_{AB})}{P(R_{AB})} = \disfrac{1/3}{1/2}=\disfrac{2}{3}\,,
 \]
-so if $A$ is told that $B$ will be released the probability that he will be released does not change.
+so if $A$ is told that $B$ will be released the probability that $A$ will be released does not change.
 
 \solution{2}
 
@@ -54,7 +54,7 @@ Each pair of prisoners has equal probability of being released so:
 \[
 P(e_1)=P(e_2)=P(e_3\cup e_4)=\frac{1}{3}\,.
 \]
-We assume that if $\{B,C\}$ are to be released, $A$ is told either that $B$ or $C$ will be released with equal probability, so $P(e_3)=P(e_4)=1/6$. Therefore the probability that $A$ will be released given the event $R_{AB}=e_1\cup e_3$ that he is told that $B$ will be released is:
+We assume that if $\{B,C\}$ are to be released, $A$ is told either that $B$ or $C$ will be released with equal probability, so $P(e_3)=P(e_4)=1/6$. Therefore the probability that $A$ will be released given the event $R_{AB}=e_1\cup e_3$ that $A$ is told that $B$ will be released is:
 \[
 P(A|R_{AB}) = \frac{P(e_1\cap(e_1\cup e_3))}{P(e_1\cup e_3)}=\frac{P(e_1)}{P(e_1\cup e_3)}=\frac{1/3}{(1/3)+(1/6)}=\frac{2}{3}\,.
 \]
@@ -157,7 +157,7 @@ Check for $10$ numbers:
 \begin{eqn}
 P_d &=& P(EO) + P(OE) = \frac{3}{5}\cdot \frac{2}{4} + \frac{2}{5}\cdot \frac{3}{4} = \frac{3}{5}\\
 E_d &=& 4\cdot \frac{3}{5}=\frac{12}{5}=2.4\,.
-\end{eqn}
+\end{eqn}%
 
 \textbf{Simulation}
 \begin{verbatim}
@@ -215,7 +215,7 @@ Eight players $\{a_1,\ldots,a_8\}$ are randomly assigned to play eight games $\{
 \solution{}
 
 \ans{1}
-If $a_1$ is assigned to one of the games $\{g_1,g_2,g_3,g_4\}$ none of the other players assigned to these games will reach the final, so $a_2$ must be assigned to one of $\{g_5,g_6,g_7,g_8\}$. The temptation is to conclude that the probability of $a_2$ being the runner-up is $1/2$ since he must be assigned to one of the four games $\{g_1,g_2,g_3,g_4\}$. However, whatever game $a_1$ is  assigned to, $a_2$ will be the runner up only if he is assigned to one of the four \emph{remaining} seven games so the probability is $4/7$.
+If $a_1$ is assigned to one of the games $\{g_1,g_2,g_3,g_4\}$ none of the other players assigned to these games will reach the final, so $a_2$ must be assigned to one of $\{g_5,g_6,g_7,g_8\}$. The temptation is to conclude that the probability of $a_2$ being the runner-up is $1/2$ since $a_2$ must be assigned to one of the four games $\{g_1,g_2,g_3,g_4\}$. However, whatever game $a_1$ is  assigned to, $a_2$ will be the runner up only if he is assigned to one of the four \emph{remaining} seven games so the probability is $4/7$.
 
 \ans{2} Similarly, of the $2^n-1$ games that $a_1$ is not assigned to, $a_2$ must be assigned to one of the $2^{n-1}$ games not in the same half as $a_1$. Therefore:
 \[
@@ -248,7 +248,7 @@ Eight players $\{a_1,\ldots,a_8\}$ are randomly assigned to play games $\{g_1,\l
 
 \solution{}
 
-\ans{1} Without loss of generality assign $a_1$ to $g_1$. Consider the different possibilities that $a_1,a_2$ play each other. With probability $1/7$, $a_2$ is assigned to $g_2$. With probability $2/7$, $a_2$ is assigned to $g_3$ or $g_4$, but he doesn't play $a_1$ unless \emph{both} of them win their first game, so we need to multiply the probability of this assignment by $1/4$. With probability $4/7$, $a_2$ is assigned to $g_5,g_6,g_7,g_8$, but he doesn't play $a_1$ unless \emph{both} of them win their first two  games, so we need to multiply the probability of this assignment by $1/16$. Therefore:
+\ans{1} Without loss of generality assign $a_1$ to $g_1$. Consider the different possibilities that $a_1,a_2$ play each other. With probability $1/7$, $a_2$ is assigned to $g_2$. With probability $2/7$, $a_2$ is assigned to $g_3$ or $g_4$, but $a_2$ doesn't play $a_1$ unless \emph{both} of them win their first game, so we need to multiply the probability of this assignment by $1/4$. With probability $4/7$, $a_2$ is assigned to $g_5,g_6,g_7,g_8$, but $a_2$ doesn't play $a_1$ unless \emph{both} of them win their first two  games, so we need to multiply the probability of this assignment by $1/16$. Therefore:
 \[
 P(a_1, a_2\;\textsf{play each other})=\frac{1}{7} + \frac{1}{4}\cdot \frac{2}{7} + \frac{1}{16}\cdot \frac{4}{7} =\frac{1}{4}\,.
 \]
@@ -258,7 +258,7 @@ Let $P_n$ be the probability that in a tournament with $2^n$ players $a_1$ and $
 \begin{eqn}
 P_4 &=& \frac{1}{15} + \frac{1}{4}\cdot \frac{2}{15}  + \frac{1}{16}\cdot \frac{4}{15}  + \frac{1}{64}\cdot \frac{8}{15} \\
 &=&\frac{1}{15}\left(1+\frac{1}{2}+\frac{1}{4}+\frac{1}{8}\right)=\frac{1}{8}\,.
-\end{eqn}
+\end{eqn}%
 It is reasonable to conjecture that $P_n=1/2^{n-1}$.
 
 \textbf{Proof 1:} Using the same approach and the formula for the sum of a geometric series:
@@ -270,7 +270,7 @@ P_n&=&\frac{1}{2^n-1}\sum_{i=0}^{n-1}2^i\cdot \left(\frac{1}{2}\right)^{2i}\\
     \frac{1-(1/2)^{(n-1)+1}}
          {1-(1/2)}
   \right)=\frac{1}{2^{n-1}}\,.
-\end{eqn}
+\end{eqn}%
 
 \textbf{Proof 2:} By induction. The base case is $P_3=1/4=1/2^{3-1}$.
 
@@ -381,7 +381,7 @@ P(\textsf{at least}\;n\;6\textsf{s})&=&
   1-{6n \choose 0}\left(\frac{1}{6}\right)^0\left(\frac{5}{6}\right)^{6n-0}-
   {6n\choose 1}\left(\frac{1}{6}\right)^{1}\left(\frac{5}{6}\right)^{6n-1}-\cdots\\
 &=&1-\sum_{i=0}^{n-1}{6n\choose i}\left(\frac{1}{6}\right)^{i}\left(\frac{5}{6}\right)^{6n-i}\,.
-\end{eqn}
+\end{eqn}%
 
 \textbf{Simulation}
 \begin{verbatim}
@@ -417,7 +417,7 @@ A person who is hit no longer participates in the duels. The shots are fired one
 
 \textbf{Hint:} Give a formal definition for one strategy is better than another.
 
-\textbf{Hint:} Compute the conditional probabilities of $A$ winning depending on whether he chooses to shoot first at $B$ or $C$.
+\textbf{Hint:} Compute the conditional probabilities of $A$ winning depending on whether $A$ chooses to shoot first at $B$ or $C$.
 \end{prob}
 
 \solution{}
@@ -484,7 +484,7 @@ P(A\;\textsf{wins} \;| A\; \textsf{hits}\;B )&=&(0.5 \cdot 0.3) + \\
 &&(0.5 \cdot 0.7) (0.5 \cdot 0.3) + \\
 &&(0.5 \cdot 0.7) (0.5 \cdot 0.7) (0.5 \cdot 0.3)+ \cdots\\
 &=&0.15 \sum_{i=0}^{\infty} 0.35^i= \frac{0.15}{1-0.35}=\frac{3}{13}\approx 0.2308\,.
-\end{eqn}
+\end{eqn}%
 Similarly, the probability of $C$ winning is $\disfrac{0.5}{1-0.35}=\disfrac{10}{13}\approx 0.7692$.
 
 The expectation is:

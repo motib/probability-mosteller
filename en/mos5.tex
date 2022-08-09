@@ -3,7 +3,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{Doubling your accuracy}
-You are given two rods of lengths $L_1>L_2$ and a length-measuring instrument whose possible error is given by a normal distribution with mean $0$ and variance $\sigma^2$. The lengths of the two rods can be measured by measuring each one separately. Is there a more accurate method?
+You are given two rods of lengths $L_1>L_2$ and a length-measuring instrument whose possible error is given by a normal distribution\footnote{This problem assumes that the reader is familiar with normal distributions.} with mean $0$ and variance $\sigma^2$. The lengths of the two rods can be measured by measuring each one separately. Is there a more accurate method?
 \end{prob}
 
 \solution{}
@@ -28,19 +28,19 @@ Place the rods end-to-end and measure $L_s=L_1+L_2$ and then place the rods side
 \begin{eqn}
 \textstyle\frac{1}{2}(L_s+L_d)&=&\textstyle\frac{1}{2}((L_1+L_2)+(L_1-L_2))=L_1\\
 \textstyle\frac{1}{2}(L_s-L_d)&=&\textstyle\frac{1}{2}((L_1+L_2)-(L_1-L_2))=L_2\,.
-\end{eqn}
-The errors in the measurements of the sum and the difference are $e_s, e_d$, respectively, so the errors in the results are:
+\end{eqn}%%
+Let $e_s$ be the mean error of $L_s$ and $e_d$ the mean error of $L_d$. Then:
 \begin{eqn}
 \textstyle\frac{1}{2}((L_s+e_s)+(L_d+e_d))&=&L_1+\textstyle\frac{1}{2}(e_s+e_d)\\
 \textstyle\frac{1}{2}((L_s+e_s)-(L_d+e_d))&=&L_2+\textstyle\frac{1}{2}(e_s-e_d)\,.
-\end{eqn}
-Since the mean of the measurement instrument is $0$, the mean of the errors of the two measurements is also $0$. The variance is reduced to half its previous value:\footnote{The measurements are independent so the covariance is $0$.}
+\end{eqn}%
+Since the means of $e_s, e_d$ are $0$, the means of $\frac{1}{2}(e_s+e_d)$ and $\frac{1}{2}(e_s-e_d)$ are also $0$, so this method of measurement is no more accurate. However, the variance is of the measurements are reduced to half their previous values:\footnote{The measurements are independent so the covariance is $0$.}
 \begin{eqn}
 \mathrm{Var}\left(\textstyle\frac{1}{2}\left(L_s+L_d\right)\right)&=&
   \textstyle\frac{1}{4}(\sigma^2+\sigma^2)=\frac{1}{2}\sigma^2\\
 \mathrm{Var}\left(\textstyle\frac{1}{2}(L_s-L_d)\right)&=&
   \textstyle\frac{1}{4}( \sigma^2+(-1)^2\sigma^2)=\frac{1}{2}\sigma^2\,.
-\end{eqn}
+\end{eqn}%
 
 \textbf{Simulation}
 
@@ -70,8 +70,7 @@ Consider the quadratic equation $x^2+2bx+c=0$ defined on $[-B,B]\times[-B,B]$ fo
 \solution{}
 
 \ans{1}
-The roots will be real if the discriminant is non-negative $4b^2-4c\geq 0$. Figure~\ref{f.real-roots} shows a plot of the parabola $c=b^2$ where the complex roots are within the shaded area. For example, for $(b,c)=(1,2)$, $x^2+2x+2$ has complex roots (red dot) while for $(b,c)=(2,2)$, $x^2+4x+2$ has real roots (blue dot).
-
+The roots will be real if the discriminant is non-negative: $4b^2-4c\geq 0$. Figure~\ref{f.real-roots} shows a plot of the parabola $c=b^2$ where the complex roots are within the shaded area. For example, for $(b,c)=(1,2)$, denoted by the red dot, $x^2+2x+2$ has complex roots $-1\pm i\sqrt{3}$, while for $(b,c)=(2,2)$, denoted by the blue dot, $x^2+4x+2$ has real roots $-2\pm \sqrt{2}$.
 \begin{figure}[tb]
 \begin{center}
 \begin{tikzpicture}[scale=.9]
@@ -113,7 +112,7 @@ The total area of the range $[-B,B]\times[-B,B]$ is $4B^2$ so:
 \begin{eqn}
 P(\textsf{complex roots})&=&\disfrac{\frac{4}{3}B^{3/2}}{4B^2}=\disfrac{1}{3\sqrt{B}}\\
 P(\textsf{real roots})&=&1-\disfrac{1}{3\sqrt{B}}\,.
-\end{eqn}
+\end{eqn}%
 \ans{2}
 \[
 \lim_{B\rightarrow\infty}
@@ -140,7 +139,7 @@ Proportion real roots     = 0.9582
 \begin{prob}{Two-dimensional random walk}
 A particle is placed at the origin of a two-dimensional coordinate system. The particle moves left or right on the $x$-axis with probabilities $1/2$ for each direction and \emph{simultaneouly} up or down the $y$-axis with probabilities $1/2$ for each direction. Figure~\ref{f.2d-random-walk} shows a random walk of $22$ steps starting at and returning to the origin.
 
-\que{1} What is the probability that the particle returns to the origin in $2$ moves?
+\que{1} What is the probability that the particle returns to the origin in two moves?
 
 \que{2} Develop a formula for the probability that the particle returns (one or more times) to the origin.
 
@@ -186,11 +185,11 @@ A particle is placed at the origin of a two-dimensional coordinate system. The p
 \ans{1}
 The dots in Figure~\ref{f.two-moves} show the possible positions of the particle after two moves:
 \begin{itemize}
-\item The green path shows how to move to $(\pm 2, \pm 2)$ by taking two moves in the same direction. The probability is $\left(\frac{1}{4}\right)^2= \frac{1}{16}$.
-\item The red path shows how to move to $(\pm 2,0)$ or $(0,\pm 2$). There are two possible paths for each one so the probability is $2\cdot\left(\frac{1}{4}\right)^2= \frac{2}{16}$.
-\item The blue path shows how to move to $(\pm 1,\pm 1)$ and back to the origin. The probability is $1/16$. Since there are four paths that return to the origin the probability is $\frac{4}{16}$.
+\item The green path shows a move to $(\pm 2, \pm 2)$ by taking two moves in the same direction. The probability is $\left(\frac{1}{4}\right)^2= \frac{1}{16}$.
+\item The red path shows a move to $(\pm 2,0)$ or $(0,\pm 2$). There are two possible paths for each one so the probability is $2\cdot\left(\frac{1}{4}\right)^2= \frac{2}{16}$.
+\item The blue path shows a move to $(\pm 1,\pm 1)$ and back to the origin. The probability is $\frac{1}{16}$.
 \end{itemize}
-The blue paths are the only ones that return to the origin so:
+The blue paths are the only ones that return to the origin. There are four possible paths from the origin to $(\pm 1,\pm 1)$ so:
 \[
 P(\textsf{return to origin in two moves})=\frac{4}{16}\,.
 \]
@@ -203,15 +202,13 @@ P(\textsf{return to origin in two moves})=\frac{4}{16}\,.
 \foreach \x/\y in {2/2, 2/-2, -2/2, -2/-2, 
                    0/2, 0/-2, 2/0, -2/0}
   \fill (\x,\y) circle[radius=1.5pt];
-\draw[->,red] (0,0) -- (-1,-1);
-\draw[->,red] (-1,-1) -- (-1.97,-.03);
-\draw[<-,red] (-1.97,0.03) -- (-1,1);
-\draw[<-,red] (-1,1) -- (0,0);
-\draw[->,green!50!black] (0,0) -- (1,-1);
-\draw[->,green!50!black] (1,-1) -- (1.97,-1.97);
-\draw[<->,blue] (.05,.05) -- +(.95,.95);
-%\draw[->,blue] (-0.1,0) -- +(1,1);
-%\draw[->,blue] (1.1,1) -- +(-1,-1);
+\draw[->,red,thick] (0,0) -- (-1,-1);
+\draw[->,red,thick] (-1,-1) -- (-1.97,-.03);
+\draw[<-,red,thick] (-1.97,0.03) -- (-1,1);
+\draw[<-,red,thick] (-1,1) -- (0,0);
+\draw[->,green!50!black,thick] (0,0) -- (1,-1);
+\draw[->,green!50!black,thick] (1,-1) -- (1.97,-1.97);
+\draw[<->,blue,thick] (.05,.05) -- +(.95,.95);
 \end{tikzpicture}
 \end{center}
 \caption{Two moves of the random walk}\label{f.two-moves}
@@ -224,10 +221,9 @@ P_{2n}(\textsf{return to}\;x\!=\!0)\,P_{2n}(\textsf{return to}\;y\!=\!0)\,.
 \end{equation}
 The particle will return to the origin if and only if for both axes the number of $+1$ moves equals the number of $-1$ moves. There are ${2n \choose n}$ ways to arrange $+1$s and $-1$s so:
 \begin{eqnlabels}
-\label{eq.return-to-origin1}
-P_{2n}(\textsf{return to}\;x\!=\!0) =P_{2n}(\textsf{return to}\;y\!=\!0)&=&
+\nonumber{}P_{2n}(\textsf{return to}\;x\!=\!0) =P_{2n}(\textsf{return to}\;y\!=\!0)&=&
 \dischoose{2n}{n}\left(\disfrac{1}{2}\right)^n\left(\disfrac{1}{2}\right)^{n}\\
-\nonumber{}P_{2n}(\textsf{return to origin}) &=&
+\label{eq.return-to-origin1}P_{2n}(\textsf{return to origin}) &=&
 \left[\dischoose{2n}{n}\left(\disfrac{1}{2}\right)^{2n}\right]^2\\
 P(\textsf{return to origin}) =
 \sum_{n=1}^{\infty}P_{2n}(\textsf{return to origin}) &=&
@@ -241,7 +237,7 @@ P_{2n}(\textsf{return to origin}) &=&
 \left[\dischoose{2n}{n}
 \left(\disfrac{1}{2}\right)^{2n}\right]^2 \\
 &=&
-\left[\disfrac{(2n)!}{(n!)^2}
+\left[\disfrac{(2n)!}{n!n!}
 \left(\disfrac{1}{2}\right)^{2n}\right]^2 \\
 &\approx&
 \left(\disfrac{1}{2}\right)^{4n}
@@ -253,8 +249,8 @@ P_{2n}(\textsf{return to origin}) &=&
 \disfrac{\left(n/e\right)^{4n}\cdot 2^{4n}}{\left(n/e\right)^{4n}}\\
 &=& \disfrac{1}{\pi n}\\
 P(\textsf{return to origin}) &=& \disfrac{1}{\pi}\sum_{n=1}^{\infty}\disfrac{1}{n}\,,
-\end{eqn}
-which is the \emph{harmonic series} that diverges, therefore, with probability $1$ the particle returns to the origin!
+\end{eqn}%
+which is the the harmonic series that diverges, therefore, the particle returns to the origin with probability $1$! 
 
 \textbf{Simulation}
 The simulation was run one million times instead of ten thousand times but the result doesn't show that the particle must return to the origin.
@@ -271,7 +267,7 @@ A particle is placed at the origin of a three-dimensional coordinate system. The
 
 \textbf{Hint:} Compute the probability and then use an indicator variable.
 
-\que{2} What is the probability that the particle will return to the origin at least once?
+\que{2} What is the probability that the particle will return to the origin \emph{at least once}?
 
 \textbf{Hint:} Use the technique from Problem~4.
 \end{prob}
@@ -288,7 +284,7 @@ $P_r$, the probability of returning to the origin one or more times, is given by
 P_r =\sum_{n=1}^{\infty}P_{2n} =
 \sum_{n=1}^{\infty}\left[\dischoose{2n}{n}\left(\disfrac{1}{2}\right)^{2n}\right]^3\,.
 \]
-From Stirling's approximation:\footnote{Mosteller used $18$ terms in his computation and obtained $0.315$. My program used $500$ terms to obtain $0.3772$.}
+From Stirling's approximation:
 \begin{eqn}
 P_{2n} &=&
 \left[\disfrac{(2n)!}{(n!)^2}
@@ -299,10 +295,11 @@ P_{2n} &=&
          \left(2n/e\right)^{6n}}
         {(\sqrt{2\pi n})^{6}
          \left(n/e\right)^{6n}} \\
-&=&\disfrac{(4\pi n)^{3/2}}{(2\pi n)^3}=
- \disfrac{1}{(\pi n)^{3/2}}\\
+&=& \disfrac{1}{(\pi n)^{3/2}}\\
 P_r &=& \sum_{n=1}^{\infty}\disfrac{1}{(\pi n)^{3/2}}\approx 0.3772\,.
-\end{eqn}
+\end{eqn}%
+Mosteller used $18$ terms in his computation of the sum of the series and obtained $0.315$. My program used $500$ terms and obtained $0.3772$.
+
 Let $I_k$ be the indicator variable for a return to the origin on step $k$:
 \begin{equation}
 I_k=
@@ -325,7 +322,7 @@ Let $E_r=E(\textsf{number of returns to the origin})$, then:
 \begin{eqn}
 E_r &=& \disfrac{1}{1-P_1} - 1\\
 P_1&=& \disfrac{E_r}{1+E_r}\,.
-\end{eqn}
+\end{eqn}%
 In \ansnc{1} we computed that $E_r\approx 0.3772$ so:
 \[
 P_1 \approx 1- \disfrac{1}{1+0.3772}
@@ -343,23 +340,23 @@ Proportion reached origin      = 0.2790
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{Buffon's needle\annotate{D}}
-Consider a needle of length $a\leq 1$ and a surface ruled with parallel lines $1$ apart. Throw the needle onto the surface. What is the probability that the needle crosses a line?\footnote{The problem has been simplified by specifying the distance between the parallel lines as $1$. We ignore the possibility that the needle lies completely along the line or just touches two lines since the probability of these events is zero.}
+Consider a needle of length $a\leq 1$ and a surface ruled with parallel lines $1$ apart. Throw the needle onto the surface. What is the probability that the needle crosses a line?\footnote{The problem has been simplified by fixing specifying the distance between the lines as $1$. We ignore the possibilities that the needle lies on a line or just touches two lines since the probability of these events is zero.}
 
-\textbf{Hint:} There are two independent random variables (Figure~\ref{f.buffon1}): $x$, the position of the center of the needle relative to the closest line which is uniformly distributed in the range $[0,1/2]$, and $\theta$, the angle between the needle and the parallel lines which is uniformly distributed in the range $[0,\pi/2]$.
+\textbf{Hint:} There are two independent random variables (Figure~\ref{f.buffon1}): $x$, the distance of the center of the needle $C$ from the closest line which is uniformly distributed in the range $[0,1/2]$, and $\theta$, the angle between the needle and the parallel lines which is uniformly distributed in the range $[0,\pi/2]$.
 
 \begin{figure}[tb]
 \begin{center}
-\begin{tikzpicture}[scale=.9]
+\begin{tikzpicture}[scale=1]
 \draw (0,0) -- (10,0);
 \draw (0,4) -- (10,4);
 \draw[<->] (1,0) -- node[fill=white] {$1$} (1,4);
-\coordinate (center) at ($(4,-.5)+(60:1.5)$);
+\coordinate (center) at ($(4,-.5)+(60:1.8)$);
 \node[above right,xshift=4pt] at (center) {$\theta$};
-\node[above left] at (center) {$C$};
-\draw[thick] (4,-.5) -- node[right,very near end] {$a$} +(60:4);
+\fill (center) circle [radius=2pt] node[above left] {$C$};
+\draw[thick] (4,-.5) -- node[left,very near end] {$a$} +(60:3.6);
 \draw[thick,dashed] ($(center)+(-2,0)$) -- +(6,0);
-\draw[<->] (5.3,0) -- node[fill=white] {$x$}
-  (center -| 5.3,0);
+\draw[<->] (7,0) -- node[fill=white] {$x$}
+  (center -| 7,0);
 \end{tikzpicture}
 \end{center}
 \caption{Buffon's needle}\label{f.buffon1}
@@ -373,8 +370,8 @@ Let $p(a)$ be the probability that a needle of length $a$ crosses a line and def
 I_{\textsf{crosses}}=
 \left\{
 \begin{array}{ll}
-1,\quad \textsf{if needle of length}\;a\;\textsf{crosses a line}\\
-0, \quad \textsf{if needle of length}\;a\;\textsf{does not cross a line}\,.
+1,\quad \textsf{if a needle of length}\;a\;\textsf{crosses a line}\\
+0, \quad \textsf{if a needle of length}\;a\;\textsf{does not cross a line}\,.
 \end{array}
 \right.
 \]
@@ -384,43 +381,48 @@ E(I_{\textsf{crosses}})=1\cdot p(a) + 0\cdot (1-p(a))=p(a)\,,
 \end{equation}
 and the probability can be computed by computing the expectation.
 
-Let $m$ be a line perpendicular to the parallel lines that passes through the center of the needle and let $\theta$ be the angle between the needle and a parallel line. Project the needle onto $m$ to give the line segment $\overline{CD}$. The probability that the needle will cross a line is:
+Let $m$ be a line perpendicular to the parallel lines that passes through the center of the needle $C$ and let $\theta$ be the angle between the needle and a parallel line. Project the needle onto $m$ to give the line segment $\overline{DE}$. The probability that the needle will cross a line is:
 \begin{equation}\label{eq.cross}
-P(\textsf{needle of length}\;a,\;\textsf{angle}\;\theta\;\textsf{crosses line})=\disfrac{\overline{CD}/2}{1/2}=\disfrac{(a/2)\sin \theta}{1/2}=a\sin\theta\,.
+P(\textsf{needle of length}\;a,\;\textsf{angle}\;\theta\;\textsf{crosses line})=\disfrac{\overline{CE}}{1/2}=\disfrac{(a/2)\sin \theta}{1/2}=a\sin\theta\,.
 \end{equation}
 
-\begin{figure}[bt]
+\begin{figure}[b]
 \begin{center}
-\begin{tikzpicture}[scale=1.5]
-\draw (0,0) coordinate (O) -- (6,0);
-\draw (0,2.5) -- (6,2.5);
-\draw[<->] (.7,0) -- node[fill=white,near end] {$1$} +(0,2.5);
-\draw[<->] (5,0) -- node[fill=white] {$1/2$} +(0,1.25);
-\coordinate (end1) at (2,-.5);
-\coordinate (end2) at ($(end1)+(60:3)$);
-\coordinate (center) at ($(end1)+(60:1.5)$);
-\draw[thick,dotted] (O |- center) -- +(6,0);
-\draw[thick,dashed] (0,1.25) -- +(6,0);
-\node[right,xshift=4pt,yshift=8pt]
-  at (center) {$\theta$};
-%\node[left,xshift=-4pt,yshift=-8pt]
-%  at (center) {$\theta$};
+\begin{tikzpicture}[scale=1]
+\draw (0,0) -- (10,0);
+\draw (0,4) -- (10,4);
+\draw[<->] (1,0) -- node[fill=white,yshift=12pt] {$1$} (1,4);
+
+\coordinate (center) at ($(4,-.5)+(60:1.8)$);
+\fill (center) circle [radius=2pt] node[above left] {$C$};
+
+\coordinate (end1) at ($(center)+(60:1.8)$);
+\draw[thick] (center) -- node[right,near end,yshift=1pt]
+ {$a/2$} (end1) node[above right] {$D$};
+\coordinate (end2) at ($(center)+(60:-1.8)$);
+\draw[thick] (center) -- node[left] {$a/2$} (end2)
+  node[below left] {$E$};
+
+\draw[thick,dashed] ($(center)+(-2,0)$) -- +(6,0);
+\draw[<->] (8,0) -- node[fill=white] {$x$}
+  (center -| 8,0);
+\draw[thick,dotted] (0,2) -- (10,2);
+\draw[<->] (2.25,0) -- node[fill=white] {$1/2$} +(0,2);
+
 \draw[thick,dashed] ($(center)+(0,-2)$) --
-  node[right,very near end,xshift=-2pt,yshift=15pt]
-  {$m$} +(0,4.2);
-\node[right] at (end1 -| center) {$D$};
-\node[left] at (end2-| center) {$C$};
-\draw[thick] (end1) -- 
-  node[left,near end] {$a/2$} (center) --
-%  node[right] {$a/2$} 
-  (end2);
-\draw[thick] (end1) node[above right,xshift=4pt] {$\theta$} --
-  (end1 -| center) --
-  node[right,yshift=4pt] {$(a\sin\theta)/2$} (center);
-\draw[thick] (end2) -- (end2 -| center) -- (center);
-%\draw[thick] (end2) node[below left,xshift=-4pt] {$\theta$} --
-%  (end2 -| center) -- 
-%  node[left] {$(a\sin \theta)/2$} (center);
+  node[right,near end,xshift=-1pt,yshift=16pt]
+  {$m$} +(0,4.8);
+
+\draw[thick] (end1)-- (end1 -| center) --
+  node[left,yshift=12pt] {$(a\sin\theta)/2$}
+  (center);
+\draw[thick] (end2) -- (end2 -| center) -- 
+  node[right] {$(a\sin \theta)/2$} (center);
+
+\node[above right,xshift=4pt] at (center) {$\scriptstyle\theta$};
+\node[below left,xshift=-2pt,yshift=2pt] at (end1) 
+  {$\scriptstyle\theta$};
+\node[above right,xshift=2pt,yshift=-2pt] at (end2) {$\scriptstyle\theta$};
 \end{tikzpicture}
 \end{center}
 \caption{Right triangle for solving Buffon's needle problem}\label{f.buffon2}
@@ -449,11 +451,19 @@ E(\textsf{lines crossed}) =
 \caption{Solving Buffon's needle with circles}\label{f.buffon3}
 \end{figure}
 
-Let $E(x)$ be the expectation of the number of parallel lines crossed by a line of length $x$. Consider a line formed into a circle $C$ of \emph{diameter} $1$ and circumference $\pi$. If the circle is thrown onto the surface it will cross lines \emph{exactly} twice (Figure~\ref{f.buffon3}) so:
+Let $E(a)$ be the expectation of the number of parallel lines crossed by a line of length $a$.
+
+Given a needle of length $a$ we can break the needle in several segments $\{a_1,\ldots,a_n\}$ and by the linearity of expectation:
+\[
+E(a) = E\left(\sum_{i=1}^{n} a_i\right) = \sum_{i=1}^{n} E(a_i)\,, 
+\]
+so it doesn't matter if we compute the expectation of each segment separately. Therefore, if we bend the needle in a circle the expectation of the number of lines crossed by the circle is the same as the number of lines crossed by the needle.
+
+Consider a line formed into a circle $C$ of \emph{diameter} $1$ and circumference $\pi$. If the circle is thrown onto the surface it will cross lines \emph{exactly} twice (Figure~\ref{f.buffon3}) so:
 \begin{equation}\label{eq.buffon-2}
 E(C)=2\,.
 \end{equation}
-Inscribe a regular polygon $Q_n$ (red) within $c$ (green) and circumscribe a regular polygon $R_n$ (blue) around $c$ (Figure~\ref{f.buffon4}). Any line that $Q_n$ crosses (red) must also cross the circle and any line that crosses the circle (blue) must also cross $R_n$. Therefore:
+Inscribe a regular polygon $Q_n$ (red, dashed) within the circle $C$ (green) and circumscribe a regular polygon $R_n$ (blue,dotted) around $c$ (Figure~\ref{f.buffon4}). Any line that $Q_n$ crosses (red) must also cross the circle and any line that crosses the circle (blue) must also cross $R_n$. Therefore:
 \begin{equation}\label{eq.buffon3}
 E(Q_n)\leq E(C)\leq E(R_n)\,.
 \end{equation}
@@ -470,7 +480,7 @@ the circumference of the circle. From Equations~\ref{eq.buffon1}--\ref{eq.buffon
 \[
 \renewcommand*{\arraystretch}{1.5}
 \begin{array}{l}
-\lim_{n\rightarrow\infty}E(Q_n)=E(C) =\lim_{n\rightarrow\infty}E(R_n)\\
+\displaystyle\lim_{n\rightarrow\infty}E(Q_n)=E(C) =\lim_{n\rightarrow\infty}E(R_n)\\
 E(C)=aE(1) =\pi E(1) = 2\\
 E(1)=\disfrac{2}{\pi}\\
 E(a)=aE(1)=\disfrac{2a}{\pi}\,.
@@ -488,8 +498,8 @@ E(a)=aE(1)=\disfrac{2a}{\pi}\,.
   at (0,0) {};
 \node[above left,xshift=5pt] at (in.corner 5) {$Q_n$};
 \node[below right,yshift=6pt] at (out.corner 5) {$R_n$};
-\draw[thick,red] (-3,-.6) -- +(6,0);
-\draw[thick,blue] (-3,1.9) -- +(6,0);
+\draw[thick,red,dashed] (-3,-.6) -- +(6,0);
+\draw[very thick,blue,dotted] (-3,1.85) -- +(6,0);
 \end{tikzpicture}
 \end{center}
 \caption{Polygons approximate a circle}\label{f.buffon4}
@@ -497,7 +507,7 @@ E(a)=aE(1)=\disfrac{2a}{\pi}\,.
 
 \textbf{Simulation}
 
-Since $\pi=2a/E$ you can obtain an approximation of its value by running the simulation or throwing needles on a table!
+Since $\pi=2a/E$ you can obtain an empirical approximation of its value by running the simulation or by throwing needles on a table!
 
 \begin{verbatim}
 For length = 0.2:
@@ -545,12 +555,12 @@ Solve Buffon's needle problem for a surface that is covered by a grid with squar
 
 \solution{}
 
-The numbers of crossings of the horizontal and vertical lines are independent and by the linearity of expectation. Let $n_a$ denote a needle of length $a$. Then:
+The numbers of crossings of the horizontal and vertical lines are independent. Let $a$ be the length of a needle. By the linearity of expectation:
 \begin{eqn}
-E(\textsf{lines crossed by}\; n_a)&=&E(\textsf{vertical lines crossed by}\; n_a + \textsf{horizontal lines crossed by}\;n_a)\\
-&=&E(\textsf{vertical lines crossed by}\;n_a) + E(\textsf{horizontal lines crossed by}\;n_a)\\
+E(\textsf{lines crossed by}\; a)&=&E(\textsf{vertical lines crossed by}\; a + \textsf{horizontal lines crossed by}\;a)\\
+&=&E(\textsf{vertical lines crossed by}\;a) + E(\textsf{horizontal lines crossed by}\;a)\\
 &=&\disfrac{2a}{\pi}+\disfrac{2a}{\pi}=\disfrac{4a}{\pi}\,.
-\end{eqn}
+\end{eqn}%
 \textbf{Simulation}
 
 \begin{verbatim}
@@ -573,7 +583,7 @@ Let the length of the needle in Buffon's problem be $a>1$.
 
 \que{1} What is the expectation of the \emph{number of crossings}?
 
-\que{2} What is the probability that there is \emph{at least one crossing}?
+\que{2} Develop of formula for the probability that there is \emph{at least one crossing}?
 
 \textbf{Hint:} For what angles $\theta$ is the probability a crossing $1$?
 
@@ -581,14 +591,14 @@ Let the length of the needle in Buffon's problem be $a>1$.
 
 \solution{}
 
-\ans{1} Break the needle into pieces of lengths $\{a_1,a_2,\ldots, a_n\}$, $a_i< 1$, such that $\sum_{i=1}^n a_i=a$. By the linearity of expectation and the solution of Problem~53:
+\ans{1} Break the needle into pieces of lengths $\{a_1,a_2,\ldots, a_n\}$, $a_i< 1$, such that $\sum_{i=1}^n a_i=a$. In the solution of Problem~53 we showed that:
 \[
 E(a)= \sum_{i=1}^n E(a_i)= \disfrac{2a}{\pi}\,.
 \]
 
 \ans{2} This solution is based on \cite{wiki-buffon} and \cite[Chapter~26]{proofs}.
 
-By Equation~\ref{eq.cross} the probability that the needle will cross a line is $a\sin\theta$ \emph{if} $a\sin\theta \leq 1$, that is, if $0\leq\theta\leq\sin^{-1}(1/a)$. However, if $a\sin\theta > 1$ then the probability is $1$ (Figure~\ref{f.buffon6}). Let us generalize Equation~\ref{eq.buffon-integral} for arbitrary $a>0$. The integral is computed in two parts, one for $\theta<\sin^{-1}(1/a))$ and one for $\theta>\sin^{-1}(1/a))$:
+By Equation~\ref{eq.cross} the probability that the needle will cross a line is $a\sin\theta$ \emph{if} $a\sin\theta \leq 1$, that is, if $0\leq\theta\leq\sin^{-1}(1/a)$. However, if $a\sin\theta > 1$ then the probability is $1$ (Figure~\ref{f.buffon6}). Generalize Equation~\ref{eq.buffon-integral} for arbitrary $a>0$ by dividing the integral into two parts, one for $\theta\leq\sin^{-1}(1/a))$ and one for $\theta\geq\sin^{-1}(1/a))$:
 \begin{eqn}
 E(a) &=& \disfrac{2}{\pi}
    \left(\int_{0}^{\sin^{-1}(1/a)} 
@@ -602,25 +612,27 @@ E(a) &=& \disfrac{2}{\pi}
   \left(a
   \left(1-\sqrt{1-\disfrac{1}{a^2}}\right)-
   \sin^{-1}(1/a)\right)\,.
-\end{eqn}
+\end{eqn}%
 
 \begin{figure}[tb]
 \begin{center}
 \begin{tikzpicture}[scale=1]
+\coordinate (O) at (0,0);
 \draw (0,0) -- (10,0);
 \draw (0,3.5) -- (10,3.5);
-\draw[<->] (.5,0) -- node[fill=white,near end] {$1$} +(0,3.5);
-\draw[<->] (5.5,0) -- node[fill=white] {$1/2$} +(0,1.75);
+\draw[<->] (.5,0) -- node[fill=white,yshift=12pt] {$1$} +(0,3.5);
+\draw[<->] (2,0) -- node[fill=white] {$1/2$} +(0,1.75);
 \begin{scope}[xshift=0cm,yshift=1.4cm,scale=1]
-\coordinate (end1) at (2,-1);
+\coordinate (end1) at (3,-1);
 \coordinate (end2) at ($(end1)+(60:3)$);
 \coordinate (center) at ($(end1)+(60:1.5)$);
 \node[above right,xshift=2pt,yshift=-2pt]
   at (end1) {$\theta$};
-\draw (end1) --  node[left,near end] {$a/2$} (center) -- (end2);
-\draw (end2) -- (end2 -| center);
-\draw (end1) -- (end1 -| center);
-\draw[very thick] (end1 -| center) -- 
+\draw[thick] (end1) --  node[left,near end] {$a/2$}
+  (center) -- (end2);
+\draw[thick] (end2) -- (end2 -| center);
+\draw[thick] (end1) -- (end1 -| center);
+\draw[thick] (end1 -| center) -- 
   node[right,fill=white,yshift=2pt] {$(a/2)\sin \theta$}
   (center) -- (end2 -| center);
 \draw[thick,dotted] (O |- center) -- +(10,0);
@@ -631,10 +643,11 @@ E(a) &=& \disfrac{2}{\pi}
 \coordinate (center) at ($(end1)+(60:1.5)$);
 \node[above right,xshift=2pt,yshift=-2pt]
   at (end1) {$\theta$};
-\draw (end1) --  node[left,near end] {$a/2$} (center) -- (end2);
-\draw (end2) -- (end2 -| center);
-\draw (end1) -- (end1 -| center);
-\draw[very thick] (end1 -| center) -- 
+\draw[thick] (end1) --  node[left,near end] {$a/2$} 
+  (center) -- (end2);
+\draw[thick] (end2) -- (end2 -| center);
+\draw[thick] (end1) -- (end1 -| center);
+\draw[thick] (end1 -| center) -- 
   node[right,fill=white,yshift=6pt] {$(a/2)\sin \theta$}
   (center) -- (end2 -| center);
 \end{scope}
@@ -659,9 +672,9 @@ Average crossings        = 0.8897
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{Molina's urns}
-Let $U_1,U_2$ be two urns containing the same number of balls. $U_1$ has $w_1$ white balls and $b_1$ black balls, while $U_2$ has $w_2$ white balls and $b_2$ black balls. $n$ balls are drawn \emph{with replacement} from each urn.
+Let $U_1,U_2$ be two urns. $U_1$ has $w_1$ white balls and $b_1$ black balls, while $U_2$ has $w_2$ white balls and $b_2$ black balls. It is given that $w_1+b_1=w_2+b_2$. $n$ balls are drawn \emph{with replacement} from each urn.
 
-\que{1} For different values of $n>1$ find $w_1,b_1,w_2,b_2$ such that:
+\que{1} For various values of $n>1$ find $w_1,b_1,w_2,b_2$ such that:
 \[
 P(\textsf{balls drawn from} \;U_1\; \textsf{are all white})=
 P(\textsf{balls drawn from} \;U_2\; \textsf{are all white or all black})\,.
@@ -674,8 +687,10 @@ P(\textsf{balls drawn from} \;U_2\; \textsf{are all white or all black})\,.
 \ans{1} For $n=2$ the equation that must be solved is:
 \begin{eqn}
 \left(\disfrac{w_1}{m}\right)^2&=&\left(\disfrac{w_2}{m}\right)^2+\left(\disfrac{b_2}{m}\right)^2\\
-w_1^2&=&w_2^2+b_2^2\,.
-\end{eqn}
+w_1^2&=&w_2^2+b_2^2\,,
+\end{eqn}%
+and any Pythagorean triple is a solution.
+
 By Fermat's Last Theorem, proved in $1995$ by Andrew Wiles, there are no solutions to $w_1^n=w_2^n+b_2^n$ for $n\geq 3$.
 
 \textbf{Simulation}

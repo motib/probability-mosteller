@@ -293,7 +293,7 @@ P(\textsf{ties})&=&\disfrac{2\cdot 2^{-6}}{6}\sum_{i=0}^{6}i\dischoose{i}{6}\\
 3\cdot \dischoose{6}{3}
 \right)\\
 &=&\disfrac{132}{192}\approx 0.6875\,.
-\end{eqn}
+\end{eqn}%
 
 \begin{comment}
 \begin{equation}\label{eq.coins0}
@@ -528,7 +528,7 @@ Without loss of generality assume that $A$ arrives first. If $A$ arrives at $t_A
 \node[below left]  at (0,0) {$0$};
 \node[below right] at (6,0) {$1$};
 \node[above left]  at (0,6) {$1$};
-\draw[fill=white!70!black]
+\draw[fill=white!80!black]
   (0,0) -- 
   (.5,0) node[below] {$\frac{5}{60}$} -- 
   (6,5.5) node[right] {$\frac{55}{60}$} --
@@ -551,7 +551,7 @@ The probability of a meeting is the ratio of the area of the graph colored gray 
 \begin{eqn}
 P(A,B\;\textsf{meet}) &=& 1- P(A,B\;\textsf{don't meet})\\
 &=&1- 2\cdot \left(\frac{1}{2}\cdot \frac{55}{60}\cdot \frac{55}{60}\right)=\frac{23}{144}\approx 0.1597\,.
-\end{eqn}
+\end{eqn}%
 
 \textbf{Simulation}
 \begin{verbatim}
@@ -609,7 +609,7 @@ Taking the limit gives $(ln \;1)/0=0/0$ but by l'H\^{o}pital's rule we can repla
 \begin{eqn}
 \lim_{n\rightarrow\infty}\ln \left(1-\frac{1}{n}\right)^{n}&=&\lim_{n\rightarrow\infty}\frac{(-(-n^{-2}))\left(1-\frac{1}{n}\right)^{-1}}{-n^{-2}}=\lim_{n\rightarrow\infty}-\disfrac{1}{\left(1-\frac{1}{n}\right)}=-1\\
 \lim_{n\rightarrow\infty}\left(1-\frac{1}{n}\right)^{n}&=&e^{-1}\,.
-\end{eqn}
+\end{eqn}%
 
 \textbf{Simulation}
 \begin{verbatim}
@@ -648,7 +648,7 @@ P(20,10,2) &=& \dischoose{20}{2} \left(\frac{10}{20}\right)^2 \left(\frac{10}{20
 P(20,10,8) &=& \dischoose{20}{8} \left(\frac{10}{20}\right)^{8} \left(\frac{10}{20}\right)^{12}\approx 0.1201\\
 P(20,5,2)&=&\dischoose{20}{2} \left(\frac{5}{20}\right)^2 \left(\frac{15}{20}\right)^{18}\approx 0.0669\\
 P(20,5,4)&=&\dischoose{20}{4} \left(\frac{5}{20}\right)^{4} \left(\frac{15}{20}\right)^{16}\approx 0.1897\,.
-\end{eqn}
+\end{eqn}%
 
 \textbf{Simulation}
 \begin{verbatim}

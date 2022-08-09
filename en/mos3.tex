@@ -99,7 +99,7 @@ which can be used to approximate the probability:
   \left(1-\disfrac{1}{365}\right)^n=\left[\left(\disfrac{364}{365}\right)^{365}\right]^{n/365}\\
 &\approx& e^{-n/365}\\
 1-Q(253)&\approx&e^{-253/365}\approx 0.5000\,.
-\end{eqn}
+\end{eqn}%
 \textbf{Simulation}
 \begin{verbatim}
 For 251 people:
@@ -241,7 +241,7 @@ E(\textsf{work-days for a year}) &=&Nnp^n\\
 &=&365\cdot 364  \cdot \disfrac{365}{365}\left(\disfrac{364}{365}\right)^{364}\\
 &=&365\cdot 365  \cdot \left(\disfrac{364}{365}\right)^{365}\\
 &\approx &48944\,.
-\end{eqn}
+\end{eqn}%
 
 \ans{2} 
 The expectation of the ratio is:
@@ -316,14 +316,14 @@ Denote by $P(i,j)$ the probability that the particle reaches $i$ from $j$. Compu
 \begin{eqn}
 P(0,1) &=& P(0,1|\textsf{first move left}) +P(0,1|\textsf{first move right})\\
 &=& (1-p)\cdot 1 + pP(1,2)P(0,1)\,.
-\end{eqn}
+\end{eqn}%
 But $P(1,2) = P(0,1)$ giving a quadratic equation in $P(0,1)$:
 \begin{eqn}
 P(0,1) &=& (1-p) + pP(0,1)^2\\
 pP(0,1)^2 - P(0,1) + (1-p) &=&0\\
 %P&=& \frac{1\pm\sqrt{1-4p(1-p)}}{2p}\\
 P(0,1)&=&1,\; \textsf{or}\; (1-p)/p\,.
-\end{eqn}
+\end{eqn}%
 If $p\leq 1/2$ then $(1-p)/p\geq 1$, so $P(0,1)=1$ is the only solution and it is certain that the particle will reach $0$.
 
 If $p=1$ then $P(0,1)=0$: if the particle always moves to the right it cannot return to $0$.
@@ -420,14 +420,14 @@ P_i &=& pP_{i+1} + (1-p)P_{i-1}\\
 pP_{i+1}&=&(p+(1-p))P_i - (1-p)P_{i-1}\\
 p(P_{i+1}-P_i)&=&(1-p)(P_i-P_{i-1})\\
 P_{i+1}-P_i&=&r(P_i-P_{i-1})\,.
-\end{eqn}
+\end{eqn}%
 $P_0=0$ since if the particle is at $0$ it does not move. Therefore:
 \begin{eqn}
 P_2 - P_1 &=& r(P_1 - P_0) = rP_1\\
 P_3 - P_2 &=& r(P_2 - P_1) = r^2P_1\\
 \cdots &=&\cdots\\
 P_i - P_{i-1} &=& r(P_{i-1} - P_{i-2}) = r^{i-1}P_1\,.
-\end{eqn}
+\end{eqn}%
 Most of the terms on the lefthand sides cancel when we add the equations:
 \begin{eqnlabels}
 \nonumber{}P_i - P_1 &=& P_1\sum_{j=2}^{i}r^{j-1}\\
@@ -451,7 +451,7 @@ We leave it to the reader to show that the sum of Equations~\ref{eq.ruin1},~\ref
 \begin{eqn}
 P(0,1) &=& \left(\frac{1-\left(\frac{1}{2}\right)^{1}}{1-\left(\frac{1}{2}\right)^{3}}\right)=\frac{4}{7}\\
 P(3,1) &=& \left(\frac{1-2^{2}}{1-2^{3}}\right)=\frac{3}{7}\,.
-\end{eqn}
+\end{eqn}%
 
 \textbf{Simulation}
 \begin{verbatim}

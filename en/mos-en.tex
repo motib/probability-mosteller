@@ -48,12 +48,13 @@
   {\bfseries\theproblem{}.\ #1}
   \textbf{\Large\theproblem.\ #1\medskip\\}}{\smallskip}
 
-% Format questions
-\newcommand*{\que}[1]{\textbf{Question #1:}}
-
 % Format solutions
 \newcommand*{\solution}[1]{\bigskip%
   \textbf{\Large Solution #1} \medskip}
+
+% Format questions
+\newcommand*{\que}[1]{\textbf{Question #1:}}
+\newcommand*{\quenc}[1]{\textbf{Question #1}}
 
 % Format answers
 \newcommand*{\ans}[1]{\textbf{Answer #1:}}
@@ -91,32 +92,32 @@
 \renewcommand{\baselinestretch}{1.1}
 \setlength{\parskip}{0.3\baselineskip plus 1pt minus 1pt}
 
-%\includeonly{mos4}
+%\includeonly{}
 
 \begin{document}
 
 % \input prevents unnecessary page breaks
 
-%\input{mos-intro}
-%\input{mos0}
-%\input{mos1}
-%\input{mos2}
-%\input{mos3}
-%\input{mos4}
-%\input{mos5}
-%\input{mos-prob}
-%\input{mos-bib}
+\input{mos-intro}
+\input{mos0}
+\input{mos1}
+\input{mos2}
+\input{mos3}
+\input{mos4}
+\input{mos5}
+\input{mos-prob}
+\input{mos-bib}
 
 % \include allows partial compilation
 
-\include{mos-intro}
-\include{mos0}
-\include{mos1}
-\include{mos2}
-\include{mos3}
-\include{mos4}
-\include{mos5}
-\include{mos-prob}
-\include{mos-bib}
+%\include{mos-intro}
+%\include{mos0}
+%\include{mos1}
+%\include{mos2}
+%\include{mos3}
+%\include{mos4}
+%\include{mos5}
+%\include{mos-prob}
+%\include{mos-bib}
 
 \end{document}
