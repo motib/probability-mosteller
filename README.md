@@ -10,7 +10,7 @@ This document is a "reworking" of Frederick Mosteller's *Fifty Challenging Probl
 
 Python programs for most of the problems can be found in the directory `programs`.
 
-Excel programs generously provided by Michael Woltermann can be found in directory `excel'.
+Excel programs generously provided by Michael Woltermann can be found in directory `excel`.
 
 The Hebrew translation is very preliminary at this stage.
 
