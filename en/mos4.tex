@@ -199,18 +199,37 @@ Averages:     shortest = 0.1115, middle = 0.2783, longest = 0.6102
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{Winning an unfair game\annotate{D}}
-Given an unfair coin whose probability of heads is $1/3 < p < 1/2$, toss a coin an even number of times $N=2n$. You win if and only \emph{more than half} of the tosses are heads.
+Given an unfair coin whose probability of heads is $1/3 < p < 1/2$, toss a coin an even number of times $N=2n$. You win if and only \emph{more than half} of the tosses are heads. Let $P_N$, the probability of winning. 
 
-\que{1} Develop a formula for $P_N$, the probability of winning, and develop a formula for $T_N$, the probability of a tie.
+\que{1} For each of $p=\frac{1}{4}, \frac{1}{3}, \frac{1}{2}$, compute $P_2,P_4,P_6$. Explain why the problem is limited to $1/3 < p < 1/2$.
 
-\que{2} Develop a formula for the $N$ that gives the highest probability of winning.
+\que{2} Develop a formula for $P_N$ and for $T_N$, the probability of a tie.
+
+\que{3} Develop a formula for the $N$ that gives the highest probability of winning.
 
 \textbf{Hint:} If $N$ tosses give the highest probability of winning then $P_{N-2} \leq P_N$ and $P_N\geq P_{N+2}$.
 \end{prob}
 
 \solution{}
 
-\ans{1} To win, heads needs to appear in $i\in\{n+1, n+2, \ldots, 2n-1, 2n\}$ tosses. From the binomial distribution:
+\ans{1} Since the tosses are independent we use the binomial distribution:
+\begin{eqnarray*}
+P_2 &=& p^2\\
+P_4 &=& 1\cdot p^4 + \dischoose{4}{1}p^3(1-p)\\
+P_6 &=& 1\cdot p^6 + \dischoose{6}{1}p^5(1-p)+\dischoose{6}{2}p^4(1-p)^2\,.
+\end{eqnarray*}
+For $p=\frac{1}{4}, \frac{1}{3}, \frac{1}{2}$ the results are:
+\[
+\begin{array}{r|r|r|r}
+\multicolumn{1}{c|}{p}& \multicolumn{1}{c|}{P_2} & \multicolumn{1}{c|}{P_4} & \multicolumn{1}{c|}{P_6}\\\hline
+1/4 & 1/16=0.0625 & 13/256\approx 0.0501&154/4096\approx 0.0376\\
+1/3 & 1/9\approx 0.1111 & 9/81\approx 0.1111&73/729\approx 0.1001\\
+1/2 & 1/4=0.2500 & 5/16= 0.3125&22/64\approx 0.3435
+\end{array}
+\]
+It is reasonable to conjecture that as $N$ tends to infinity the values of $P_N$ decrease to zero for $p=\frac{1}{4}$ and for $p=\frac{1}{3}$ (although the rate is slower). The values of $P_N$ increase to one for $p=\frac{1}{2}$. By continuity the highest probability of winning will be in the range $1/3 < p < 1/2$.
+
+\ans{2} To win, heads needs to appear in $i\in\{n+1, n+2, \ldots, 2n-1, 2n\}$ tosses. From the binomial distribution:
 \[
 P_N = \sum_{i=n+1}^{2n} \dischoose{2n}{i} p^i (1-p)^{2n-i}\,,
 \]
@@ -219,7 +238,7 @@ and:
 T_N = \dischoose{2n}{n} p^n (1-p)^{n}\,.
 \]
 
-\ans{2} For $N=2n$ to give the highest probability of winning we must have:
+\ans{3} For $N=2n$ to give the highest probability of winning we must have:
 \[
 P_{2n-2} \leq P_{2n} \quad \textsf{and} \quad P_{2n}\geq P_{2n+2}\,.
 \]
@@ -446,12 +465,25 @@ The probability of winning is $10/24$.
 
 \ans{2} If the largest number is in one of the positions $1,\ldots,r-1$ you lose. Therefore, in order to win the largest number must be in the $m$th position for $r\leq m\leq n$:
 \[
-1\quad 2\quad \cdots\quad r-2 \quad r-1 \quad \overbrace{r \quad r+1 \quad \cdots\quad m-1\quad  m \quad m+1\quad \cdots \quad n}^{\textsf{largest number must be here}}\,.
+1\quad 2\quad \cdots\quad r-2 \quad r-1 \quad \overbrace{r \quad r+1 \quad \cdots\quad m-1\quad  m \quad m+1\quad \cdots \quad n}^{\textsf{largest must be here}}
 \]
 By the strategy you reject the first $r-1$ cards. You will choose position $m$ only if \emph{all} the numbers in $(r,\ldots,m-1)$ are less than or equal to \emph{all} the numbers in $(1,\ldots,r)$. In other words, the largest card in the sequence $(1,\ldots,m-1)$ is \emph{not} in the second part of the sequence $(r,\ldots m-1)$ but in the first part $(1,\ldots,r-1)$. The probability is:
 \[
-P(\textsf{largest card in}\;(1,\ldots,m-1)\;\textsf{is in}\; (1,\ldots,r-1)) = \disfrac{r-1}{m-1}\,.
+P(\textsf{largest number in}\;(1,\ldots,m-1)\;\textsf{is in}\; (1,\ldots,r-1)) = \disfrac{r-1}{m-1}\,.
 \]
+
+This reasoning will be easier to follow in an example. Given the numbers $1,\ldots,10$ and $r=5$:
+\[
+2\quad \quad 5\quad \quad 6\quad \quad 3 \quad \quad  \overbrace{1 \quad \quad 4 \quad \quad 9 \quad \quad 10\quad\quad 8}^{\textsf{largest must be here}}
+\]
+The largest number is at position $m=9$. However the largest card in $(1,\ldots,m-1=8)$ is \emph{in} the sequence $(r=5,\ldots,m-1=8)$ so you will not win. By the strategy you will select $9$, the first number larger that all those in $(1,\ldots,r-1=4)$ and lose because $10>9$. If, however, the places of $9$ and $10$ were exchanged, then the largest number less than $10$ is $6$ at position $3<r=5$, so by the strategy $1,4$ will not selected and you will win:
+\[
+\begin{array}{l}
+\overbrace{2\quad \quad 5\quad \quad 6\quad \quad 3}^{\textsf{here}} \quad \quad  \overbrace{1 \quad \quad 4 \quad \quad \mathbf{9}}^{\textsf{not here}}  \quad \quad 10\quad\quad 8\\
+\overbrace{2\quad \quad 5\quad \quad \mathbf{6}\quad \quad 3}^{\textsf{here}} \quad \quad  \overbrace{1 \quad \quad 4}^{\textsf{not here}} \quad \quad 10  \quad \quad 9\quad\quad 8
+\end{array}
+\]
+
 Since the probability that the largest card is at $m$ is $1/n$:
 \begin{equation}\label{eq.dowry1}
 P(\textsf{win}) = \sum_{m=r}^{n} \disfrac{1}{n} \cdot \disfrac{r-1}{m-1}= \disfrac{r-1}{n}\sum_{m=r}^{n} \disfrac{1}{m-1}\,.
