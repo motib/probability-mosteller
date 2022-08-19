@@ -9,39 +9,32 @@ import math, numpy, statistics
 n = 10000
 
 def mean_and_variance(L1, L2, variance):
-    # Generate random samples for L1 and L2
-    L1_samples = numpy.random.normal(L1, variance, n)
-    L2_samples = numpy.random.normal(L2, variance, n)
+    sd = math.sqrt(variance)
 
-    # Compute the means, errors from means,
-    #   and variances for L1 and L2
-#     L1_mean = statistics.mean(L1_samples)
-# #     L1_mean_error = abs(L1-L1_mean)
-#     L2_mean = statistics.mean(L2_samples)
-# #     L2_mean_error = abs(L2-L2_mean)
-# 
-#     L1_var = statistics.variance(L1_samples)
-#     L2_var = statistics.variance(L2_samples)
+    # Generate random samples for L1 and L2
+    L1_samples = numpy.random.normal(L1, sd, n)
+    L2_samples = numpy.random.normal(L2, sd, n)
 
     # Generate random samples for L1+L2 and L1-L2
-    L_plus  = numpy.random.normal(L1+L2, variance, n)
-    L_minus = numpy.random.normal(L1-L2, variance, n)
+    L_plus  = numpy.random.normal(L1+L2, sd, n)
+    L_minus = numpy.random.normal(L1-L2, sd, n)
 
-    # Compute the means, errors from means,
-    #   and variances for L1+L2 and L1-L2
-    L1_better = 0.5*(L_plus+L_minus)
-    L2_better = 0.5*(L_plus-L_minus)
-    L1_mean   = statistics.mean(L1_better)
-    L2_mean   = statistics.mean(L2_better)
-    L1_var    = statistics.variance(L1_better)
-    L2_var    = statistics.variance(L2_better)
+    # Compute L1, L2 from L1 +/- L2
+    L1_better        = 0.5*(L_plus+L_minus)
+    L2_better        = 0.5*(L_plus-L_minus)
+
+    # Compute means and variances for L1+L2 and L1-L2
+    L1_better_mean   = statistics.mean(L1_better)
+    L2_better_mean   = statistics.mean(L2_better)
+    L1_better_var    = statistics.variance(L1_better)
+    L2_better_var    = statistics.variance(L2_better)
 
     print('For L1 = {:d}, L2 = {:d}, variance = {:3.2f}:'.
           format(L1, L2, variance))
     print('L1 mean = {:.4f}, L1 variance = {:.4f}'.
-          format(L1_mean, L1_var))
+          format(L1_better_mean, L1_better_var))
     print('L2 mean = {:.4f}, L2 variance = {:.4f}'.
-          format(L2_mean, L2_var))
+          format(L2_better_mean, L2_better_var))
     print()
     
 def simulate():
