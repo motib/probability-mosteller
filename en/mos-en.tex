@@ -20,6 +20,10 @@
 \usetikzlibrary{patterns}
 \tikzset {>=Stealth}
 
+% XeTeX
+\usepackage{fontspec}
+\setmainfont{Palatino Linotype}
+
 % Display output of matplotlib
 % pgfplot complains for compatibility issues
 \usepackage{pgfplots}
@@ -97,10 +101,12 @@
 \begin{document}
 
 \include{mos-intro}
+\begin{NoHyper}
 \include{mos0}
 \include{mos1}
 \include{mos2}
 \include{mos-prob}
+\end{NoHyper}
 \include{mos-bib}
 
 \end{document}

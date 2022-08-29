@@ -44,7 +44,7 @@ This definition is problematic because we don't actually know that the limit exi
 
 Modern probability theory is based on a set of three axioms that are quite intuitive:
 \begin{itemize}
-\item For an event $e$, $0\leq P(e) \leq 1$.
+\item For an event $e$, $0\leq P(e) \leq 1$.\label{p.first-axiom}
 \item For a sample space $S$, $P(S) = 1$.
 \item For a set of mutually exclusive events $\{e_1,\ldots,e_n\}$:
 \[
@@ -136,7 +136,7 @@ E\left(\sum_{i=1}^{n} a_ie_i\right)=\sum_{i=1}^{n} a_iE(e_i)\,.
 \]
 This is called the linearity of expectation. In the special case of two random variables $E(ae_1 + be_2) = aE(e_1) + bE(e_2)$.
 
-\textbf{Indicator variable} Let $e$ be an event whose probability is $P(e)$. Define $I_e$, the indicator variable for $e$, as follows \cite[Chapter~4, Example~3b]{ross}:
+\textbf{Indicator variable} Let $e$ be an event whose probability is $P(e)$. Define the random variable $I_e$, called the indicator variable for $e$, as follows \cite[Chapter~4, Example~3b]{ross}:
 \[
 I_e=
 \left\{
@@ -146,7 +146,19 @@ I_e=
 \end{array}
 \right.
 \]
-Then $E(I_e)=1\cdot P(e) + 0\cdot (1-P(e))=P(e)$.
+Then:
+\[
+E(I_e)=1\cdot P(e) + 0\cdot (1-P(e))=P(e)\,.
+\]
+This equation can be generalized. Given a set of events $\{e_1,\ldots\}$ and their indicator variables $\{I_1,\ldots\}$:
+\begin{equation}\label{eq.expectation-prob}
+E\left(\sum_{i=1}^{\infty} I_{i}\right) = \sum_{i=1}^{\infty} I_{i}p(e_i) = \sum_{i=1}^{\infty} (1\cdot p(e_i) + 0\cdot (1-p(e_i)) =\sum_{i=1}^{\infty} p(e_i)\,.
+\end{equation}
+Furthermore:
+\begin{equation}\label{eq.expectation-sum}
+\sum_{i=1}^{\infty} E(I_{i})=E\left(\sum_{i=1}^{\infty} I_{i}\right)\,,
+\end{equation}
+an advanced theorem that holds here because indicator variables are non-negative random variables.
 
 \textbf{Binomial distribution}
 If $p$ is the probability of event $e$ then the probability that a sequence of $n$ independent trials results in \emph{exactly} $k$ events $e$ is given by the \emph{binomial distribution}:

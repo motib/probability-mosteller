@@ -45,7 +45,7 @@ def guess_largest(cards, select):
 def simulate():
     cards = 100
     print('Number of cards = {:d}'.format(cards))
-    for select in [36, 37, 38, 30]:
+    for select in [36, 37, 38, 39]:
         guess_largest(cards, select)
 
 simulate()

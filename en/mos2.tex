@@ -452,7 +452,7 @@ There are $24$ permutations of the four numbers. By the strategy, you reject the
 3&1\;&\;\fbox{4}&2&
 3&2\;&\;1&\fbox{4}&
 3&2\;&\;\fbox{4}&1&
-3&4\;&\;2&1&
+3&4\;&\;1&2&
 3&4\;&\;2&1\\
 4&1\;&\;2&3&
 4&1\;&\;3&2&
@@ -517,16 +517,16 @@ The simulation was run with $100$ cards and values of $r$ near $100/e$:
 \begin{verbatim}
 Reject cards before r = 36:
 Probability of wins   = 0.3674
-Proportion wins       = 0.3641
+Proportion wins       = 0.3678
 Reject cards before r = 37:
 Probability of wins   = 0.3678
-Proportion wins       = 0.3759
+Proportion wins       = 0.3767
 Reject cards before r = 38:
 Probability of wins   = 0.3679
-Proportion wins       = 0.3548
-Reject cards before r = 30:
-Probability of wins   = 0.3590
-Proportion wins       = 0.3601
+Proportion wins       = 0.3638
+Reject cards before r = 39:
+Probability of wins   = 0.3677
+Proportion wins       = 0.3763
 \end{verbatim}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -537,13 +537,13 @@ Place $n$ cards face down in a row. There is a real number  written on the face 
 
 Use the strategy of Problem~47: for some fixed $r$ reject the first $r-1$ cards and select the first card whose number is greater than all the $r-1$ cards.
 
-\textbf{Definition:} $d$, the \emph{indifference value}, is the value below which you decide to reject the card and above which you decide to select the card.
+\textbf{Definition:} $d$, the \emph{indifference value}, is the value of a card below which you decide to reject that card and above which you decide to select it.
 
-\que{1} Compute $d$ for $n=1$ and compute the probability of winning.
+\que{1} For $n=1$ compute the indifference value for the first card and compute the probability of winning.
 
-\que{1} Compute $d$ for $n=2$ and compute the probability of winning.
+\que{2} For $n=2$ compute the indifference value for the first card and compute the probability of winning.
 
-\que{3} Compute $d$ for $n=3$. Do not try to compute the probability of winning!
+\que{3} For $n=3$ compute the indifference value for the first card and compute the probability of winning. Do not try to compute the probability of winning!
 
 \textbf{Note:} In Problem~37 the values could be $100, 200, 300$ or $100, 50, 20$, so uncovering the first number gives no information about the other numbers. In this problem, since the distribution is uniform, if the first number is $0.3$, the probability that the second number is smaller is $0.3$ and the probability that it is larger is $0.7$.
 \end{prob}
@@ -554,13 +554,13 @@ Let $v_1,v_2,v_3$ be the values of the three cards.
 
 \ans{1} You have no choice but to select the first card since there are no other cards. There is no indifference value. Since $v_1$ is the ``largest'' number $P({win})=1$.
 
-\ans{2} If you select the first card $P(\textsf{win})=v_1$ which is the probability that the second card has a smaller value. If you reject the first card, $P(\textsf{win})=1-v_1$, which is the probability that $v_2>v_1$. Therefore, if $v_1<0.5$ select the second card because $1-v_1>0.5$ and if $v_1>0.5$ select the first card because $1-v_1<0.5$. It follows that $d=0.5$.
+\ans{2} If you select the first card, $P(\textsf{win})=v_1$ because $v_1$ is the probability that the second card has a smaller value. If you reject the first card, $P(\textsf{win})=1-v_1$ because $1-v_1$ is the probability that $v_2>v_1$. Therefore, if $v_1<0.5$ select the second card because $1-v_1>0.5$ and if $v_1>0.5$ select the first card because $1-v_1<0.5$. By definition, the indifference value is $d=0.5$ since we have shown that the decision to select changes depending on whether $v_1$, the value of card, is above or below $d$.
 
 The probability of winning is:
 \begin{equation}\label{eq.largest-random1}
 P(\textsf{win}) = p(\textsf{win} \,|\,v_1<0.5)\,p(v_1<0.5)+ p(\textsf{win}\,|\,v_1>0.5)\,p(v_1>0.5)\,.
 \end{equation}
-$p(v_1<0.5)=0.5$ follows by the uniform distribution. What about $p(\textsf{win} \,|\,v_1<0.5)$? By the strategy you win if $0.5<v_2<1$, but you also win if $v_1<v_2<0.5$. Since $v_1$ is uniformly distributed in $(0,0.5)$ the probability that $v_2$ is larger is one-half the range:
+$p(v_1<0.5)=0.5$ follows by the uniform distribution. What about $p(\textsf{win} \,|\,v_1<0.5)$? By the strategy you win if $0.5<v_2<1$, but you also win if $v_1<v_2<0.5$. Since $v_1$ is uniformly distributed in $(0,0.5)$ the probability that $v_1<v_2<0.5$ is one-half the range:
 \[
 p(\textsf{win} \,|\,v_1<0.5)=0.50+0.25=0.75\,.
 \]
@@ -571,16 +571,16 @@ P(\textsf{win})=0.75\cdot 0.50 + 0.75\cdot 0.50=0.75\,.
 
 \ans{3}
 
-If you select the first card $P(\textsf{win})=v_1^2$ because the second and third cards must be smaller than the first.
+If you select the first card, $P(\textsf{win})=v_1^2$ because the second and third cards must be smaller than the first.
 
 If you reject the first card and select the next card larger than $v_1$ then:
 \begin{itemize}
-\item $P(\textsf{win})=v_1(1-v_1)$ if $v_2<v_1$ (reject $v_2$) and $v_3>v_1>v_2$ (select $v_3$ and win).
-\item $P(\textsf{win})=(1-v_1)v_1$ if $v_2>v_1$ (select $v_2$) and $v_3<v_1$ (win).
-\item $P(\textsf{win})=\frac{1}{2}(1-v_1)^2$ if $v_2>v_1$ and $v_3>v_1$. The factor of $1/2$ takes into account that winning depends on whether $v_3<v_2$ (win) or $v_2<v_3$ (lose).
+\item $P(\textsf{win})=v_1(1-v_1)$ if $v_2<v_1$ (reject $v_2$) and $v_3>v_1$ (select $v_3$ and win).
+\item $P(\textsf{win})=(1-v_1)v_1$ if $v_2>v_1$ (select $v_2$) and $v_3<v_1$ (win since $v_3<v_2$).
+\item $P(\textsf{win})=\frac{1}{2}(1-v_1)^2$ if $v_2>v_1$ (select $v_2$) and $v_3>v_1$. The factor of $1/2$ takes into account that winning depends on whether $v_3<v_2$ (win) or $v_2<v_3$ (lose).
 \end{itemize}
 
-The indifference value $d$ is the value such that the probability of winning by selecting the first card equals the probability of winning by rejecting the first card:
+The indifference value $d$ of the first card is the value of the card such that the probability of winning by selecting it equals the probability of winning by rejecting it:
 \begin{eqn}
 d^2 &=& d(1-d)+(1-d)d + \frac{1}{2}(1-d)^2\\
 5d^2 - 2d -1 &=&0\\
@@ -743,14 +743,16 @@ Proportion real roots     = 0.9582
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{Two-dimensional random walk}
+\begin{prob}{Two-dimensional random walk\annotate{D}}
 A particle is placed at the origin of a two-dimensional coordinate system. The particle moves left or right on the $x$-axis with probabilities $1/2$ for each direction and \emph{simultaneouly} up or down the $y$-axis with probabilities $1/2$ for each direction. Figure~\ref{f.2d-random-walk} shows a random walk of $22$ steps starting at and returning to the origin.
 
 \que{1} What is the probability that the particle returns to the origin in two moves?
 
-\que{2} Develop a formula for the probability that the particle returns (one or more times) to the origin.
+\que{2} Develop a formula for the expectation of the number of visits of the particle to the origin.
 
-\que{3} Use Stirling's approximation to estimate the probability for large $n$.
+\que{3} Use Stirling's approximation to estimate the number of visits of the particle to the origin for large $n$.
+
+\textbf{Hint} Use indicator variables to compute expectations.
 
 \begin{figure}[t]
 \begin{center}
@@ -798,8 +800,9 @@ The dots in Figure~\ref{f.two-moves} show the possible positions of the particle
 \end{itemize}
 The blue paths are the only ones that return to the origin. There are four possible paths from the origin to $(\pm 1,\pm 1)$ so:
 \[
-P(\textsf{return to origin in two moves})=\frac{4}{16}\,.
+P_{2}(0,0)=\frac{4}{16}\,,
 \]
+where $P_{2n}(x,y)$ is the probability that the particle reaches $(x,y)$ in $2n$ moves.
 
 \begin{figure}[tb]
 \begin{center}
@@ -821,26 +824,40 @@ P(\textsf{return to origin in two moves})=\frac{4}{16}\,.
 \caption{Two moves of the random walk}\label{f.two-moves}
 \end{figure}
 
-\ans{3} The choice of direction for both axes are independent so for $2n$ moves:
+\ans{2} The choice of direction for both axes are independent:
 \begin{equation}\label{eq.2d-1}
-P_{2n}(\textsf{return to origin}) =
-P_{2n}(\textsf{return to}\;x\!=\!0)\,P_{2n}(\textsf{return to}\;y\!=\!0)\,.
+P_{2n}(0,0) =
+P_{2n}(0,b)\cdot P_{2n}(a,0)\,,
 \end{equation}
+where $a,b$ are arbitrary integers.
+
 The particle will return to the origin if and only if for both axes the number of $+1$ moves equals the number of $-1$ moves. There are ${2n \choose n}$ ways to arrange $+1$s and $-1$s so:
 \begin{eqnlabels}
-\nonumber{}P_{2n}(\textsf{return to}\;x\!=\!0) =P_{2n}(\textsf{return to}\;y\!=\!0)&=&
+\nonumber{}P_{2n}(0,b) =P_{2n}(a,0)&=&
 \dischoose{2n}{n}\left(\disfrac{1}{2}\right)^n\left(\disfrac{1}{2}\right)^{n}\\
-\label{eq.return-to-origin1}P_{2n}(\textsf{return to origin}) &=&
-\left[\dischoose{2n}{n}\left(\disfrac{1}{2}\right)^{2n}\right]^2\\
-P(\textsf{return to origin}) =
-\sum_{n=1}^{\infty}P_{2n}(\textsf{return to origin}) &=&
+\label{eq.return-to-origin1}P_{2n}(0,0) &=&
+\left[\dischoose{2n}{n}\left(\disfrac{1}{2}\right)^{2n}\right]^2\,.
+\end{eqnlabels}%
+Define the indicator variables $I_{2n}(0,0)$ for returning to the origin in $2n$ steps and let $E(0,0)$ the expectation of the \emph{number of returns to the origin} in any number of steps. Now:
+\[
+E(0,0) = \sum_{n=1}^{\infty}E(I_{2n}(0,0))\,.
+\]
+You might ask what happens if the particle \emph{twice} takes three steps and then reverses the steps to return to the origin?
+Shouldn't $I_6(0,0)$ have the value two and not one? The answer is that on the second return, the particle has taken $12$ steps which will be counted by $I_{12}(0,0)=1$.
+
+From Equations~\ref{eq.expectation-prob},~\ref{eq.expectation-sum}:
+\begin{equation}
+E(0,0) =
+\sum_{n=1}^{\infty}E(I_{2n}(0,0)) =
+E\left(\sum_{n=1}^{\infty}I_{2n}(0,0)\right) =
+\sum_{n=1}^{\infty}P_{2n}(0,0) =
 \sum_{n=1}^{\infty}\left[\dischoose{2n}{n}\left(\disfrac{1}{2}\right)^{2n}\right]^2\,.\label{eq.return-to-origin2}
-\end{eqnlabels}
+\end{equation}
 
 \ans{3}
 By Stirling's approximation $n! \approx \sqrt{2\pi n}\left(n/e\right)^n$:
 \begin{eqnlabels}
-\nonumber{}P_{2n}(\textsf{return to origin}) &=&
+\nonumber E_{2n}(0,0) &=&
 \left[\dischoose{2n}{n}
 \left(\disfrac{1}{2}\right)^{2n}\right]^2 \\
 \nonumber{}&=&
@@ -855,24 +872,24 @@ By Stirling's approximation $n! \approx \sqrt{2\pi n}\left(n/e\right)^n$:
 \nonumber{}&=&\left(\disfrac{1}{2}\right)^{4n}\disfrac{4\pi n}{4\pi^2 n^2}\cdot
 \disfrac{\left(n/e\right)^{4n}\cdot 2^{4n}}{\left(n/e\right)^{4n}}\\
 \nonumber{}&=& \disfrac{1}{\pi n}\\
-\label{eq.rw-2d}P(\textsf{return to origin}) &=& \disfrac{1}{\pi}\sum_{n=1}^{\infty}\disfrac{1}{n}\,,
+\label{eq.rw-2d}E(0,0) &=& \disfrac{1}{\pi}\sum_{n=1}^{\infty}\disfrac{1}{n}\,,
 \end{eqnlabels}%
-which is the the harmonic series that diverges, therefore, the particle returns to the origin with probability $1$! 
+which is the the harmonic series that diverges.
+
+Since $E(0,0)=\infty$ the number of times that the particle returns to zero is unbounded. However, by the first axiom of probability (page~\pageref{p.first-axiom}), $P(0,0)$, the probability that the particle will return to the origin, must satisfy $0\leq P(0,0) \leq 1$ so $P(0,0)=1$, meaning that it is certain that the particle returns to the origin. In general, the expectation of a random variable is infinite if and only if its probability is one.
 
 \textbf{Simulation}
-The simulation was run one million times instead of ten thousand times but the result doesn't show that the particle must return to the origin.
-\begin{verbatim}
+The simulation was run $100$ times each for one million steps. \begin{verbatim}
 Proportion returned to origin      = 0.8700
 \end{verbatim}
+Since the probability of returning to the origin is $1$ the result should be close to $1.0000$. The result obtained can be interpreted to mean that although every particle will return to the origin, it can take an extremely large number of steps to do so.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{Three-dimensional random walk\annotate{D}}
 A particle is placed at the origin of a three-dimensional coordinate system. The particle moves left or right on the $x$-axis with probabilities $1/2$ \emph{and} up or down the $y$-axis with probabilities $1/2$ \emph{and} in or out on the $z$-axis with probabilities $1/2$.
 
-\que{1} What is the expectation of the number of times that the particle returns to the origin?
-
-\textbf{Hint:} Compute the probability and then use an indicator variable.
+\que{1} Develop a formula for the expectation of the number of times that the particle returns to the origin and estimate its value using Stirling's approximation.
 
 \que{2} What is the probability that the particle will return to the origin \emph{at least once}?
 
@@ -881,19 +898,23 @@ A particle is placed at the origin of a three-dimensional coordinate system. The
 
 \solution{}
 
-$P_{2n}$, probability of returning to the origin after $2n$ steps, is given by generalizing Equation~\ref{eq.return-to-origin1} to three dimensions:
+\ans{1} $P_{2n}(0,0,0)$, probability of returning to the origin after $2n$ steps, is given by generalizing Equation~\ref{eq.return-to-origin1} to three dimensions:
 \begin{equation}\label{eq.rw-multiply}
-P_{2n} =
-P_{2n}(\textsf{return to}\;x\!=\!0)\,P_{2n}(\textsf{return to}\;y\!=\!0\, P_{2n}(\textsf{return to}\;z\!=\!0)\,.
+P_{2n}(0,0,0) =
+P_{2n}(0,a,b)\cdot P_{2n}(c,0,d)\cdot P_{2n}(e,f,0)\,.
 \end{equation}
-$P_r$, the probability of returning to the origin one or more times, is given by the analogue of Equation~\ref{eq.return-to-origin2}:
-\[
-P_r =\sum_{n=1}^{\infty}P_{2n} =
-\sum_{n=1}^{\infty}\left[\dischoose{2n}{n}\left(\disfrac{1}{2}\right)^{2n}\right]^3\,.
-\]
+$E(0,0)$, the expectation of the number of returns of the particle to the origin, is given by the analogue of Equation~\ref{eq.return-to-origin2}:
+\begin{eqnarray*}
+E(0,0,0) &=&
+\sum_{n=1}^{\infty}E(I_{2n}(0,0,0))\\
+& =&E\left(\sum_{n=1}^{\infty}I_{2n}(0,0,0)\right) \\
+&=&\sum_{n=1}^{\infty}P_{2n}(0,0,0)\\
+& =&\sum_{n=1}^{\infty}\left[\dischoose{2n}{n}\left(\disfrac{1}{2}\right)^{2n}\right]^3\,.
+\end{eqnarray*}
+
 From Stirling's approximation:
 \begin{eqnlabels}
-\nonumber{}P_{2n} &=&
+\nonumber{}P_{2n}(0,0,0) &=&
 \left[\disfrac{(2n)!}{(n!)^2}
 \left(\disfrac{1}{2}\right)^{2n}\right]^3 \\
 \nonumber{}&\approx&
@@ -903,53 +924,39 @@ From Stirling's approximation:
         {(\sqrt{2\pi n})^{6}
          \left(n/e\right)^{6n}} \\
 \nonumber{}&=& \disfrac{1}{(\pi n)^{3/2}}\\
-\label{eq.rw-3d}P_r &=& \sum_{n=1}^{\infty}\disfrac{1}{(\pi n)^{3/2}}\approx 0.3772\,.
+\label{eq.rw-3d}E(0,0,0) &=& \sum_{n=1}^{\infty}\disfrac{1}{(\pi n)^{3/2}}\approx 0.3772\,.
 \end{eqnlabels}%
 Mosteller used $18$ terms in his computation of the sum of the series and obtained $0.315$. My program used $500$ terms and obtained $0.3772$.
 
-Let $I_k$ be the indicator variable for a return to the origin on step $k$:
-\begin{equation}
-I_k=
-\left\{
-\begin{array}{ll}
-1,\quad\textsf{if the particle returns to origin on step}\;k\\
-0, \quad\textsf{if the particle does not returns to origin on step}\;k\,.
-\end{array}
-\right.
-\end{equation}
-Then:
-\[
-E(\textsf{number of returns to the origin})=\sum_{n=1}^{\infty} I_{2n}P_{2n} = P_r\approx 0.3772\,,
-\]
-so the expectation of the number of returns is equal to the probability.
-
-\que{2} Let $P_1$ be the probability that the particle returns to the origin \emph{at least once}.  From Problem~4 we know that the expectation of the number of trials until the first one where the particle \emph{does not} return to the origin is $1/(1-P_1)$. Therefore, the expectation of the number of trials for which the particle does return to the origin is one less, because the particle can return to the origin many times until finally it does not \cite{montgomery}.
-
-Let $E_r=E(\textsf{number of returns to the origin})$, then:
+\que{2} Let $P_1$ be the probability that the particle returns to the origin \emph{at least once}.  From Problem~4 we know that the expectation of the number of trials until the first one where the particle \emph{does not} return to the origin is $1/(1-P_1)$. Therefore, the expectation of the number of trials for which the particle does return to the origin is one less, because the particle can return to the origin many times until finally it does not \cite{montgomery}. It follow that:
 \begin{eqn}
-E_r &=& \disfrac{1}{1-P_1} - 1\\
-P_1&=& \disfrac{E_r}{1+E_r}\,.
+E(0,0,0) &=& \disfrac{1}{1-P_1} - 1\\
+P_1&=& \disfrac{E(0,0,0)}{1+E(0,0,0)}\,.
 \end{eqn}%
-In \ansnc{1} we computed that $E_r\approx 0.3772$ so:
+In \ansnc{1} we computed that $E(0,0,0)\approx 0.3772$ so:
 \[
 P_1 \approx 1- \disfrac{1}{1+0.3772}
 \approx 0.2739\,.
 \]
 
-\textbf{Higher dimensions:} Equation~\ref{eq.rw-multiply} can be extended to any number of dimensions and from Equations~\ref{eq.rw-2d}, \ref{eq.rw-3d}, it is reasonable to conjecture that $P_r$ is \emph{proportional to}:
+\textbf{Higher dimensions:} Equation~\ref{eq.rw-multiply} can be extended to any number of dimensions and from Equations~\ref{eq.rw-2d}, \ref{eq.rw-3d}, it is reasonable to conjecture that $E(0,0,0)$ is \emph{proportional to}:
 \begin{equation}
 \label{eq.rw-sum}
 \sum_{n=1}^{\infty} \disfrac{1}{n^{d/2}}\,,
 \end{equation}
-where $d$ is the dimension \cite{louigi}. Now use the \emph{Cauchy condensation test} \cite{wiki:cauchy}, which for the sum in Equation~\ref{eq.rw-sum} is:
+where $d$ is the dimension \cite{louigi}. Now use the \emph{Cauchy condensation test} \cite{wiki:cauchy} on Equation~\ref{eq.rw-sum}:
 \[
 \sum_{n=1}^{\infty} \disfrac{1}{n^{d/2}} \quad \textsf{converges if and only if} \quad \sum_{n=1}^{\infty} \disfrac{2^n}{(2^n)^{d/2}} \quad \textsf{converges}\,.
 \]
-For $d=2$ the result is $\sum_{n=1}^{\infty} 1$ which clearly diverges. For $d=3$ the sum is:
+For $d=2$ the result is $\sum_{n=1}^{\infty} 1$ which clearly diverges.
+
+For $d=3$, $E(0,0,0)$ converges since:
 \[
-\sum_{n=1}^{\infty} \disfrac{1}{n^{3/2}}=\sum_{n=1}^{\infty} \disfrac{2^n}{(2^n)^{3/2}}=\sum_{n=1}^{\infty} \disfrac{2^n}{2^n\cdot 2^{n/2}}=\sum_{n=1}^{\infty} \disfrac{1}{(\sqrt{2})^n}=\frac{\sqrt{2}}{1-\sqrt{2}}\,.
+\sum_{n=1}^{\infty} \disfrac{2^n}{(2^n)^{3/2}}=\sum_{n=1}^{\infty} \disfrac{2^n}{2^n\cdot 2^{n/2}}=\sum_{n=1}^{\infty} \disfrac{1}{(\sqrt{2})^n}=\frac{1}{\sqrt{2}-1}\approx 2.4\,.
 \]
-For $d=4$ the sum is $\sum_{n=1}^{\infty} \frac{1}{2^n}=2$ and for higher dimensions the probability is finite although it decreases to very small values.
+For $d=4$, $E(0,0,0,0)$ converges since $\sum_{n=1}^{\infty} \frac{1}{2^n}=2$.
+
+For higher dimensions the expectation of the number of returns to the origin is finite but decreasing, so it becomes less and less likely that the particle will return in any particular 3D random walk.
 
 \textbf{Simulation}
 \begin{verbatim}
