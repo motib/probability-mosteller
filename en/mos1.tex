@@ -18,6 +18,7 @@ Compute the probabilities of winning for each of the following rules and decide 
 \disfrac{101}{201}\approx \disfrac{100}{201} \approx \disfrac{100}{200} \approx \disfrac{1}{2}\,.
 \]
 \end{prob}
+\vspace{-5ex}
 
 \solution{}
 
@@ -277,7 +278,6 @@ The probability of $i$ evens is given by the binomial distribution:
 P(i\;\textsf{evens})=\dischoose{N}{i} \left(\disfrac{1}{2}\right)^i \left(\disfrac{1}{2}\right)^{N-i}=\dischoose{N}{i} \left(\disfrac{1}{2}\right)^N =  2^{-N}\dischoose{N}{i}\,.
 \end{equation}
 The probability of a tie is the sum over $i$ of the probability of obtaining $i$ evens times the probability of a tie on the $i$th toss (Equation~\ref{eq.coins-ties}). For $N=6$ and using ${N \choose i}={N\choose N-i}$:
-
 \begin{eqn}
 P(\textsf{ties})&=&\disfrac{2\cdot 2^{-6}}{6}\sum_{i=0}^{6}i\dischoose{i}{6}\\
 %
@@ -298,67 +298,6 @@ P(\textsf{ties})&=&\disfrac{2\cdot 2^{-6}}{6}\sum_{i=0}^{6}i\dischoose{i}{6}\\
 \right)\\
 &=&\disfrac{132}{192}\approx 0.6875\,.
 \end{eqn}%
-
-\begin{comment}
-\begin{equation}\label{eq.coins0}
-P(\textsf{ties})=2\cdot 2^{-6}\left[
-\frac{0}{6}\dischoose{6}{0} + \frac{1}{6}\dischoose{6}{1} +
-\frac{2}{6}\dischoose{6}{2} + \frac{3}{6}\dischoose{6}{3} +
-\frac{2}{6}\dischoose{6}{4} + \frac{1}{6}\dischoose{6}{5} +
-\frac{0}{6}\dischoose{6}{6}
-\right]\,.
-\end{equation}
-Equation~\ref{eq.coins1} follows from Equation~\ref{eq.coins0} by deleting the two zero terms, expressing the combinations as factorials, canceling $1/6$ from $6!$:
-\begin{equation}\label{eq.coins1}
-P(\textsf{ties})=2^{-5}\left[
-1\cdot\disfrac{5!}{1!5!} + 2\cdot\disfrac{5!}{2!4!} +
-3\cdot\disfrac{5!}{3!3!} + 2\cdot\disfrac{5!}{4!2!} +
-1\cdot\disfrac{5!}{5!1!}
-\right]\,.
-\end{equation}
-Equation~\ref{eq.coins2} is obtained by canceling $i$ from $i!$:
-\begin{equation}\label{eq.coins2}
-P(\textsf{ties})=2^{-5}\left[
-\disfrac{5!}{1!5!} + \disfrac{5!}{1!4!} +
-\disfrac{5!}{2!3!} + \disfrac{5!}{4!1!} +
-\disfrac{5!}{5!1!}
-\right]\,.
-\end{equation}
-To obtain Equation~\ref{eq.coins3} from Equation~\ref{eq.coins2} add and subtract  $\frac{5!}{3!2!}$:
-\begin{equation}\label{eq.coins3}
-P(\textsf{ties})=2^{-5}\left[
-\left(\disfrac{5!}{1!5!} + \disfrac{5!}{1!4!} +
-\disfrac{5!}{2!3!} + \disfrac{5!}{3!2!} +\disfrac{5!}{4!1!} +
-\disfrac{5!}{5!1!}\right) - \disfrac{5!}{3!2!}
-\right]\,.
-\end{equation}
-Equation~\ref{eq.coins4} results from  replacing $1!$ by $0!$:
-\begin{equation}\label{eq.coins4}
-P(\textsf{ties})=2^{-5}\left[
-\left(\disfrac{5!}{0!5!} + \disfrac{5!}{1!4!} +
-\disfrac{5!}{2!3!} + \disfrac{5!}{3!2!} +\disfrac{5!}{4!1!} +
-\disfrac{5!}{5!0!}\right) - \disfrac{5!}{3!2!}
-\right]\,.
-\end{equation}
-By expressing the factorials back as combinations we obtain  Equation~\ref{eq.coins5}:
-\begin{equation}\label{eq.coins5}
-P(\textsf{ties})=2^{-5}\left[
-\dischoose{5}{0} + \dischoose{5}{1} +
-\dischoose{5}{2} + \dischoose{5}{3} +
-\dischoose{5}{4} + \dischoose{5}{5} - \dischoose{5}{3}
-\right]\,.
-\end{equation}
-Finally, Equation~\ref{eq.coins6} results from the binomial theorem:
-\begin{equation}\label{eq.coins6}
-P(\textsf{ties})=2^{-5}\left(2^5 - 10\right)=\disfrac{11}{16}\approx 0.6875\,.
-\end{equation}
-\end{comment}
-
-%\ans{3} Perform the same calculations as in \ansnc{2} but using arbitrary $N$. The result is:
-%\[
-%P(\textsf{ties})=2^{-N+1}\left[2^{N-1} - \dischoose{N-1}{N/2}\right]= 
-%\left[1 - \left.\dischoose{N-1}{N/2}\right/ 2^{N-1}\right]\,.
-%\]
 
 \ans{3} The first tie on the $N+1$'st toss occurs only if the counts are nearly equal after the $N$th toss:
 \[
@@ -415,7 +354,7 @@ h = \sin \frac{\pi}{3}\Big/ 1 = \frac{\sqrt{3}}{2}\,.
 \]
 Let $d$ be the distance of a chord $\overline{DE}$ from the center. By assumption $d$ is uniformly distributed in $(0,1)$ so: 
 \[
-P(\overline{DE}>1)=P(d<h)=\disfrac{h}{1}=\frac{\sqrt{3}}{2} \approx 0.866\,.
+P(\overline{DE}>1)=P(d<h)=\disfrac{h}{1}=\frac{\sqrt{3}}{2} \approx 0.8660\,.
 \]
 \begin{figure}[tb]
 \begin{center}
@@ -431,7 +370,8 @@ P(\overline{DE}>1)=P(d<h)=\disfrac{h}{1}=\frac{\sqrt{3}}{2} \approx 0.866\,.
 \node[above left] at (hexagon.corner 2) {$A$};
 \node[above right] at (hexagon.corner 1) {$B$};
 \coordinate (H) at (O |- hexagon.corner 1);
-\node[above,yshift=-2pt] at (H) {$H$};
+\node[above,yshift=14pt] at (H) {$H$};
+\draw[<-] ($(H)+(0pt,1pt)$) -- +(0pt,+20pt);
 \draw[thick] (O) -- 
   node[right,xshift=-2pt,yshift=6pt] {$\scriptstyle h$} 
   node[left,xshift=2pt,yshift=-5pt] {$\scriptstyle d$}
@@ -440,7 +380,6 @@ P(\overline{DE}>1)=P(d<h)=\disfrac{h}{1}=\frac{\sqrt{3}}{2} \approx 0.866\,.
 \node[below left,xshift=-3pt,yshift=1pt] at 
   (hexagon.corner 1) {$\scriptstyle \pi/3$};
 \path (hexagon.corner 2) -- 
-%  node[below,xshift=3pt] {$\scriptstyle 1/2$} 
   (H) -- (hexagon.corner 1);
 \node[xshift=15mm,yshift=-8mm]  at (hexagon.corner 4)
   {};
@@ -462,7 +401,8 @@ P(\overline{DE}>1)=P(d<h)=\disfrac{h}{1}=\frac{\sqrt{3}}{2} \approx 0.866\,.
   node[above] {$\scriptstyle 1$} (O) --
   node[right] {$\scriptstyle 1$} (hexagon.corner 4) -- cycle;
 \coordinate (H) at ($(hexagon.corner 3)!.5!(hexagon.corner 4)$);
-\node[left,xshift=3pt,yshift=-2pt] at (H) {$H$};
+\node[left,yshift=-25pt] at (H) {$H$};
+\draw[<-] ($(H)+(-1pt,-1pt)$) -- +(-8pt,-23pt);
 \draw[thick] (O) -- 
   node[above,near end] {$\scriptstyle h$} (H);
 \draw[rotate=-60] (H) rectangle +(6pt,6pt);
@@ -481,7 +421,7 @@ P(\overline{DE}>1)=P(d<h)=\disfrac{h}{1}=\frac{\sqrt{3}}{2} \approx 0.866\,.
       circle through=(hexagon.corner 1)] at (O) {};
 \path[name path=chord] (hexagon.corner 4) -- +(15:5);
 \path [name intersections={of=circle and chord,by={K,L}}];
-\node[right] at (L) {$G$};
+\node[left] at (L) {$G$};
 \draw[ultra thick,dotted] (hexagon.corner 4) -- (L);
 \coordinate (center) at ($(hexagon.corner 4)!.5!(L)$);
 \fill (center) circle (2pt);
@@ -492,7 +432,7 @@ P(\overline{DE}>1)=P(d<h)=\disfrac{h}{1}=\frac{\sqrt{3}}{2} \approx 0.866\,.
 \end{figure}
 
 \ans{2}
-Construct a circle with center $O$ and radius $h$, where $h$ is the length of the altitude to a chord of length $1$. A tangent to any point $H$ on this circle will be a chord $\overline{FE}$ whose length is $1$. Any chord $\overline{EG}$ whose midpoint is within this circle will have a length greater than $1$ (\ref{f.chord2}). The probability that the length of the chord is greater than $1$ is therefore the ratio of the areas of the two circles:
+Construct a circle with center $O$ and radius $h$ where $h$ is the length of the altitude to a chord of length $1$. A tangent to any point $H$ on this circle will be a chord $\overline{FE}$ whose length is $1$. Any chord $\overline{EG}$ whose midpoint is within this circle will have a length greater than $1$ (\ref{f.chord2}). The probability that the length of the chord is greater than $1$ is therefore the ratio of the areas of the two circles:
 \[
 P(\overline{EG}>1)=\frac{\pi \cdot h^2}{\pi \cdot 1^2}=h^2=\frac{3}{4}\,.
 \]
@@ -517,7 +457,7 @@ Proportion of long chords  = 0.6627
 \begin{prob}{The hurried duelers}
 $A$ and $B$ arrive at a meeting point at a random time with uniform distribution within a one-hour period. If $A$ arrives first and $B$ does not arrive within $5$ minutes, $A$ leaves. Similarly if $B$ arrives first and $A$ does not arrive within $5$ minutes, $B$ leaves. What is the probability that they meet?
 
-Time within the one-hour period is \emph{continuous} in the range $[0,1]$, that is, you cannot \emph{count} a discrete number of minutes or seconds to compute probabilities. You can compute the probabilities of \emph{durations}.
+Time within the one-hour period is \emph{continuous} in the range $[0,1]$, that is, you cannot count a discrete number of minutes or seconds to compute probabilities. You can compute the probabilities of durations.
 
 \textbf{Hint:} Draw a graph with $A$'s time of arrival as the the $x$-axis and $B$'s time of arrival as the $y$-axis.
 \end{prob}
@@ -573,24 +513,24 @@ There are $n$ boxes each containing $n$ coins one of which is counterfeit. Draw 
 
 \que{2} Solve for $n=100$.
 
-\que{3} Solve for arbitrary $n$.
+\que{3} Develop a formula for the probability for arbitrary $n$.
 
 \que{4} Develop a formula for limit of the probability as $n$ tends to infinity.
 \end{prob}
 
 \solution{}
 
-The draws are independent so the probability is the product of the individual probabilities.
+The draws are independent so the probability that all coins are real is the product of the individual probabilities for one draw.
 
 \ans{1}
 \[
-P(\textsf{all coins are genuine}) = \left(\frac{9}{10}\right)^{10}=0.3487\,.
+P(\textsf{all coins are genuine}) = \left(\frac{9}{10}\right)^{10}\approx 0.3487\,.
 \]
 
 
 \ans{2}
 \[
-P(\textsf{all coins are genuine}) = \left(\frac{99}{100}\right)^{100}=0.3660\,.
+P(\textsf{all coins are genuine}) = \left(\frac{99}{100}\right)^{100}\approx 0.3660\,.
 \]
 
 \ans{3}
@@ -609,7 +549,7 @@ This limit can be proved using differential calculus. Compute the limit of the n
   \lim_{n\rightarrow\infty}n\ln \left(1-\frac{1}{n}\right)=
   \lim_{n\rightarrow\infty} \disfrac{\ln\left(1-\frac{1}{n}\right)}{1/n}\,.
 \]
-Taking the limit gives $(ln \;1)/0=0/0$ but by l'H\^{o}pital's rule we can replace expression by the quotient of the derivatives where we recall that $(\ln x)'=x'(1/x)$:
+Taking the limit gives $(\ln \;1)/0=0/0$ but by l'H\^{o}pital's rule we can replace expression by the quotient of the derivatives where we recall that $(\ln x)'=x'(1/x)$:
 \begin{eqn}
 \lim_{n\rightarrow\infty}\ln \left(1-\frac{1}{n}\right)^{n}&=&\lim_{n\rightarrow\infty}\frac{(-(-n^{-2}))\left(1-\frac{1}{n}\right)^{-1}}{-n^{-2}}=\lim_{n\rightarrow\infty}-\disfrac{1}{\left(1-\frac{1}{n}\right)}=-1\\
 \lim_{n\rightarrow\infty}\left(1-\frac{1}{n}\right)^{n}&=&e^{-1}\,.
@@ -641,7 +581,7 @@ There are $n$ boxes each containing $n$ coins $m$ of which are counterfeit. Draw
 \solution{}
 
 \ans{1}
-There are ${n\choose r}$ choices of boxes from which the counterfeit coins can be drawn. From the binomial distribution:
+There are ${n\choose r}$ subsets of the set of boxes from which the counterfeit coins can be drawn. From the binomial distribution:
 \[
 P(n,m,r) = {n \choose r} \left(\frac{m}{n}\right)^r \left(\frac{n-m}{n}\right)^{n-r}\,.
 \]
@@ -670,7 +610,7 @@ Probability of counterfeit  = 0.1897
 Proportion counterfeit      = 0.1905
 \end{verbatim}
 
-Using the limit from Problem~27, Mosteller shows that for $m,r$ given, as $n$ tends to infinity:
+Using the limit from Problem~27 Mosteller shows that for $m,r$ given, as $n$ tends to infinity:
 \begin{equation}\label{eq.bin-limit}
 \lim_{n\rightarrow \infty}P(n,m,r) = \frac{e^{-m}m^r}{r!}\,.
 \end{equation}
@@ -764,7 +704,7 @@ Compute this value for various values of $n$ or use a computer to loop from $1$ 
 \[
 1-P(23)=\disfrac{365!}{365^{23}\cdot 342!}\approx 0.4927\,.
 \]
-Most people are surprised that $23$ is the smallest value of $n$.
+Most people are surprised that the answer is such a small number.
 
 A modern calculator can compute $1-P(23)$ but it is a worthwhile exercise to compute it with Stirling's approximation $\ln n! \approx n\ln n - n$:
 \begin{eqnarray*}
@@ -807,7 +747,7 @@ Why is finding a birthmate a different problem than finding a birthday pair?
 \que{1} How many people do you have to ask until the probability $Q(n)$ of finding your birthmate becomes greater than $0.5$?
 
 \que{2}
-Solve the problem by using the approximation in Equation~\ref{eq.reciprocal} (page~\pageref{eq.reciprocal}).
+Solve the problem by using the approximation in Equation~\ref{eq.reciprocal}.
 \end{prob}
 
 \solution{}
@@ -815,11 +755,11 @@ Solve the problem by using the approximation in Equation~\ref{eq.reciprocal} (pa
 Many people could have the same birthday which is considered a success for find a birthday pair, but not for finding a birthmate unless that birthday is the same as yours.
 
 \ans{1}
-We find $1-Q(n)$ the smallest number of people for which the probability that none of them are birthmates is less than $0.5$. The probability that the first person you ask is not a birthmate is $364/365$, but that is also the probability that the second, third, \ldots, person is not a birthmate. The solution is the smallest $n$ such that:
+We find $n$, the smallest number of people, for which  $1-Q(n)$, the probability that none of them are birthmates, is less than $0.5$. The probability that the first person you ask is not a birthmate is $364/365$, but that is also the probability that the second, third, \ldots, person is not a birthmate. The solution is the smallest $n$ such that:
 \[
 1-Q(n)=\left(\frac{364}{365}\right)^n<\frac{1}{2}\,.
 \]
-By searching or writing a computer program we find that $n=253$:
+A computer search finds that $n=253$:
 \[
 \left(\frac{364}{365}\right)^{253} \approx 0.4995\,.
 \]
@@ -858,7 +798,7 @@ Proportion no match     = 0.5078
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{Relating the birthday pairings and the birthmate problems}
-Let $P(r)$ be the probability of finding a birthday pair (Problem~$31$) and let $Q(n)$ be the probability that out of $n$ people at least one is your birthmate (Problem~$32$). Given $r$ for what $n$ does $P(r) \approx Q(n)$?
+Let $P(r)$ be the probability of finding a birthday pair among $r$ people (Problem~$31$), and let $Q(n)$ be the probability that out of $n$ people at least one is your birthmate (Problem~$32$). Given $r$ for what $n$ does $P(r) \approx Q(n)$?
 \end{prob}
 
 \solution{1}
@@ -915,7 +855,7 @@ This reasoning can be understood as follows: For the birthday problem choose an 
 \[
 {r \choose 2}=\frac{r!}{2!(r-2)!} = \frac{r(r-1)}{2}
 \]
-ways of doing so. For the birthmate problem your own birthday is given. Any of the $n$ people can have the same birthday. By equating the two expressions we have the $n$ such that $P_{\textsf{\footnotesize pair}}(r) \approx P_{\textsf{\footnotesize mate}}(n)$.
+ways of doing so. For the birthmate problem your own birthday is given and any of the $n$ people can have the same birthday. By equating the two expressions we have the $n$ such that $P_r(r) \approx Q(n)$.
 
 \medskip
 
@@ -942,15 +882,15 @@ At one extreme if there is only one worker there are $364$ work-days. If there a
 
 To simplify notation denote the number of days in a year by $N$ and the number of workers by $n$.
 
-Let $p$ be the probability that a given day is a work-day, which is the probability that each worker has a birthday on some other day:
+Let $p=\disfrac{N-1}{N}=1-\disfrac{1}{N}$. The probability that a given day is a work-day is the probability that each worker has a birthday on some other day:
 \[
-p=\overbrace{\disfrac{N-1}{N} \cdot \;\cdots\;\cdot \disfrac{N-1}{N}}^n = \left(1-\disfrac{1}{N}\right)^n\,.
+\overbrace{\disfrac{N-1}{N} \cdot \;\cdots\;\cdot \disfrac{N-1}{N}}^n = \left(1-\disfrac{1}{N}\right)^n=p^n\,.
 \]
 On a work-day all workers work and on a holiday none do, so:
 \[
 E(\textsf{work-days for a given day}) = n \cdot p^n + 0\cdot (1-p^n) = np^n\,.
 \]
-All the days in the year have this same expectation so multiply by $N$ to get the expectation for a year:
+All the days in a year have this same expectation so:
 \begin{equation}\label{eq.holidays}
 E(\textsf{work-days for a year}) = Nnp^n\,.
 \end{equation}
@@ -987,7 +927,7 @@ E(\textsf{max work-days/possible work-days})=\disfrac{365\cdot 365  \cdot \left(
 \]
 By Equation~\ref{eq.reciprocal}:
 \[
-\lim_{n\rightarrow\infty}E(\textsf{max work-days/possible work-days})=\lim_{N\rightarrow \infty} \left(1-\disfrac{1}{N}\right)= \disfrac{1}{e}\,.
+\lim_{n\rightarrow\infty}E(\textsf{max work-days/possible work-days})=\lim_{N\rightarrow \infty} \left(1-\disfrac{1}{N}\right)^N= \disfrac{1}{e}\,.
 \]
 
 \textbf{Simulation}
@@ -1139,7 +1079,7 @@ A particle is initially placed on the $x$-axis at position $m\geq 1$. At any pos
 
 The solution is based on \cite[Chapter~3, Example~4m]{ross}.
 
-Denote by $P(i,j)$ the probability of reaching $i$ from $j$
+Denote by $P(i,j)$ the probability of reaching $i$ from $j$.
 
 \ans{1} The solution to Problem~35 showed that for $p>1/2$ (here it is given), if a particle is at position $1$ the probability of reaching position $0$ is $r=(1-p)/p$. This probability does not depend on the absolute position of the particle, that is:
 \[
@@ -1214,7 +1154,7 @@ The greater the amount of money that the left player has and the greater his pro
 
 \textbf{Plot of steps}
 
-This plot was generated by the Python library \texttt{matplotlib}; the source code appears in the file \texttt{36-gamblers-ruin-plot.py}.
+This plot was generated by the Python library \texttt{matplotlib}. The source code appears in the file \texttt{36-gamblers-ruin-plot.py}.
 \begin{center}
 \input{36-gamblers-ruin-plot.tex}
 \end{center}

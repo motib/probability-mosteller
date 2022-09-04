@@ -243,7 +243,7 @@ What is the expectation of the number of throws of a die until a $6$ appears?
 
 The probability that the $i$th throw will be the first occurrence of $6$ is the probability of $i-1$ throws of one of the other five numbers times the probability that the $i$th throw will be $6$.
 
-To simplify the notation use $p$ for $1/6$, let $P=P(\textsf{first }\:6\; \textsf{on}\;i \textsf{th throw})$ and let $E=E(\textsf{first throw of}\:6)$: 
+To simplify notation let $p=1/6$, $P=P(\textsf{first}\:6\:\textsf{on}\:i\textsf{th throw})$, $E=E(\textsf{first throw of}\:6)$. Then:
 \begin{eqnlabels}
 \nonumber{}P&=&(1-p)^{i-1}p\\
 \label{eq.first-expec}E&=&1p(1-p)^0 + 2p(1-p)^1+ 3p(1-p)^2+ 4p(1-p)^3 +\cdots =\sum_{i=1}^{\infty} ip(1-p)^{i-1}\,.
@@ -264,11 +264,11 @@ E&\!\!=\!\!&p(1-p)^0 &+& p(1-p)^1&+& p(1-p)^2&+& p(1-p)^3 &+&\cdots \\
 &&&&&&&&p(1-p)^3 &+&\cdots
 \end{array}
 \]
-The first row is $1$, the sum of the geometric series from Equation~\ref{eq.geo} and the second row is the same infinite geometric series except that the first element is $p(1-p)$ so its sum is:
+The first row is the sum of the geometric series from Equation~\ref{eq.geo} which is $1$. The second row is the same geometric series except that the first element is $p(1-p)$ so its sum is:
 \[
 \frac{p(1-p)}{1-(1-p)}=1-p\,.
 \]
-Similarly, the sum of the third row will be $(1-p)^2$ and the sum of the $i$th row will be $(1-p)^{i-1}$. Therefore, the expectation is the sum of the infinite geometric series:
+Similarly, the sum of the third row will be $(1-p)^2$ and the sum of the $i$th row will be $(1-p)^{i-1}$. Therefore, the expectation is the sum of the geometric series:
 \[
 E= 1 + (1-p) + (1-p)^2 + (1-p)^3 + \cdots= \frac{1}{1-(1-p)}=\frac{1}{p}=6\,.
 \]
@@ -436,11 +436,11 @@ Average winnings        = -0.0724
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{Curing the compulsive gambler}
-Roulette is a game played with a wheel having $38$ numbered pockets: $18$ red, $18$ black and $2$ green.\footnote{There are two green pockets in American roulette and one green pocket in European roulette.} The wheel is spun and a ball lands in a random pocket with a uniform distribution. You select one of the red or black pockets and bet $1$ that the ball will land in that pocket. If so you receive $36$. Your net winnings are actually $35$ because the the $36$ includes the $1$ bet which is returned.
+Roulette is a game played with a wheel having $38$ numbered pockets: $18$ red, $18$ black and $2$ green.\footnote{There are two green pockets in American roulette and one green pocket in European roulette.} The wheel is spun, a ball is thrown onto the wheel and you wait until the ball lands in one of the pockets. The ball lands in a random pocket with uniform distribution. You bet $1$ that the ball will land in a specific numbered (red or black) pocket. If the ball lands in that pocket you receive $36$. Your net winnings are actually $35$ because the the $36$ includes the $1$ bet which is returned.
 
 \que{1} What is the expectation your winnings if you play $36$ round of roulette?
 
-\que{2} Your friend offers to bet you $20$ that after $36$ rounds you will have \emph{lost} money. What is the expectation of your winnings, taking into account the money won or lost from both the game and the bet with your friend?
+\que{2} Your friend offers to bet you $20$ that after $36$ rounds you will have \emph{lost} money. What is the expectation of your winnings, taking into account the money won or lost both from the game and the bet with your friend?
 \end{prob}
 
 \solution{}
@@ -497,6 +497,7 @@ P(\textsf{selecting}\;13\;\textsf{cards of the same suit})=\frac{52}{52}\cdot \f
 \newpage
 
 \textbf{Simulation}
+
 There is no point in running a simulation with $52$ cards because the result would almost certainly be zero. A simulation was run with a deck of $16$ cards and $4$ suits.
 
 \begin{verbatim}
@@ -509,14 +510,14 @@ Proportion perfect hand     = 0.0020
 \begin{prob}{Craps\annotate{D}}
 Craps is a played with a pair of dice. On the first throw you win if the sum of the numbers is $7$ or $11$ and you lose if the sum is $2$, $3$ or $12$. If the sum on the first throw is $n=4,5,6,8,9,10$ (called a \emph{point}), continue to throw the dice until the sum is the point $n$ (a win) or $7$ (a loss).
 
-\que{1} What are the probabilities of the events on the first throw: winning, losing, neither?
+\que{1} What are the probabilities of the following events on the first throw: winning, losing, neither winning nor losing?
 
 \que{2} What is the probability of a win?
 \end{prob}
 
 \solution{1}
 
-\ans{1} The probability of any outcome in a throw of a die is uniformly distributed and is equal to $1/6$. Since the outcomes of a throw of a pair of dice are independent, the probability of any outcome is $1/36$. The number of ways of obtaining each of the events---the sum of a pair of dice is equal to one of the points $2,\ldots,12$---is:
+\ans{1} The outcome of throwing a die is uniformly distributed and the outcomes of throwing a pair of dice are independent, so the probability of any outcome is $1/36$. The number of ways of obtaining each of the events, the sum of a pair of dice, is:
 \[
 \begin{array}{l|rrrrrrrrrrr}
 \textrm{Sum} & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12\\\hline
@@ -528,6 +529,8 @@ On the first throw there are $8$ ways of throwing $7$ or $11$ so the probability
 1 - \frac{8}{36} - \frac{4}{36} = \frac{24}{36}\,.
 \]
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \ans{2}
 Consider two cases:
 \begin{itemize}
@@ -536,7 +539,7 @@ Consider two cases:
 \end{itemize}
 We see that the probability of winning must be computed separately for each of the points $4,5,6,8,9,10$, so we develop a general formula for the probability.
 
-Let $P_n$ be the probability of winning by throwing the point $n$ on a throw and let $Q_n$ the probability of neither winning nor losing on a throw is the point is $n$. $W_n$, the probability of winning by \emph{eventually} throwing the point $n$ after the first throw, is computed by adding:
+Let $P_n$ be the probability of winning by throwing the point $n$ on a throw and let $Q_n$ the probability of neither winning nor losing on a throw if the point is $n$. $W_n$, the probability of winning by \emph{eventually} throwing the point $n$ after the first throw, is computed by adding:
 \begin{itemize}
 \item The probability of throwing the point on the second throw.
 \item The probability of neither winning nor losing on the second throw and throwing the point on the third throw.
@@ -548,9 +551,9 @@ W_n&=&P_n + Q_n P_n + Q_n^2 P_n+ Q_n^3 P_n  + \cdots\\
 &=&P_n\left(1+Q_n^1 + Q_n^2+ Q_n^3  + \cdots\right)\\
 &=&P_n\left(\frac{1}{1-Q_n}\right)\,.
 \end{eqn}%
-You lose the game on any throw after the first if you throw a $7$ with probability $6/36$ so:
+You lose on any throw after the first if you throw a $7$ with probability $6/36$ so:
 \begin{eqn}
-Q_n &=& 1-P_n-(6/36)\\
+Q_n &=& (1-P_n)-(6/36)\\
 W_n&=&\frac{P_n}{P_n+(6/36)}\,.
 \end{eqn}%
 $W_n$ for the six points are:
@@ -563,12 +566,14 @@ P_n & \disfrac{3}{36} & \disfrac{4}{36} & \disfrac{5}{36} & \disfrac{5}{36} & \d
 W_n & \disfrac{3}{9} & \disfrac{4}{10} & \disfrac{5}{11} & \disfrac{5}{11} & \disfrac{4}{10} & \disfrac{3}{9}
 \end{array}
 \]
-$W$, the probability of winning, can be computed by adding the probability of winning on the first throw to the sum of the probabilities for the six wins on points each multiplied by the probability of throwing \emph{that point} on the first throw:
+$W$, the probability of winning, can be computed by adding the probability of winning on the first throw to the sum of the probabilities for winning by throwing a point each multiplied by the probability of throwing \emph{that point} on the first throw:
 \begin{equation}\label{eq.9-a}
 W=\frac{8}{36}+\sum_{n\in\{4,5,6,8,9,10\}} P_nW_n \approx 0.4929\,.
 \end{equation}
 The casino's probability of winning a game of craps is
 only $0.5-0.4929\approx 0.5\%$, but the law of large numbers ensures that they will eventually win and you will eventually lose!
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newpage
 
@@ -610,11 +615,11 @@ Proportion of wins     = 0.4948
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{The prisoner's dilemma\annotate{D}}
+\begin{prob}{The prisoner's dilemma}
 
-Three prisoners $A,B,C$ are eligible for parole. The parole board will release two of them with equal probability for $\{A,B\}, \{A,C\}, \{B,C\}$, so the probability that $A$ will be released is $2/3$. Prisoner $A$ is told the name of one of the other prisoners who will be released. If $A$ is told that prisoner $B$ will be released, what is the probability that $A$ too will be released?
+Three prisoners $A,B,C$ are eligible for parole. The parole board will release two of them with equal probability for $\{A,B\}, \{A,C\}, \{B,C\}$, so the probability that $A$ will be released is $2/3$. Prisoner $A$ is told correctly the name of  one of the other prisoners $B$ or $C$ who will be released. If $A$ is told that prisoner $B$ will be released, what is the probability that $A$ too will be released?
 
-The article \cite{carlton} is devoted to the prisoner's dilemma and the related Monty Hall problem.
+\cite{carlton} is devoted to the prisoner's dilemma and to the similar Monty Hall problem.
 \end{prob}
 
 \solution{1}
@@ -654,7 +659,7 @@ Each pair of prisoners has equal probability of being released so:
 \[
 P(e_1)=P(e_2)=P(e_3\cup e_4)=\frac{1}{3}\,.
 \]
-We assume that if $\{B,C\}$ are to be released, $A$ is told either that $B$ or $C$ will be released with equal probability, so $P(e_3)=P(e_4)=1/6$. Therefore the probability that $A$ will be released given the event $R_{AB}=e_1\cup e_3$ that $A$ is told that $B$ will be released is:
+If $\{B,C\}$ are to be released, $A$ is told correctly the name of either $B$ or $C$ who will be released and the probability of being told either of the names is equal, so $P(e_3)=P(e_4)=1/6$. Therefore the probability that $A$ will be released given the event $R_{AB}=e_1\cup e_3$ that $A$ is told that $B$ will be released is:
 \[
 P(A|R_{AB}) = \frac{P(e_1\cap(e_1\cup e_3))}{P(e_1\cup e_3)}=\frac{P(e_1)}{P(e_1\cup e_3)}=\frac{1/3}{(1/3)+(1/6)}=\frac{2}{3}\,.
 \]
@@ -672,7 +677,7 @@ There is no simulation: the problem asks if the probability changes as the resul
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{Collecting coupons}
-Given a unbounded sequence of boxes each of which contains coupons numbered $1$ to $5$, you randomly draw one coupon sequentially from each box.
+Given a unbounded sequence of boxes each of which contains five coupons numbered $1$ to $5$, you randomly draw one coupon sequentially from each box.
 
 \que{1} What is the expectation of the number of coupons drawn until you have all five of the numbers?
 
@@ -683,7 +688,7 @@ Given a unbounded sequence of boxes each of which contains coupons numbered $1$ 
 
 \solution{}
 
-\ans{1} What is the expectation of the number of draws until you get a  number that is \emph{different from} all the previous ones? By  Problem~4 this is $1/p$ where $p$ is the probability of drawing a different number. For the first draw the probability is $1=5/5$ so the expectation is also $1/(5/5)=5/5$, for the second draw the probability is $4/5$ so expectation is $5/4$, and so on. Therefore:
+\ans{1} What is the expectation of the number of draws until you get a  number that is \emph{different from} all the previous ones? By  Problem~4 this is $1/p$ where $p$ is the probability of drawing a different number. For the first draw the probability is $1$ so the expectation is $1=5/5$, for the second draw the probability is $4/5$ so expectation is $5/4$, and so on. Therefore:
 \[
 E(\textsf{all five numbers}) = \frac{5}{5}+\frac{5}{4} + \frac{5}{3} + \frac{5}{2} + \frac{5}{1} = \frac{}{} =\frac{1370}{120}\approx 11.4167\,.
 \]
@@ -693,7 +698,7 @@ E(\textsf{all}\;n \;\textsf{numbers}) = n\left(\frac{1}{n}+\frac{1}{n-1} + \cdot
 \]
 For $n=5$ this gives:
 \[
-E(\textsf{all five numbers}) =5H_5\approx 5(\ln 5 + \frac{1}{10} + 0.5772) \approx 11.4332\,.
+E(\textsf{all five numbers}) =5H_5\approx 5\left(\ln 5 + \frac{1}{10} + 0.5772\right) \approx 11.4332\,.
 \]
 
 \textbf{Simulation}
@@ -782,12 +787,11 @@ Average different pairs        = 24.4725
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{Will the second-best be runner-up?}
-Eight players $\{a_1,\ldots,a_8\}$ are randomly assigned to play eight games $\{g_1,\ldots,g_8\}$ in a tournament (Figure~\ref{f.tournament}). The players are ranked from the best $a_1$ to the worst $a_8$ and the better player will \emph{always} defeat his opponent.  Clearly $a_1$ will win the tournament.
+Eight players $\{a_1,\ldots,a_8\}$ are randomly assigned to play eight games $\{g_1,\ldots,g_8\}$ in a tournament such that player $a_{k_i}$ plays his first game in place $g_i$ (Figure~\ref{f.tournament}). The players are ranked from the best $a_1$ to the worst $a_8$ and the better player will \emph{always} defeat his opponent.  Clearly $a_1$ will win the tournament.
 
 \que{1} What is the probability that $a_2$ will be the runner-up by playing $a_1$ in the final round and losing?
 
 \que{2} If there are $2^n$ players what is the probability that $a_2$ will be the runner-up by playing $a_1$ in the final round and losing?
-\end{prob}
 \begin{figure}[tb]
 \begin{center}
 \begin{tikzpicture}[scale=.75]
@@ -815,7 +819,9 @@ Eight players $\{a_1,\ldots,a_8\}$ are randomly assigned to play eight games $\{
 \end{center}
 \caption{A tournament schedule}\label{f.tournament}
 \end{figure}
+\end{prob}
 
+\newpage
 
 \solution{}
 
@@ -1011,7 +1017,7 @@ Proportion  = 0.5250
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{The three-cornered duel}
+\begin{prob}{The three-cornered duel\annotate{D}}
 $A,B,C$ fight a sequence of duels. Each of them has a fixed probability of winning a duel regardless of who the opponent is:
 \[
 P(A)=0.3,\quad P(B)=1, \quad P(C)=0.5\,.
@@ -1030,7 +1036,7 @@ A person who is hit no longer participates in the duels. The shots are fired one
 \solution{}
 
 Let $I_X$ be the indicator variable for $X$ winning the sequence of duels:
-\begin{equation}
+\[
 I_X=
 \left\{
 \begin{array}{ll}
@@ -1038,7 +1044,7 @@ I_X=
 0, \quad X\; \textsf{loses the sequence of duels}\,.
 \end{array}
 \right.
-\end{equation}
+\]
 Strategy $s_1$ for $X$ is better strategy $s_2$ if the expectation of $I_X$ is greater for $s_1$ than for $s_2$.
 
 Notation: \duel{X}{H}{Y} denotes that $X$ shoots at $Y$ and hits. \duel{X}{M}{Y} denotes that $X$ shoots at $Y$ and misses.
@@ -1052,7 +1058,6 @@ If \duel{A}{M}{C} (probability $0.7$) then \duel{B}{H}{C} since $C$ is more dang
 
 If \duel{A}{H}{C} (probability $0.3$) then \duel{B}{H}{A} with probability $1$ and $A$ loses.
 
-Compute the expectation of $I_A$:
 \vspace*{-3ex}
 \[
 \renewcommand*{\arraystretch}{2.5}
@@ -1128,7 +1133,7 @@ which is higher than the expectation of winning by shooting at $C$ first.
 \[
 E(A \;\textsf{wins}|A\;\textsf{shoots in the air}) = 1\cdot (1\cdot 1 \cdot 0.3) + 0\cdot(1\cdot 1\cdot 0.7)=0.3\,,
 \]
-which is better than the expectation for the other two strategies!
+which is higher than the expectation for the other two strategies!
 
 \textbf{Simulation}
 \begin{verbatim}

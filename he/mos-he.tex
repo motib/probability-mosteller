@@ -15,7 +15,13 @@
   calc,arrows.meta,shapes,%
   through,intersections,%
   decorations.pathmorphing}
+\usetikzlibrary{patterns}
 \tikzset {>=Stealth}
+
+% Display output of matplotlib
+% pgfplot complains for compatibility issues
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
 
 % Display vertex not affected by tikz scale
 \newcommand*{\vertex}[1]
@@ -71,10 +77,7 @@
 \newcommand*{\disfrac}[2]{\displaystyle\frac{#1}{#2}}
 \newcommand*{\dischoose}[2]{\displaystyle{#1 \choose #2}}
 
-% Environments for theorems and definitions
-%\newtheorem{theorem}{משפט}
-%\newtheorem{definition}[theorem]{הגדרה}
-
+% Subfigures
 \DeclareCaptionSubType*{figure}
 \captionsetup[subfigure]{labelformat=simple}
 \renewcommand\thesubfigure{איור~\thefigure(\alph{subfigure})}
@@ -83,6 +86,12 @@
 \newenvironment{eqn}
   {\addtolength{\arraycolsep}{-3pt}\begin{eqnarray*}}
   {\end{eqnarray*}}
+  
+% Reduce space around c column in eqnarray with labels
+\newenvironment{eqnlabels}
+  {\addtolength{\arraycolsep}{-3pt}
+   \begin{eqnarray}}
+  {\end{eqnarray}}
 
 % Use english equation numbers in hebrew document
 \renewcommand{\theequation}{\L{\arabic{equation}}}
@@ -99,7 +108,7 @@
 \renewcommand{\baselinestretch}{1.1}
 \setlength{\parskip}{0.3\baselineskip plus 1pt minus 1pt}
 
-%\includeonly{}
+\includeonly{mos1}
 
 \begin{document}
 
@@ -109,22 +118,7 @@
 \include{mos0}
 \include{mos1}
 \include{mos2}
-\include{mos3}
-\include{mos4}
-\include{mos5}
 \include{mos-prob}
 \include{mos-bib}
-
-% \input prevents unnecessary page breaks
-
-%\input{mos-intro}
-%\input{mos0}
-%\input{mos1}
-%\input{mos2}
-%\input{mos3}
-%\input{mos4}
-%\input{mos5}
-%\input{mos-prob}
-%\input{mos-bib}
 
 \end{document}

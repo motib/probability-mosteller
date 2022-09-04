@@ -81,7 +81,7 @@ In terms of conditional probability:
 \[
 P(e_1 | e_2)=\frac{P(e_1)\cap P(e_2)}{P(e_2)} = \frac{P(e_1)P(e_2)}{P(e_2)}=P(e_1)\,. 
 \]
-For independent events $e_1,e_2$, even if you know the probability of $e_2$ you have no information as to the probability of $e_1$. Three throws of a fair die are independent so the probability of all of them showing an even number is $\frac{1}{2}\cdot \frac{1}{2}\cdot \frac{1}{2}=\frac{1}{8}$. 
+For independent events $e_1,e_2$, knowledge of the probability of $e_2$ gives you no information as to the probability of $e_1$. Three throws of a fair die are independent so the probability of all of them showing an even number is $\frac{1}{2}\cdot \frac{1}{2}\cdot \frac{1}{2}=\frac{1}{8}$. 
 
 \textbf{Average}
 Let $S=\{a_1,\ldots,a_n\}$ be a set of values. Then:
@@ -156,9 +156,9 @@ E\left(\sum_{i=1}^{\infty} I_{i}\right) = \sum_{i=1}^{\infty} I_{i}p(e_i) = \sum
 \end{equation}
 Furthermore:
 \begin{equation}\label{eq.expectation-sum}
-\sum_{i=1}^{\infty} E(I_{i})=E\left(\sum_{i=1}^{\infty} I_{i}\right)\,,
+\sum_{i=1}^{\infty} E(I_{i})=E\left(\sum_{i=1}^{\infty} I_{i}\right)\,.
 \end{equation}
-an advanced theorem that holds here because indicator variables are non-negative random variables.
+The proof of this formula is very advanced. The formula holds here because the random variables are non-negative.
 
 \textbf{Binomial distribution}
 If $p$ is the probability of event $e$ then the probability that a sequence of $n$ independent trials results in \emph{exactly} $k$ events $e$ is given by the \emph{binomial distribution}:

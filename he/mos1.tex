@@ -1,991 +1,2132 @@
 % !TeX root = mos-he.tex
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\refstepcounter{problem}  % 11. Silent cooperation
+\begin{prob}{לדגום עם או בלי החזרות?}{D}{(Should you sample with or without replacement?)}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\refstepcounter{problem}  % 12. Quo vadis?
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{prob}{דילמת האסיר}{D}{The prisoner's dilemma}
-
-שלושה אסירים 
-$A,B,C$
-מועמדים לשחרור מוקדם. וועדת השחרורים ישחרר שניים מהם עם הסתברות שווה ל-%
-$\{A,B\}, \{A,C\}, \{B,C\}$, 
-כך שהסיכוי ש-%
+בכד 
 $A$
-ישוחרר הוא
-$2/3$.
-לאסיר 
-$A$
-נמסר שמו של אחד האסירים האחרים שישוחרר. אם מוסרים לו ש-%
+נמצאים
+$2$
+כדורים אדומים וכדור ירוק אחד, ובכד 
 $B$
-מה הסיכוי ש-%
+נמצאים
+$101$
+כדורים אדומים ו-%
+$100$
+כדורים ירוקים. בחר כד אחד בצורה אקראי ושלוף שני כדורים באופן אקראי מהכד שנבחר. אתה מנצח אם אתה מזהה נכון אם כדורים נשלפו מכד 
 $A$
-ישוחרר גם כן?
+או כד
+$B$.
 
-\L{\cite{carlton}}
-הוא מאמר מקיף על דילמת האסיר ועל בעיית 
-\L{Monty Hall}
-הדומה.
-\end{prob}
-\solution{1}
-
-יהיו 
-$P(A), P(B), P(C)$
-ההסתברות ש-%
-$A,B,C$
-ישוחררו.
-$A$
-מעוניין בהסתברות המותנית 
-$P(A|B)$
-שהוא ישוחרר אם 
-$B$
-ישוחרר. נדמה שהחישוב שלהלן הוא מה שאנחנו רוצים:
-\[
-P(A|B) = \frac{P(A\cap B)}{P(B)} = \frac{1/3}{2/3}=\frac{1}{2}\,.
-\]
-אבל זאת לא ההסתברות הנכונה! יהי 
-$R_{AB}$
-האירוע של-%
-$A$
-נמסר ש-%
-$B$
-ישוחרר. ההסתברות שיש לחשב היא
-$P(A|R_{AB})$:
-\[
-P(A|R_{AB}) = \frac{P(A\cap R_{AB})}{P(R_{AB})}\,.
-\]
-אנו מניחים שהמידע על שחרורו של
-$B$
-הוא אמת ולכן:
-\[
-P(A\cap R_{AB})=P(\{A,B\})=\disfrac{1}{3}\,.
-\]
-כעת:
-\[
-P(R_{AB})=P(\{A,B\})+P(\{B,C\})=\disfrac{1}{3}+\disfrac{1}{2}\cdot \disfrac{1}{3}=\disfrac{1}{2}\,.
-\]
-אם התכנית היא ש-%
-$\{B,C\}$
-ישוחררו, ניתן למסור ל-%
-$A$
-או ש-%
-$B$
-ישוחרר או ש-%
-$C$
-ישוחרר ולכן הגורם 
-$1/2$.
-מכאן:
-\[
-P(A|R_{AB}) = \frac{P(A\cap R_{AB})}{P(R_{AB})} = \disfrac{1/3}{1/2}=\disfrac{2}{3}\,,
-\]
-כך שמסירה ל-%
-$A$
-ש-%
-$B$
-ישוחרר לא משנה את ההסתברות שהוא ישוחרר.
-
-\solution{2}
-
-ארבעת האירועים האפשריים הם:
-\begin{description}
-\item[$e_1$:] 
-ל-%
-$A$
-נמסר ש-%
-$B$
-ישוחרר ו-%
-$\{A,B\}$
-שוחררו.
-\item[$e_2$:]
-ל-%
-$A$
-נמסר ש-%
-$C$
-ישוחרר ו-%
-$\{A,C\}$
-שוחררו.
-\item[$e_3$:]
-ל-%
-$A$
-נמסר ש-%
-$B$
-ישוחרר ו-%
-$\{B,C\}$
-שוחררו.
-\item[$e_4$:]
-ל-%
-$C$
-נמסר ש-%
-$B$
-ישוחרר ו-%
-$\{B,C\}$
-שוחררו.
-\end{description}
-ההסתברות של כל זוג לשחרור שווה ולכן:
-\[
-P(e_1)=P(e_2)=P(e_3\cup e_4)=\frac{1}{3}\,.
-\]
-נניח שאם 
-$\{B,C\}$
-ישוחררו, בהסתברות שווה ימסרו ל-%
-$A$
-ש-%
-$B$
-ישוחרר או ש-%
-$C$
-ישוחרר, ולכן
-$P(e_3)=P(e_4)=1/6$.
-מכאן שההסתברות ש-%
-$A$
-ישוחרר בהינתן האירוע 
-$R_{AB}=e_1\cup e_3$
-שנמסר לו ש-%
-$B$
-ישוחרר היא:
-\[
-P(A|R_{AB}) = \frac{P(e_1\cap(e_1\cup e_3))}{P(e_1\cup e_3)}=\frac{P(e_1)}{P(e_1\cup e_3)}=\frac{1/3}{(1/3)+(1/6)}=\frac{2}{3}\,.
-\]
-
-\solution{3}
-
-חידה שמיוחסת ל-%
-\L{Abraham Lincoln}
-שואל: "אם תקרא לזנב של כלב רגל, כמה רגליים יש לכלב?" התשובה היא שלקרוא לזנב רגל לא הופך אותו לרגל ולכן לכלב עדיין יש ארבע רגליים. ברור שאם
-$A$
-יודע את העתיד המחכה ל-%
-$B$
-זה לא משנה את הסיכוי שלו לשיחרור.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{prob}{איסוף תלושים}{S}{Collecting coupons}
-נתון סדרה של קופסאות ובתוך כל אחת נמצא תלוש עם אחד המספרים 
-$1$
-עד
-$5$.
-את שולפת תלוש אחד מכל קופסה אחת אחרי השנייה.
+חשב את ההסתברויות לניצחון בכל אחד מהחוקים שלהן וקבע איזו שיטה נותן את ההסתברות הגבוהה ביותר לניצחון.
 
 \que{1}
-מה התוחלת של מספר התלושים שיש לשלוף עד שתקבלי את כל חמשת המספרים?
+אתה מחזיר את הכדור הראשון לפני השליפה השנייה.
 
-\que{2}
-פתחי נוסחה לתוחלת ל-%
-$n$
-מספרים.
+\que{2} 
+אתה לא מחזיר את הכדור הראשון לפני השליפה השנייה.
 
-\textbf{רמז:}
-תשתמשי בפתרון לבעיה~4 (עמוד%
-~\L{\pageref{p.four}})
-והקירוב לסכום של מספרים הורמוניים 
-(עמוד%
-~\L{\pageref{p.harmonic})}.
+\que{3}
+לאחר שליפת הכדור הראשון אתה יכול להחליט אם להחזיר אותו או לא.
+
+\textbf{רמז:} 
+כאשר מחשבים הסתברויות:
+\[
+\disfrac{101}{201}\approx \disfrac{100}{201} \approx \disfrac{100}{200} \approx \disfrac{1}{2}\,.
+\]
 \end{prob}
+\vspace{-6ex}
+
 \solution{}
+
+יש ארבע תוצאות שנסמן
+$RR, RG, GR, GG$.
+לכל אחד מהחוקים נחשב את ההסתברויות המתנות של ארבעת התוצאות כתלות בזהות הכד 
+$A$
+או
+$B$
+שנבחר תחילה. אחר כך נכפיל את ההסתברויות ב-%
+$1/2$
+כדי לקחת בחשבון את הבחירה האקראית של הכד.
 
 \ans{1}
-מה התוחלת של מספר השליפות עד שאת מקבלת מספר
-\textbf{שונה}
-מכל הקודמים? לפי בעייה~4 התוחלת היא
-$1/p$
-כאשר 
-$p$
-היא ההסתברות לשליפת מספר שונה. עבור השליפה הראשונה, ההסתברות היא 
-$1$
-כך שהתוחלת היא גם
-$1$.
-עבור השליפה השנייה ההסתברות היא 
-$4/5$
-כך שהתוחלת היא 
-$5/4$
-וכך הלאה. לכן:
+שליפה עם החזרה:
 \[
-E(\textrm{המספרים חמשת כל}) = \frac{5}{5}+\frac{5}{4} + \frac{5}{3} + \frac{5}{2} + \frac{5}{1} = \frac{}{} =\frac{1370}{120}\approx 11.4167\,.
+\renewcommand*{\arraystretch}{1.5}
+\begin{array}{lcccc}
+P(RR|A) &=& \frac{2}{3} \cdot \frac{2}{3} &=& \frac{4}{9}\\
+P(RR|B) &=& \frac{1}{2} \cdot \frac{1}{2} &=& \frac{1}{4}\\
+\hline
+P(RG|A) &=& \frac{2}{3} \cdot \frac{1}{3} &=& \frac{2}{9}\\
+P(RG|B) &=& \frac{1}{2} \cdot \frac{1}{2} &=& \frac{1}{4}\\
+\hline
+P(GR|A) &=& \frac{1}{3} \cdot \frac{2}{3} &=& \frac{2}{9}\\
+P(GR|B) &=& \frac{1}{2} \cdot \frac{1}{2} &=& \frac{1}{4}\\
+\hline
+P(GG|A) &=& \frac{1}{3} \cdot \frac{1}{3} &=& \frac{1}{9}\\
+P(GG|B) &=& \frac{1}{2} \cdot \frac{1}{2} &=& \frac{1}{4}\end{array}
 \]
+אם התוצאה היא
+$RR$
+ההסתברות שכד 
+$A$
+נבחר
+($4/9$)
+גבוהה מהסתברות שכד
+$B$
+נבחר
+($1/4$);
+אחרת, ההסתברות ש-%
+$B$
+נבחר גבוהה יותר. לכן:
+\[
+P(\textrm{ניצחון})=\frac{1}{2}\left(\frac{4}{9} + \frac{1}{4}+ \frac{1}{4}+ \frac{1}{4}\right)=\disfrac{43}{72}\approx 0.5972\,.
+\]
+
 \ans{2}
-נשמתמש באותה שיטה ובקירוב לסכום המספרים ההרומוניים (עמוד%
-~\L{\pageref{p.harmonic}}):
+שליפה ללא החזרה:
 \[
-E(\textrm{המספרים}\;n \;\textrm{כל}) = n\left(\frac{1}{n}+\frac{1}{n-1} + \cdots \frac{1}{2} + \frac{1}{1}\right) =nH_n\approx n\left(\ln n + \frac{1}{2n} + 0.5772\right)\,. 
-\]
-עבור
-$n=5$
-מתקבל:
-\[
-E(\textrm{המספרים חמשת כל}) =5H_5\approx 5(\ln 5 + \frac{1}{10} + 0.5772) \approx 11.4332\,.
-\]
-
-\textbf{סימולציה}
-\selectlanguage{english}
-\begin{verbatim}
-For  5 coupons:
-Expectation of draws = 11.9332
-Average draws        = 11.4272
-For 10 coupons:
-Expectation of draws = 29.7979
-Average draws        = 29.2929
-For 20 coupons:
-Expectation of draws = 72.4586
-Average draws        = 72.2136
-\end{verbatim}
-\selectlanguage{hebrew}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{prob}{שורה בתיאטרון}{S}{The theater row}
-סדר שמונה מספרים זוגיים ושבעה מספרים אי-זוגיים בשורה בצורה אקראית, למשל:
-\[
-10\quad 12\quad 3\quad 2\quad 9\quad 6 \quad 1\quad 13\quad 7\quad 10\quad 3\quad 8\quad 8\quad 5\quad 20\,,
-\]
-שנוכל לכתוב כך:
-\[
-E\quad E\quad O\quad E\quad O\quad E \quad O\quad O\quad O\quad E\quad O\quad E\quad E\quad O\quad E\,,
-\]
-כי המספרים עצמם אינם חשובים.
-
-מה התוחלת שלמספר הזוגות השכנים שהם זוג/אי-זוגי או אי-זוגי/זוגי?
-
-בדוגמה יש $10$ זוגות שכנים שהם
-$EO$ 
-או 
-$OE$.
-
-\textbf{רמז:}
-התייחס לכל זוג שכנים בנפרד. מה ההסתברות שהם שונים?
-\end{prob}
-\solution{}
-
-הטבלה שלהן מראה את עשרת הסידורים השונים עבור שלושה מספרים זוגיים ושני מספרים אי-זוגיים. מספר הזוגות השכנים השונים הוא 
-$24$
-והממוצע הוא
-$24/10=2.4$.
-\[
-\begin{array}{c|c|@{\hspace{2pt}}|c|c}
-\textrm{סידור}&\textrm{זוגות}&\textrm{סידור}&\textrm{זוגות}\\\hline
-EEEOO & 1&
-EEOEO & 3\\
-EEOOE & 2&
-EOEOE & 4\\
-EOEEO & 3&
-EOOEE & 1\\
-OEEOE & 3&
-OEEEO & 2\\
-OEOEE & 3&
-OOEEE & 1\\
+\renewcommand*{\arraystretch}{1.5}
+\begin{array}{lcccc}
+P(RR|A) &=& \frac{2}{3} \cdot \frac{1}{2} &=& \frac{1}{3}\\
+P(RR|B) &=& \frac{1}{2} \cdot \frac{1}{2} &=& \frac{1}{4}\\
+\hline
+P(RG|A) &=& \frac{2}{3} \cdot \frac{1}{2} &=& \frac{1}{3}\\
+P(RG|B) &=& \frac{1}{2} \cdot \frac{1}{2} &=& \frac{1}{4}\\
+\hline
+P(GR|A) &=& \frac{1}{3} \cdot 1 &=& \frac{1}{3}\\
+P(GR|B) &=& \frac{1}{2} \cdot \frac{1}{2} &=& \frac{1}{4}\\
+\hline
+P(GG|A) &=& \frac{1}{3} \cdot 0 &=& 0\\
+P(GG|B) &=& \frac{1}{2} \cdot \frac{1}{2} &=& \frac{1}{4}
 \end{array}
 \]
-נחזור לדוגמה עם
-$15$
-מספרים. תהי
-$P_d$
-ההסתברות שזוג נתון בסידור הוא 
-$EO$
-או
-$OE$.
-אזי:
+אם התוצאה היא
+$GG$
+ההסתברות שכד
+$B$
+נבחר גבוהה יותר (כמובן!) מההסתברות שכד
+$A$
+נבחר; אחרת, ההסתברות שכד 
+$A$
+נבחר גבוהה יותר. לכן:
 \[
-P_d =P(EO) + P(OE) = \frac{8}{15}\cdot \frac{7}{14} + \frac{7}{15}\cdot \frac{8}{14} = 2\cdot \frac{8}{15}\cdot \frac{7}{14} = \frac{8}{15}\,.
+P(\textrm{ניצחון})=\frac{1}{2}\left(\frac{1}{3} + \frac{1}{3}+ \frac{1}{3}+ \frac{1}{4}\right)=\frac{5}{8}=0.6250\,,
 \]
-תהי
-$E_d$
-התוחלת של מספר הזוגות בסידור שהם
-$EO$
-או 
-$OE$.
-זוג 
-$(EO,OE)$
-תורם $1$ למספר הזוגות השונים וזוג
-$(EE,OO)$
-תורם $0$:
+שהיא גבוהה יותר מההסתברות לניצחון כאשר שליפה היא עם החזרה.
+
+\ans{3} 
+ההחלטה נעשית על סמך התוצאות של השליפה הראשונה.
+
+אם השליפה הראשונה היא מכד
+$A$
+ההסתברויות חייבות להיות מותנות גם בהחלטה להחזיר או לא. אם השליפה הראשונה היא מכד
+$B$
+היא לא משפיעה על ההסתברויות בגלל הקירוב ברמז.
 \[
-E_d =
-\sum_{\textrm{\footnotesize זוגות}} 1\cdot P_d= 14\cdot \frac{8}{15} \approx 7.4667\,.
+\renewcommand*{\arraystretch}{1.5}
+\begin{array}{lcccc}
+P(RR|A,w) &=& \frac{2}{3} \cdot \frac{2}{3} &=& \frac{4}{9}\\
+P(RR|A,w/o) &=& \frac{2}{3} \cdot \frac{1}{2} &=& \frac{1}{3}\\
+P(RR|B) &=& \frac{1}{2} \cdot \frac{1}{2} &=& \frac{1}{4}\\
+\hline
+P(RG|A,w) &=& \frac{2}{3} \cdot \frac{1}{3} &=& \frac{2}{9}\\
+P(RG|A,w/o) &=& \frac{2}{3} \cdot \frac{1}{2} &=& \frac{1}{3}\\
+P(RG|B) &=& \frac{1}{2} \cdot \frac{1}{2} &=& \frac{1}{4}\\
+\hline
+%\end{array}
+%\]
+%\[
+%\renewcommand*{\arraystretch}{1.5}
+%\begin{array}{lcccc}
+P(GR|A,w) &=& \frac{1}{3} \cdot \frac{2}{3} &=& \frac{2}{9}\\
+P(GR|A,w/o) &=& \frac{1}{3} \cdot 1 &=& \frac{1}{3}\\
+P(GR|B) &=& \frac{1}{2} \cdot \frac{1}{2} &=& \frac{1}{4}\\
+\hline
+P(GG|A,w) &=& \frac{1}{3} \cdot \frac{1}{3} &=& \frac{1}{9}\\
+P(GG|A,w/o) &=& \frac{1}{3} \cdot 0 &=&0\\
+P(GG|B) &=& \frac{1}{2} \cdot \frac{1}{2} &=& \frac{1}{4}\\\end{array}
 \]
-עבור עשרה מספרים:
-\begin{eqnarray*}
-P_d &=& P(EO) + P(OE) = \frac{3}{5}\cdot \frac{2}{4} + \frac{2}{5}\cdot \frac{3}{4} = \frac{3}{5}\\
-E_d &=& 4\cdot \frac{3}{5}=\frac{12}{5}=2.4\,.
-\end{eqnarray*}
-
-\textbf{Simulation}
-\selectlanguage{english}
-\begin{verbatim}
-For  5 places:
-Expectation of different pairs = 2.4000
-Average different pairs        = 2.3855
-For 15 places:
-Expectation of different pairs = 7.4667
-Average different pairs        = 7.4566
-For 27 places:
-Expectation of different pairs = 13.4815
-Average different pairs        = 13.4835
-For 49 places:
-Expectation of different pairs = 24.4898
-Average different pairs        = 24.4725
-\end{verbatim}
-\selectlanguage{hebrew}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{prob}{האם השני בדירוג יזכה המקום שני?}{S}{Will the second-best be runner-up?}
-לשמונה שחקים בתחרות 
-$\{a_1,\ldots,a_8\}$
-נקבעים משחקים 
-$\{g_1,\ldots,g_8\}$
-בצורה אקראית כך ששחקן
-$a_{k_{i}}$
-משחק את המשחק הראשון שלו במקום
-$g_{k_{i}}$ (\R{איור}~\ref{f.tournament}).
-השחקנים מדורגים כך שהטוב ביותר הוא 
-$a_1$
-והגרוע ביותר הוא 
-$a_8$.
-השחקן הטוב יותר לעולם ינצח שחקן פחות. ברור ששחקן
-$a_1$
-ינצח בתחרות.
-
-\que{1}
-מה ההסתברות שהשחקן
-$a_2$
-יזכה במקום השני כאשר הוא משחק נגד 
-$a_1$
-בגמר ומפסיד?
-
-\que{2}
-עבור
-$2^n$
-שחקנים, מה ההסתברות שהשחקן
-$a_2$
-יזכה במקום השני כאשר הוא משחק נגד 
-$a_1$
-בגמר ומפסיד?
-\end{prob}
-\begin{figure}[tb]
-\begin{center}
-\begin{tikzpicture}[scale=.75]
-\foreach \n in {1,2,3,4,5,6,7,8}
-  \node (\n) at (0,\n*10mm) {$g_{\n}$};
-\foreach \n in {1,2,3,4}
-  \node[inner sep=-4pt] (r\n) at (30mm,-5mm+\n*20mm) {};
-\foreach \n/\r in {1/1,2/1,3/2,4/2,5/3,6/3,7/4,8/4}
-  \draw (\n) --
-     node[fill=white] {$a_{k_{\n}}$} +(20mm,0) -- (r\r);
-\foreach \n/\v in {1/25mm,2/65mm}
-  \node[inner sep=-5pt] (rr\n) at (60mm,\v) {};
-\foreach \n/\r in {1/1,2/1,3/2,4/2}
-  \draw ($(r\n)+(-1pt,0)$) -- +(20mm,0) -- (rr\r);
-\node[inner sep=-5pt] (rrr) at (90mm,45mm) {};
-\foreach \n/\r in {1,2}
-  \draw ($(rr\n)+(-1pt,0)$) -- +(20mm,0) -- (rrr); 
-\draw ($(rrr)+(-1pt,0)$) -- +(20mm,0);
-\node at (22mm,88mm) {\textrm{גמר רבע}};
-\node at (52mm,88mm) {\textrm{גמר חצי}};
-\node at (82mm,88mm) {\textrm{גמר}};
-\end{tikzpicture}
-\end{center}
-\caption{טבלת משחקים לתחרות}\label{f.tournament}
-\end{figure}
-\solution{}
-
-\ans{1}
-אם 
-$a_1$
-משחק באחד משחקים
-$\{g_1,g_2,g_3,g_4\}$
-אף שחקן המשחקים במשחקים הללו לא יגיע לגמר, לכן 
-$a_2$
-חייב לשחק באחד מהשחקים
-$\{g_5,g_6,g_7,g_8\}$.
-המסקנה המתבקש היא שההסתרות ש-%
-$a_2$
-יזכה במקום השני היא
-$1/2$
-כי הוא חייב לשחק באחד מארבעת המשחקים
-$\{g_1,g_2,g_3,g_4\}$.
-אולם, 
-$a_2$
-חייב לשחק באחד מארבעה המשחקים מתוך שבעת המשחקים ש-%
-$a_1$
-לא משחק בו וההסתברות היא
-$4/7$.
-
-\ans{2}
-באופן דומה, מתוך
-$2^n-1$
-המשחקים בהם 
-$a_1$
-לא משחק, 
-$a_2$
-חייב לשחק באחד מ-%
-$2^{n-1}$
-המשחקים במחצית הטבלה שלא כוללת את
-$a_1$.
-מכאן:
+אם כדור אדום נשלף ראשונה אזי 
+$\frac{4}{9}>\frac{1}{4}$
+ו-%
+$\frac{2}{9}<\frac{1}{4}$
+עם החזרה, לעומת
+$\frac{1}{3}>\frac{1}{4}$
+ו-%
+$\frac{1}{3}>\frac{1}{4}$
+ללא החזרה, לכן הכדור השני יכול לעזור בזיהוי הכד רק אם השליפה נעשית 
+\textbf{עם}
+החזרה: אם אדום כד
+$A$
+ואם ירוק כד
+$B$.
+נבחר שליפה עם החזרה:
 \[
-P(\textrm{בגמר השני נגד אחד משחקים} \; a_1,a_2)=\frac{2^{n-1}}{2^n-1}\,.
+P(\textrm{ראשון אדום אם ניצחון})=\frac{1}{2}\left(\frac{4}{9}+\frac{1}{4}\right)=\frac{25}{72}\,.
 \]
+אם כדור ירוק נשלף ראשון אזי
+$\frac{2}{9}<\frac{1}{4}$
+ו-%
+$\frac{1}{9}<\frac{1}{4}$
+עם החזרה, לעומת
+$\frac{1}{3}>\frac{1}{4}$
+ו-%
+$0<\frac{1}{4}$
+ללא החזרה, לכן הכדור השני יכול לעזור בזיהוי הכד רק אם השליפה נעשית 
+\textbf{בלי}
+החזרה:
+\[
+P(\textrm{ראשון ירוק אם ניצחון})=\frac{1}{2}\left(\frac{1}{3}+\frac{1}{4}\right)=\frac{7}{24}\,.
+\]
+ההסתברות לניצחון היא:
+\[
+P(\textrm{ניצחון})=\frac{25}{72} + \frac{7}{24}=\frac{23}{36}\approx 0.6389\,.
+\]
+ההסתברות הגבוהה ביותר לניצחון מתקבלת כאשר ההחלטה לשלוף עם או בלי החזרה מתקבלת בהתאם לתוצאה של השליפה הראשונה.
 
 \textbf{סימולציה}
 \selectlanguage{english}
 \begin{verbatim}
-For   8 players:
-Probability a2 is runner-up                = 0.5714
-Proportion of games where a2 is runner-up  = 0.5707
-For  32 players:
-Probability a2 is runner-up                = 0.5161
-Proportion of games where a2 is runner-up  = 0.5184
-For 128 players:
-Probability a2 is runner-up                = 0.5039
-Proportion of games where a2 is runner-up  = 0.5060
+With replacement:
+Expectation of winning = 0.5972
+Average wins           = 0.5976
+Without replacement:
+Expectation of winning = 0.6250
+Average wins           = 0.6207
+Decide after first draw:
+Expectation of winning = 0.6389
+Average wins           = 0.6379
 \end{verbatim}
 \selectlanguage{hebrew}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{זוג אבירים}{D,S}{Twin knights}
 
-לשמונה שחקים בתחרות 
-$\{a_1,\ldots,a_8\}$
-נקבעים משחקים 
-$\{g_1,\ldots,g_8\}$
-בצורה אקראית כך ששחקן
-$a_{k_{i}}$
-משחק את המשחק הראשון שלו במקום
-$g_{k_{i}}$ (\R{איור}~\ref{f.tournament}).
-לכל
-$i,j$, 
-ההסתברות ש-%
-$a_i$
-מנצחת במשחק נגד 
-$a_j$
-היא 
-$1/2$
-כמו גם ההסתברות ש-%
-$a_j$
-מנצחת את
-$a_i$.
+\begin{prob}{הקלפי}{}{(The ballot box)}
+
+שני מועמדים
+$A$
+ו-%
+$B$
+מתמודדים בבחירות. 
+$A$
+קיבל
+$a$
+קולות ו-%
+$B$
+קיבל
+$b$
+קולות,
+$a>b$.
+הקולות נספרים אחד-אחד וסכומי הביניים
+$(a_i,b_i), 1\leq i \leq a+b$
+מתעדכנים לאחר ספירת כל קול. מה ההסתברות שעבור לפחות
+$i$
+אחד,
+$a_i=b_i$?
 
 \que{1} 
-מה ההסתברות שהשחקנים
-$a_1,a_2$
-משחקים משחק אחת נגד השנייה.
-
-\que{2}
+פתור עבור
+$a=3, b=2$
+על ידי הכנת רשימה
+$(a_i,b_i)$
 עבור
-$2^n$ 
-שחקנים, מה ההסתברות שהשחקנים
-$a_1,a_2$
-משחקים משחק אחת נגד השנייה.
+$1\leq i\leq 5$.
+
+\que{2} 
+פתור לכל
+$a>b$.
+
+\textbf{רמז 1:} 
+מה ניתן להגיד על זהות המועמד המוביל עד לתיקו 
+\textbf{הראשון}?
+
+\textbf{Hint 2:}
+מה החשיבות של הקול הראשון שנספר.
 \end{prob}
-\solution{}
 
-\ans{1} 
-ללא הגבלת הכלליות נקבע ש-%
-$a_1$
-משחקת במשחק
-$g_1$.
-מה האפשרויות בהן 
-$a_1,a_2$
-ישחקו אחת נגד השנייה. בהסתברות 
-$1/7$
-נקבע ש-%
-$a_2$
-משחקת במשחק
-$g_2$.
-בהסתברות
-$2/7$
-נקבע ש-%
-$a_2$
-משחקת במשחק 
-$g_3$
-או
-$g_4$,
-אבל היא לא משחקת נגד 
-$a_1$
-אלא אם
-\textbf{שתיהן}
-מנצחות במשחק הראשון שלהן, כך שיש להכפיל את ההסתברות ב-%
-$1/4$.
-בהסתברות
-$4/7$
-נקבע ש-%
-$a_2$
-משחקת במשחק
-$g_5,g_6,g_7,g_8$, 
-אבל היא לא משחקת נגד 
-$a_1$
-\textbf{שתיהן}
-מנצחות בשני המשחקים שלהן, כך שיש להכפיל את ההסתברות ב-%
-$1/16$.
-מכאן:
-\[
-P(a_1, a_2\;\textrm{play each other})=\frac{1}{7} + \frac{1}{4}\cdot \frac{2}{7} + \frac{1}{16}\cdot \frac{4}{7} =\frac{1}{4}\,.
-\]
-
-\ans{2}
-תהי 
-$P_n$
-ההסתברות שבתחרות עם 
-$2^n$
-שחקנים,
-$a_1$
-ו-%
-$a_2$
-משחקות אחת נגד השנייה. ראינו ש-%
-$P_3=1/4$.
-מה עם
-$P_4$?
-באותה שיטה:
-\begin{eqnarray*}
-P_4 &=& \frac{1}{15} + \frac{1}{4}\cdot \frac{2}{15}  + \frac{1}{16}\cdot \frac{4}{15}  + \frac{1}{64}\cdot \frac{8}{15} \\
-&=&\frac{1}{15}\left(1+\frac{1}{2}+\frac{1}{4}+\frac{1}{8}\right)=\frac{1}{8}\,.
-\end{eqnarray*}
-השערה סבירה היא ש-%
-$P_n=1/2^{n-1}$.
-
-\textbf{Proof 1:}
-באותה שיטה תוך שימוש בנוסחה לסכום של סדרה הנדסית:
-\begin{eqnarray*}
-P_n&=&\frac{1}{2^n-1}\sum_{i=0}^{n-1}2^i\cdot \left(\frac{1}{2}\right)^{2i}\\
-&=&\frac{1}{2^n-1}\sum_{i=0}^{n-1}2^{-i}\\
-&=&\frac{1}{2^n-1}
-  \left(
-    \frac{1-\left(\frac{1}{2}\right)^{(n-1)+1}}
-         {1-\frac{1}{2}}
-  \right)=\frac{1}{2^{n-1}}\,.
-\end{eqnarray*}
-
-\textbf{Proof 2:}
-באינדוקציה. טענת הבסיס היא:
-$P_3=1/4=1/2^{3-1}$.
-
-יש שני צעדי אינדוקציה:
-
-\textbf{מקרה 1:} 
-נקבע ש-%
-$a_1$
-ו-%
-$a_2$
-משחקות בחצאים שונים של התחרות:
-\[
-P(\textrm{שונים בחצאים משחקות}\;a_1,a_2)=\frac{2^{n-1}}{2^n-1}\,.
-\]
-הן יכולות להיפגש רק במשחק הגמר ולכן כל אחת חייבת לנצח בכל 
-$n-1$
-המשחקים שלהן:
-\begin{equation}\label{eq.17a}
-P(\textrm{שונים בחצאים משחקות אם נפגשות}\; a_1,a_2)=\frac{2^{n-1}}{2^n-1} \left(\frac{1}{2}\right)^{n-1} \left(\frac{1}{2}\right)^{n-1}=\frac{2^{-(n-1)}}{2^n-1}\,.
-\end{equation}
-\textbf{מקרה 2:}
-נקבע ש-%
-$a_1$
-ו-%
-$a_2$
-משחקות באותו חצי תחרות:
-\[
-P(a_1,a_2\;\textrm{שונים בחצאים משחקות})=\frac{2^{n-1}-1}{2^n-1}\,.
-\]
-שתי השחקניות משחקות באותו חצי ולכן הבעיה היא למצוא
-$P_{n-1}$.
-לפי הנחת האינדוקציה:
-\begin{equation}\label{eq.17b}
-P(\textrm{חצי באותו משחקות אם נפגשות}\; a_1,a_2)=\frac{2^{n-1}-1}{2^n-1}\cdot \frac{1}{2^{n-2}}=\frac{2^{1}-2^{-(n-2)}}{2^n-1}\,.
-\end{equation}
-ממשוואות%
-~\ref{eq.17a}, \ref{eq.17b}
-נקבל:
-\[
-\renewcommand*{\arraystretch}{2.2}
-\begin{array}{rcl}
-P_n&=&\disfrac{2^{-(n-1)}}{2^n-1}+\disfrac{2^{1}-2^{-(n-2)}}{2^n-1}\\
-&=&\disfrac{2^{n-1}}
-        {2^{n-1}}\cdot 
-   \disfrac{2^{-(n-1)}+2^{1}-2^{-(n-2)}}
-        {2^n-1}\\
-&=&\disfrac{1}
-        {2^{n-1}}\cdot 
-   \disfrac{2^0+2^n-2^1}
-        {2^n-1}=\disfrac{1}{2^{n-1}}\,.
-\end{array}
-\]
-
-\textbf{סימולציה}
-\selectlanguage{english}
-\begin{verbatim}
-For   8 players:
-Probability that a1, a2 meet = 0.2500
-Proportion a1, a2 meet       = 0.2475
-For  32 players:
-Probability that a1, a2 meet = 0.0625
-Proportion a1, a2 meet       = 0.0644
-For 128 players:
-Probability that a1, a2 meet = 0.0156
-Proportion a1, a2 meet       = 0.0137
-\end{verbatim}
-\selectlanguage{hebrew}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{prob}{תוצאה שווה בהטלת מטבע}{S}{An even split at coin tossing}
-\que{1}
-אם אתה זורק מטבע הגון 
-$20$
-פעמים, מה ההסתברות לקבל "עץ" בדיוק 
-$10$
-פעמים?
-
-\que{2}
-אם אתה זורק מטבע הגון 
-$40$
-פעמים, מה ההסתברות לקבל "עץ" בדיוק 
-$20$
-פעמים?
-\end{prob}
 \solution{}
 
 \ans{1}
-המטבע הוגן ולכן ההסתברות מתקבלת מהמקדם הבינומי:
+מספר הדרכים לסדר את סכומי הביניים הוא
+${5\choose 2}={5\choose 3}=10$ 
+כי המיקום הקולות עבור מועמד אחד קובע את מיקום הקולות של המועמד השני. בטבלה שלהלן רשומים הסידורים האפשריים של הקולות וסכומי הביניים כאשר התיקו הראשון מודגש:
+\begin{center}
+\begin{minipage}{.48\textwidth}
 \[
-P(\textrm{הטלות}\; 20\textrm{ב- "עץ"}\;10)=
-{20 \choose 10} \left(\frac{1}{2}\right)^{10}\left(\frac{1}{2}\right)^{10}\approx 0.1762\,.
+\begin{array}{ccccc}
+A & A & A & B & B\\
+A & A & B & A & B\\
+A & B & A & A & B\\
+B & A & A & A & B\\%\hline
+A & A & B & B & A\\
+A & B & A & B & A\\
+B & A & A & B & A\\%\hline
+A & B & B & A & A\\
+B & A & B & A & A\\%\hline
+B & B & A & A & A
+\end{array}
+\]
+\end{minipage}
+\hspace{-4em}
+\begin{minipage}{.48\textwidth}
+\[
+\begin{array}{rrrrr}
+%(4,5)&
+(1,0) & (2,0) & (3,0) & (3,1) & (3,2)\\
+%(3,5)&
+(1,0) & (2,0) & (2,1) & (3,1) & (3,2)\\
+%(2,5)&
+(1,0) & \mathbf{(1,1)} & (2,1) & (3,1) & (3,2)\\
+%(1,5)&
+(0,1) & \mathbf{(1,1)} & (2,1) & (3,1) & (3,2)\\%\hline
+%(3,4)&
+(1,0) & (2,0) & (2,1) & \mathbf{(2,2)} & (3,2)\\
+%(2,4)&
+(1,0) & \mathbf{(1,1)} & (2,1) & (2,2) & (3,2)\\
+%(1,4)&
+(0,1) & \mathbf{(1,1)} & (2,1) & (2,2) & (3,2)\\%\hline
+%(2,3)&
+(1,0) & \mathbf{(1,1)} & (1,2) & (2,2) & (3,2)\\
+%(1,3)&
+(0,1) & \mathbf{(1,1)} & (1,2) & (2,2) & (3,2)\\%\hline
+%(1,2)&
+(0,1) & (0,2) & (1,2) &  \mathbf{(2,2)} & (3,2)
+\end{array}
+\]
+\end{minipage}
+\end{center}
+קיימים מצבי תיקו בכל הסידורים פרט לשני הראשונים ולכן:
+\[
+P(\textrm{קולות}\;(3,2)\;\textrm{עם תיקו קיים})=\disfrac{8}{10}=\disfrac{4}{5}\,.
 \]
 
 \ans{2} 
-אפשר לשער שהתוצאה תהיה זהה לשאלה הקודמת אבל:
+נתחיל עם דיון איך לגשת לפתרון של השאלה השנייה. הנה מספר סידורים עבור 
+$(a,b)=(3,2)$
+עד לקבלת
+\textbf{התיקו הראשון}:
 \[
-P(\textrm{הטלות}\;40\textrm{ב- "עץ"}\;20)=
-{40 \choose 20} \left(\frac{1}{2}\right)^{20}\left(\frac{1}{2}\right)^{20}\approx 0.1254\,.
+\begin{array}{rrrrr|rrrrr}
+\multicolumn{5}{c|}{\textrm{תיקו עד מוביל}\;A} &
+\multicolumn{5}{c}{\textrm{תיקו עד מוביל}\;B}\\\hline
+A & B &&& &B & A & & &\\
+A & A & B & B && B & B & A & A&\\
+\end{array}
 \]
-לפי חוק המספרים הגדולים מספר "עץ" ומספר "לפי" יהיו "בערך" שווים
-\L{\cite[Section~8.4]{ross}},
-אבל הסיכוי נמוך מאוד שיהיו שווים בדיוק, והסיכוי לאירוע זה הופך להיות קטן יותר ככל שמספר ההטלות גדל.
+לכל סידור בו 
+$A$
+מוביל עד לתיקו הראשון, קיים סידור שהוא תמונת ראי בו 
+$B$
+מוביל עד לקבלת התיקו הראשון. השיקוף מתקבל על ידי החלפת כל 
+$A$
+ב-%
+$B$
+ולהפך. לפני התיקו הראשון אחד מהמועמדים חייב להוביל. אם הקול הראשון שנספר הוא עבור 
+$B$
+חייב להיות תיקו בהמשך הספירה כי
+$a>b$.
+
+ההסתברות שהקול הראשון היא עבור 
+$B$
+היא:
+\[
+P(B\;\textrm{עבור ראשון קול})=\frac{b}{a+b}\,.
+\]
+על ידי שיקוף המיקומים של הקולות, מספר הסידורים שמובילים לתיקו שמתחילים בקול עבור
+$A$
+שווה למספר הסידורים שמובילים לתיקו שמתחילים בקול עבור
+$B$. 
+לכן:
+\[
+P(\textrm{תיקו קיים })=2\cdot\frac{b}{a+b}\,.
+\]
+בדיקה:
+\[
+P(\textrm{קולות}\;(3,2)\;\textrm{עם תיקו קיים})=2\cdot\frac{2}{2+3}=\frac{4}{5}\,.
+\]
 
 \textbf{סימולציה}
 \selectlanguage{english}
 \begin{verbatim}
-Probability of 10 heads for  20 tosses = 0.1762
-Proportion  of 10 heads for  20 tosses = 0.1790
-Probability of 20 heads for  40 tosses = 0.1254
-Proportion  of 20 heads for  40 tosses = 0.1212
-Probability of 50 heads for 100 tosses = 0.0796
-Proportion  of 50 heads for 100 tosses = 0.0785
+For a =  3, b =  2:
+Probability of a tie = 0.8000
+Proportion of ties   = 0.8118
+For a = 10, b =  8:
+Probability of a tie = 0.8889
+Proportion of ties   = 0.8977
+For a = 20, b = 18:
+Probability of a tie = 0.9474
+Proportion of ties   = 0.9354
 \end{verbatim}
 \selectlanguage{hebrew}
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{prob}{\L{\small Isaac Newton} עוזר ל-\L{\small Samuel Pepys}}{S}{Isaac Newton helps Samuel Pepys}
-\que{1} 
-מה ההסתברות לקבל
-\textbf{לפחות}
-$6$
-\textbf{אחד}
-כאשר מטילים 
-$6$
-קוביות.
+\begin{prob}{תיקו בהשוואת מטבעות}{D}{(Ties in matching pennies)}
+
+הטל זוג מטבעות הוגנות
+$N$
+פעמים עבור
+$N$
+זוג, ורשום את מספר הפעמים שהזוגיות היא זוגי (עץ-עץ או פלי-פלי) ומספר ההפעמים שהזוגיות היא אי-זוגי (עץ-פלי או פלי-עץ). מה ההסתברות לקבל תיקו (לא כולל התיקו 
+$0-0$
+בהתחלה)?
+
+\que{1}
+פתור עבור 
+$N=4$
+על ידי רישום כל התוצאות האפשריות.
 
 \que{2} 
-מה ההסתברות לקבל
-\textbf{לפחות שני}
-$6$
-כאשר מטילים 
-$12$
-קוביות.
+פתור עבור
+$N=6$
+על ידי פיתוח נוסחה להסתברות.
 
 \que{3}
-פתח נוסחה להסתברות לקבל לפחות
-$n$ $6$
-כאשר מטילים 
-$6n$
-קוביות.
+הסבר מדוע ההסתברות למספר אי-זוגי
+$N+1$
+שווה להסתברות של המספר הזוגי
+$N$.
+
+\textbf{רמז:}
+השתמש בפתרון לבעיה~22.
 \end{prob}
+
 \solution{}
 
 \ans{1} 
-ההסתברות היא המשלים להסתברות לקבל אפס 
-$6$
-ב-%
-$6$
-הטלות, שהיא המכפלה של לקבל מספר שונה מ-%
-$6$
-בכל ההטלות:
-\[
-P(\textrm{אחד} \; 6\; \textrm{לפחות})=1-\left(\frac{5}{6}\right)^6\approx 0.6651\,.
-\]
-\ans{2}
-ההסתברות היא המשלים להסתברות לקבל אפס או אחד
-$6$
-ב-%
-$12$
-הטלות:
-\[
-P(6\; \textrm{לפחות שני})=1-\left(\frac{5}{6}\right)^{12}-{12\choose 1}\left(\frac{1}{6}\right)^{1}\left(\frac{5}{6}\right)^{11}\approx 0.6187\,.
-\]
-לאירוע זה הסתברות קטנה יותר מהאירוע הקודם.
+נסמן את ההטלות עם זוגיות זוגי ב-%
+$E$
+וההטלות עם זוגיות אי-זוגי ב-%
+$O$.
+בעשרה מתוך ששה עשר סידורי ההטלות יש תיקו (מודגש):
+\begin{center}
+\begin{tabular}{llllllll}
+EEEE & EEEO & EEOE & \textbf{EEOO} & \textbf{EOEE} & \textbf{EOEO} &\textbf{EOOE} & \textbf{EOOO}\\
+\textbf{OEEE} & \textbf{OEEO} & \textbf{OEOE} & \textbf{OEOO} & \textbf{OOEE} & OOEO&OOOE & OOOO
+\end{tabular}
+\end{center}
 
-\ans{3} 
-ההסתברות היא המשלים להסתברות לקבל פחות מ-%
-$n$ $6$
-ב-%
-$6n$
-הטלות:
-\begin{eqnarray*}
-P(6\; n\;\textrm{לפחות})&=&
-  1-{6n \choose 0}\left(\frac{1}{6}\right)^0\left(\frac{5}{6}\right)^{6n-0}-
-  {6n\choose 1}\left(\frac{1}{6}\right)^{1}\left(\frac{5}{6}\right)^{6n-1}-\cdots\\
-&=&1-\sum_{i=0}^{n-1}{6n\choose i}\left(\frac{1}{6}\right)^{i}\left(\frac{5}{6}\right)^{6n-i}\,.
-\end{eqnarray*}
+\ans{2}
+לפי בעיה~22:
+\begin{equation}\label{eq.coins-ties}
+P(i\;\textrm{בהטלה תיקו})=
+\left\{
+\begin{array}{ll}
+2i/N & i\leq N/2\;\textrm{אם}\\
+2(N-i)/N&i\geq N/2\;\textrm{אם}\,,
+\end{array}
+\right.
+\end{equation}
+כי בבעיית הקלפי הראנו שהערך הנמוך יותר קובע את ההסתברות.
+
+ההסתברות ל-%
+$i$
+זוגיים ניתן על ידי ההתפלגות הבינומית:
+\begin{equation}\label{eq.coins00}
+P(i\;\textrm{זוגיים})=\dischoose{N}{i} \left(\disfrac{1}{2}\right)^i \left(\disfrac{1}{2}\right)^{N-i}=\dischoose{N}{i} \left(\disfrac{1}{2}\right)^N =  2^{-N}\dischoose{N}{i}\,.
+\end{equation}
+ההסתברות לתיקו היא הסכום מעל 
+$i$
+של ההסתברות לקבל 
+$i$
+זוגיים כפול ההסתברות לתיקו בהטלה ה-%
+$i$
+(משוואה%
+~\ref{eq.coins-ties}).
+עבור
+$N=6$
+ותוך שימוש ב-%
+${N \choose i}={N\choose N-i}$:
+\begin{eqn}
+P(\textrm{תיקו})&=&\disfrac{2\cdot 2^{-6}}{6}\sum_{i=0}^{6}i\dischoose{i}{6}\\
+%
+&=&\disfrac{1}{192}\left(
+0\cdot \dischoose{6}{0}+
+1\cdot \dischoose{6}{1}+
+2\cdot \dischoose{6}{2}+
+3\cdot \dischoose{6}{3}+
+4\cdot \dischoose{6}{2}+
+5\cdot \dischoose{6}{1}+
+6\cdot \dischoose{6}{0}
+\right)\\
+%
+&=&\disfrac{1}{192}\left(
+2\cdot \dischoose{6}{1}+
+4\cdot \dischoose{6}{2}+
+3\cdot \dischoose{6}{3}
+\right)\\
+&=&\disfrac{132}{192}\approx 0.6875\,.
+\end{eqn}%
+
+\ans{3}
+התיקו הראשון בהטלה ה-%
+$N+1$
+מתרחש רק עם הספירה כמעט זהות לאחר ההטלה ה-%
+$N$:
+\[
+\begin{array}{l}
+((N/2)-1,(N/2)+1)\\((N/2),(N/2))\\((N/2)+1,(N/2)-1)
+\end{array}
+\]
+אבל ללא תלות התוצאת ההטלה הסופית הערכים לא יהיו שווים.
 
 \textbf{סימולציה}
 \selectlanguage{english}
 \begin{verbatim}
-For   6 dice to throw  1 sixes:
-Probability = 0.6651
-Proportion  = 0.6566
-For  12 dice to throw  2 sixes:
-Probability = 0.6187
-Proportion  = 0.6220
-For  18 dice to throw  3 sixes:
-Probability = 0.5973
-Proportion  = 0.5949
-For  96 dice to throw 16 sixes:
-Probability = 0.5424
-Proportion  = 0.5425
-For 360 dice to throw 60 sixes:
-Probability = 0.5219
-Proportion  = 0.5250
+For  4 tosses:
+Probability of ties = 0.6250
+Proportion of ties  = 0.6192
+For  6 tosses:
+Probability of ties = 0.6875
+Proportion of ties  = 0.6900
+For  7 tosses:
+Probability of ties = 0.6875
+Proportion of ties  = 0.6811
+For 10 tosses:
+Probability of ties = 0.7539
+Proportion of ties  = 0.7559
+For 20 tosses:
+Probability of ties = 0.8238
+Proportion of ties  = 0.8255
 \end{verbatim}
 \selectlanguage{hebrew}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\refstepcounter{problem} % 24. The unfair subway
 
-\begin{prob}{דו-קרב משולש}{S}{(The three-cornered duel)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-$A,B,C$
-מנהלות סדרה של קרבות בזוגות. לכל אחת הסתברות קבועה לנצח ללא קשר לזהות היריבה:
-\[
-P(A)=0.3,\quad P(B)=1, \quad P(C)=0.5\,.
-\]
-מי שנפגעת לא ממשיכה להשתתף בקרבות. יורים את היריות בסדר קבוע 
-$A,B,C$.
-אם שתי יריבות עדיין עומדות, היורה יכולה להחליט למי היא יורה. אפשר להניח שכל אחת מקבלת החלטה מיבטיבית נגד מי לירות.
+
+
+\begin{prob}{אורכים של מיתרים אקראיים}{}{(Lengths of random chords)}
+
+בחר מיתר אקראי במעגל היחידה. מה ההסתברות שאורכו של המיתר גדול מ-%
+$1$?
+
+כדי לפתור את הבעיה עליך להחליט איך לבחור מיתר אקראי. פתור את הבעיה עבור מהאפשרויות שלהלן:
 
 \que{1} 
-מה האסטרטגיה המיטבית של
-$A$?
+התפלגות אחידה של מרחק המיתר מהמרכז המעגל.
 
 \que{2}
-נניח ש-%
+התפלגות אחידה של הנקודה האמצעית של המיתר בתוך המעגל.
+
+\que{3}
+התפלגות נקודות הקצה של המיתר על היקף המעגל.
+\end{prob}
+
+\solution{}
+
+\ans{1}
+מיתר ארוך יותר מהרדיוס אם הוא קרוב יותר למרכז ממיתר באורך 
+$1$.
+יהי 
+$\overline{AB}$
+מיתר באורך 
+$1$
+ובנה גובה
+$h=\overline{OH}$
+מהמרכז 
+$O$
+אל המיתר (%
+\ref{f.chord1}). 
+בגלל ש-%
+$\triangle AOB$
+שווה-צלעות
+$\triangle OHB$ 
+הוא משולש ישר-זווית:
+\[
+h = \sin \frac{\pi}{3} = \frac{\sqrt{3}}{2}\,.
+\]
+יהי
+$d$
+המרחק של המיתר 
+$\overline{DE}$
+מהמרכז. לפי ההנחה ההתפלגות של
+$d$
+אחידה ב-%
+$(0,1)$
+ולכן:
+\[
+P(\overline{DE}>1)=P(d<h)=\disfrac{h}{1}=\frac{\sqrt{3}}{2} \approx 0.8660\,.
+\]
+
+\begin{figure}[tb]
+\centering
+\selectlanguage{hebrew}
+\subcaptionbox{%
+מרחק של מיתר מהמרכז בהתפלגות אחידה ב-%
+$(0,1)$%
+\label{f.chord1}}
+[.45\textwidth]
+{
+\centering
+\begin{tikzpicture}[scale=.8]
+\coordinate (O) at (0,0) node[below] {$O$};
+\node (hexagon) [minimum size=6cm,regular polygon,
+                 regular polygon sides=6] at (O) {};
+\node[name path=circle,draw,thick,circle through=(hexagon.corner 1)] at (O) {};
+\draw[thick,dashed] (hexagon.corner 2) -- 
+  node[left] {$\scriptstyle 1$} (O) --
+  node[right] {$\scriptstyle 1$} (hexagon.corner 1) -- cycle;
+\node[above left] at (hexagon.corner 2) {$A$};
+\node[above right] at (hexagon.corner 1) {$B$};
+\coordinate (H) at (O |- hexagon.corner 1);
+\node[above,yshift=14pt] at (H) {$H$};
+\draw[<-] ($(H)+(0pt,1pt)$) -- +(0pt,+20pt);
+\draw[thick] (O) -- 
+  node[right,xshift=-2pt,yshift=6pt] {$\scriptstyle h$} 
+  node[left,xshift=2pt,yshift=-5pt] {$\scriptstyle d$}
+  (H);
+\draw[rotate=-90] (H) rectangle +(6pt,6pt);
+\node[below left,xshift=-3pt,yshift=1pt] at 
+  (hexagon.corner 1) {$\scriptstyle \pi/3$};
+\path (hexagon.corner 2) -- 
+  (H) -- (hexagon.corner 1);
+\node[xshift=15mm,yshift=-8mm]  at (hexagon.corner 4)
+  {};
+\path[name path=chord] (-3.5,2) -- +(7,0);
+\path [name intersections={of=circle and chord,by={E,D}}];
+\draw (D) node[above left] {$D$} -- (E) node[above right] {$E$};
+\end{tikzpicture}
+}
+\hspace{3em}
+\subcaptionbox{%
+נקודת האמצע של מיתר בהתפלגות אחידה במעגל ונקודות הקצה של המיתר בהתפלגות אחידה בהיקף%
+\label{f.chord2}}
+[.45\textwidth]
+{
+\centering
+\begin{tikzpicture}[scale=.8]
+\coordinate (O) at (0,0) node[right] {$O$};
+\node (hexagon) [minimum size=6cm,regular polygon,
+                 regular polygon sides=6] at (O) {};
+\node[draw,thick,name path=circle,
+      circle through=(hexagon.corner 1)] at (O) {};
+\draw[thick,dashed] (hexagon.corner 3) -- 
+  node[above] {$\scriptstyle 1$} (O) --
+  node[right] {$\scriptstyle 1$} (hexagon.corner 4) -- cycle;
+\coordinate (H) at ($(hexagon.corner 3)!.5!(hexagon.corner 4)$);
+\node[left,yshift=-25pt] at (H) {$H$};
+\draw[<-] ($(H)+(-1pt,-1pt)$) -- +(-8pt,-23pt);
+\draw[thick] (O) -- 
+  node[above,near end] {$\scriptstyle h$} (H);
+\draw[rotate=-60] (H) rectangle +(6pt,6pt);
+\node[draw,thick,dashed,circle through=(H)] at (O) {};
+\node[left]        at (hexagon.corner 3) {$F$};
+\node[below left]  at (hexagon.corner 4) {$E$};
+\node[xshift=-14mm,yshift=10mm]  at (hexagon.corner 4)
+  {$\frac{\pi}{3}$};
+\node[xshift=15mm,yshift=-8mm]  at (hexagon.corner 4)
+  {$\frac{\pi}{3}$};
+\node[below right] at (hexagon.corner 5) {$D$};
+\draw[thick]  (hexagon.corner 3) -- (hexagon.corner 4) --
+     node[below,yshift=1pt] {$\scriptstyle 1$}
+     (hexagon.corner 5);
+\node[draw,thick,name path=circle,
+      circle through=(hexagon.corner 1)] at (O) {};
+\path[name path=chord] (hexagon.corner 4) -- +(15:5);
+\path [name intersections={of=circle and chord,by={K,L}}];
+\node[left] at (L) {$G$};
+\draw[ultra thick,dotted] (hexagon.corner 4) -- (L);
+\coordinate (center) at ($(hexagon.corner 4)!.5!(L)$);
+\fill (center) circle (2pt);
+\end{tikzpicture}
+}
+\end{figure}
+
+\ans{2}
+בנה מעגל עם מרכז
+$O$
+ורדיוס 
+$h$
+כאשר 
+$h$
+הוא אורכו של גובה לגובה למיתר באורך 
+$1$.
+משיק לכל נקודה על המעגל יהיה מיתר
+$\overline{FE}$
+שאורכו 
+$1$.
+אורכו של כל מיתר
+$\overline{EG}$
+שנקודת האמצע שלו נמצאת בתוך המעגל יהיה גדול מ-%
+$1$
+(\ref{f.chord2}),
+ולכן ההסתברות שאורכו של מיתר גדול מ-%
+$1$
+היא היחס בין השטחים של שני המעגלים:
+\[
+P(\overline{EG}>1)=\frac{\pi \cdot h^2}{\pi \cdot 1^2}=h^2=\frac{3}{4}\,.
+\]
+הסתברות זו היא הריבוע של ההסתברות שחישבנו בשאלה הקודמת.
+
+\ans{3}
+בנקודה שרירותית על ההיקף של מעגל היחידה (%
+$E$
+ב%
+\ref{f.chord2}).
+כל נקודה אחרת על ההיקף (כגון 
+$G$
+באיור) מגדירה מיתר שאורכו גדול מאחד אלא אם הנקודה שנבחרה נופל על הקשתות
+$\widehat{EF}$
+או
+$\widehat{ED}$.
+לכן ההסתברות היא היחס בין הקשת
+$\widehat{FD}$
+להיקף המעגל:
+\[
+P(\overline{EG}>1)=\frac{(2\pi-(2\pi/3))\cdot 1}{2\pi \cdot 1}=\frac{2}{3}\,.
+\]
+
+\textbf{סימולציה}
+הסימולציה היא עבור בחירת שתי נקודות על ההיקף.
+\selectlanguage{english}
+\begin{verbatim}
+Probability of long chords = 0.6667
+Proportion of long chords  = 0.6627
+\end{verbatim}
+\selectlanguage{hebrew}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{prob}{הממהרים לדו-קרב}{}{(The hurried duelers)}
+
 $A$
-יורה את היריה הראשונה באוויר. האם זו אסטרטגיה טובה יותר?
+ו-%
+$B$
+מגיעים לנקודת מפגש בזמן אקראי עם התלפגות אחידה בתוך פרק זמן של שעה. אם 
+$A$
+מגיע קודם ו-%
+$B$
+לא מגיע במשך 
+$5$
+דקות, 
+$A$
+עוזב. באופן דומה אם 
+$B$
+מגיע קודם ו-%
+$A$
+לא מגיע במשך 
+$5$
+דקות,
+$B$
+עוזב. מה ההסתברות שהם יפגשו?
+
+בפרק הזמן של שעה הזמן הוא
+\textbf{רציף}
+בתחום
+$[0,1]$,
+כלומר, אי-אפשר לספור מספר בדיד של דקות או שניות כדי לחשב הסתברויות. כן ניתן לחשב הסתברויות של פרקי זמן.
 
 \textbf{רמז:}
-חשב את ההסתברויות המותנות של 
+צייר גרף כאשר ציר ה-%
+$x$
+הוא זמן הגעתו של
 $A$
-לנצח בתלות בהחלטתה אל מי לירות קודם
+וציר ה-%
+$y$
+הוא זמן הגעתו של 
+$B$.
+\end{prob}
+
+\solution{}
+
+ללא הגבלת הכלליות הנח ש-%
+$A$
+מגיע קודם. אם 
+$A$
+מגיע ב-%
+$t_A=0$
+ואם 
 $B$
+מגיע לפני
+$t_B=5/60$
+הם נפגשים, אחרת הם לא נפגשים. מצב זה מוצג באיור%
+~\ref{f.duel}
+על ידי ריבוע קטן בראשית הצירים.
+\begin{figure}[tb]
+\begin{center}
+\begin{tikzpicture}
+\draw (0,0) -- node[below] {$t_A$} (6,0) -- (6,6) -- (0,6) -- node[left] {$t_B$} cycle;
+\node[below left]  at (0,0) {$0$};
+\node[below right] at (6,0) {$1$};
+\node[above left]  at (0,6) {$1$};
+\draw[fill=white!70!black]
+  (0,0) -- 
+  (.5,0) node[below] {$\frac{5}{60}$} -- 
+  (6,5.5) node[right] {$\frac{55}{60}$} --
+  (6,6) -- (5.5,6) node[above] {$\frac{55}{60}$} --
+  (0,.5) node[left] {$\frac{5}{60}$} -- cycle;
+\draw[very thick] (0,0) -- (.5,0) -- (.5,.5) -- (0,.5) -- cycle;
+\draw[very thick] (1.5,1.5) -- ++(.5,0) -- ++(0,.5) --
+  ++(-.5,0) -- cycle;
+\draw[very thick] (5.5,5.5) -- ++(.5,0) -- ++(0,.5) --
+  ++(-.5,0) -- cycle;
+\draw[very thick,dotted] (0,1.5) node[left] {$\frac{15}{60}$} --
+  (1.5,1.5) -- (1.5,0) node[below] {$\frac{15}{60}$};
+\end{tikzpicture}
+\end{center}
+\caption{זמנים המבטיחים מפגש בין $A$ ל-$B$}\label{f.duel}
+\end{figure}
+אם 
+$A$
+מגיע יותר מאוחר אזי גם
+$B$
+חייב להגיע באותו איחור. למשל, אם 
+$A$
+מגיע ב-%
+$t_A=15$,
+$B$
+חייב להגיע בין
+$t_B=15$
+ו-%
+$t_B=20$.
+לכן הפגישה תתקיים בריבוע המתקבל על ידי הזזת הריבוע ב-%
+$15$
+מ-%
+$(0,0)$
+ל-%
+$(15/60,15/60)$.
+
+ההסתברות לפגישה היא היחס בין השטח האפור בגרף לשטחו של הריבוע הגדול. קל יותר לחשב את המשלים שהוא היחס בין שטח המשולשים הלבנים לשטחו של הריבוע הגדול:
+\begin{eqn}
+P(\textrm{נפגשים}\;A,B) &=& 1- P(\textrm{נפגשים לא}\;A,B)\\
+&=&1- 2\cdot \left(\frac{1}{2}\cdot \frac{55}{60}\cdot \frac{55}{60}\right)=\frac{23}{144}\approx 0.1597\,.
+\end{eqn}
+
+\textbf{סימולציה}
+\selectlanguage{english}
+\begin{verbatim}
+Probability of meeting   = 0.1597
+Proportion of meetings   = 0.1549
+\end{verbatim}
+\selectlanguage{hebrew}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{prob}{לתפוס את הזייפן הזהיר}{}{(Catching the cautious counterfeiter)}
+
+נתון 
+$n$
+קופסאות ובכל אחת 
+$n$
+מטבעות כאשר מטבע אחד בכל קופסה מזויף. שלוף מטבע אחת מכל קופסה ובדוק אם היא מזויפת או אמיתית. מה ההסתברות שכל המטבעות שנשלפות מזויפות?
+
+\que{1} 
+פתור עבור
+$n=10$.
+
+\que{2} 
+פתור עבור 
+$n=100$.
+
+\que{3}
+פתח נוסחה עבור ההסתברות כאשר
+$n$
+שרירותי.
+
+\que{4}
+פתח נוסחה עבור ההסתברות כאשר
+$n$
+שואב לאיסוף.
+\end{prob}
+
+\solution{}
+
+השליפות בלתי תלויות ולכן ההסתברות שכל המטבעות אמיתיות היא מכפלת ההסתברות עבור שליפה אחת.
+
+\ans{1}
+\[
+P(\textrm{אמיתיים המטבעות כל}) = \left(\frac{9}{10}\right)^{10}\approx 0.3487\,.
+\]
+
+
+\ans{2}
+\[
+P(\textrm{אמיתיים המטבעות כל}) = \left(\frac{99}{100}\right)^{100}\approx 0.3660\,.
+\]
+
+\ans{3}
+\[
+P(\textrm{אמיתיים המטבעות כל}) = \left(\frac{n-1}{n}\right)^{n}\,.
+\]
+
+\ans{4}
+\begin{equation}\label{eq.reciprocal}
+\lim_{n\rightarrow\infty}\left(1-\frac{1}{n}\right)^{n}=\frac{1}{e}\,.
+\end{equation}
+
+ניתן להוכיח את הגבול באמצעות חשבון דיפרנציאלי. תחילה ניתן לחשב את הגבול של הלוגריתם של הצד השמולי של משוואה%
+~\ref{eq.reciprocal}:
+\[
+\lim_{n\rightarrow\infty}\ln \left(1-\frac{1}{n}\right)^{n}=
+  \lim_{n\rightarrow\infty}n\ln \left(1-\frac{1}{n}\right)=
+  \lim_{n\rightarrow\infty} \disfrac{\ln\left(1-\frac{1}{n}\right)}{1/n}\,.
+\]
+אם נחשב את הגבול נקבל
+$(\ln \;1)/0=0/0$
+אבל לפי חוק
+\L{l'H\^{o}pital}
+נוכל להחליף את הביטוי בחילוק הנגזרות:
+\begin{eqn}
+\lim_{n\rightarrow\infty}\ln \left(1-\frac{1}{n}\right)^{n}&=&\lim_{n\rightarrow\infty}\frac{\left(1-\frac{1}{n}\right)^{-1}(-(-n^{-2}))}{-n^{-2}}=-1\\
+\lim_{n\rightarrow\infty}\left(1-\frac{1}{n}\right)^{n}&=&e^{-1}\approx 0.3679\,.
+\end{eqn}
+
+\textbf{סימולציה}
+\selectlanguage{english}
+\begin{verbatim}
+For  10 boxes:
+Probability of all real = 0.3487
+Proportion all real     = 0.3480
+For 100 boxes:
+Probability of all real = 0.3660
+Proportion all real     = 0.3730
+For 200 boxes:
+Probability of all real = 0.3670
+Proportion all real     = 0.3690
+\end{verbatim}
+\selectlanguage{hebrew}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{prob}{לתפוס את הזייפן החמדן}{}{(Catching the greedy counterfeiter)}
+
+נתון 
+$n$
+קופסאות ובכל אחת 
+$n$
+מטבעות מהן
+$m$
+מזוייפות. שלוף מטבע אחת מכל קופסה ובדוק אם היא מזויפת או אמיתית. מה ההסתברות 
+$P(n,m,r)$
+ש-%
+$r$
+מתוך המטבעות מזוייפות?
+
+\que{1} 
+פתח נוסחה עבור
+$P(n,m,r)$.
+
+\que{2}
+חשב
+$P(20,10,2), P(20,10,8), P(20,5,2), P(20,5,4)$.
+\end{prob}
+
+\solution{}
+
+\ans{1}
+יש 
+${n\choose r}$
+תת-קבוצות של קבוצת הקופסאות מהן המטבעות המזוייפות נשלפו. לפי ההתפלגות הבינומית:
+\[
+P(n,m,r) = {n \choose r} \left(\frac{m}{n}\right)^r \left(\frac{n-m}{n}\right)^{n-r}\,.
+\]
+
+\ans{2}
+\begin{eqn}
+P(20,10,2) &=& \dischoose{20}{2} \left(\frac{10}{20}\right)^2 \left(\frac{10}{20}\right)^{18}\approx 0.0002\\
+P(20,10,8) &=& \dischoose{20}{8} \left(\frac{10}{20}\right)^{8} \left(\frac{10}{20}\right)^{12}\approx 0.1201\\
+P(20,5,2)&=&\dischoose{20}{2} \left(\frac{5}{20}\right)^2 \left(\frac{15}{20}\right)^{18}\approx 0.0669\\
+P(20,5,4)&=&\dischoose{20}{4} \left(\frac{5}{20}\right)^{4} \left(\frac{15}{20}\right)^{12}\approx 0.1952\,.
+\end{eqn}
+
+\textbf{סימולציה}
+\selectlanguage{english}
+\begin{verbatim}
+For 10 bad coins,  2 draws:
+Probability of counterfeit  = 0.0002
+Proportion counterfeit      = 0.0002
+For 10 bad coins,  8 draws:
+Probability of counterfeit  = 0.1201
+Proportion counterfeit      = 0.1181
+For  5 bad coins,  2 draws:
+Probability of counterfeit  = 0.0669
+Proportion counterfeit      = 0.0688
+For  5 bad coins,  4 draws:
+Probability of counterfeit  = 0.1897
+Proportion counterfeit      = 0.1905
+\end{verbatim}
+\selectlanguage{hebrew}
+
+\L{Mosteller}
+משתמש בגבול מבעיה 
+$27$
+כדי להראות שעבור 
+$m,r$
+נתון, כאשר 
+$n$
+שואף לאינסוף:
+\begin{equation}\label{eq.bin-limit}
+\lim_{n\rightarrow \infty}P(n,m,r) = \frac{e^{-m}m^r}{r!}\,.
+\end{equation}
+הנה השוואה של ההסתברויות עבור 
+$m=10, r=8$
+עבור ערכים עולים של
+$n$:
+\selectlanguage{english}
+\begin{verbatim}
+Limit = 0.11259903, binomial = 0.11482303, n = 100
+Limit = 0.11259903, binomial = 0.11282407, n = 1000
+Limit = 0.11259903, binomial = 0.11262155, n = 10000
+Limit = 0.11259903, binomial = 0.11259926, n = 1000000
+\end{verbatim}
+\selectlanguage{hebrew}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{prob}{\protect עובש בג'לטין}{}{(Moldy gelatin)}
+
+נתון לוח מלבני שמחולק ל-%
+$n$
+משבצות ריבועיות קטנות. בכל משבצת יש 
+$r$ 
+חיידקים בממוצע.
+
+\que{1} 
+פתח נוסחה להסתברות שיש בדיוק 
+$r$
+חיידקים ב-%
+$n$
+המשבצות.
+
+\que{2}
+חשב את ההסתברות עבור
+$n=100,r=3$.
+
+\textbf{רמז:}
+בעיה זו דומה לבעיה~28.
+
+\end{prob}
+
+\solution{}
+
+\ans{1}
+$p$,
+ההסתברות שבמשבצת אחת נמצא חידק (נתעלם מהאפשרות שחיידק אחד מוכל באופן חלקי בשתי משבצות או יותר), היא
+$m/n$.
+$P(n,m,r)$,
+ההסתברות שיש בדיוק 
+$r$
+חיידקים ב-%
+$n$
+משבצות' ניתנת על ידי ההתפלגות הבינומית:
+\[
+P(n,m,r) = {n \choose r} \left(\frac{m}{n}\right)^r \left(\frac{n-m}{n}\right)^{n-r}\,.
+\]
+
+\ans{2} 
+\[
+P(10,3,3) = {100 \choose 3} \left(\frac{3}{100}\right)^3 \left(\frac{97}{100}\right)^{97}\approx 0.2275\,.
+\]
+
+\textbf{סימולציה}
+\selectlanguage{english}
+\begin{verbatim}
+For  20 squares:
+Probability of exactly  3 microbes  = 0.2428
+Proportion of exactly   3 microbes  = 0.2436
+Probability of exactly  5 microbes  = 0.2023
+Proportion of exactly   5 microbes  = 0.1954
+For 100 squares:
+Probability of exactly  3 microbes  = 0.2275
+Proportion of exactly   3 microbes  = 0.2247
+Probability of exactly  5 microbes  = 0.1800
+Proportion of exactly   5 microbes  = 0.1851
+\end{verbatim}
+\selectlanguage{hebrew}
+
+
+משוואה%
+~\ref{eq.bin-limit}
+מתאים גם כאן לחשב את הגבול כאשר 
+$n$
+שואף לאינסוף:
+\begin{eqnarray*}
+\lim_{n\rightarrow \infty}P(n,m,r) &=& \frac{e^{-m}m^r}{r!}\\
+\lim_{n\rightarrow \infty} P(n,3,3) &=& \frac{e^{-3}\cdot 3^3}{3!}\approx 0.2240\\
+\lim_{n\rightarrow \infty} P(n,5,5) &=& \frac{e^{-5}\cdot 5^5}{5!}\approx 0.1755\,.
+\end{eqnarray*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\refstepcounter{problem} % 30. Evening the sales
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{prob}{ימי הולדת זהים}{}{(Birthday pairings)}
+
+\que{1}
+עבור 
+$n$
+אנשים מה ההסתברות 
+$P(n)$
+שלניים מהם או יותר יש יום הולדת זהה?
+
+\que{2}
+מה מערך הקטן ביותר עבור 
+$n$
+כך ש-%
+$P(n)>0.5$?
+
+הנח שההתפלגות של ימי ההודלת היא אחידה בטווח
+$[1,365]$.
+
+\textbf{רמז:}
+חשב את המשלים להסתברות של-%
+$n$
+אנשים ימי הולדת 
+\textbf{שונים}.
+\end{prob}
+
+\solution{}
+
+\ans{1}
+בחר 
+$n$
+אנשים אחד אחרי השני ובדוק אם יש להם אותו יום הולדת כמו הקודמים שנבחרו. עבור הראשון יש 
+$365$
+ימים, עבור השני
+$364$
+ימים וכך הלאה:
+\[
+1-P(n)=
+  \overbrace{\disfrac{365}{365}\cdot\frac{364}{365}
+  \cdot \;\cdots \; \cdot \frac{365-(n-2)}{365}
+  \cdot\frac{365-(n-1)}{365}}^{n}
+=\disfrac{365!/(365-n)!}{365^{n}}\,.
+\]
+
+\ans{2}
+חשב ערך זה עבור ערכים שונים של
+$n$
+או השתמש בתכנית מחשב כדי לחפש מ-%
+$1$
+ל-%
+$365$
+כדי למצוא את הערך הראשון עבורו
+$1-P(n)<0.5$.
+הערך הוא
+$23$:
+\[
+1-P(23)=\disfrac{365!}{365^{23}\cdot 342!}\approx 0.4927\,.
+\]
+רוב האנשים מופתעים שהתשובה היא ערך כל קטן.
+
+מחשבון מודרני מסוגל לחשב 
+$1-P(n)$
+אבל שווה לחשב אותו באמצעות הקירוב של 
+\L{Stirling}
+שהוא
+$\ln n! \approx n\ln n - n$:
+\begin{eqnarray*}
+\ln (1-P(n))&=&
+  \ln\left(\disfrac{365!}{342!\cdot 365^{23}}\right)=\ln 365! - \ln 342! -23 \ln 365\\
+&\approx& (365\ln 365 -365) - (342\ln 342 -342) - 23\,\ln 365 \\
+&\approx&-0.7404\\
+1-P(n)&\approx&e^{-0.7404}=0.4769\,.
+\end{eqnarray*}
+הקורא מוזמן לחשב את ההסתברות עם הקירוב המדוייק יותר:
+\[
+\ln n!  \approx n\ln n - n + \frac{1}{6}\left(8n^3+4n^2+n+\frac{1}{30}\right)+\frac{1}{2}\ln\pi\,.
+\]
+\textbf{סימולציה}
+\selectlanguage{english}
+\begin{verbatim}
+For 21 people:
+Expectation of no pairs = 0.5563
+Average no pairs        = 0.5497
+For 22 people:
+Expectation of no pairs = 0.5243
+Average no pairs        = 0.5237
+For 23 people:
+Expectation of no pairs = 0.4927
+Average no pairs        = 0.4933
+For 24 people:
+Expectation of no pairs = 0.4617
+Average no pairs        = 0.4576
+For 25 people:
+Expectation of no pairs = 0.4313
+Average no pairs        = 0.4345
+\end{verbatim}
+\selectlanguage{hebrew}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{prob}{למצוא עמית ליום הולדת}{}{(Finding your birthmate)}
+
+\textbf{עמית ליום הולדת},
+בקיצור עמית, הוא אדם עם יום הולדת זהה לשלך.
+
+מדוע מציאת עמית היא בעיה שונה ממציאת זוג עם ימי הולדת זהים?
+
+\que{1}
+כמה אנשים עליך לשאול עד ש-%
+$Q(n)$,
+ההסתברות למציאת עמית, גבוהה מ-%
+$0.5$?
+
+\que{2}
+פתור את הבעיה על ידי שימוש במשוואה%
+~\ref{eq.reciprocal}.
+\end{prob}
+
+\solution{}
+
+להרבה אנשים יכול להיות יום הולדת זהה שנחשב כהצלחה במציאת זוג, אבל לא הצלחה במציאת עמית אלא אם יום ההולדת של האדם האחר זהה לשלך.
+
+\ans{1}
+נמצא את
+$n$,
+המספר הקטן ביותר של אנשים, כך ש-%
+$1-Q(n)$,
+ההסתברות שלאף אחד מהם הוא לא עמית, פחות מ-%
+$0.5$.
+ההסתברות שהאדם הראשון שאתה שואל אינו עמית היא
+$364/365$,
+אבל זאת גם ההסתברות שהשני, השלילי, 
+\ldots, 
+אינו עמית. הפתרון הוא ה-%
+$k$
+הקטן ביותר כך ש:
+\[
+1-Q(n)=\left(\frac{364}{365}\right)^n<\frac{1}{2}\,.
+\]
+בחיפוש עם מחשב נמצא ש-%
+$n=253$:
+\[
+\left(\frac{364}{365}\right)^{253} \approx 0.4995\,.
+\]
+\ans{2}
+משוואה%
+~\ref{eq.reciprocal}
+היא:
+\[
+\lim_{n\rightarrow\infty}\left(\frac{n-1}{n}\right)^{n}=\frac{1}{e}\,,
+\]
+וניתן להשתמש בה לחשב את ההסתברות:
+\begin{eqn}
+1-Q(n)&=&
+  \left(\disfrac{365-1}{365}\right)^n=\left[\left(\disfrac{364}{365}\right)^{365}\right]^{n/365}\\
+&\approx& e^{-n/365}\\
+e^{-253/365}&\approx&0.5000\,.
+\end{eqn}
+\textbf{סימולציה}
+\selectlanguage{english}
+\begin{verbatim}
+For 251 people:
+Probability of no match = 0.5023
+Proportion no match     = 0.5120
+For 252 people:
+Probability of no match = 0.5009
+Proportion no match     = 0.5055
+For 253 people:
+Probability of no match = 0.4995
+Proportion no match     = 0.4984
+For 254 people:
+Probability of no match = 0.4982
+Proportion no match     = 0.4987
+For 255 people:
+Probability of no match = 0.4968
+Proportion no match     = 0.5078
+\end{verbatim}
+\selectlanguage{hebrew}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{prob}{השוואת הבעיית יום הולדת זהה לבעיית עמית ליום הולדת}{}{\\(Relating the birthday pairings and the birthmate problems)}
+
+סמן ב-%
+$P(r)$
+את ההסתברות למצוא זוג עם יום הולדת זהה עם
+$r$
+אנשים (בעיה~$31$), וב-%
+$Q(n)$
+את ההסתברות שמתוך
+$n$
+אנשים לפחות אחד הוא עימית שלך (בעיה~$32$).
+נתון
+$r$
+עבור איזה
+$n$,
+$P(r) \approx Q(n)$?
+\end{prob}
+
+\solution{1}
+
+הפתרון מבוסס על
+\L{\cite{birthday}}.
+
+מהפתרון לבעיית%
+~$31$
+מתקבל:
+\[
+\renewcommand*{\arraystretch}{2.2}
+\begin{array}{lcl}
+P(r)&=&
+\disfrac{365}{365}\cdot 
+  \frac{365-1}{365}\cdot \frac{365-2}{365} \cdot\;
+  \cdots \;\cdot \frac{365-(r-1)}{365}\\
+&=&1\left(1-\disfrac{1}{365}\right)
+  \left(1-\disfrac{2}{365}\right) \cdot\;
+  \cdots \;\cdot \left(1-\disfrac{r-1}{365}\right)\\
+&\approx&1-\disfrac{1}{365} - \disfrac{2}{365} -
+  \cdots - \disfrac{r-1}{365}\\
+&=&1-\disfrac{1+2+3+\cdots + (r-1)}{365}\\
+&=&1-\disfrac{r(r-1)/2}{365}\,,
+\end{array}
+\]
+כאשר הקירוב במשוואה השלישית מתקבל מהשמטת חזקות של
+$1/365$
+גדולות מאחת כי הן קטנות מדי להשפיע באופן מהותי על התוצאה.
+
+באמצעות באותו קירוב, מהפתרון לבעיה%
+~$32$
+מתקבל:
+\[
+\renewcommand*{\arraystretch}{2.2}
+\begin{array}{lcl}
+P_{\textrm{\footnotesize עמית אין}}(n)
+&=&\overbrace{\left(1-\frac{1}{365}\right)
+  \left(1-\frac{1}{365}\right)\cdots
+  \left(1-\frac{1}{365}\right)}^{n}\\
+&\approx& 1-\overbrace{\frac{1}{365}-\frac{1}{365}\cdots-
+  \frac{1}{365}}^{n}\\
+&\approx& 1-\disfrac{n}{365}\\
+\end{array}
+\]
+לכן
+$P(r)\approx Q(n)$
+כאשר:
+\[
+n=\frac{r(r-1)}{2}\,.
+\]
+עבור
+$r=23$, $n=(23\cdot 22)/2=253$.
+
+\solution{2}
+
+\L{Mosteller}
+מביא את הפתרון האיטואיטיבי שלהלן:
+\begin{quote}
+כאשר משווים בין בעיית הזוג והעמית, אנו שמים לב שעבור 
+$r$
+אנשים בבעיית הזוג, קיימים 
+$r(r-1)/2$
+זוגות או 
+\textbf{הזדמנויות}
+לידי הולדת זהים; לעומת זאת, אם שואלים 
+$n$
+אנשים בבעיית העמית קיימות רק 
+$n$
+הזדמנויות כדי שאמצא עמית אחד או יותר
+\L{\cite[p.~322]{birthday}}.
+\end{quote}
+מכאן הוא מסיק ש-%
+$n\approx r(r-1)/2$.
+
+ניתן להבין את הטיעון כך: בבעיית הזוג בחר תאריך שרירותי ושאל אם לשניים מתוך
+$r$
+\textbf{תאריך זה}
+הוא יום ההולדת שלהם. יש:
+\[
+{r \choose 2}=\frac{r!}{2!(r-2)!} = \frac{r(r-1)}{2}
+\]
+דרכים שזה אפשרי. עבור בעיית העמית יום ההולדת שלך נתון, ולכל אחד מתוך
+$n$
+אנשים יש אותו סיכוי ליום הולדת זהה. על ידי השוואת שני הביטוים נקבל 
+$n$
+עבורו
+$P_(r) \approx Q(n)$.
+
+\textbf{סימולציה}
+
+תוכל להריץ את הסימולציות לבעיות
+~$31, 32$
+ולבדוק תוצאה זו.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{prob}{חופש בימי הולדת}{D}{(Birthday holidays)}
+
+בית חרושת נסגר בכל יום שהוא יום הולדת של אחד העובדים. אין חופשות נוספות.
+
+\que{1} 
+כמה עובדים כדאי להעסיק כדי למקסם את מספר ימי-העבודה בשנה אחת?
+
+\que{2}
+מה התוחלת של היחס בין מספר ימי-העבודה המקסימליים לבין
+$365^2$, 
+מספר ימי-העבודה עם כל אחד מ-%
+$365$
+העובדים עובדים כל יום?
+
+\textbf{רמז:}
+הוכח על ידי בדיקת מקרי הקצה שמקסימום חייב להתקיים. אחר כך פתח נוסחה של התוחלת של ימי-העבודה ביום אחד.
+\end{prob}
+
+\solution{}
+
+\ans{1}
+אם יש רק עובד אחד יהיו 
+$364$
+ימי-עבודה. אם יש שני עובדים מספר ימי-העבודה הוא
+$363+363=726$
+(כאשר נתעלם המאפשרות הזניחה שלשניהם אותו יום הולדת). בקצה השני אם יש מיליון עובדים מספר ימי-העבודה יהיה אפס כמעט בוודאות. אם מספר ימי-העבודה עולה ואחר כך חוזר לאפס, חייב להיות מקסימום בין נקודות הקצה.
+
+כדי לפשט את הסימונים נסמן את המספר הימים בשנה ב-%
+$N$
+ומספר העובדים ב-%
+$n$.
+
+יהי
+$p=\disfrac{N-1}{N}=1-\disfrac{1}{N}$. 
+ההסתברות שיום נתון הוא יום-עבודה היא ההסתברות שלכל עובד יום הולדת בתאריך אחר:
+\[
+\overbrace{\disfrac{N-1}{N} \cdot \;\cdots\;\cdot \disfrac{N-1}{N}}^n = \left(1-\disfrac{1}{N}\right)^n=p^n\,.
+\]
+ביום עבודה כל העובדים עובדים וביום חופש אף אחד לא עובד ולכן:
+\[
+E(\textrm{נתון ליום ימי-עבודה}) = n \cdot p^n + 0\cdot (1-p^n) = np^n\,.
+\]
+לכל ימי השנה אותה תוחלת ולכן:
+\begin{equation}\label{eq.holidays}
+E(\textrm{לשנה ימי-עבודה}) = Nnp^n\,.
+\end{equation}
+כדי למצוא את המקסימום נגזור את משוואה%
+~\ref{eq.holidays}
+ביחס ל-%
+$n$
+ונשמתש ב-%
+$(p^n)'=p^n\ln p$
+ניתן להוכיח בעזרת חוק השרשרת:
+\[
+(p^n)' = ((e^{\ln p})^n)' =
+(e^{n\ln p})' =
+e^{n\ln p} (n\ln p)'=
+(e^{\ln p})^n \ln p = p^n\ln p\,.
+\]
+הנגזרת של משוואה%
+~\ref{eq.holidays}
+היא:
+\[
+(Nnp^n)'= N (p^n + n (p^n)') = N (p^n + np^n\ln p)\,,
+\]
+שהיא $0$ כאשר:
+\[
+n=-\disfrac{1}{\ln p}\,.
+\]
+עבור
+$N=365$
+מתקבל
+$n=364.5$
+אבל
+$n$
+הוא מספר שלם ולכן המקסימום מתקבל ב-%
+$n=364$
 או
-$C$.
+$n=365$
+שנותנים אותו תוחלת של ימי-עבודה:
+\begin{eqn}
+E(\textrm{לשנה ימי-עבודה}) &=&Nnp^n\\
+&=&365\cdot 364 \cdot \left(\disfrac{364}{365}\right)^{364}\\
+&=&365\cdot 364  \cdot \disfrac{365}{365}\left(\disfrac{364}{365}\right)^{364}\\
+&=&365\cdot 365  \cdot \left(\disfrac{364}{365}\right)^{365}\\
+&=&48944\,.
+\end{eqn}
+
+\ans{2}
+התוחלת של היחס היא:
+\[
+E(\textrm{מקסימליים ימי-עבודה}/\textrm{אפשריים ימי-עבודה})
+=\disfrac{365\cdot 365  \cdot \left(\frac{364}{365}\right)^{365}}{365\cdot 365}=\left(\disfrac{364}{365}\right)^{365}\approx 0.3674\,.
+\]
+לפי משוואה%
+~\ref{eq.reciprocal}:
+\[
+\lim_{n\rightarrow\infty}
+E(\textrm{מקסימליים ימי-עבודה}/\textrm{אפשריים ימי-עבודה})
+=\lim_{N\rightarrow \infty} \left(1-\disfrac{1}{N}\right)^N= \disfrac{1}{e}\,.
+\]
+
+\textbf{סימולציה}
+\selectlanguage{english}
+\begin{verbatim}
+For 100 people
+Expectation work-days    =  27742
+Average work days        =  27743
+Ratio work-days / 365**2 = 0.2082
+For 250 people
+Expectation work-days    =  45958
+Average work days        =  45939
+Ratio work-days / 365**2 = 0.3450
+For 364 people
+Expectation work-days    =  48944
+Average work days        =  48936
+Ratio work-days / 365**2 = 0.3674
+For 365 people
+Expectation work-days    =  48944
+Average work days        =  48917
+Ratio work-days / 365**2 = 0.3674
+\end{verbatim}
+\selectlanguage{hebrew}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{prob}{על שפת התהום}{}{(The cliff-hanger)}
+
+חלקיק מוצב על ציר ה-%
+$x$
+במקום
+$1$.
+בכל מקום על ציר ה-%
+$x$
+הוא יכול לצעוד צעד ימינה עם הסתברות
+$2/3$
+וצעד שמאלה עם הסתברות
+$1/3$
+(איור%
+~\ref{f.ruin1}).
+
+\que{1}
+מה ההסתברות שהחלקיק יגיע למקום
+$0$
+בסופו של דבר?
+
+\que{2}
+אם ההסתברות של צעד ימינה היא
+$p$
+וההסתברות של צעד שמאלה היא
+$1-p$,
+מה ההסתברות שהחלקיק יגיע למקום
+$0$
+בסופו של דבר? נתח את האפשרויות לערכים שונים של
+$p$.
+
+\textbf{רמז:}
+השתשמש בהסתרויות מותנות לאחר הצעד הראשון.
+\begin{figure}[tb]
+\begin{center}
+\begin{tikzpicture}[scale=1.5]
+\draw (0,0) -- (6,0);
+\draw[dashed] (6,0) -- (8,0) node[right] {$\infty$};
+\foreach \x in {0,1,2,3,4,5,6} {
+  \draw (\x,0) -- +(0,4pt);
+  \node at (\x,-10pt) { $\x$ };
+}
+\draw[fill] (1,5mm) circle[radius=.5pt];
+\draw[->] (1,5mm) -- node[above] {$1/3$} (0,5mm);
+\draw[->,very thick] (1,5mm) -- node[above] {$2/3$} (2,5mm);
+
+\foreach \x/\y in {2/10mm,3/15mm,4/20mm} {
+  \draw[fill] (\x,\y) circle[radius=.5pt];
+  \draw[->] (\x,\y) -- node[above] {$1/3$} (\x-1,\y);
+  \draw[->] (\x,\y) -- node[above] {$2/3$} (\x+1,\y);
+}
+\end{tikzpicture}
+\end{center}
+\caption{?האם חלקיק יכול להגיע ל-$0$ (הציר אינסופי לימין)}\label{f.ruin1}
+\end{figure}
+\end{prob}
+
+\solution{}
+
+\ans{1,2}
+נסמן צעד שמאלה ב-%
+$L$
+וצעד ימינה ב-%
+$R$.
+החלקיק יכול להגיע ל-%
+$0$
+ישירות על ידי צעד
+$L$
+עם הסתברות
+$\frac{1}{3}$,
+או על ידי צעד
+$RLL$
+עם הסתברות
+$\frac{2}{3}\cdot\frac{1}{3}\cdot\frac{1}{3}$,
+או על ידי צעד
+$RRLLL$
+עם הסתברות
+$\left(\frac{2}{3}\right)^2\left(\frac{1}{3}\right)^3$, \ldots\ .
+החישוב נראה כמו סידרה הנדסית פשוטה אבל הוא מתעלם האפשרויות כגון
+$RLRLL$.
+
+נסמן ב-%
+$P(i,j)$
+את ההסתברות שהחלקיק מגיע ל-%
+$i$
+מ-%
+$j$.
+נחשב את ההתסתברות שהחלקיק מגיעה ל-%
+$0$
+מ-%
+$1$
+כתלות בצעד הראשון:
+\begin{eqn}
+P(0,1) &=& 
+P(0,1|\textrm{שמאלה ראשון צעד}) + P(0,1|\textrm{ימינה ראשון צעד})\\
+&=& (1-p)\cdot 1 + pP(1,2)P(0,1)\,.
+\end{eqn}
+אבל
+$P(1,2) = P(0,1)$
+ומתקבלת משוואה ריבועית ב-%
+$P(0,1)$:
+\begin{eqn}
+P(0,1) &=& (1-p) + pP(0,1)^2\\
+pP^2(0,1) - P(0,1) + (1-p) &=&0\\
+%P(0,1)&=& \frac{1\pm\sqrt{1-4p(1-p)}}{2p}\\
+P(0,1)&=&1,\; (1-p)/p\,.
+\end{eqn}
+אם
+$p\leq 1/2$
+אזי
+$(1-p)/p\geq 1$, 
+כך ש-%
+$P=1$
+הוא הפתרון היחיד ובטוח שהחלקיק יגיע ל-%
+$0$.
+
+אם 
+$p=1$
+אזי
+$P=0$
+כי אם החלקיק תמיד צועד ימינה הוא לא יכול להחזור ל-%
+$0$.
+
+נניח ש-%
+$P(0,1)=1$
+עבור
+$1/2<p < 1$,
+כלומר,
+$P(0,1)$
+\textbf{לא תלוי ב-}$p$.
+באיור%
+~\ref{f.ruin2}
+הקו האדום המקווקוו האדום מראה את עבור
+$P(1,0)$
+כאשר 
+$p$
+שואף ל-%
+$1$
+והנקודה האדומה מראה ש-%
+$P(1,0)=0$
+כאשר 
+$p$
+מגיע ל-%
+$1$.
+$P(0,1)$
+לא יכולה פתאום "לקפוץ" מ-%
+$1$
+ל-%
+$0$
+ולכן עבור
+$p> 1/2$
+הפתרון היחיד הוא
+$P=(1-p)/p< 1$.\footnote{\L{Mosteller}
+כותב שזה נובע מרציפות אבל הוא לא נותן הוכחה.}
+
+\begin{figure}[tb]
+\begin{center}
+\begin{tikzpicture}[scale=7]
+\draw[help lines,step=.1] (0,0) grid (1,1);
+\foreach \x in {0,.1,.2,.3,.4,.5,.6,.7,.8,.9,1.0}
+  \node[below] at (\x,0) {$\scriptstyle \x$};
+\foreach \y in {0,.1,.2,.3,.4,.5,.6,.7,.8,.9,1.0}
+  \node[left] at (0,\y) {$\scriptstyle \y$};
+\draw[domain=0:.5,thick] plot (\x,1);
+\draw[domain=.5:1,thick] plot (\x,{(1-\x)/\x});
+\node at (.5,-3.5pt) {$p$};
+\node at (-3.5pt,.5) {$P$};
+\draw[ultra thick,red,dashed] (.5,1) -- +(.49,0);
+\fill[red] (1,0) circle[radius=.4pt];
+\end{tikzpicture}
+\end{center}
+\caption{הגרף של $P=\min(p/(1-p),1)$ עבור $p\in [0,1]$}\label{f.ruin2}
+\end{figure}
+עבור
+$p=2/3, P=1/2$
+ועבור
+$p=1/2, P=1$.
+זה מפתיע כי לא היינו מצפים שהחלקיק יחזור תמיד ל-%
+$0$
+אם כיוון הצעד נקבע על ידי הטלת מטבע הוגן! אנו זקוקים למטבע ממש לא-הוגן (הסתברות של "עץ" שווה ל-%
+$2/3$)
+כדי להשוות את הסיכויים לחזור ל-%
+$0$
+או לא.
+
+\textbf{סימולציה}
+\selectlanguage{english}
+\begin{verbatim}
+For probability = 0.2500:
+Probability of reaching 0 = 1.0000
+Proportion reaching 0     = 1.0000
+For probability = 0.5000:
+Probability of reaching 0 = 1.0000
+Proportion reaching 0     = 0.9612
+For probability = 0.6667:
+Probability of reaching 0 = 0.5000
+Proportion reaching 0     = 0.5043
+For probability = 0.7500:
+Probability of reaching 0 = 0.3333
+Proportion reaching 0     = 0.3316
+For probability = 0.8000:
+Probability of reaching 0 = 0.2500
+Proportion reaching 0     = 0.2502
+\end{verbatim}
+\selectlanguage{hebrew}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{prob}{פשיטת הרגל של מהמר}{D}{(Gambler's ruin)}
+
+חלקיק מוצב על ציר ה-%
+$x$
+במקום
+$m\geq 1$.
+בכל מקום על ציר ה-%
+$x$
+הוא יכול לצעוד צעד ימינה עם הסתברות
+$p>1/2$
+וצעד שמאלה עם הסתברות
+$1-p$.
+
+\que{1}
+מה ההסתברות שהחלקיק יגיע למקום
+$0$
+בסופו של דבר?
+
+\que{2} יהי 
+$n>m$.
+אם החלקיק מגיע למקום 
+$0$
+או למקום
+$n$
+הוא מפסיק לצעוד (איור%
+~\ref{f.ruin3}).
+מה ההסתברות שהחלקיק יגיע למקום 
+$0$?
+מה ההסתברות שהחלקיק יגיע למקום
+$n$?
+\begin{figure}[tb]
+\begin{center}
+\begin{tikzpicture}[scale=1.5]
+\draw (0,0) -- (6,0);
+\foreach \x in {0,1,2,3,4,5,6} {
+  \draw (\x,0) -- +(0,4pt);
+  \node at (\x,-10pt) { $\x$ };
+}
+\node at (2,-20pt) {$m$};
+\node at (6,-20pt) {$n$};
+\draw[fill] (2,5mm) circle[radius=.5pt];
+\draw[->] (2,5mm) -- node[above] {$1/3$} (1,5mm);
+\draw[->] (2,5mm) -- node[above] {$2/3$} (3,5mm);
+\end{tikzpicture}
+\end{center}
+\caption{האם החלקיק יכול לחזור ל-%
+$0$ (ציר סופי)?}
+\label{f.ruin3}
+\end{figure}
+
+\textbf{הערה:} 
+בעיה~35 מייצגת מהמר המשחק עם כמות סופית של כסף נגד קזינו עם כמות בלתי מוגבלת של כסף. הבעיה מבקשת את ההסתברות שהמהמר יפסיד את כל כספו. בעיה~%
+36(2)
+שואלת על מהמר אחד עם 
+$m$
+שמשחק נגד מהמר שני עם 
+$n-m$.
+הבעיה מבקשת את ההסתברויות ש%
+\textbf{אחד}
+מהם מפסיד את כל כספו לשני.
+\end{prob}
+
+\solution{}
+
+הפתרון מבוסס על
+\L{\cite[Chapter~2, Example~4m]{ross}}.
+
+נסמן ב-%
+$P(i,j)$
+את ההסתברות שהחלקיק מגיע ל-%
+$i$
+מ-%
+$j$.
+
+\ans{1}
+ראינו בפתרון לבעיה~35 שעבור
+$p>1/2$
+(כאן נתון), אם חלקיק נמצא במקום 
+$1$
+ההסתברות שלו להגיע ל-%
+$0$
+היא
+$r=(1-p)/p$.
+הסתברות זו לא תלויה במקום האבסולוטי של החלקיק ולכן:
+\[
+P(i,j) = P(i+k,k+1) = P(i-k,j-k)\,,
+\]
+ו-%
+\begin{equation}
+P(0,m)=P(m-1,m)P(m-2,m-1)\cdots P(1,2)P(0,1)=r^m\,.
+\end{equation}
+
+\ans{2} 
+סמן בקיצור
+$P_i=P(n,i)$
+וחשב את
+$P_i$:
+\begin{eqn}
+P_i &=& pP_{i+1} + (1-p)P_{i-1}\\
+%pP_{i+1}&=&1\cdot P_i - (1-p)P_{i-1}\\
+pP_{i+1}&=&(p+(1-p))P_i - (1-p)P_{i-1}\\
+p(P_{i+1}-P_i)&=&(1-p)(P_i-P_{i-1})\\
+P_{i+1}-P_i&=&r(P_i-P_{i-1})\,.
+\end{eqn}
+$P_0=0$ 
+כי אם החלקיק נמצא ב-%
+$0$
+הוא מפסיק לצעוד. לכן:
+\begin{eqn}
+P_2 - P_1 &=& r(P_1 - P_0) = rP_1\\
+P_3 - P_2 &=& r(P_2 - P_1) = r^2P_1\\
+\cdots &=&\cdots\\
+P_i - P_{i-1} &=& r(P_{i-1} - P_{i-2}) = r^{i-1}P_1\,.
+\end{eqn}
+רוב הגורמים בצד השמאלי מצטמצמים כאשר מחברים את המשוואות:
+\begin{eqnlabels}
+\nonumber{}P_i - P_1 &=& P_1\sum_{j=2}^{i}r^{j-1}\\
+\nonumber{}&=& P_1 + P_1\sum_{j=2}^{i}r^{j-1} - P_1 \\
+\label{eq.ruin0}P_i&=& P_1\sum_{j=0}^{i-1}r^j =P_1\left(\frac{1-r^i}{1-r}\right)\,.
+\end{eqnlabels}
+אם חלקיק נמצא ב-%
+$n$
+הוא כבר נמצא ב-%
+$n$
+כך ש-%
+$P_n=1$:
+\begin{eqnlabels}
+\nonumber{}1 &=& P_1\left(\frac{1-r^n}{1-r}\right)\\
+\label{eq.ruin00}P_1 &=& \left(\frac{1-r}{1-r^n}\right)\,.
+\end{eqnlabels}
+ממשוואות%
+~\ref{eq.ruin0}, \ref{eq.ruin00}:
+\begin{equation}
+\label{eq.ruin1}P(n,i) = \left(\frac{1-r^{i}}{1-r^n}\right)\,.
+\end{equation}
+בהוכחה סימטרית שמחליפה את
+$p$
+ו-%
+$1-p$):
+\begin{equation}
+\label{eq.ruin2}P(0,i) = \left(\frac{1-(1/r)^{n-i}}{1-(1/r)^{n}}\right)\,.
+\end{equation}
+הקורא מוזמן להראות שהסכום של משוואות
+~\ref{eq.ruin1},~\ref{eq.ruin2}
+הוא $1$ כלומר שמובטח שאחד המהמרים ינצח והשני יפסיד. עבור
+$m=1, n=3, p=2/3$:
+\begin{eqn}
+P(0,1) &=& \left(\frac{1-\left(\frac{1}{2}\right)^{1}}{1-\left(\frac{1}{2}\right)^{3}}\right)=\frac{4}{7}\\
+P(3,1) &=& \left(\frac{1-2^{2}}{1-2^{3}}\right)=\frac{3}{7}\,.
+\end{eqn}
+
+\textbf{סימולציה}
+\selectlanguage{english}
+\begin{verbatim}
+For probability = 0.6667:
+Probability of reaching (0,10) from 1 = (0.4995,0.5005)
+Proportion reaching     (0,10) from 1 = (0.5056,0.4944)
+Probability of reaching (0,10) from 4 = (0.0616,0.9384)
+Proportion reaching     (0,10) from 4 = (0.0643,0.9357)
+Probability of reaching (0,10) from 6 = (0.0147,0.9853)
+Proportion reaching     (0,10) from 6 = (0.0123,0.9877)
+\end{verbatim}
+
+\begin{verbatim}
+For probability = 0.7500:
+Probability of reaching (0,10) from 1 = (0.3333,0.6667)
+Proportion reaching     (0,10) from 1 = (0.3395,0.6605)
+Probability of reaching (0,10) from 4 = (0.0123,0.9877)
+Proportion reaching     (0,10) from 4 = (0.0115,0.9885)
+Probability of reaching (0,10) from 6 = (0.0014,0.9986)
+Proportion reaching     (0,10) from 6 = (0.0015,0.9985)
+\end{verbatim}
+\selectlanguage{hebrew}
+ככל שלמהמר בצד שמאל יש יותר והסתברות גבוהה היותר לזכות בכל צעד, כך ההסתברות שלו לניצחון גדלה.
+
+\textbf{גרף של הצעדים}
+
+הגרף נוצר על ידי ספריית 
+\L{\texttt{matplotlib}}
+של
+\L{Python}.
+קור המקור מופיע בקובץ
+\L{\texttt{36-gamblers-ruin-plot.py}}.
+\begin{center}
+\input{36-gamblers-ruin-plot.tex}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{prob}{משחק נועז או משחק זהיר}{}{(Bold play vs. cautious play)}
+ברולט ניתן להמר שהכדור יפול בכיס המסומן במספר זוגי. ההסתברות היא 
+$18/38$
+כי יש
+$18$
+מספרים זוגיים,
+$18$
+מספרים אי-זוגיים ו-%
+$2$
+מספרים ירוקים עליהם הקזינו זוכה.
+
+איזו מהאסטרגיות שלהלן עדיפה?
+\begin{enumerate}
+\item 
+משחק נועז: להמר $20$ בסיבוב אחד.
+\item
+משחק זהיר: להמר $1$ בכל סיבוב עד שאתה זוכה או מפסיד $20$.
+\end{enumerate}
+\textbf{רמז:} 
+השתמש בתוצאות של בעיה~36.
 \end{prob}
 \solution{}
 
-סימון:
-$X\stackrel{H}{\longrightarrow}Y$
-מסמן ש-%
-$X$
-יורה לעבר
-$Y$
-ופוגע.
-$X\stackrel{M}{\longrightarrow}Y$
-מסמן ש-%
-$X$
-יורה לעבר
-$Y$
-ומחטיא.
+ההסתברות לזכיה עם משחק נועז היא
+$18/38\approx 0.4737$.
 
-\ans{1}
-חשב את ההסתברויות המותנות ש-%
-$A$
-תנצח.
-
-\textbf{מקרה 1:} 
-$A$
-בוחרת לירות את הירייה הראשונה לעבר 
-$C$.
-
-אם 
-$A\stackrel{M}{\longrightarrow}C$
-(הסתברות
-$0.7$)
-אזי
-$B\stackrel{H}{\longrightarrow}C$
-כי
-$C$
-היא מסוכנת יותר מ-%
-$A$.
-כעת
-$A$
-יורה שוב לעבר 
-$B$
-עם הסתברות
-$0.3$
-לפגוע, אבל אם
-$A$
-מחטיאה,
-$B\stackrel{H}{\longrightarrow}A$
-בהסתברות
-$1$
-ו-%
-$A$
-מפסידה.
-
-אם
-$A\stackrel{H}{\longrightarrow}C$
-(הסתברות
-$0.3$)
-אזי
-$B\stackrel{H}{\longrightarrow}A$
-$1$
-ו-%
-$A$
-מפסידה.
-
-חשב את התוחלת עם הערכים
-$1$
-כאשר 
-$A$
-מנצחת ו-%
-$0$
-כאשר
-$A$ 
-מפסידה:
-\vspace*{-3ex}
-\[
-\renewcommand*{\arraystretch}{2.5}
-\begin{array}{l}
-E(\textrm{מנצחת}\;A|C\;\textrm{ב- קודם לירות בוחרת}\;A) =\\
-%\qquad E(A \;\textrm{wins}\;|\;A\;\textrm{misses}\;C) + E(A \;\textrm{wins}\;|\;A\;\textrm{hits}\;C)=\\
-\qquad \overbrace{1\cdot (0.7\cdot 0.3)}^{A\stackrel{M}{\longrightarrow}C, A\stackrel{H}{\longrightarrow}B}+ \overbrace{0\cdot (0.7\cdot 0.7\cdot 1)}^{A\stackrel{M}{\longrightarrow}C, A\stackrel{M}{\longrightarrow}B, B\stackrel{H}{\longrightarrow}A}+ \overbrace{0\cdot (0.3\cdot 1)}^{A\stackrel{M}{\longrightarrow}C, B\stackrel{H}{\longrightarrow}A}=0.2100\,.
-\end{array}
-\]
-\textbf{מקרה 2:} $A$
-בוחרת לירות את הירייה הראשונה לעבר 
-$B$.
-
-אם
-$A\stackrel{M}{\longrightarrow}B$
-(הסתברות
-$0.7$),
-אזי כמו במקרה הקודם
-$B\stackrel{H}{\longrightarrow}C$
-ול-%
-$A$
-הזדמנות אחת נוספת לפגוע ב-%
-$B$
-(הסתברות
-$0.3$),
-אחרת
-$B\stackrel{H}{\longrightarrow}A$
-בהסתברות
-$1$
-ו-%
-$A$
-מפסידה.
-
-אם
-$A\stackrel{H}{\longrightarrow}B$
-(הסתברות
-$0.3$)
-אזי
-$A,C$
-יורות לסירוגין אחת לעבר השנייה עד שאחת נפגעת. התסריטים האפשריים הם:
-\[
-\begin{array}{ll}
-(1)&C\stackrel{H}{\longrightarrow}A\\
-(2)&C\stackrel{M}{\longrightarrow}A \stackrel{H}{\longrightarrow}C\\
-(3)&C\stackrel{M}{\longrightarrow}A \stackrel{M}{\longrightarrow}C\stackrel{H}{\longrightarrow}A\\
-(4)&C\stackrel{M}{\longrightarrow}A \stackrel{M}{\longrightarrow}C\stackrel{M}{\longrightarrow}A\stackrel{H}{\longrightarrow}C\\
-(5)&C\stackrel{M}{\longrightarrow}A \stackrel{M}{\longrightarrow}C\stackrel{M}{\longrightarrow}A\stackrel{M}{\longrightarrow}C\stackrel{H}{\longrightarrow}A\\
-(6)&C\stackrel{M}{\longrightarrow}A \stackrel{M}{\longrightarrow}C\stackrel{M}{\longrightarrow}A\stackrel{M}{\longrightarrow}C\stackrel{M}{\longrightarrow}A\stackrel{H}{\longrightarrow}C\\
-&\cdots
-\end{array}
-\]
-ההסתברות ש-%
-$A$
-מנצחת כי היא פוגעת ב-%
-$C$
-בסופו של דבר היא סכום ההסתברויות של הסתריטים הזוגיים ברשימה:
+ההסתברות לזכיה עם משחק זהיר היא (משוואה~\ref{eq.ruin1}):
 \begin{eqnarray*}
-P(\textrm{מנצחת} \;A\;| B\;\textrm{פוגעת ב-}\;A )&=&(0.5 \cdot 0.3) + \\
-&&(0.5 \cdot 0.7) (0.5 \cdot 0.3) + \\
-&&(0.5 \cdot 0.7) (0.5 \cdot 0.7) (0.5 \cdot 0.3)+ \cdots\\
-&=&0.15 \sum_{i=0}^{\infty} 0.35^i= \frac{0.15}{1-0.35}=\frac{3}{13}\approx 0.2308\,.
+r&=&\frac{20}{38}\Big /\frac{18}{38}=\frac{20}{18}\\
+P(40,20) &=&
+\frac{1-(20/18)^{20}}{1-(20/18)^{40}}\approx 0.1084\,.
 \end{eqnarray*}
-באופן דומה, ההסתברות ש-%
-$C$
-מנצחת היא
-$\disfrac{0.5}{1-0.35}=\disfrac{1}{13}\approx 0.0760$.
+ברור שמשחק נועז עדיף על משחק זהיר.
 
-התוחלת היא:
-\vspace*{-4ex}
-\[
-\renewcommand*{\arraystretch}{2.5}
-\begin{array}{l}
-E(\textrm{מנצחת}\;A) =E(\textrm{מנצחת}\;A\;|\;B\;\textrm{ את מחטיאה }\;A) + E(\textrm{מנצחת}\;A\;|\;B\;\textrm{ ב- פוגעת}\;A)=\\
-\qquad
-\overbrace{1\cdot (0.7\cdot 1\cdot 0.3)}%
-^{A\stackrel{M}{\longrightarrow}B, B\stackrel{H}{\longrightarrow}C, A\stackrel{H}{\longrightarrow}B}+
-\overbrace{0\cdot (0.7\cdot 1\cdot 0.7\cdot 1)}%
-^{A\stackrel{M}{\longrightarrow}B, B\stackrel{H}{\longrightarrow}C,A\stackrel{M}{\longrightarrow}B,B\stackrel{H}{\longrightarrow}A} +\\
-\qquad
-\overbrace{1\cdot (0.2308)}%
-^{A\stackrel{H}{\longrightarrow}B, C\stackrel{H}{\longleftrightarrow*}A,C\stackrel{H}{\longrightarrow}A}\!\!\! +\;\;
-\overbrace{0\cdot (0.3\cdot (0.0769))}%
-^{A\stackrel{H}{\longrightarrow}B, C\stackrel{H}{\longleftrightarrow}A,C\stackrel{H}{\longrightarrow}A}
-\;\approx\; 0.2792\,,
-\end{array}
-\]
-שהיא גבוהה יותר מהתוחלת לנצח על ידי ירי תחילה לעבר 
-$C$.
-
-\ans{2}
-אם
-$A$
-יורה לאוויר ולא פוגעת באף יריבה אזי
-$B\stackrel{H}{\longrightarrow}C$
-בהסתברות 
-$1$
-ו-%
-$A$
-יכולה לנסות לפגוע ב-%
-$B$
-בהסתברות
-$0.3$.
-התוחלת היא:
-\[
-E(\textrm{מנצחת}\;A\;|\;\textrm{באוויר יורה}\;A) = 1\cdot(0.3) + 0\cdot(0.7)=0.3\,,
-\]
-שהיא גבוהה יותר מהתוחלת של שתי האסטרטגיות האחרות!
+\L{Mosteller}
+מביא הסבר איטואטיבי: הימור בסיבובים רבים חושף את המהמר לאפשרות שהקזינו מצנח בהסתברות 
+$2/38$.
 
 \textbf{סימולציה}
 \selectlanguage{english}
 \begin{verbatim}
-For A fires first at C:
-Expectation of wins = 0.2100
-Average wins        = 0.2138
-For A fires first at B:
-Expectation of wins = 0.2792
-Average wins        = 0.2754
-For A fires in the air:
-Expectation of wins = 0.3000
-Average wins        = 0.3000
+Probability of bold wins     = 0.4737
+Proportion bold wins         = 0.4677
+Probability of cautious wins = 0.1084
+Proportion cautious wins     = 0.1094
 \end{verbatim}
 \selectlanguage{hebrew}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\refstepcounter{problem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{prob}{הכימאי המגושם}{}{(The clumsy chemist)}
+
+נתון מספר רב של מקלות מזכוכית באורף 
+$1$.
+קצה אחד צבוע באדום ושני בכחול. כאשר זורקים אותם על הרצפה, הם נשברים לשלושה חלקים עם התפלגות אחידה של האורכים
+(\ref{f.rod1}).
+מה התוחלת של אורכו של החלק בקצה הכחול?
+
+\textbf{רמז:}
+במקום מקלות ישרים הנח שקבלת טבעות זכוכית ללא סימנים שגם הם נשברים לשלושה החלקים
+(\ref{f.rod2}).
+
+\begin{figure}[tb]
+
+\centering
+\selectlanguage{hebrew}
+\subcaptionbox{%
+חלוקת מקל לשלושה חלקים%
+\label{f.rod1}}
+[.45\textwidth]
+{
+\centering
+
+\begin{tikzpicture}
+\draw (0,0) -- ++(6,0) -- ++(0,12pt) -- ++(-6,0) -- cycle;
+\fill[red] (0,0) rectangle +(12pt,12pt);
+\fill[blue] (6,0) rectangle +(-12pt,12pt);
+\draw[<->] (0,23pt) --
+  node[fill=white] {$1$} ++(6,0);
+\draw[decorate,decoration=saw] (1.8,35pt) -- +(0,-55pt);
+\draw[decorate,decoration=saw] (4.5,35pt) -- +(0,-55pt);
+\draw[<->] (0,-10pt) --
+  node[fill=white] {$\scriptstyle l_1$} (1.8,-10pt);
+\draw[<->] (1.8,-10pt) --
+  node[fill=white] {$\scriptstyle l_2$} (4.5,-10pt);
+\draw[<->] (4.5,-10pt) --
+  node[fill=white] {$\scriptstyle l_3$} (6,-10pt);
+\path (0,-1) rectangle +(2,-1.5);
+\end{tikzpicture}
+}
+\hspace{3em}
+\subcaptionbox{%
+חלוקת טבעת לשלושה חלקים%
+\label{f.rod2}}
+[.45\textwidth]
+{
+\centering
+\begin{tikzpicture}
+\draw (0,0) circle[radius=2];
+\draw (0,0) circle[radius=1.6];
+\draw[decorate,decoration=saw] (30:1) -- +(30:1.5);
+\draw[decorate,decoration=saw] (190:1) -- +(190:1.5);
+\draw[decorate,decoration=saw] (-90:1) -- +(-90:1.5);
+\node[rotate=-4,fill=red,minimum width=11pt,minimum height=11pt]
+  at (-94:1.8) {};
+\node[rotate=6,fill=blue,minimum width=11pt,minimum height=11pt]
+  at (-82:1.8) {};
+\end{tikzpicture}
+}
+\end{figure}
+\end{prob}
+\solution{1}
+
+אין סימטריה במלקות כי הקצות שונים מהחלק האמצני. אולם הטבעת סימטרית ולכן ההתפלגויות של שלושת החלקים יהיו אחידות עם תוחלת
+$1/3$.
+על ידי צביעת אחת מנקודות השבירה כפי שמופיע ב%
+\ref{f.rod2},
+הבעיה הופכת להיות זהה לבעיית המקל כך שההתפלגויות זהות. לכן התוחלת של אורכי החלקים היא גם
+$1/3$.
+
+\solution{2}
+
+הפתרון אלגנטי שלהלן מבוסס על
+\L{\cite{stack-rods}}.
+
+נניח שהמקל מייצג את קטע הקו 
+$(0,1)$.
+המקל נשבר בשני מקומות שניתן לייצג בני משתנים אקראיים בלתי-תלויים עם התפלגות אחידה
+$X,Y\in (0,1)$.
+נחשב את ההסתברות
+$P(|X-Y|>a)$.
+
+טבלה%
+~\ref{t.rods}
+מראה נקודות 
+$(x,y)$
+כאשר
+$x,y \in \{0.0, 0.1, 0.2, \ldots, 0.9\}$
+והנקודה העשרונית הושמטה. הערכים בטבלה הם
+$|X-Y|$.
+עבור
+$a=0.6$
+הערכים למעלה משמאל מ-%
+$(0,6)$--$(6,9)$,
+והערכים למטה ומימין מ-%
+$(6,0)$--$(9,6)$,
+הם התוצאות שמגדירות את
+$P(|X-Y|>a)$:
+\[
+P(|X-Y|>a)=2\cdot \frac{1}{2}(1-a)(1-a)=(1-a)^2\,.
+\]
+עבור
+$a=0.6$, $P(|X-Y|>0.6)=(0.4)^2=0.16$.
+
+\begin{table}[bt]
+\[
+\begin{array}{c}
+\quad\\\\\\
+a\\\\
+\quad\\
+y\\
+\quad\\\quad\\\quad\\\quad
+\end{array}
+\begin{array}{|c|cccccccccc|}
+\multicolumn{11}{l}{\qquad \qquad \qquad a}\\
+\hline
+9& 9 & 8 & 7 & 6 & 5 & 4 & 3 & 2 & 1 & 0  \\
+8& 8 & 7 & 6 & 5 & 4 & 3 & 2 & 1 & 0 & 1  \\
+7& 7 & 6 & 5 & 4 & 3 & 2 & 1 & 0 & 1 & 2  \\
+6& 6 & 5 & 4 & 3 & 2 & 1 & 0 & 1 & 2 & 3  \\
+5& 5 & 4 & 3 & 2 & 1 & 0 & 1 & 2 & 3 & 4  \\
+4& 4 & 3 & 2 & 1 & 0 & 1 & 2 & 3 & 4 & 5  \\
+3& 3 & 2 & 1 & 0 & 1 & 2 & 3 & 4 & 5 & 6  \\
+2& 2 & 1 & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7  \\
+1& 1 & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8  \\
+0& 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9  \\
+\hline
+&0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9  \\
+\hline
+\multicolumn{11}{c}{\quad \quad x\quad\quad\quad a}
+\end{array}
+\begin{array}{c}
+\\\\\\
+a\\\\
+\end{array}
+\]
+\caption{התפלגות נקודות השבירה ב-%
+$(0,1)\times (0,1)$}\label{t.rods}
+\end{table}
+
+המשלים הוא:
+\[
+P(|X-Y|<a)=1-(1-a)^2\,.
+\]
+הסתברות זו היא ההתפלגות ההסתברות המצטברת
+\L{cumulative probability distribution (CPD)}
+בקטע.
+$(0,1)$.
+ניתן לקבל את פונצקית הסתברות הצפיפות
+\L{probability density function (PDF)}
+על ידי גזירת ה-%
+\L{CDP}:
+\[
+P(|X-Y|=a)= \frac{d}{da}P(|X-Y|<a) =
+  \frac{d}{da}(1-(1-a)^2)=2(1-a)\,.
+\]
+התוחלת היא האינטגרל ה-%
+\L{PDF}
+כפול הערך:
+\[
+E(|X-Y|)= \int_{0}^{1} a\cdot2(1-a)\, da=
+  2\left.\left(\frac{a^2}{2}-\frac{a^3}{3}\right)\right|_0^1=\frac{1}{3}\,.
+\]
+
+\textbf{סימולציה}
+\selectlanguage{english}
+\begin{verbatim}
+Expectation of length of right piece = 0.3333
+Average length of right piece        = 0.3359
+\end{verbatim}
+\selectlanguage{hebrew}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{prob}{האס הראשון}{}{(The first ace)}
+חלק קלפים מחפיסה מעורבת היטב עד שמופיע אס. מה התוחלת של מספר הקלפים שיש לחלק?
+
+\textbf{רמז:}
+חשוב על חפיסת קלפים ללא האסים מסודרת בשורה.
+\end{prob}
+\solution{}
+הקלפים הם כמו "מקל" באורך 
+$48$
+"שנשבר" על ידי 
+$4$
+ל-%
+$5$
+חלקים. הפתרון של בעיה~39 מתאים גם כאן והתוחלת של חלק היא
+$48/5=9.6$.
+
+\textbf{סימולציה}
+\selectlanguage{english}
+\begin{verbatim}
+Expectation of first ace = 9.6000
+Average first ace        = 9.5805
+\end{verbatim}
+\selectlanguage{hebrew}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
