@@ -57,18 +57,21 @@
 \newenvironment{prob}[4]{
   \bigskip\bigskip\refstepcounter{problem}
   \addcontentsline{toc}{subsection}
-  {\bfseries\theproblem{}.\ #1 \L{\small #3}}
-  \textbf{\large\theproblem.\ #1 \L{\small #3}%
+  {\textbf{\L{\theproblem{}}.\ #1 \L{\small #3}}}
+  \textbf{\L{\large\theproblem}.\ #1 \L{\small #3}%
 \annotate{#2}\medskip\\}}{\bigskip}
 
-\newcommand*{\que}[1]{\textbf{שאלה #1:}}
+\newcommand*{\que}[1]{\textbf{שאלה}
+\L{\textbf{:#1}}}
+\newcommand*{\quenc}[1]{שאלה \L{#1}}
 
 % Format solution
 \newcommand*{\solution}[1]{\bigskip%
   \textbf{\large פתרון #1} \medskip}
 
-\newcommand*{\ans}[1]{\textbf{תשובה #1:}}
-\newcommand*{\ansnc}[1]{\textbf{תשובה #1}}
+\newcommand*{\ans}[1]{\textbf{פתרון}
+\L{\textbf{:#1}}}
+\newcommand*{\ansnc}[1]{פתרון \L{#1}}
 
 % Annotate chapter headings
 \newcommand*{\annotate}[1]{$\,^{#1}$}
@@ -80,7 +83,7 @@
 % Subfigures
 \DeclareCaptionSubType*{figure}
 \captionsetup[subfigure]{labelformat=simple}
-\renewcommand\thesubfigure{איור~\thefigure(\alph{subfigure})}
+\renewcommand\thesubfigure{איור~\L{\thefigure}(\alph{subfigure})}
 
 % Reduce space around c column in eqnarray*
 \newenvironment{eqn}
@@ -108,7 +111,7 @@
 \renewcommand{\baselinestretch}{1.1}
 \setlength{\parskip}{0.3\baselineskip plus 1pt minus 1pt}
 
-\includeonly{mos1}
+%\includeonly{}
 
 \begin{document}
 

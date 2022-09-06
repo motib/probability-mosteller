@@ -436,7 +436,8 @@ Average winnings        = -0.0724
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{Curing the compulsive gambler}
-Roulette is a game played with a wheel having $38$ numbered pockets: $18$ red, $18$ black and $2$ green.\footnote{There are two green pockets in American roulette and one green pocket in European roulette.} The wheel is spun, a ball is thrown onto the wheel and you wait until the ball lands in one of the pockets. The ball lands in a random pocket with uniform distribution. You bet $1$ that the ball will land in a specific numbered (red or black) pocket. If the ball lands in that pocket you receive $36$. Your net winnings are actually $35$ because the the $36$ includes the $1$ bet which is returned.
+
+\label{p.roulette}Roulette is a game played with a wheel having $38$ numbered pockets: $18$ red, $18$ black and $2$ green.\footnote{There are two green pockets in American roulette and one green pocket in European roulette.} The wheel is spun, a ball is thrown onto the wheel and you wait until the ball lands in one of the pockets. The ball lands in a random pocket with uniform distribution. You bet $1$ that the ball will land in a specific numbered (red or black) pocket.\footnote{This is the only type of bet used in the problems in this book.} If the ball lands in that pocket you receive $36$. Your net winnings are actually $35$ because the the $36$ includes the $1$ bet which is returned.
 
 \que{1} What is the expectation your winnings if you play $36$ round of roulette?
 
@@ -953,6 +954,8 @@ P(20\;\textsf{heads in}\; 40\; \textsf{tosses})={40 \choose 20} \left(\frac{1}{2
 \]
 By the law of large numbers the numbers of heads and tails will be ``roughly'' equal \cite[Section~8.4]{ross}, but they are unlikely to be exactly the same, and this event becomes less likely as the number of tosses increases.
 
+\newpage
+
 \textbf{Simulation}
 \begin{verbatim}
 Probability of 10 heads for  20 tosses = 0.1762
@@ -964,8 +967,6 @@ Proportion  of 50 heads for 100 tosses = 0.0785
 \end{verbatim}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\newpage
 
 \begin{prob}{Isaac Newton helps Samuel Pepys}
 \que{1} What is the probability of obtaining \emph{at least one} $6$ when $6$ dice are thrown?

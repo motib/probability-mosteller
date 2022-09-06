@@ -22,7 +22,9 @@ The smaller piece is on the same side as the break so the expectation of its pos
 E(\textsf{length of smaller piece}) = \frac{1}{2}\cdot\frac{1}{2}=\frac{1}{4}\,.
 \]
 
-\ans{2} Without loss of generality assume that the break occurred in the right half of the rod (Figure~\ref{f.stick}). The ratio of the smaller piece to the larger piece is $(1-x)/x$ and a normalization constant (page~\pageref{p.normal}) must be used because we want the expectation over half the range of $x$:
+\ans{2} Without loss of generality assume that the break occurred in the right half of the rod (Figure~\ref{f.stick}). The ratio of the smaller piece to the larger piece is $(1-x)/x$ and a normalization constant (page~\pageref{p.normal}) must be used because the expectation is computed over 
+$(1/2,1)$,
+half the range of $x$:
 \begin{eqn}
 E(\textsf{ratio of smaller to larger})&=&\left(\frac{1}{1-(1/2)}\right)\int_{\textstyle\frac{1}{2}}^1 \frac{1-x}{x} \,dx\\
 &=& 2\int_{\textstyle\frac{1}{2}}^1 \left(\frac{1}{x} -1\right) \,dx \\
@@ -111,7 +113,7 @@ A large number of glass rods of length $1$ are broken in two places (\ref{f.brea
 
 \ref{f.shaded1} shows the lines $y=2x$ (red) and $y=1-x$ (blue).  For the inequalities to be true, $(x,y)$ must be in the shaded region left of the two lines. The point of intersection $(1/2,2/3)$ can be computed by solving the two equations.
 
-The expectation is computed by integrating the produce of $x$ and the difference between the two lines. The normalization constant is the area of the square divided by the area of the shaded region:
+The expectation is computed by integrating the product of $x$ and the difference between the two lines. The normalization constant is the area of the square divided by the area of the shaded region:
 \begin{eqn}
 E(x)&=& \frac{1}{1/6}\int_{0}^{1/3} x [(1-x)-2x]\,dx\\
 &=&6\int_{0}^{1/3} (x -3x^2)\,dx\\
@@ -221,7 +223,7 @@ P_6 &=& 1\cdot p^6 + \dischoose{6}{1}p^5(1-p)+\dischoose{6}{2}p^4(1-p)^2\,.
 For $p=\frac{1}{4}, \frac{1}{3}, \frac{1}{2}$ the results are:
 \[
 \begin{array}{r|r|r|r}
-\multicolumn{1}{c|}{p}& \multicolumn{1}{c|}{P_2} & \multicolumn{1}{c|}{P_4} & \multicolumn{1}{c|}{P_6}\\\hline
+\multicolumn{1}{c|}{p}& \multicolumn{1}{c|}{P_2} & \multicolumn{1}{c|}{P_4} & \multicolumn{1}{c}{P_6}\\\hline
 1/4 & 1/16=0.0625 & 13/256\approx 0.0501&154/4096\approx 0.0376\\
 1/3 & 1/9\approx 0.1111 & 9/81\approx 0.1111&73/729\approx 0.1001\\
 1/2 & 1/4=0.2500 & 5/16= 0.3125&22/64\approx 0.3435
@@ -271,7 +273,9 @@ Similarly, for $P_{2n}\geq P_{2n+2}$ to hold it must be true that:
 n &\geq& \disfrac{p}{1-2p}\\
 2n &\geq&\disfrac{1-(1-2p)}{1-2p}=\disfrac{1}{1-2p}-1\,.
 \end{eqn}%
-Therefore, value for $N=2n$ that givs the highest probability for winning is the nearest even integer to $1/(1-2p)$.
+Therefore, value for $N=2n$ that gives the highest probability for winning is the nearest even integer to $1/(1-2p)$.
+
+\newpage
 
 \textbf{Simulation}
 \begin{verbatim}
@@ -351,12 +355,16 @@ Lay out a deck of cards in a row in the standard order and then lay out a second
 \end{center}
 \caption{Matching two decks of cards}\label{f.cards}
 \end{figure}
+
 \solution{}
 
-The distribution is uniform because each card in the second row has the same probability of being matched with the card above it. Therefore:
+The distribution is uniform so each card in the second row has the same probability of being matched with the card above it:
 \[
 E(\textsf{number of matches}) = 52\cdot \frac{1}{52} = 1\,.
 \]
+
+\newpage
+
 \textbf{Simulation}
 
 \begin{verbatim}
@@ -375,13 +383,13 @@ Assume that $P(k,0)$ is given for $0\leq k\leq n$.
 
 \solution{}
 
-At first glance this problem seems to be related to Problem~28 but there is a major difference. The drawings from the boxes are independent, whereas here the matches are not independent. For example, if the first match occurs on the first card (with probability $1/n$), the probability that the second card matches is $1/(n-1)$.
+At first glance this problem seems to be related to Problem~28 (Catching the greedy counterfeiter) but there is a major difference. The drawings from the boxes are independent, whereas here the matches are not independent. For example, if the first match occurs on the first card (with probability $1/n$), the probability that the second card matches is $1/(n-1)$.
 
 The probability that any \emph{given} set of $r$ cards match is:
 \begin{equation}\label{eq.r-match}
 \disfrac{1}{n}\cdot \disfrac{1}{n-1}\cdot \cdots \cdot \disfrac{1}{n+r-1}\,.
 \end{equation}
-To obtain exactly $r$ matches Equation~\ref{eq.r-match} must be multiplied by $P(n-r,0)$, the probability that there are no matches in the remaining $n-r$ cards. Finally, there are ${n\choose r}$ ways of choosing the $r$ matches. Therefore:
+To obtain exactly $r$ matches, Equation~\ref{eq.r-match} must be multiplied by $P(n-r,0)$, the probability that there are no matches in the remaining $n-r$ cards. Finally, there are ${n\choose r}$ ways of choosing the $r$ matches. Therefore:
 \begin{eqn}
 P(n,r)&=& \dischoose{n}{r}\disfrac{1}{n(n-1)(n+r-1)} P(n-r,0)\\
 &=& \disfrac{n!}{r!(n-r)!}\cdot\disfrac{1}{n!/(n-r)!}P(n-r,0)\\
@@ -412,9 +420,11 @@ Proportion 4 matches     = 0.0168
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{Choosing the largest dowry\annotate{D}}
-Place $n$ cards face down in a row. There is a positive integer written on the face of each card but you have no knowledge of their distribution. Turn the cards over one-by-one and look at the numbers. After turning over each card you can declare that it is the largest number. If you are correct you win the game otherwise you lose. For example, let the sequence of cards be $(47, 23, 55, 4)$. You win if and only if you choose the third card.
+Place $n$ cards face down in a row. There is a positive integer written on the face of each card but you have no knowledge of their distribution. Turn the cards over one-by-one and look at the numbers. After turning over each card you can declare that it is the largest number. If you are correct you win the game otherwise you lose.
 
-Consider the following strategy: for some fixed $r$ reject the first $r-1$ cards and select the first card whose number is greater than all the $r-1$ cards.
+For example, if the sequence of cards is $(47, 23, 55, 4)$ you win if and only if you choose the third card.
+
+Make your decision according to this strategy: for some fixed $r$ reject the first $r-1$ cards and select the first card whose number is greater than all the $r-1$ cards.
 
 \que{1} For $n=4$, $r=3$ check all permutations and determine the number of permutations where you win.
 
@@ -422,16 +432,16 @@ Consider the following strategy: for some fixed $r$ reject the first $r-1$ cards
 
 \que{3} Find an approximation for the probability when $n,r\rightarrow \infty$.
 
-\textbf{Hint:} Given $n,r$, in what positions can the largest number $m$ be, and in what positions can the numbers less or equal to $m$ be? 
+\textbf{Hint:} Given $r$, in what positions can the largest number $m$ be and in what positions can the numbers less or equal to $m$ be? 
 
 \end{prob}
 
 \solution{}
 
 \ans{1} 
-To simplify notation we write the rank of the numbers as $1,2,\ldots$, although the actual numbers are not known. Suppose that the $n$ numbers are $(47, 23, 55, 4)$. If you uncover cards $3,2,4$, which are actually $47,23,55$, you do not know whether to accept $55$ or to reject it and select the last card because it might be larger.
+To simplify notation we will use the rank of the numbers from low to high $1,2,\ldots,n$ although the actual numbers are not known.
 
-There are $24$ permutations of the four numbers. By the strategy, you reject the first two cards and select either the third card or the fourth card, so you lose if the  permutation has $4$ in the first position. What about the permutation $(1,2,3,4)$? You reject $1,2$ and select $3$ since it  greater than $1,2$ but this is not the largest card so you lose. What about the permutation $(1,3,2,4)$? Again, $1,3$ are rejected by the strategy, but $2$ is also rejected because it is \emph{not} larger than $1,3$. Now you select $4$ and win. Carry out this reasoning for all the permutations and check that permutations with boxed $4$s are wins:
+There are $24$ permutations of the four numbers. By the strategy you reject the first two cards and select either the third card or the fourth card, so you lose if the  permutation has $4$ in the first two positions. What about the permutation $(1,2,3,4)$? You reject $1,2$ and select $3$ since it  greater than $1,2$, but this is not the largest card so you lose. What about the permutation $(1,3,2,4)$? Again, $1,3$ are rejected by the strategy, but $2$ is also rejected because it is \emph{not} larger than $1,3$. Now you select $4$ and win. Carry out this reasoning for all the permutations and check that permutations with boxed $4$s are wins:
 \[
 \addtolength{\arraycolsep}{-2pt}
 \renewcommand*{\arraystretch}{1.5}
@@ -477,7 +487,7 @@ This reasoning will be easier to follow in an example. Given the numbers $1,\ldo
 \[
 2\quad \quad 5\quad \quad 6\quad \quad 3 \quad \quad  \overbrace{1 \quad \quad 4 \quad \quad 9 \quad \quad 10\quad\quad 8}^{\textsf{largest must be here}}
 \]
-The largest number is at position $m=9$. However the largest card in $(1,\ldots,m-1=8)$ is \emph{in} the sequence $(r=5,\ldots,m-1=8)$ so you will not win. By the strategy you will select $9$, the first number larger that all those in $(1,\ldots,r-1=4)$ and lose because $10>9$. If, however, the places of $9$ and $10$ were exchanged, then the largest number less than $10$ is $6$ at position $3<r=5$, so by the strategy $1,4$ will not selected and you will win:
+The largest number is at position $m=9$. However the largest number in $(1,\ldots,m-1=8)$ is \emph{in} the sequence $(r=5,\ldots,m-1=8)$ so you will not win. By the strategy you will select $9$, the first number larger that all those in $(1,\ldots,r-1=4)$ and lose because $10>9$. If, however, the places of $9$ and $10$ were exchanged, then the largest number less than $10$ is $6$ at position $3<r=5$, so by the strategy you will not select $1,4$ and you will win:
 \[
 \begin{array}{l}
 \overbrace{2\quad \quad 5\quad \quad 6\quad \quad 3}^{\textsf{here}} \quad \quad  \overbrace{1 \quad \quad 4 \quad \quad \mathbf{9}}^{\textsf{not here}}  \quad \quad 10\quad\quad 8\\
@@ -485,7 +495,7 @@ The largest number is at position $m=9$. However the largest card in $(1,\ldots,
 \end{array}
 \]
 
-Since the probability that the largest card is at $m$ is $1/n$:
+Since the probability that the largest number is at $m$ is $1/n$:
 \begin{equation}\label{eq.dowry1}
 P(\textsf{win}) = \sum_{m=r}^{n} \disfrac{1}{n} \cdot \disfrac{r-1}{m-1}= \disfrac{r-1}{n}\sum_{m=r}^{n} \disfrac{1}{m-1}\,.
 \end{equation}
@@ -510,7 +520,7 @@ Therefore, to maximize that probability of winning choose $r \approx n/e$ and fr
 \[
 P(\textsf{win})\approx-\disfrac{1}{e}\ln\left(\disfrac{1}{e}\right)=\disfrac{1}{e}\approx \disfrac{1}{3}\,,
 \]
-much larger than the probability $1/n$ of winning if the strategy is to pick a random card.
+much larger than the probability $1/n$ of winning by picking a random card.
 
 \textbf{Simulation}
 The simulation was run with $100$ cards and values of $r$ near $100/e$:
@@ -545,24 +555,24 @@ Use the strategy of Problem~47: for some fixed $r$ reject the first $r-1$ cards 
 
 \que{3} For $n=3$ compute the indifference value for the first card and compute the probability of winning. Do not try to compute the probability of winning!
 
-\textbf{Note:} In Problem~37 the values could be $100, 200, 300$ or $100, 50, 20$, so uncovering the first number gives no information about the other numbers. In this problem, since the distribution is uniform, if the first number is $0.3$, the probability that the second number is smaller is $0.3$ and the probability that it is larger is $0.7$.
+\textbf{Note:} In Problem~37 the values could be $100, 200, 300$ or $100, 50, 20$, so uncovering the first number gives no information about the other numbers. In this problem since the distribution is uniform if the first number is $0.3$ the probability that the second number is smaller is $0.3$ and the probability that it is larger is $0.7$.
 \end{prob}
 
 \solution{}
 
 Let $v_1,v_2,v_3$ be the values of the three cards.
 
-\ans{1} You have no choice but to select the first card since there are no other cards. There is no indifference value. Since $v_1$ is the ``largest'' number $P({win})=1$.
+\ans{1} You have no choice but to select the first card since there are no other cards. There is no indifference value. $v_1$ is the ``largest'' number and $P({win})=1$.
 
 \ans{2} If you select the first card, $P(\textsf{win})=v_1$ because $v_1$ is the probability that the second card has a smaller value. If you reject the first card, $P(\textsf{win})=1-v_1$ because $1-v_1$ is the probability that $v_2>v_1$. Therefore, if $v_1<0.5$ select the second card because $1-v_1>0.5$ and if $v_1>0.5$ select the first card because $1-v_1<0.5$. By definition, the indifference value is $d=0.5$ since we have shown that the decision to select changes depending on whether $v_1$, the value of card, is above or below $d$.
 
 The probability of winning is:
 \begin{equation}\label{eq.largest-random1}
-P(\textsf{win}) = p(\textsf{win} \,|\,v_1<0.5)\,p(v_1<0.5)+ p(\textsf{win}\,|\,v_1>0.5)\,p(v_1>0.5)\,.
+P(\textsf{win}) = P(\textsf{win} \,|\,v_1<0.5)\,P(v_1<0.5)+ P(\textsf{win}\,|\,v_1>0.5)\,P(v_1>0.5)\,.
 \end{equation}
-$p(v_1<0.5)=0.5$ follows by the uniform distribution. What about $p(\textsf{win} \,|\,v_1<0.5)$? By the strategy you win if $0.5<v_2<1$, but you also win if $v_1<v_2<0.5$. Since $v_1$ is uniformly distributed in $(0,0.5)$ the probability that $v_1<v_2<0.5$ is one-half the range:
+$P(v_1<0.5)=0.5$ follows by the uniform distribution. What about $P(\textsf{win} \,|\,v_1<0.5)$? By the strategy you win if $0.5<v_2<1$, but you also win if $v_1<v_2<0.5$. Since $v_1$ is uniformly distributed in $(0,0.5)$ the probability that $v_1<v_2<0.5$ is one-half the range:
 \[
-p(\textsf{win} \,|\,v_1<0.5)=0.50+0.25=0.75\,.
+P(\textsf{win} \,|\,v_1<0.5)=0.50+0.25=0.75\,.
 \]
 A similar computation holds for $v_1>0.5$ and from Equation~\ref{eq.largest-random1} we have:
 \[
@@ -610,7 +620,10 @@ Proportion of wins = 0.6473
 You are given two rods of lengths $L_1>L_2$ and a length-measuring instrument whose possible error is given by a normal distribution\footnote{This problem assumes that the reader is familiar with normal distributions.} with mean $0$ and variance $\sigma^2$. The lengths of the two rods can be measured by measuring each one separately. Is there a more accurate method?
 \end{prob}
 
+\newpage
+
 \solution{}
+
 \begin{figure}[bt]
 \begin{center}
 \begin{tikzpicture}
@@ -704,7 +717,7 @@ The roots will be real if the discriminant is non-negative: $4b^2-4c\geq 0$. Fig
 \fill[blue] (2,2) circle(3pt);
 \end{tikzpicture}
 \end{center}
-\caption{For $(b,c)$ in the shaded area the roots of $c=b^2$ are complex}\label{f.real-roots}
+\caption{For $(b,c)$ in the shaded area the roots of $x^2+2bx+c$ are complex}\label{f.real-roots}
 \end{figure}
 
 The shaded area can be computed by integration:
@@ -752,7 +765,7 @@ A particle is placed at the origin of a two-dimensional coordinate system. The p
 
 \que{3} Use Stirling's approximation to estimate the number of visits of the particle to the origin for large $n$.
 
-\textbf{Hint} Use indicator variables to compute expectations.
+\textbf{Hint} Use indicator variables to compute the expectation.
 
 \begin{figure}[t]
 \begin{center}
@@ -798,11 +811,12 @@ The dots in Figure~\ref{f.two-moves} show the possible positions of the particle
 \item The red path shows a move to $(\pm 2,0)$ or $(0,\pm 2$). There are two possible paths for each one so the probability is $2\cdot\left(\frac{1}{4}\right)^2= \frac{2}{16}$.
 \item The blue path shows a move to $(\pm 1,\pm 1)$ and back to the origin. The probability is $\frac{1}{16}$.
 \end{itemize}
-The blue paths are the only ones that return to the origin. There are four possible paths from the origin to $(\pm 1,\pm 1)$ so:
+Let $P_{2n}(x,y)$ be the probability that the particle reaches $(x,y)$ in $2n$ moves.
+
+The four possible blue paths are the only ones that return to the origin so:
 \[
-P_{2}(0,0)=\frac{4}{16}\,,
+P_{2}(0,0)=\frac{4}{16}\,.
 \]
-where $P_{2n}(x,y)$ is the probability that the particle reaches $(x,y)$ in $2n$ moves.
 
 \begin{figure}[tb]
 \begin{center}
@@ -831,7 +845,7 @@ P_{2n}(0,b)\cdot P_{2n}(a,0)\,,
 \end{equation}
 where $a,b$ are arbitrary integers.
 
-The particle will return to the origin if and only if for both axes the number of $+1$ moves equals the number of $-1$ moves. There are ${2n \choose n}$ ways to arrange $+1$s and $-1$s so:
+The particle will return to the origin if and only if for both axes the number of $+1$ moves equals the number of $-1$ moves. There are ${2n \choose n}$ ways to arrange $n$ moves of $+1$ and $n$ moves of $-1$ so:
 \begin{eqnlabels}
 \nonumber{}P_{2n}(0,b) =P_{2n}(a,0)&=&
 \dischoose{2n}{n}\left(\disfrac{1}{2}\right)^n\left(\disfrac{1}{2}\right)^{n}\\
@@ -842,8 +856,7 @@ Define the indicator variables $I_{2n}(0,0)$ for returning to the origin in $2n$
 \[
 E(0,0) = \sum_{n=1}^{\infty}E(I_{2n}(0,0))\,.
 \]
-You might ask what happens if the particle \emph{twice} takes three steps and then reverses the steps to return to the origin?
-Shouldn't $I_6(0,0)$ have the value two and not one? The answer is that on the second return, the particle has taken $12$ steps which will be counted by $I_{12}(0,0)=1$.
+You might ask what happens if the particle takes three steps and then returns to the origin and again takes three steps and returns to the origin. Shouldn't $I_6(0,0)$ have the value two and not one? The answer is that on the second return the particle has taken $12$ steps which will be counted by $I_{12}(0,0)=1$.
 
 From Equations~\ref{eq.expectation-prob},~\ref{eq.expectation-sum}:
 \begin{equation}
@@ -874,13 +887,15 @@ By Stirling's approximation $n! \approx \sqrt{2\pi n}\left(n/e\right)^n$:
 \nonumber{}&=& \disfrac{1}{\pi n}\\
 \label{eq.rw-2d}E(0,0) &=& \disfrac{1}{\pi}\sum_{n=1}^{\infty}\disfrac{1}{n}\,,
 \end{eqnlabels}%
-which is the the harmonic series that diverges.
+which is the the harmonic series that diverges so with probability $1$ the particle returns to the origin!
 
-Since $E(0,0)=\infty$ the number of times that the particle returns to zero is unbounded. However, by the first axiom of probability (page~\pageref{p.first-axiom}), $P(0,0)$, the probability that the particle will return to the origin, must satisfy $0\leq P(0,0) \leq 1$ so $P(0,0)=1$, meaning that it is certain that the particle returns to the origin. In general, the expectation of a random variable is infinite if and only if its probability is one.
+Since $E(0,0)=\infty$ the number of times that the particle returns to origin is unbounded. However, by the first axiom of probability (page~\pageref{p.first-axiom}), $P(0,0)$, the probability that the particle will return to the origin, must satisfy $0\leq P(0,0) \leq 1$ so $P(0,0)=1$, meaning that it is certain that the particle returns to the origin. In general, the expectation of a random variable is infinite if and only if its probability is one.
 
 \textbf{Simulation}
-The simulation was run $100$ times each for one million steps. \begin{verbatim}
-Proportion returned to origin      = 0.8700
+
+The simulation was run one hundred times for one million steps each.
+\begin{verbatim}
+Proportion returned to origin = 0.8700
 \end{verbatim}
 Since the probability of returning to the origin is $1$ the result should be close to $1.0000$. The result obtained can be interpreted to mean that although every particle will return to the origin, it can take an extremely large number of steps to do so.
 
@@ -890,6 +905,8 @@ Since the probability of returning to the origin is $1$ the result should be clo
 A particle is placed at the origin of a three-dimensional coordinate system. The particle moves left or right on the $x$-axis with probabilities $1/2$ \emph{and} up or down the $y$-axis with probabilities $1/2$ \emph{and} in or out on the $z$-axis with probabilities $1/2$.
 
 \que{1} Develop a formula for the expectation of the number of times that the particle returns to the origin and estimate its value using Stirling's approximation.
+
+\textbf{Hint:} Develop a formula for the probability and then use indicator variables.
 
 \que{2} What is the probability that the particle will return to the origin \emph{at least once}?
 
@@ -938,6 +955,13 @@ In \ansnc{1} we computed that $E(0,0,0)\approx 0.3772$ so:
 P_1 \approx 1- \disfrac{1}{1+0.3772}
 \approx 0.2739\,.
 \]
+\textbf{Simulation}
+\begin{verbatim}
+Expectation of reaching origin = 0.3772
+Average times reached origin   = 0.3630
+Probability of reaching origin = 0.2739
+Proportion reached origin      = 0.2790
+\end{verbatim}
 
 \textbf{Higher dimensions:} Equation~\ref{eq.rw-multiply} can be extended to any number of dimensions and from Equations~\ref{eq.rw-2d}, \ref{eq.rw-3d}, it is reasonable to conjecture that $E(0,0,0)$ is \emph{proportional to}:
 \begin{equation}
@@ -957,14 +981,6 @@ For $d=3$, $E(0,0,0)$ converges since:
 For $d=4$, $E(0,0,0,0)$ converges since $\sum_{n=1}^{\infty} \frac{1}{2^n}=2$.
 
 For higher dimensions the expectation of the number of returns to the origin is finite but decreasing, so it becomes less and less likely that the particle will return in any particular 3D random walk.
-
-\textbf{Simulation}
-\begin{verbatim}
-Expectation of reaching origin = 0.3772
-Average times reached origin   = 0.3630
-Probability of reaching origin = 0.2739
-Proportion reached origin      = 0.2790
-\end{verbatim}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1065,6 +1081,8 @@ E(\textsf{lines crossed}) =
   \right|_0^{\pi/2}=\disfrac{2a}{\pi}\,.
 \end{equation}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \solution{2}
 
 This solution is based upon \cite[Chapter~26]{proofs}.
@@ -1084,17 +1102,17 @@ This solution is based upon \cite[Chapter~26]{proofs}.
 
 Let $E(a)$ be the expectation of the number of parallel lines crossed by a line of length $a$.
 
-Given a needle of length $a$ we can break the needle in several segments $\{a_1,\ldots,a_n\}$ and by the linearity of expectation:
+Given a needle of length $a$ we can break it into several segments $\{a_1,\ldots,a_n\}$ and by the linearity of expectation:
 \[
 E(a) = E\left(\sum_{i=1}^{n} a_i\right) = \sum_{i=1}^{n} E(a_i)\,, 
 \]
-so it doesn't matter if we compute the expectation of each segment separately. Therefore, if we bend the needle in a circle the expectation of the number of lines crossed by the circle is the same as the number of lines crossed by the needle.
+so it doesn't matter if we compute the expectation of each segment separately. Therefore, if we bend the needle into a circle, the expectation of the number of lines crossed by the circle is the same as the number of lines crossed by the needle.
 
 Consider a line formed into a circle $C$ of \emph{diameter} $1$ and circumference $\pi$. If the circle is thrown onto the surface it will cross lines \emph{exactly} twice (Figure~\ref{f.buffon3}) so:
 \begin{equation}\label{eq.buffon-2}
 E(C)=2\,.
 \end{equation}
-Inscribe a regular polygon $Q_n$ (red, dashed) within the circle $C$ (green) and circumscribe a regular polygon $R_n$ (blue,dotted) around $c$ (Figure~\ref{f.buffon4}). Any line that $Q_n$ crosses (red) must also cross the circle and any line that crosses the circle (blue) must also cross $R_n$. Therefore:
+Inscribe a regular polygon $Q_n$ (red, dashed) within the circle $C$ (green) and circumscribe a regular polygon $R_n$ (blue, dotted) around $c$ (Figure~\ref{f.buffon4}). Any line that $Q_n$ crosses (red) must also cross the circle and any line that crosses the circle (blue) must also cross $R_n$. Therefore:
 \begin{equation}\label{eq.buffon3}
 E(Q_n)\leq E(C)\leq E(R_n)\,.
 \end{equation}
@@ -1303,9 +1321,7 @@ Average crossings        = 0.8897
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{Molina's urns}
-Let $U_1,U_2$ be two urns. $U_1$ has $w_1$ white balls and $b_1$ black balls, while $U_2$ has $w_2$ white balls and $b_2$ black balls. It is given that $w_1+b_1=w_2+b_2$. $n$ balls are drawn \emph{with replacement} from each urn.
-
-\que{1} For various values of $n>1$ find $w_1,b_1,w_2,b_2$ such that:
+Let $U_1,U_2$ be two urns. $U_1$ has $w_1$ white balls and $b_1$ black balls, while $U_2$ has $w_2$ white balls and $b_2$ black balls. It is given that $w_1+b_1=w_2+b_2$. $n$ balls are drawn \emph{with replacement} from each urn. For various values of $n>1$ find $w_1,b_1,w_2,b_2$ such that:
 \[
 P(\textsf{balls drawn from} \;U_1\; \textsf{are all white})=
 P(\textsf{balls drawn from} \;U_2\; \textsf{are all white or all black})\,.
@@ -1315,7 +1331,7 @@ P(\textsf{balls drawn from} \;U_2\; \textsf{are all white or all black})\,.
 
 \solution{}
 
-\ans{1} For $n=2$ the equation that must be solved is:
+For $n=2$ the equation that must be solved is:
 \begin{eqn}
 \left(\disfrac{w_1}{m}\right)^2&=&\left(\disfrac{w_2}{m}\right)^2+\left(\disfrac{b_2}{m}\right)^2\\
 w_1^2&=&w_2^2+b_2^2\,,
