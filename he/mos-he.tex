@@ -47,7 +47,6 @@
 % Use fancyhdr to make all page numbers uniform
 \pagestyle{fancy}
 \fancyhead{}
-\fancyfoot{}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 \fancyfoot[C]{$\thepage$}
@@ -57,7 +56,7 @@
 \newenvironment{prob}[4]{
   \bigskip\bigskip\refstepcounter{problem}
   \addcontentsline{toc}{subsection}
-  {\textbf{\L{\theproblem{}}.\ #1 \L{\small #3}}}
+  {\L{\theproblem{}}.\ #1 \L{\small #3}}
   \textbf{\L{\large\theproblem}.\ #1 \L{\small #3}%
 \annotate{#2}\medskip\\}}{\bigskip}
 
@@ -83,7 +82,8 @@
 % Subfigures
 \DeclareCaptionSubType*{figure}
 \captionsetup[subfigure]{labelformat=simple}
-\renewcommand\thesubfigure{איור~\L{\thefigure}(\alph{subfigure})}
+\renewcommand\thesubfigure{איור~\textenglish{\arabic{figure}}(\alph{subfigure})}
+\renewcommand\thefigure{\textenglish{\arabic{figure}}}
 
 % Reduce space around c column in eqnarray*
 \newenvironment{eqn}
