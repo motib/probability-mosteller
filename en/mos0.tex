@@ -112,7 +112,7 @@ b& (\sqrt{2}+1)b&<r<& (\sqrt{2}+1)b+1&r&P(\textrm{two reds})\\
 Mosteller mentions a connection between this problem and advanced number theory, and gives another solution: $b=35,r=85$.
 
 \medskip
-\textbf{Simulation}
+\sml{}
 \begin{verbatim}
 Expectation of both red  = 0.5000
 Average of both red for (red =  3, black =  1) = 0.5053
@@ -193,7 +193,7 @@ The result is counter-intuitive. Intuitively, you should choose to play two game
 
 \newpage
 
-\textbf{Simulation}
+\sml{}
 \begin{verbatim}
 For p1 = 0.6, p2 = 0.5
 Proportion of P121 wins = 0.4166
@@ -222,7 +222,7 @@ P(\textsf{correct decision})=\overbrace{\left(p\cdot p\cdot\frac{1}{2}\right)}^{
 \]
 so there is no difference between the two options.
 
-\textbf{Simulation}
+\sml{}
 \begin{verbatim}
 Prediction: probabilities of (a) and (b) are equal
 For p = 0.25, proportion correct of (a) = 0.5019, (b) = 0.5046
@@ -295,7 +295,7 @@ E &=& 1p + (E+1)(1-p)\\
 E&=&1/p=6\,.
 \end{eqn}%
 
-\textbf{Simulation}
+\sml{}
 \begin{verbatim}
 Expectation of first success = 6
 Average of first success     = 6.0161
@@ -387,7 +387,7 @@ E(\textsf{winnings per throw})=5\cdot\frac{1}{16}\,+\,(-1)\cdot\frac{15}{16}=-\f
 \[
 P(\textsf{coin lands within the square})=\frac{(a-2r)^2}{a^2}\,.
 \]
-\textbf{Simulation}
+\sml{}
 \begin{verbatim}
 For side = 8, radius = 1:
 Probability of landing within the square = 0.5625
@@ -427,7 +427,7 @@ E(\textsf{winnings per throw}) &=&
 &=& \frac{1}{216}(-125+75+30+3)\approx -0.0787\,.
 \end{eqn}%
 
-\textbf{Simulation}
+\sml{}
 \begin{verbatim}
 Expectation of winnings = -0.0787
 Average winnings        = -0.0724
@@ -468,7 +468,7 @@ E(\textsf{total winnings})&=&\overbrace{-1.8947}^{\textsf{\small E of all rounds
 \end{eqn}%
 Clearly you should take the bet!
 
-\textbf{Simulation}
+\sml{}
 \begin{verbatim}
 Expectation of winning a round = -0.0526
 Average winnings for a round   = -0.0593
@@ -497,7 +497,7 @@ P(\textsf{selecting}\;13\;\textsf{cards of the same suit})=\frac{52}{52}\cdot \f
 
 \newpage
 
-\textbf{Simulation}
+\sml{}
 
 There is no point in running a simulation with $52$ cards because the result would almost certainly be zero. A simulation was run with a deck of $16$ cards and $4$ suits.
 
@@ -596,7 +596,7 @@ which is exactly the result $W_4$ in the table above. After computing $W_n$ for 
 
 Conditional probability is implicitly used in the first solution because $W_n$ is a probability that is conditional on the first throw resulting in the point $n$.
 
-\textbf{Simulation}
+\sml{}
 \begin{verbatim}
 Probability of winning = 0.4929
 Proportion of wins     = 0.4948
@@ -620,7 +620,8 @@ Proportion of wins     = 0.4948
 
 Three prisoners $A,B,C$ are eligible for parole. The parole board will release two of them with equal probability for $\{A,B\}, \{A,C\}, \{B,C\}$, so the probability that $A$ will be released is $2/3$. Prisoner $A$ is told correctly the name of  one of the other prisoners $B$ or $C$ who will be released. If $A$ is told that prisoner $B$ will be released, what is the probability that $A$ too will be released?
 
-\cite{carlton} is devoted to the prisoner's dilemma and to the similar Monty Hall problem.
+For readers familiar with the Monty Hall problem: explain the connect between that problem and the prisoner's dilemma. Both problems are analyzed in \cite{carlton}.
+
 \end{prob}
 
 \solution{1}
@@ -665,15 +666,27 @@ If $\{B,C\}$ are to be released, $A$ is told correctly the name of either $B$ or
 P(A|R_{AB}) = \frac{P(e_1\cap(e_1\cup e_3))}{P(e_1\cup e_3)}=\frac{P(e_1)}{P(e_1\cup e_3)}=\frac{1/3}{(1/3)+(1/6)}=\frac{2}{3}\,.
 \]
 
+\newpage
+
 \solution{3}
 
 A riddle attributed to Abraham Lincoln asks: ``If you call the tail of a dog a leg, how many legs does the dog have?'' The answer is that calling a tail a leg doesn't make it a leg, so the dog still has four legs. Clearly, whether $A$ knows $B$'s future or not doesn't change his chances of being released.
 
-\newpage
-
-\textbf{Simulation}
+\sml{}
 
 There is no simulation: the problem asks if the probability changes as the result of some knowledge but we have shown that it does not change.
+
+\bigskip
+
+\textbf{\Large Prisoner's dilemma and Monty Hall}
+
+\medskip
+
+Expanding on Solution 3, $A$'s chances of being released are not affected by anything the warden says: he could lie to $A$ or even not say anything. The decision whom to release was already made.
+
+Consider now a variation on the Monty Hall problem where Monty opens a door (in fact, any door), but the contestant is \emph{not allow to change his choice}! The probabilities don't change: he has a $1/3$ chance of winning the car and a $2/3$ chance of not winning. This is equivalent to the prisoner's dilemma problem.
+
+It is only because the contestant is allowed to change his choice that opening the door has any meaning. Again, the probabilities don't change: there is a $1/3$ chance that the car is behind the door the contestant chose and a $2/3$ chance that it is not. However, this $2/3$ is now ``concentrated'' in the one door that remains closed and, therefore, the contestant can double his chance of winning by changing his choice.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -702,7 +715,7 @@ For $n=5$ this gives:
 E(\textsf{all five numbers}) =5H_5\approx 5\left(\ln 5 + \frac{1}{10} + 0.5772\right) \approx 11.4332\,.
 \]
 
-\textbf{Simulation}
+\sml{}
 \begin{verbatim}
 For  5 coupons:
 Expectation of draws = 11.4332
@@ -732,6 +745,8 @@ In the example there are $10$ $EO$ or $OE$ adjacent pairs.
 
 \textbf{Hint:} What is the probability that a pair of adjacent number are different?
 \end{prob}
+
+\newpage
 
 \solution{}
 
@@ -767,9 +782,7 @@ P_d &=& P(EO) + P(OE) = \frac{3}{5}\cdot \frac{2}{4} + \frac{2}{5}\cdot \frac{3}
 E_d &=& 4\cdot \frac{3}{5}=\frac{12}{5}=2.4\,.
 \end{eqn}%
 
-\newpage
-
-\textbf{Simulation}
+\sml{}
 \begin{verbatim}
 For  5 places:
 Expectation of different pairs = 2.4000
@@ -822,8 +835,6 @@ Eight players $\{a_1,\ldots,a_8\}$ are randomly assigned to play eight games $\{
 \end{figure}
 \end{prob}
 
-\newpage
-
 \solution{}
 
 \ans{1}
@@ -834,7 +845,9 @@ If $a_1$ is assigned to one of the games $\{g_1,g_2,g_3,g_4\}$ none of the other
 P(a_1,a_2\;\textsf{playing each other in the final})=\frac{2^{n-1}}{2^n-1}\,.
 \]
 
-\textbf{Simulation}
+\newpage
+
+\sml{}
 \begin{verbatim}
 For   8 players:
 Probability a2 is runner-up                = 0.5714
@@ -920,7 +933,9 @@ P_n&=&\disfrac{2^{-(n-1)}}{2^n-1}+\disfrac{2^{1}-2^{-(n-2)}}{2^n-1}\\
 \end{array}
 \]
 
-\textbf{Simulation}
+\newpage
+
+\sml{}
 \begin{verbatim}
 For   8 players:
 Probability that a1, a2 meet = 0.2500
@@ -954,9 +969,7 @@ P(20\;\textsf{heads in}\; 40\; \textsf{tosses})={40 \choose 20} \left(\frac{1}{2
 \]
 By the law of large numbers the numbers of heads and tails will be ``roughly'' equal \cite[Section~8.4]{ross}, but they are unlikely to be exactly the same, and this event becomes less likely as the number of tosses increases.
 
-\newpage
-
-\textbf{Simulation}
+\sml{}
 \begin{verbatim}
 Probability of 10 heads for  20 tosses = 0.1762
 Proportion  of 10 heads for  20 tosses = 0.1790
@@ -997,7 +1010,7 @@ P(\textsf{at least}\;n\;6\textsf{s})&=&
 &=&1-\sum_{i=0}^{n-1}{6n\choose i}\left(\frac{1}{6}\right)^{i}\left(\frac{5}{6}\right)^{6n-i}\,.
 \end{eqn}%
 
-\textbf{Simulation}
+\sml{}
 \begin{verbatim}
 For   6 dice to throw  1 sixes:
 Probability = 0.6651
@@ -1017,6 +1030,8 @@ Proportion  = 0.5250
 \end{verbatim}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
 
 \begin{prob}{The three-cornered duel\annotate{D}}
 $A,B,C$ fight a sequence of duels. Each of them has a fixed probability of winning a duel regardless of who the opponent is:
@@ -1136,7 +1151,7 @@ E(A \;\textsf{wins}|A\;\textsf{shoots in the air}) = 1\cdot (1\cdot 1 \cdot 0.3)
 \]
 which is higher than the expectation for the other two strategies!
 
-\textbf{Simulation}
+\sml{}
 \begin{verbatim}
 For A fires first at C:
 Expectation of wins = 0.2100

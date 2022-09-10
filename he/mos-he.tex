@@ -56,23 +56,28 @@
 \newenvironment{prob}[4]{
   \bigskip\bigskip\refstepcounter{problem}
   \addcontentsline{toc}{subsection}
-  {\L{\theproblem{}}.\ #1 \L{\small #3}}
-  \textbf{\L{\large\theproblem}.\ #1 \L{\small #3}%
-\annotate{#2}\medskip\\}}{\bigskip}
+  {\L{\bfseries\theproblem{}}.\ \bfseries #1 \L{\small #3}}
+  {\L{\Large\bfseries\theproblem}.\ %
+  \Large\bfseries #1 \L{\small\bfseries #3}%
+  \annotate{#2}\medskip\\}}{\bigskip}
 
+% Format questions
 \newcommand*{\que}[1]{\textbf{שאלה}
 \L{\textbf{:#1}}}
 \newcommand*{\quenc}[1]{שאלה \L{#1}}
 
 % Format solution
 \newcommand*{\solution}[1]{\bigskip%
-  \textbf{\large פתרון #1} \medskip}
+  \textbf{\Large פתרון #1} \medskip}
 
+\newcommand*{\sml}{\medskip\textbf{\Large סימולציה}\medskip}
+
+% Format answers
 \newcommand*{\ans}[1]{\textbf{פתרון}
 \L{\textbf{:#1}}}
 \newcommand*{\ansnc}[1]{פתרון \L{#1}}
 
-% Annotate chapter headings
+% Annotate problem headings
 \newcommand*{\annotate}[1]{$\,^{#1}$}
 
 % Displaystyle for fractions and combinations
@@ -117,11 +122,14 @@
 
 % \include allows partial compilation
 
-\include{mos-intro}
-\include{mos0}
-\include{mos1}
-\include{mos2}
-\include{mos-prob}
-\include{mos-bib}
+\input{mos-intro}
+\newpage
+\input{mos0}
+\input{mos1}
+\input{mos2}
+\newpage
+\input{mos-prob}
+\newpage
+\input{mos-bib}
 
 \end{document}

@@ -5,10 +5,10 @@
 \selectlanguage{hebrew}
 
 \begin{center}
-\textbf{\Large בעיות ופתרונות}
+\textbf{\LARGE בעיות ופתרונות}
 \end{center}
 
-\addcontentsline{toc}{section}{בעיות ופתרונות}
+\addcontentsline{toc}{section}{\large בעיות ופתרונות}
 
 \begin{prob}{מגרת הגרביים}{}{(The sock drawer)}
 
@@ -176,7 +176,7 @@ $b=35,r=85$.
 
 
 \medskip
-\textbf{סימולציה}
+\sml{}
 \selectlanguage{english}
 \begin{verbatim}
 Expectation of both red  = 0.5000
@@ -306,7 +306,7 @@ $P_1$.
 $P_1$,
 כי יש סיכוי גבוה יותר לנצח אותו.
 
-\textbf{סימולציה}
+\sml{}
 
 \selectlanguage{english}
 \begin{verbatim}
@@ -464,7 +464,8 @@ E&=&\disfrac{1}{p}=6\,.
 
 \newpage
 
-\textbf{סימולציה}
+\sml{}
+
 \selectlanguage{english}
 \begin{verbatim}
 Expectation of first success = 6
@@ -586,7 +587,7 @@ $a-2r$
 P(\textrm{המעגל בתוך נוחתת המטבע})=\frac{(a-2r)^2}{a^2}\,.
 \]
 
-\textbf{סימולציה}
+\sml{}
 \selectlanguage{english}
 \begin{verbatim}
 For side = 8, radius = 1:
@@ -656,7 +657,7 @@ E(\textrm{הטלה לכל רווח}) &=&
 &=&-\frac{17}{216}\approx -0.0787\,.
 \end{eqn}
 
-\textbf{סימולציה}
+\sml{}
 \selectlanguage{english}
 \begin{verbatim}
 Expectation of winnings = -0.0787
@@ -757,9 +758,7 @@ E(\textrm{סה"כ רווחים})&=&
 \end{eqnarray*}
 ברור שכדאי להסכים להימור המוצע!
 
-\newpage
-
-\textbf{סימולציה}
+\sml{}
 \selectlanguage{english}
 \begin{verbatim}
 Expectation of winning a round = -0.0526
@@ -805,7 +804,7 @@ $11$
 P(\textrm{סדרה מאותה קלפים}\;13\;\textrm{בחירת})=\frac{52}{52}\cdot \frac{12}{51}\cdot \frac{11}{50} \cdots  \frac{1}{40}= \frac{12!}{51!/39!}\approx 6.2991\times 10^{-12}\,.
 \]
 
-\textbf{סימולציה}
+\sml{}
 
 אין טעם להריץ סימולציה עם 
 $52$
@@ -814,10 +813,12 @@ $16$
 קלפיםם ו-%
 $4$
 סדרות.
+\selectlanguage{english}
 \begin{verbatim}
 Probability of perfect hand = 0.0022
 Proportion perfect hand     = 0.0020
 \end{verbatim}
+\selectlanguage{hebrew}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1025,7 +1026,7 @@ $W_n$
 $n$
 בהטלה הראשונה.
 
-\textbf{סימולציה}
+\sml{}
 \selectlanguage{english}
 \begin{verbatim}
 Probability of winning = 0.4929
@@ -1069,10 +1070,11 @@ $B$
 $A$
 ישוחרר גם כן?
 
-\L{\cite{carlton}}
-הוא מאמר מקיף על דילמת האסיר ועל בעיית 
-\L{Monty Hall}
-הדומה.
+עבור קוראים שמכירים את בעיית 
+\L{Monty Hall}:
+הסבר את הקשר בין אותה בעיה ודילמת האסיר. ניתוח של שתי הבעיות ניתן למצוא ב-%
+\L{\cite{carlton}}.
+
 \end{prob}
 
 \solution{1}
@@ -1132,6 +1134,7 @@ $B$
 ישוחרר לא משנה את ההסתברות ש-%
 $A$
 ישוחרר.
+\newpage
 
 \solution{2}
 
@@ -1205,6 +1208,43 @@ $A$
 $B$
 זה לא משנה את סיכויו להשתחרר.
 
+\sml{}
+
+אין סימולציה כי הבעיה שואלת אם ההסתברות משתנה לאור ידע מסויים, אבל הראנו שאין שינוי.
+
+\bigskip
+
+\textbf{\Large דילמת האסיר והבעיה של
+\L{Monty Hall}}
+
+\medskip
+
+נרחיב את פתרון 
+$3$:
+הסיכוי ש-%
+$A$
+ישתחרר לא מושפע ממידע נמסר לו. אפשר לשקר לו או אפילו לא למסור לו כלום כי ההחלטה את מי לשחרר כבר נלקח.
+
+נניח ששינו את הכללים של בעיית 
+\L{Monty Hall}
+כך ש-%
+\L{Monty}
+פותח דלת (כל דלת, למעשה) אבל המתחרה
+\textbf{לא רשאי לשנות את החלטתו!}
+ההסתברויות לא משתנות: הסיכוי לזכות במכונית הוא
+$1/3$
+והסיכוי להפסיד הוא
+$2/3$.
+המצב שקול לדילמת האסיר.
+
+העובדה שהמתחרה רשאי לשנות את החלטתו היא הסיבה שיש משמעות לפתיחת הדלת. שוב, ההסבתרויות לא משתנות: הסיכוי לזכות במכונית הוא
+$1/3$
+והסיכוי להפסיד הוא
+$2/3$.
+המצב שקול לדילמת האסיר. אבל ה-%
+$2/3$
+"מרוכז" בדלת שנשארה סגורה, ולכן, המתחרה יכול הכפיל את סיכוייו לנצח על ידי שינוי ההחלטה.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{איסוף תלושים}{}{(Collecting coupons)}
@@ -1268,9 +1308,7 @@ $n=5$
 E(\textrm{המספרים חמשת כל}) =5H_5\approx 5\left(\ln 5 + \frac{1}{10} + 0.5772\right) \approx 11.4332\,.
 \]
 
-\newpage
-
-\textbf{סימולציה}
+\sml{}
 \selectlanguage{english}
 \begin{verbatim}
 For  5 coupons:
@@ -1286,6 +1324,8 @@ Average draws        = 72.2136
 \selectlanguage{hebrew}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
 
 \begin{prob}{שורה בתיאטרון}{}{(The theater row)}
 
@@ -1364,7 +1404,10 @@ P_d &=& P(EO) + P(OE) = \frac{3}{5}\cdot \frac{2}{4} + \frac{2}{5}\cdot \frac{3}
 E_d &=& 4\cdot \frac{3}{5}=\frac{12}{5}=2.4\,.
 \end{eqnarray*}
 
-\textbf{סימולציה}
+\newpage
+
+\sml{}
+
 \selectlanguage{english}
 \begin{verbatim}
 For  5 places:
@@ -1448,6 +1491,8 @@ $a_1$
 \end{figure}
 \end{prob}
 
+\newpage
+
 \solution{}
 
 \ans{1}
@@ -1488,7 +1533,7 @@ $a_1$.
 P(\textrm{בגמר השני נגד אחד משחקים} \; a_1,a_2)=\frac{2^{n-1}}{2^n-1}\,.
 \]
 
-\textbf{סימולציה}
+\sml{}
 \selectlanguage{english}
 \begin{verbatim}
 For   8 players:
@@ -1671,7 +1716,7 @@ P_n&=&\disfrac{2^{-(n-1)}}{2^n-1}+\disfrac{2^{1}-2^{-(n-2)}}{2^n-1}\\
 \end{array}
 \]
 
-\textbf{סימולציה}
+\sml{}
 \selectlanguage{english}
 \begin{verbatim}
 For   8 players:
@@ -1724,7 +1769,7 @@ P(\textrm{הטלות}\;40\textrm{ב- "עץ"}\;20)=
 \L{\cite[Section~8.4]{ross}},
 אבל הסיכוי נמוך מאוד שיהיו שווים בדיוק, והסיכוי לאירוע זה הופך להיות קטן יותר ככל שמספר ההטלות גדל.
 
-\textbf{סימולציה}
+\sml{}
 \selectlanguage{english}
 \begin{verbatim}
 Probability of 10 heads for  20 tosses = 0.1762
@@ -1802,9 +1847,8 @@ P(6\; n\;\textrm{לפחות})&=&
 &=&1-\sum_{i=0}^{n-1}{6n\choose i}\left(\frac{1}{6}\right)^{i}\left(\frac{5}{6}\right)^{6n-i}\,.
 \end{eqnarray*}
 
-\newpage
+\sml{}
 
-\textbf{סימולציה}
 \selectlanguage{english}
 \begin{verbatim}
 For   6 dice to throw  1 sixes:
@@ -2084,7 +2128,8 @@ E(\textrm{מנצחת}\;A\;|\;\textrm{באוויר יורה}\;A) = 1\cdot(0.3) + 
 \]
 שהיא גבוהה יותר מהתוחלת של שתי האסטרטגיות האחרות!
 
-\textbf{סימולציה}
+\sml{}
+
 \selectlanguage{english}
 \begin{verbatim}
 For A fires first at C:

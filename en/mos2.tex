@@ -47,7 +47,9 @@ E(\textsf{ratio of smaller to larger})&=&\left(\frac{1}{1-(1/2)}\right)\int_{\te
 \caption{Breaking a stick into two pieces}\label{f.stick}
 \end{figure}
 
-\textbf{Simulation}
+\newpage
+
+\sml{}
 \begin{verbatim}
 Expectation of length of smaller = 0.2500
 Average length of smaller        = 0.2490
@@ -192,7 +194,7 @@ E(x)&=& \disfrac{1}{9}+\disfrac{1}{2} = \disfrac{11}{18}\approx 0.6111\,.
 
 The expectation of the length of the middle-sized piece is $1-\frac{2}{18}-\frac{11}{18}=\frac{5}{18}\approx 0.2778$.
 
-\textbf{Simulation}
+\sml{}
 \begin{verbatim}
 Expectations: shortest = 0.1111, middle = 0.2778, longest = 0.6111
 Averages:     shortest = 0.1115, middle = 0.2783, longest = 0.6102
@@ -275,9 +277,7 @@ n &\geq& \disfrac{p}{1-2p}\\
 \end{eqn}%
 Therefore, value for $N=2n$ that gives the highest probability for winning is the nearest even integer to $1/(1-2p)$.
 
-\newpage
-
-\textbf{Simulation}
+\sml{}
 \begin{verbatim}
 For probability             = 0.3700
 Optimal games to be played  = 4
@@ -365,7 +365,7 @@ E(\textsf{number of matches}) = 52\cdot \frac{1}{52} = 1\,.
 
 \newpage
 
-\textbf{Simulation}
+\sml{}
 
 \begin{verbatim}
 Expectation of matches = 1.00
@@ -403,7 +403,7 @@ Mosteller develops a closed formula and a limit for $P(n,r)$:
 \label{eq.r-matches-lim2}
 \lim_{n-r\rightarrow \infty} P(n,k)&\approx& \disfrac{1}{k!}e^{-1}\,.
 \end{eqnlabels}
-\textbf{Simulation}
+\sml{}
 
 The simulation was run for $n=52$ cards and the probability computed from Equation~\ref{eq.r-matches-lim2}.
 \begin{verbatim}
@@ -522,7 +522,7 @@ P(\textsf{win})\approx-\disfrac{1}{e}\ln\left(\disfrac{1}{e}\right)=\disfrac{1}{
 \]
 much larger than the probability $1/n$ of winning by picking a random card.
 
-\textbf{Simulation}
+\sml{}
 The simulation was run with $100$ cards and values of $r$ near $100/e$:
 \begin{verbatim}
 Reject cards before r = 36:
@@ -540,6 +540,8 @@ Proportion wins       = 0.3763
 \end{verbatim}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
 
 \begin{prob}{Choosing the largest random number\annotate{D}}
 
@@ -616,11 +618,11 @@ Proportion of wins = 0.6473
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\newpage
+
 \begin{prob}{Doubling your accuracy}
 You are given two rods of lengths $L_1>L_2$ and a length-measuring instrument whose possible error is given by a normal distribution\footnote{This problem assumes that the reader is familiar with normal distributions.} with mean $0$ and variance $\sigma^2$. The lengths of the two rods can be measured by measuring each one separately. Is there a more accurate method?
 \end{prob}
-
-\newpage
 
 \solution{}
 
@@ -659,7 +661,7 @@ Since the means of $e_s, e_d$ are $0$, the means of $\frac{1}{2}(e_s+e_d)$ and $
   \textstyle\frac{1}{4}( \sigma^2+(-1)^2\sigma^2)=\frac{1}{2}\sigma^2\,.
 \end{eqn}%
 
-\textbf{Simulation}
+\sml{}
 
 \begin{verbatim}
 For L1 = 40, L2 = 16, variance = 0.50:
@@ -741,7 +743,9 @@ P(\textsf{real roots})=
 1\,.
 \]
 
-\textbf{Simulation}
+\newpage
+
+\sml{}
 \begin{verbatim}
 For B =  4:
 Probability of real roots = 0.8333
@@ -891,7 +895,7 @@ which is the the harmonic series that diverges so with probability $1$ the parti
 
 Since $E(0,0)=\infty$ the number of times that the particle returns to origin is unbounded. However, by the first axiom of probability (page~\pageref{p.first-axiom}), $P(0,0)$, the probability that the particle will return to the origin, must satisfy $0\leq P(0,0) \leq 1$ so $P(0,0)=1$, meaning that it is certain that the particle returns to the origin. In general, the expectation of a random variable is infinite if and only if its probability is one.
 
-\textbf{Simulation}
+\sml{}
 
 The simulation was run one hundred times for one million steps each.
 \begin{verbatim}
@@ -912,6 +916,8 @@ A particle is placed at the origin of a three-dimensional coordinate system. The
 
 \textbf{Hint:} Use the technique from Problem~4.
 \end{prob}
+
+\newpage
 
 \solution{}
 
@@ -955,7 +961,7 @@ In \ansnc{1} we computed that $E(0,0,0)\approx 0.3772$ so:
 P_1 \approx 1- \disfrac{1}{1+0.3772}
 \approx 0.2739\,.
 \]
-\textbf{Simulation}
+\sml{}
 \begin{verbatim}
 Expectation of reaching origin = 0.3772
 Average times reached origin   = 0.3630
@@ -1154,7 +1160,7 @@ E(a)=aE(1)=\disfrac{2a}{\pi}\,.
 \caption{Polygons approximate a circle}\label{f.buffon4}
 \end{figure}
 
-\textbf{Simulation}
+\sml{}
 
 Since $\pi=2a/E$ you can obtain an empirical approximation of its value by running the simulation or by throwing needles on a table!
 
@@ -1210,7 +1216,7 @@ E(\textsf{lines crossed by}\; a)&=&E(\textsf{vertical lines crossed by}\; a + \t
 &=&E(\textsf{vertical lines crossed by}\;a) + E(\textsf{horizontal lines crossed by}\;a)\\
 &=&\disfrac{2a}{\pi}+\disfrac{2a}{\pi}=\disfrac{4a}{\pi}\,.
 \end{eqn}%
-\textbf{Simulation}
+\sml{}
 
 \begin{verbatim}
 For length = 0.2:
@@ -1305,7 +1311,9 @@ E(a) &=& \disfrac{2}{\pi}
 \caption{Long needles}\label{f.buffon6}
 \end{figure}
 
-\textbf{Simulation}
+\newpage
+
+\sml{}
 \begin{verbatim}
 For length = 1.5:
 Expectation of crossings = 0.7786
@@ -1340,7 +1348,7 @@ and any Pythagorean triple is a solution.
 
 By Fermat's Last Theorem, proved in $1995$ by Andrew Wiles, there are no solutions to $w_1^n=w_2^n+b_2^n$ for $n\geq 3$.
 
-\textbf{Simulation}
+\sml{}
 
 The simulation was run for $n=2$ and several Pythagorean triples.
 \begin{verbatim}

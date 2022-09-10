@@ -135,11 +135,11 @@ P(RG|A,w) &=& \frac{2}{3} \cdot \frac{1}{3} &=& \frac{2}{9}\\
 P(RG|A,w/o) &=& \frac{2}{3} \cdot \frac{1}{2} &=& \frac{1}{3}\\
 P(RG|B) &=& \frac{1}{2} \cdot \frac{1}{2} &=& \frac{1}{4}\\
 \hline
-%\end{array}
-%\]
-%\[
-%\renewcommand*{\arraystretch}{1.5}
-%\begin{array}{lcccc}
+\end{array}
+\]
+\[
+\renewcommand*{\arraystretch}{1.5}
+\begin{array}{lcccc}
 P(GR|A,w) &=& \frac{1}{3} \cdot \frac{2}{3} &=& \frac{2}{9}\\
 P(GR|A,w/o) &=& \frac{1}{3} \cdot 1 &=& \frac{1}{3}\\
 P(GR|B) &=& \frac{1}{2} \cdot \frac{1}{2} &=& \frac{1}{4}\\
@@ -186,7 +186,8 @@ P(\textrm{ניצחון})=\frac{25}{72} + \frac{7}{24}=\frac{23}{36}\approx 0.638
 \]
 ההסתברות הגבוהה ביותר לניצחון מתקבלת כאשר ההחלטה לשלוף עם או בלי החזרה מתקבלת בהתאם לתוצאה של השליפה הראשונה.
 
-\textbf{סימולציה}
+\sml{}
+
 \selectlanguage{english}
 \begin{verbatim}
 With replacement:
@@ -203,6 +204,7 @@ Average wins           = 0.6379
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\newpage
 
 \begin{prob}{הקלפי}{}{(The ballot box)}
 
@@ -243,11 +245,9 @@ $a>b$.
 מה ניתן להגיד על זהות המועמד המוביל עד לתיקו 
 \textbf{הראשון}?
 
-\textbf{Hint 2:}
+\textbf{רמז 2:}
 מה החשיבות של הקול הראשון שנספר.
 \end{prob}
-
-\newpage
 
 \solution{}
 
@@ -350,9 +350,8 @@ P(\textrm{תיקו קיים })=2\cdot\frac{b}{a+b}\,.
 P(\textrm{קולות}\;(3,2)\;\textrm{עם תיקו קיים})=2\cdot\frac{2}{2+3}=\frac{4}{5}\,.
 \]
 
-\newpage
+\sml{}
 
-\textbf{סימולציה}
 \selectlanguage{english}
 \begin{verbatim}
 For a =  3, b =  2:
@@ -480,7 +479,7 @@ $N$:
 \]
 אבל ללא תלות התוצאת ההטלה הסופית הערכים לא יהיו שווים.
 
-\textbf{סימולציה}
+\sml{}
 \selectlanguage{english}
 \begin{verbatim}
 For  4 tosses:
@@ -690,7 +689,10 @@ $\widehat{FD}$
 P(\overline{EG}>1)=\frac{(2\pi-(2\pi/3))\cdot 1}{2\pi \cdot 1}=\frac{2}{3}\,.
 \]
 
-\textbf{סימולציה}
+\newpage
+
+\sml{}
+
 הסימולציה היא עבור בחירת שתי נקודות על ההיקף.
 \selectlanguage{english}
 \begin{verbatim}
@@ -806,7 +808,7 @@ P(\textrm{נפגשים}\;A,B) &=& 1- P(\textrm{נפגשים לא}\;A,B)\\
 &=&1- 2\cdot \left(\frac{1}{2}\cdot \frac{55}{60}\cdot \frac{55}{60}\right)=\frac{23}{144}\approx 0.1597\,.
 \end{eqn}
 
-\textbf{סימולציה}
+\sml{}
 \selectlanguage{english}
 \begin{verbatim}
 Probability of meeting   = 0.1597
@@ -842,6 +844,8 @@ $n$
 $n$
 שואב לאיסוף.
 \end{prob}
+
+\newpage
 
 \solution{}
 
@@ -885,7 +889,7 @@ $(\ln \;1)/0=0/0$
 \lim_{n\rightarrow\infty}\left(1-\frac{1}{n}\right)^{n}&=&e^{-1}\approx 0.3679\,.
 \end{eqn}
 
-\textbf{סימולציה}
+\sml{}
 \selectlanguage{english}
 \begin{verbatim}
 For  10 boxes:
@@ -943,7 +947,7 @@ P(20,5,2)&=&\dischoose{20}{2} \left(\frac{5}{20}\right)^2 \left(\frac{15}{20}\ri
 P(20,5,4)&=&\dischoose{20}{4} \left(\frac{5}{20}\right)^{4} \left(\frac{15}{20}\right)^{12}\approx 0.1952\,.
 \end{eqn}
 
-\textbf{סימולציה}
+\sml{}
 \selectlanguage{english}
 \begin{verbatim}
 For 10 bad coins,  2 draws:
@@ -1033,7 +1037,7 @@ P(n,m,r) = {n \choose r} \left(\frac{m}{n}\right)^r \left(\frac{n-m}{n}\right)^{
 P(10,3,3) = {100 \choose 3} \left(\frac{3}{100}\right)^3 \left(\frac{97}{100}\right)^{97}\approx 0.2275\,.
 \]
 
-\textbf{סימולציה}
+\sml{}
 \selectlanguage{english}
 \begin{verbatim}
 For  20 squares:
@@ -1143,7 +1147,10 @@ $\ln n! \approx n\ln n - n$:
 \[
 \ln n!  \approx n\ln n - n + \frac{1}{6}\left(8n^3+4n^2+n+\frac{1}{30}\right)+\frac{1}{2}\ln\pi\,.
 \]
-\textbf{סימולציה}
+\newpage
+
+\sml{}
+
 \selectlanguage{english}
 \begin{verbatim}
 For 21 people:
@@ -1225,9 +1232,8 @@ $n=253$:
 e^{-253/365}&\approx&0.5000\,.
 \end{eqn}
 
-\newpage
+\sml{}
 
-\textbf{סימולציה}
 \selectlanguage{english}
 \begin{verbatim}
 For 251 people:
@@ -1355,7 +1361,7 @@ $n$
 עבורו
 $P_(r) \approx Q(n)$.
 
-\textbf{סימולציה}
+\sml{}
 
 תוכל להריץ את הסימולציות לבעיות
 ~$31, 32$
@@ -1465,7 +1471,7 @@ E(\textrm{מקסימליים ימי-עבודה}/\textrm{אפשריים ימי-ע
 =\lim_{N\rightarrow \infty} \left(1-\disfrac{1}{N}\right)^N= \disfrac{1}{e}\,.
 \]
 
-\textbf{סימולציה}
+\sml{}
 \selectlanguage{english}
 \begin{verbatim}
 For 100 people
@@ -1544,8 +1550,6 @@ $p$.
 \caption{?האם חלקיק יכול להגיע ל-$0$ (הציר אינסופי לימין)}\label{f.ruin1}
 \end{figure}
 \end{prob}
-
-\newpage
 
 \solution{}
 
@@ -1675,9 +1679,8 @@ $2/3$)
 $0$
 או לא.
 
-\newpage
+\sml{}
 
-\textbf{סימולציה}
 \selectlanguage{english}
 \begin{verbatim}
 For probability = 0.2500:
@@ -1855,7 +1858,7 @@ P(0,1) &=& \left(\frac{1-\left(\frac{1}{2}\right)^{1}}{1-\left(\frac{1}{2}\right
 P(3,1) &=& \left(\frac{1-2^{2}}{1-2^{3}}\right)=\frac{3}{7}\,.
 \end{eqn}
 
-\textbf{סימולציה}
+\sml{}
 \selectlanguage{english}
 \begin{verbatim}
 For probability = 0.6667:
@@ -1881,7 +1884,9 @@ Proportion reaching     (0,10) from 6 = (0.0015,0.9985)
 
 \textbf{גרף של הצעדים}
 
-הגרף נוצר בעזרת ספריית 
+איור%
+~\ref{f.plot}
+נוצר בעזרת ספריית 
 \L{\texttt{matplotlib}}
 של
 \L{Python}.
@@ -1889,9 +1894,13 @@ Proportion reaching     (0,10) from 6 = (0.0015,0.9985)
 \begin{center}
 \L{\texttt{36-gamblers-ruin-plot.py}}
 \end{center}
+
+\begin{figure}
 \begin{center}
 \input{36-gamblers-ruin-plot.tex}
 \end{center}
+\caption{פשיטת רגל של מהמר $m = 20, n = 50, p = 0.67$}\label{f.plot}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1950,7 +1959,7 @@ P(40,20) &=&
 מביא הסבר איטואטיבי: הימור בסיבובים רבים חושף את המהמר לאפשרות שהקזינו מצנח אם הכדור נוחת בכיס ירוק עם הסתברות של
 $2/38$.
 
-\textbf{סימולציה}
+\sml{}
 \selectlanguage{english}
 \begin{verbatim}
 Probability of bold wins     = 0.4737
@@ -2030,8 +2039,6 @@ $1/3$.
 \ref{f.rod2},
 הבעיה הופכת להיות זהה לבעיית המקל כך שההתפלגויות זהות. לכן התוחלת של אורכי החלקים היא גם
 $1/3$.
-
-\newpage
 
 \solution{2}
 
@@ -2119,7 +2126,7 @@ E(|X-Y|)= \int_{0}^{1} a\cdot2(1-a)\, da=
   2\left.\left(\frac{a^2}{2}-\frac{a^3}{3}\right)\right|_0^1=\frac{1}{3}\,.
 \]
 
-\textbf{סימולציה}
+\sml{}
 \selectlanguage{english}
 \begin{verbatim}
 Expectation of length of right piece = 0.3333
@@ -2149,7 +2156,7 @@ $5$
 מתאים גם כאן והתוחלת של חלק היא
 $48/5=9.6$.
 
-\textbf{סימולציה}
+\sml{}
 \selectlanguage{english}
 \begin{verbatim}
 Expectation of first ace = 9.6000

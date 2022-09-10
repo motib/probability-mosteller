@@ -24,7 +24,7 @@ Compute the probabilities of winning for each of the following rules and decide 
 
 There are four outcomes which we denote by $RR, RG, GR, GG$. For each rule compute the conditional probabilities of the four outcomes given that urn $A$ or urn $B$ was selected initially. These probabilities must be multiplied by $1/2$ because the selection of an urn is random.
 
-\ans{1} Drawing with replacement:
+\ans{1} Here are the probabilities for drawing with replacement:
 \[
 \renewcommand*{\arraystretch}{1.5}
 \begin{array}{lcccc}
@@ -40,12 +40,13 @@ P(GR|B) &=& \frac{1}{2} \cdot \frac{1}{2} &=& \frac{1}{4}\\
 P(GG|A) &=& \frac{1}{3} \cdot \frac{1}{3} &=& \frac{1}{9}\\
 P(GG|B) &=& \frac{1}{2} \cdot \frac{1}{2} &=& \frac{1}{4}\end{array}
 \]
+
 If the outcome is $RR$ there is a higher probability that urn $A$ was selected ($4/9$) than that urn $B$ was selected ($1/4$); otherwise, there is a higher probability that urn $B$ was selected:
 \[
 P(\textsf{winning})=\frac{1}{2}\left(\frac{4}{9} + \frac{1}{4}+ \frac{1}{4}+ \frac{1}{4}\right)=\disfrac{43}{72}\approx 0.5972\,.
 \]
 
-\ans{2} Drawing without replacement:
+\ans{2} Here are the probabilities for drawing without replacement:
 \[
 \renewcommand*{\arraystretch}{1.5}
 \begin{array}{lcccc}
@@ -62,15 +63,14 @@ P(GG|A) &=& \frac{1}{3} \cdot 0 &=& 0\\
 P(GG|B) &=& \frac{1}{2} \cdot \frac{1}{2} &=& \frac{1}{4}
 \end{array}
 \]
+
 If the outcome is $GG$ there is (of course!) a higher probability that urn $B$ was selected than that urn $A$ was selected; otherwise, there is a higher probability that urn $A$ was selected:
 \[
 P(\textsf{winning})=\frac{1}{2}\left(\frac{1}{3} + \frac{1}{3}+ \frac{1}{3}+ \frac{1}{4}\right)=\frac{5}{8}=0.6250\,,
 \]
 which is greater than the probability of winning when sampling with replacement.
 
-\ans{3} The decision is based on the outcome of the first draw.
-
-If the first drawing is from urn $A$ the probabilities must also be conditioned on the decision to sample with or without replacement. Drawing first from urn $B$ does not affect the probabilities because of the approximation in the hint.
+\ans{3} The decision is based on the outcome of the first draw. If the first drawing is from urn $A$ the probabilities must also be conditioned on the decision to sample with or without replacement. Drawing first from urn $B$ does not affect the probabilities because of the approximation in the hint. Here are the probabilities:
 \[
 \renewcommand*{\arraystretch}{1.5}
 \begin{array}{lcccc}
@@ -82,11 +82,11 @@ P(RG|A,w) &=& \frac{2}{3} \cdot \frac{1}{3} &=& \frac{2}{9}\\
 P(RG|A,w/o) &=& \frac{2}{3} \cdot \frac{1}{2} &=& \frac{1}{3}\\
 P(RG|B) &=& \frac{1}{2} \cdot \frac{1}{2} &=& \frac{1}{4}\\
 \hline
-%\end{array}
-%\]
-%\[
-%\renewcommand*{\arraystretch}{1.5}
-%\begin{array}{lcccc}
+\end{array}
+\]
+\[
+\renewcommand*{\arraystretch}{1.5}
+\begin{array}{lcccc}
 P(GR|A,w) &=& \frac{1}{3} \cdot \frac{2}{3} &=& \frac{2}{9}\\
 P(GR|A,w/o) &=& \frac{1}{3} \cdot 1 &=& \frac{1}{3}\\
 P(GR|B) &=& \frac{1}{2} \cdot \frac{1}{2} &=& \frac{1}{4}\\
@@ -109,7 +109,7 @@ P(\textsf{winning})=\frac{25}{72} + \frac{7}{24}=\frac{23}{36}\approx 0.6389\,,
 \]
 which is greater than the probability of winning when the decision to draw with or without replacement is made before drawing the first ball.
 
-\textbf{Simulation}
+\sml{}
 \begin{verbatim}
 With replacement:
 Expectation of winning = 0.5972
@@ -125,6 +125,7 @@ Average wins           = 0.6379
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\newpage
 
 \begin{prob}{The ballot box}
 In an election there are two candidates $A$ and $B$.  $A$ receives $a$ votes and $B$ receives $b$ votes, $a>b$. The votes are counted one-by-one and the running totals $(a_i,b_i), 1\leq i \leq a+b$ are updated as each vote is counted. What is the probability that for at least one $i$, $a_i=b_i$?
@@ -137,8 +138,6 @@ In an election there are two candidates $A$ and $B$.  $A$ receives $a$ votes and
 
 \textbf{Hint 2:} What is the significance of the first vote counted?
 \end{prob}
-
-\newpage
 
 \solution{}
 
@@ -217,9 +216,7 @@ Check:
 P(\textsf{tie occurs for}\;(3,2)\;\textsf{votes})=2\cdot\frac{2}{2+3}=\frac{4}{5}\,.
 \]
 
-\newpage
-
-\textbf{Simulation}
+\sml{}
 \begin{verbatim}
 For a =  3, b =  2:
 Probability of a tie = 0.8000
@@ -307,7 +304,7 @@ P(\textsf{ties})&=&\disfrac{2\cdot 2^{-6}}{6}\sum_{i=0}^{6}i\dischoose{i}{6}\\
 \]
 but whatever the outcome of the final toss the counts will not be equal.
 
-\textbf{Simulation}
+\sml{}
 \begin{verbatim}
 For  4 tosses:
 Probability of ties = 0.6250
@@ -444,7 +441,9 @@ Choose an arbitrary point on the circumference of the unit circle ($E$ in \ref{f
 P(\overline{EG}>1)=\frac{(2\pi-(2\pi/3))\cdot 1}{2\pi \cdot 1}=\frac{2}{3}\,.
 \]
 
-\textbf{Simulation}
+\newpage
+
+\sml{}
 
 The simulation is for choosing two random points on the circumference.
 \begin{verbatim}
@@ -497,7 +496,7 @@ P(A,B\;\textsf{meet}) &=& 1- P(A,B\;\textsf{don't meet})\\
 &=&1- 2\cdot \left(\frac{1}{2}\cdot \frac{55}{60}\cdot \frac{55}{60}\right)=\frac{23}{144}\approx 0.1597\,.
 \end{eqn}%
 
-\textbf{Simulation}
+\sml{}
 \begin{verbatim}
 Probability of meeting   = 0.1597
 Proportion of meetings   = 0.1549
@@ -555,7 +554,7 @@ Taking the limit gives $(\ln \;1)/0=0/0$ but by l'H\^{o}pital's rule we can repl
 \lim_{n\rightarrow\infty}\left(1-\frac{1}{n}\right)^{n}&=&e^{-1}\,.
 \end{eqn}%
 
-\textbf{Simulation}
+\sml{}
 \begin{verbatim}
 For  10 boxes:
 Probability of all real = 0.3487
@@ -594,7 +593,7 @@ P(20,5,2)&=&\dischoose{20}{2} \left(\frac{5}{20}\right)^2 \left(\frac{15}{20}\ri
 P(20,5,4)&=&\dischoose{20}{4} \left(\frac{5}{20}\right)^{4} \left(\frac{15}{20}\right)^{16}\approx 0.1897\,.
 \end{eqn}%
 
-\textbf{Simulation}
+\sml{}
 \begin{verbatim}
 For 10 bad coins,  2 draws:
 Probability of counterfeit  = 0.0002
@@ -649,7 +648,9 @@ P(n,m,r) = {n \choose r} \left(\frac{m}{n}\right)^r \left(\frac{n-m}{n}\right)^{
 \[
 P(10,3,3) = {100 \choose 3} \left(\frac{3}{100}\right)^3 \left(\frac{97}{100}\right)^{97}\approx 0.2275\,.
 \]
-\textbf{Simulation}
+
+\sml{}
+
 The simulations were run for $m=r=3$ and $m=r=5$.
 \begin{verbatim}
 For  20 squares:
@@ -718,7 +719,7 @@ The reader is invited to compute the probability with the following better appro
 \[
 \ln n!  \approx n\ln n - n + \frac{1}{6}\left(8n^3+4n^2+n+\frac{1}{30}\right)+\frac{1}{2}\ln\pi\,.
 \]
-\textbf{Simulation}
+\sml{}
 \begin{verbatim}
 For 21 people:
 Expectation of no pairs = 0.5563
@@ -775,7 +776,7 @@ which can be used to approximate the probability:
 &\approx& e^{-n/365}\\
 1-Q(253)&\approx&e^{-253/365}\approx 0.5000\,.
 \end{eqn}%
-\textbf{Simulation}
+\sml{}
 \begin{verbatim}
 For 251 people:
 Probability of no match = 0.5023
@@ -859,7 +860,7 @@ ways of doing so. For the birthmate problem your own birthday is given and any o
 
 \medskip
 
-\textbf{Simulation}
+\sml{}
 
 You can run the simulations using the programs for Problems~31, 32 and check this result.
 
@@ -930,7 +931,7 @@ By Equation~\ref{eq.reciprocal}:
 \lim_{n\rightarrow\infty}E(\textsf{max work-days/possible work-days})=\lim_{N\rightarrow \infty} \left(1-\disfrac{1}{N}\right)^N= \disfrac{1}{e}\,.
 \]
 
-\textbf{Simulation}
+\sml{}
 \begin{verbatim}
 For 100 people
 Expectation work-days    = 27742
@@ -951,8 +952,6 @@ Ratio work-days / 365**2 = 0.3674
 \end{verbatim}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\newpage
 
 \begin{prob}{The cliff-hanger}
 A particle is initially placed on the $x$-axis at position $1$. At any position on the $x$-axis moves right with probability $2/3$ and left with probability $1/3$ (Figure~\ref{f.ruin1}).
@@ -1029,7 +1028,9 @@ Suppose $P(0,1)=1$ for $1/2<p < 1$, that is, $P(0,1)$ \emph{does not} depend on 
 \end{figure}
 For $p=2/3, P$p> 1/2$=1/2$ and for $p=1/2, P$p> 1/2$=1$. This is surprising because one would not expect that the particle always returns to $0$ if the direction of the moves were determined by flipping a fair coin! You have to have a very unfair coin (probability of heads is $2/3$) to even the chances of returning to $0$.
 
-\textbf{Simulation}
+\newpage
+
+\sml{}
 \begin{verbatim}
 For probability = 0.2500:
 Probability of reaching 0 = 1.0000
@@ -1132,9 +1133,8 @@ P(0,1) &=& \left(\frac{1-\left(\frac{1}{2}\right)^{1}}{1-\left(\frac{1}{2}\right
 P(3,1) &=& \left(\frac{1-2^{2}}{1-2^{3}}\right)=\frac{3}{7}\,.
 \end{eqn}%
 
-\newpage
 
-\textbf{Simulation}
+\sml{}
 \begin{verbatim}
 For probability = 0.6667:
 Probability of reaching (0,10) from 1 = (0.4995,0.5005)
@@ -1158,14 +1158,15 @@ The greater the amount of money that the left player has and the greater his pro
 
 \textbf{Plot of steps}
 
-This plot was generated by the Python library \texttt{matplotlib}. The source code appears in the file \texttt{36-gamblers-ruin-plot.py}.
+This plot in Figure~\ref{f.plot} was generated by the Python library \texttt{matplotlib}. The source code appears in the file \texttt{36-gamblers-ruin-plot.py}.
+\begin{figure}
 \begin{center}
 \input{36-gamblers-ruin-plot.tex}
 \end{center}
+\caption{Gambler's ruin for m = 20, n = 50, p = 0.67}\label{f.plot}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\newpage
 
 \begin{prob}{Bold play vs. cautious play}
 
@@ -1192,7 +1193,7 @@ Clearly bold play is preferable to cautious play.
 
 Mosteller writes that the intuitive explanation for this result is that betting in more rounds exposes the player to the probability of $2/38$ that the casino wins when the ball falls on a green number.
 
-\textbf{Simulation}
+\sml{}
 \begin{verbatim}
 Probability of bold wins     = 0.4737
 Proportion bold wins         = 0.4677
@@ -1320,7 +1321,7 @@ E(|X-Y|)= \int_{0}^{1} a\cdot2(1-a)\, da=
   2\left.\left(\frac{a^2}{2}-\frac{a^3}{3}\right)\right|_0^1=\frac{1}{3}\,.
 \]
 
-\textbf{Simulation}
+\sml{}
 \begin{verbatim}
 Expectation of length of right piece = 0.3333
 Average length of right piece        = 0.3359
@@ -1338,7 +1339,7 @@ Deal cards from a well-shuffled deck of cards until an ace appears. What is the 
 
 The cards form a ``rod'' of length $48$ which is ``broken'' by the $4$ aces into $5$ ``pieces.'' From Problem~39 the expectation of the length of a ``piece'' is $48/5=9.6$.
 
-\textbf{Simulation}
+\sml{}
 \begin{verbatim}
 Expectation of first ace = 9.6000
 Average first ace        = 9.5805
