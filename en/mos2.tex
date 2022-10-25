@@ -6,6 +6,8 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\newpage
+
 \begin{prob}{The little end of the stick}
 A large number of glass rods each of length $1$ are broken into two pieces each. The breaking point is uniformly distributed along the lengths of the rods.
 
@@ -107,8 +109,6 @@ A large number of glass rods of length $1$ are broken in two places (\ref{f.brea
 \end{center}
 \end{figure}
 \end{prob}
-
-\newpage
 
 \solution{}
 
@@ -278,6 +278,8 @@ n &\geq& \disfrac{p}{1-2p}\\
 \end{eqn}%
 Therefore, value for $N=2n$ that gives the highest probability for winning is the nearest even integer to $1/(1-2p)$.
 
+\newpage
+
 \sml{}
 \begin{verbatim}
 For probability             = 0.3700
@@ -364,6 +366,8 @@ The distribution is uniform so each card in the second row has the same probabil
 E(\textsf{number of matches}) = 52\cdot \frac{1}{52} = 1\,.
 \]
 
+\newpage
+
 \sml{}
 
 \begin{verbatim}
@@ -440,7 +444,8 @@ Make your decision according to this strategy: for some fixed $r$ reject the fir
 \ans{1} 
 To simplify notation we will use the rank of the numbers from low to high $1,2,\ldots,n$ although the actual numbers are not known.
 
-There are $24$ permutations of the four numbers. By the strategy you reject the first two cards and select either the third card or the fourth card, so you lose if the  permutation has $4$ in the first two positions. What about the permutation $(1,2,3,4)$? You reject $1,2$ and select $3$ since it  greater than $1,2$, but this is not the largest card so you lose. What about the permutation $(1,3,2,4)$? Again, $1,3$ are rejected by the strategy, but $2$ is also rejected because it is \emph{not} larger than $1,3$. Now you select $4$ and win. Carry out this reasoning for all the permutations and check that permutations with boxed $4$s are wins:
+There are $24$ permutations of the four numbers. By the strategy you reject the first two cards and select either the third card or the fourth card, so you lose if the  permutation has $4$ in the first two positions. What about the permutation $(1,2,3,4)$? You reject $1,2$ and select $3$ since it  greater than $1,2$, but this is not the largest card so you lose. What about the permutation $(1,3,2,4)$? Again, $1,3$ are rejected by the strategy, but $2$ is also rejected because it is \emph{not} larger than $1,3$. Now you select $4$ and win. Carry out this reasoning for all the permutations and check that permutations with boxed $4$s are wins (Table~\ref{t.dowry}). The probability of winning is $10/24$.
+\begin{table}[tb]
 \[
 \addtolength{\arraycolsep}{-2pt}
 \renewcommand*{\arraystretch}{1.5}
@@ -471,7 +476,9 @@ There are $24$ permutations of the four numbers. By the strategy you reject the 
 4&3\;&\;2&1
 \end{array}
 \]
-The probability of winning is $10/24$.
+\caption{Largest dowry for $n=4,r=3$}\label{t.dowry}
+\end{table}
+
 
 \ans{2} If the largest number is in one of the positions $1,\ldots,r-1$ you lose. Therefore, in order to win the largest number must be in the $m$th position for $r\leq m\leq n$:
 \[
@@ -557,8 +564,6 @@ Use the strategy of Problem~47: for some fixed $r$ reject the first $r-1$ cards 
 \textbf{Note:} In Problem~37 the values could be $100, 200, 300$ or $100, 50, 20$, so uncovering the first number gives no information about the other numbers. In this problem since the distribution is uniform if the first number is $0.3$ the probability that the second number is smaller is $0.3$ and the probability that it is larger is $0.7$.
 \end{prob}
 
-\newpage
-
 \solution{}
 
 Let $v_1,v_2,v_3$ be the values of the three cards.
@@ -620,6 +625,8 @@ Proportion of wins = 0.6473
 \begin{prob}{Doubling your accuracy}
 You are given two rods of lengths $L_1>L_2$ and a length-measuring instrument whose possible error is given by a normal distribution\footnote{This problem assumes that the reader is familiar with normal distributions.} with mean $0$ and variance $\sigma^2$. The lengths of the two rods can be measured by measuring each one separately. Is there a more accurate method?
 \end{prob}
+
+\newpage
 
 \solution{}
 
@@ -1157,6 +1164,8 @@ E(a)=aE(1)=\disfrac{2a}{\pi}\,.
 
 Since $\pi=2a/E$ you can obtain an empirical approximation of its value by running the simulation or by throwing needles on a table!
 
+\newpage
+
 \begin{verbatim}
 For length = 0.2:
 Expectation of crossings = 0.1273
@@ -1304,8 +1313,6 @@ E(a) &=& \disfrac{2}{\pi}
 \caption{Long needles}\label{f.buffon6}
 \end{figure}
 
-\newpage
-
 \sml{}
 \begin{verbatim}
 For length = 1.5:
@@ -1320,6 +1327,8 @@ Average crossings        = 0.8897
 \end{verbatim}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
 
 \begin{prob}{Molina's urns}
 Let $U_1,U_2$ be two urns. $U_1$ has $w_1$ white balls and $b_1$ black balls, while $U_2$ has $w_2$ white balls and $b_2$ black balls. It is given that $w_1+b_1=w_2+b_2$. $n$ balls are drawn \emph{with replacement} from each urn. For various values of $n>1$ find $w_1,b_1,w_2,b_2$ such that:

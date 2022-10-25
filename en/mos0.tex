@@ -618,64 +618,85 @@ Proportion of wins     = 0.4948
 
 \begin{prob}{The prisoner's dilemma}
 
-Three prisoners $A,B,C$ are eligible for parole. The parole board will release so the possibilities are $\{A,B\}, \{A,C\}, \{B,C\}$ with equal probability of $1/3$. Therefore, the probability that $A$ will be released is $2/3$. Prisoner $A$ is told correctly the name of  one of the other prisoners $B$ or $C$ who will be released. If $A$ is told that prisoner $B$ will be released, what is the probability that $A$ too will be released?
-
-\textbf{Note:} The problem is somewhat problematic. From the moment when the decision is made which prisoners to be released, there is no longer any ``probability'' since probability is a computation for the expected proportion of the number of times an event will occur to the number of trials. The warden certainly knows the identity of the prisoners to be released with certainty. It would be better to speak of the probability from the point of view of $A$ who still does not know what the decision is.
+Three prisoners $A,B,C$ are eligible for parole. The parole board will release two of them so the possibilities are $\{A,B\}, \{A,C\}, \{B,C\}$ with equal probability of $1/3$. Therefore, the probability that $A$ will be released is $2/3$. Prisoner $A$ is told correctly the name of  one of the other prisoners $B$ or $C$ who will be released. If $A$ is told that prisoner $B$ will be released, what is the probability that $A$ too will be released?
 \end{prob}
+
+The following three solutions are essentially the same but the methods of computing the conditional probabilities are somewhat different.
 
 \solution{1}
 
-This solution shows the correct computation of the probability; it is based on a careful enumeration of the events.
-
-There are four possible events:
+There are four possible events (Figure~\ref{f.pp}):
 \begin{description}
 \item[$e_1$:] $A$ is told that $B$ will be released and $\{A,B\}$ are released. 
 \item[$e_2$:] $A$ is told that $C$ will be released and $\{A,C\}$ are released. 
 \item[$e_3$:] $A$ is told that $B$ will be released and $\{B,C\}$ are released. 
 \item[$e_4$:] $A$ is told that $C$ will be released and $\{B,C\}$ are released. 
 \end{description}
+\begin{figure}[tb]
+\begin{center}
+\begin{tikzpicture}
+\coordinate (root) at (0,0);
+\draw[thick,->] (root) -- node[above] {$1/3$} (4,2)
+  coordinate(top) node[right] {$\{B,C\}$};
+\draw[thick,->] (root)-- node[above] {$1/3$} (4,0)
+   coordinate(middle) node[right] {$\{A,B\}$};
+\draw[thick,->] (root)-- node[below,yshift=-3pt] {$1/3$} (4,-2)
+  coordinate(bottom) node[right]  {$\{A,C\}$};
+\draw[thick,->] ($(top)+(1.6,0)$) --
+  node[above] {$1/2$} +(4,.6)
+  coordinate(one) node[right] {$B$};
+\draw[thick,->] ($(top)+(1.6,0)$) --
+  node[below] {$1/2$} +(4,-.6)
+  coordinate(two) node[right] {$C$};
+\draw[thick,->] ($(middle)+(1.6,0)$) --
+  node[below] {$1$}  +(4,0) 
+  coordinate(three) node[right] {$B$};
+\draw[thick,->] ($(bottom)+(1.6,0)$) --
+  node[below] {$1$} +(4,0)
+  coordinate(four) node[right] {$C$};
+\node at ($(top)+(.5,1.8)$) {Prisoners released};
+\node at ($(one)+(.45,1.2)$) {$A$ told this prisoner released};
+\end{tikzpicture}
+\caption{Tree for the prisoner's dilemma}\label{f.pp}
+\end{center}
+\end{figure}
 Each pair of prisoners has an equal probability of being released so:
 \[
 P(e_1)=P(e_2)=P(e_3\cup e_4)=\frac{1}{3}\,.
 \]
-If $\{B,C\}$ are to be released, $A$ is told correctly the name of either $B$ or $C$ who will be released and with equal probability, so $P(e_3)=P(e_4)=1/6$. We are interested in the probability that $A$ will be released (event $e_1$) given the event that $A$ is told that $B$ will be released ($e_1\cup e_3$):
+If $\{B,C\}$ are to be released, $A$ is told correctly the name of either $B$ or $C$ who will be released and with equal probability, so $P(e_3)=P(e_4)=1/6$. The conditional probability that $A$ will be released (event $e_1$) given that $A$ is told that $B$ will be released ($e_1\cup e_3$) is:
 \[
 P(e_1|e_1\cup e_3) = \frac{P(e_1\cap(e_1\cup e_3))}{P(e_1\cup e_3)}=\frac{P(e_1)}{P(e_1\cup e_3)}=\frac{1/3}{(1/3)+(1/6)}=\frac{2}{3}\,.
 \]
 
 \solution{2}
 
-Let $P(A)= P(B)= P(C) = 2/3$ be the probabilities that $A,B,C$ will be released. $A$ is interested in the conditional probability $P(A|B)$ of his being released if $B$ will be released:
+The conditional probability that $A$ will be released given that $A$ that $B$ will be released is:
 \[
 P(A|B) = \frac{P(A\cap B)}{P(B)} = \frac{1/3}{2/3}=\frac{1}{2}\,.
 \]
-But this is \emph{not} the correct conditional probability! The new information that is not that $B$ will be released but that $A$ is \emph{told} that $B$ will be released. The correct conditional probability is $P(A|R_{AB})$ where $R_{AB}$ is the event that $A$ is told that $B$ will be released. To compute $P(A|R_{AB})$:
+But this is \emph{not} the correct conditional probability. The new information is that $A$ is \emph{told} that $B$ will be released. Let $R_{AB}$ be the event that $A$ is told that $B$ will be released, then:
 \[
-P(A|R_{AB}) = \frac{P(A\cap R_{AB})}{P(R_{AB})}
+P(A|R_{AB}) = \frac{P(A\cap R_{AB})}{P(R_{AB})}\,.
 \]
-we must compute $P(A\cap R_{AB})$ and $P(R_{AB})$.
-
 The report of $B$'s release is true so:
 \[
 P(A\cap R_{AB})=P(\{A,B\})=\disfrac{1}{3}\,.
 \]
-If $\{B,C\}$ are to be released $A$ we assume that $A$ will be  told that $B$ will be released with probability $1/2$ and also that with probability $1/2$ that $C$ will be released. Therefore:
+If $\{B,C\}$ are to be released $A$ will be told that $B$ will be released with probability $1/2$ and also that $C$ will be released with probability $1/2$, so:
 \begin{eqn}
 P(R_{AB})&=&P(\{A,B\})+\disfrac{1}{2}\cdot P(\{B,C\})=\disfrac{1}{3}+\disfrac{1}{2}\cdot \disfrac{1}{3}=\disfrac{1}{2}\\
 P(A|R_{AB})&=& \frac{P(A\cap R_{AB})}{P(R_{AB})} = \disfrac{1/3}{1/2}=\disfrac{2}{3}\,,
 \end{eqn}
-This solution emphasizes the importance of accurately identifying the event that provides the new information for computing the conditional probability.
 
-\bigskip
+\solution{3}
 
-\textbf{\Large An intuitive solution}
+$P(A)=2/3$ is given. $P(R_{AB}|A)=1/2$ because if $A$ is released, $B$ or $C$ will be released with equal probabilty. We have computed that $P(R_{AB})=1/2$. By Bayes' rule:
+\[
+P(A|R_{AB})= \frac{P(R_{AB}|A)\,P(A)}{P(R_{AB})} = \displaystyle\frac{(1/2)(2/3)}{1/2}=\displaystyle\frac{2}{3}\,.
+\]
 
-\medskip
-
-In the prisoner's dilemma problem the information that $B$ will be released is reported to $A$ \emph{after} it has been decided which prisoners will be released. From this point on it doesn't matter what information $A$ receives: he could be lied to or he could be told nothing and the information does not change the probability that he will be released.
-
-\bigskip
-
+\begin{comment}
 \textbf{\Large The Monty Hall problem}
 
 \medskip
@@ -715,6 +736,7 @@ There is no simulation for the prisoner's dilemma problem because the problem as
 Wins when staying with original door = 0.3311
 Wins when changing door              = 0.6689
 \end{verbatim}
+\end{comment}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -742,6 +764,8 @@ For $n=5$ this gives:
 \[
 E(\textsf{all five numbers}) =5H_5\approx 5\left(\ln 5 + \frac{1}{10} + 0.5772\right) \approx 11.4332\,.
 \]
+
+\newpage
 
 \sml{}
 \begin{verbatim}
@@ -773,8 +797,6 @@ In the example there are $10$ $EO$ or $OE$ adjacent pairs.
 
 \textbf{Hint:} What is the probability that a pair of adjacent number are different?
 \end{prob}
-
-\newpage
 
 \solution{}
 
@@ -873,8 +895,6 @@ If $a_1$ is assigned to one of the games $\{g_1,g_2,g_3,g_4\}$ none of the other
 P(a_1,a_2\;\textsf{playing each other in the final})=\frac{2^{n-1}}{2^n-1}\,.
 \]
 
-\newpage
-
 \sml{}
 \begin{verbatim}
 For   8 players:
@@ -889,6 +909,8 @@ Proportion of games where a2 is runner-up  = 0.5060
 \end{verbatim}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
 
 \begin{prob}{Twin knights\annotate{D}}
 
@@ -961,8 +983,6 @@ P_n&=&\disfrac{2^{-(n-1)}}{2^n-1}+\disfrac{2^{1}-2^{-(n-2)}}{2^n-1}\\
 \end{array}
 \]
 
-\newpage
-
 \sml{}
 \begin{verbatim}
 For   8 players:
@@ -983,6 +1003,8 @@ Proportion a1, a2 meet       = 0.0137
 
 \que{2} Toss a fair coin $40$ times. What is the probability of obtaining $20$ heads?
 \end{prob}
+
+\newpage
 
 \solution{}
 
@@ -1058,8 +1080,6 @@ Proportion  = 0.5250
 \end{verbatim}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\newpage
 
 \begin{prob}{The three-cornered duel\annotate{D}}
 $A,B,C$ fight a sequence of duels. Each of them has a fixed probability of winning a duel regardless of who the opponent is:
