@@ -1053,7 +1053,7 @@ Proportion reaching 0     = 0.2502
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}{Gambler's ruin\annotate{D}}
-A particle is initially placed on the $x$-axis at position $m\geq 1$. At any position on the $x$-axis moves right with probability $p>1/2$ and left with probability $1-p$.
+A particle is initially placed on the $x$-axis at position $m\geq 1$. At any position on the $x$-axis the particle moves right with probability $p>1/2$ and left with probability $1-p$.
 
 \que{1} What is the probability that the particle will eventually be at position $0$?
 
@@ -1085,7 +1085,7 @@ The solution is based on \cite[Chapter~3, Example~4m]{ross}.
 
 Denote by $P(i,j)$ the probability of reaching $i$ from $j$.
 
-\ans{1} The solution to Problem~35 showed that for $p>1/2$ (here it is given), if a particle is at position $1$ the probability of reaching position $0$ is $r=(1-p)/p$. This probability does not depend on the absolute position of the particle, that is:
+\ans{1} The solution to Problem~35 showed that for $p>1/2$ (here it is given), if a particle is at position $1$ the probability of reaching position $0$ is $r=(1-p)/p$. This probability does not depend on the initial position of the particle, that is:
 \[
 P(i,j) = P(i+k,k+1) = P(i-k,j-k)\,,
 \]
@@ -1111,9 +1111,11 @@ P_i - P_{i-1} &=& r(P_{i-1} - P_{i-2}) = r^{i-1}P_1\,.
 \end{eqn}%
 Most of the terms on the lefthand sides cancel when we add the equations:
 \begin{eqnlabels}
-\nonumber{}P_i - P_1 &=& P_1\sum_{j=2}^{i}r^{j-1}\\
-\nonumber{}&=& P_1 + P_1\sum_{j=2}^{i}r^{j-1} - P_1 \\
-\label{eq.ruin0}P_i&=& P_1\sum_{j=0}^{i-1}r^j =P_1\left(\frac{1-r^i}{1-r}\right)\,.
+\nonumber{}
+P_i - P_1 &=& P_1(r + r^2 + \cdots + r^{i-1})\\
+\nonumber{}
+P_1 &=& P_1(1+ r + r^2 + \cdots + r^{i-1})\\
+\label{eq.ruin0}P_i&=& P_1\sum_{j=1}^{i}r^{j-1} =P_1\left(\frac{1-r^i}{1-r}\right)\,.
 \end{eqnlabels}
 If the particle is at $n$ then it is already at $n$ so $P_n=1$:
 \begin{eqnlabels}
