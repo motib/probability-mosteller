@@ -1769,7 +1769,7 @@ $n-m$.
 מהם מפסיד את כל כספו לשני.
 \end{prob}
 
-\solution{}
+\solution{1}
 
 הפתרון מבוסס על
 \L{\cite[Chapter~2, Example~4m]{ross}}.
@@ -1840,16 +1840,18 @@ $P_n=1$:
 \label{eq.ruin00}P_1 &=& \left(\frac{1-r}{1-r^n}\right)\,.
 \end{eqnlabels}
 ממשוואות%
-~\ref{eq.ruin0}, \ref{eq.ruin00}:
+~\ref{eq.ruin0}, \ref{eq.ruin00},
+עבור כל מיקום תחילי
+$m$:
 \begin{equation}
-\label{eq.ruin1}P(n,i) = \left(\frac{1-r^{i}}{1-r^n}\right)\,.
+\label{eq.ruin1}P(n,m) = \left(\frac{1-r^{m}}{1-r^n}\right)\,.
 \end{equation}
 בהוכחה סימטרית שמחליפה את
 $p$
 ו-%
 $1-p$):
 \begin{equation}
-\label{eq.ruin2}P(0,i) = \left(\frac{1-(1/r)^{n-i}}{1-(1/r)^{n}}\right)\,.
+\label{eq.ruin2}P(0,m) = \left(\frac{1-(1/r)^{n-m}}{1-(1/r)^{n}}\right)\,.
 \end{equation}
 הקורא מוזמן להראות שהסכום של משוואות
 ~\ref{eq.ruin1},~\ref{eq.ruin2}
@@ -1859,6 +1861,133 @@ $m=1, n=3, p=2/3$:
 P(0,1) &=& \left(\frac{1-\left(\frac{1}{2}\right)^{1}}{1-\left(\frac{1}{2}\right)^{3}}\right)=\frac{4}{7}\\
 P(3,1) &=& \left(\frac{1-2^{2}}{1-2^{3}}\right)=\frac{3}{7}\,.
 \end{eqn}
+
+\solution{2}
+
+פתרון זה מיוחס לפסקל ומבוסס על 
+\cite[סעיף~20.1.1]{mit}.
+
+\ans{2}
+במקום צעדים על ציר, שני המהמרים מתחילים על ערימות של אסימונים: למהמר 
+$A$
+יש
+$m$
+אסימונים ולמהמר
+$B$
+יש
+$n-m$
+אסימונים. האסימונים לא זהים: אסימון
+$i$
+מסומן 
+$r^i$
+יחידות, כאשר 
+$r$
+הוא
+$(1-p)/p$ (איור~\ref{f.pascal1}).
+אנחנו מניחים ש-%
+$1/2<p<1$
+ולכן
+$r^i>r^{i+1}$,
+כפי שמסומן ברוחב האסימונים באיור.
+
+אם
+$A$
+מנצח (בהסתברות
+$p$)
+הוא לוקח את האסימון העליון מ-%
+$B$
+ושם אותו בראש הערימה שלו. אם
+$B$
+מנצח (בהסתברות
+$1-p$)
+היא לוקחת את האסימון העליון מ-%
+$A$
+ושמה אותו בראש הערימה שלה. באיור~%
+\ref{f.pascal2} 
+אם
+$A$
+מנצח הוא מוסיף
+$r^{5}$
+יחידות לערימה שלו, בעוד עם 
+$B$
+מנצחת היא מוסיפה
+$r^4$
+יחידות לערימה שלה. סכום היחידות של האסימונים בערימה אחת הוא כמות הכסף הנוכחית של המהמר. עבור סיבוב אחד של המשחק:
+\begin{eqnarray*}
+E(\textrm{יחידות} \:i\:\textrm{\R{רווח של A אם יש לו}})&=&pr^{i+1}-(1-p)r^i\\
+&=&r^i\left(\frac{p(1-p)}{p}-(1-p)\right)\\
+&=&0\,.
+\end{eqnarray*}
+התנאים של כל סיבוב זהים ולכן תוחלת הרווח של 
+$A$
+בסוף המשחק היא גם כן
+$0$.
+תהי 
+$P_A$
+ההסתברות ש-%
+$A$
+ינצח בסוף אם הוא מתחיל מ-%
+$m$
+יחידות. הנוסחה שלהלן חייבת להיות שווה ל-%
+$0$:
+\[
+P_A\sum_{j=m+1}^{n}r^j - (1-P_A)\sum_{j=1}^{m}r^j=0\,.
+\]
+לאור ההנחה ש-%
+$1/2<p<1$,
+$r\neq 1$,
+ולכן לפי הנוסחה לסכום של סדרה הנדסית:
+\[
+P_A \frac{r^{m+1} - r^{n+1}}{1-r} - (1-P_A) \frac{r-r^{m+1}}{1-r}=0\,,
+\]
+שלאחר פישוט המתקבל:
+\[
+P_A =  \left(\frac{1-r^{m}}{1-r^n}\right)\,.
+\]
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}[every rectangle node/.style={rectangle,minimum height=.6cm}]
+\node[draw,minimum width=5cm] at (0,0) {$r^1$};
+\node[draw,minimum width=4.5cm] at (0,.6) {$r^2$};
+\node[draw,minimum width=4cm] at (0,.6*2) {$r^3$};
+\node[draw,minimum width=3.5cm] at (0,.6*3) {$r^4$};
+\node[draw,minimum width=3cm] at (0,.6*4) {$r^5$};
+\node at (0,-.7) {$A$};
+\begin{scope}[xshift=5cm]
+\node[draw,minimum width=2.5cm] at (0,.6*3) {$r^6$};
+\node[draw,minimum width=2cm] at (0,.6*2) {$r^7$};
+\node[draw,minimum width=1.5cm] at (0,.6*1) {$r^8$};
+\node[draw,minimum width=1cm] at (0,.6*0) {$r^9$};
+\node at (0,-.7) {$B$};
+\end{scope}
+\end{tikzpicture}
+\caption{ל-$A$ יש $5$ אסימונים ול-$B$ יש $4$ אסימונים}
+\label{f.pascal1}
+\end{center}
+\end{figure}
+
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}[every rectangle node/.style={rectangle,minimum height=.6cm}]
+\node[draw,minimum width=5cm] at (0,0) {$r$};
+\node[draw,minimum width=4.5cm] at (0,.6) {$r^2$};
+\node[draw,minimum width=4cm] at (0,.6*2) {$r^3$};
+\node[draw,minimum width=3.5cm] at (0,.6*3) {$r^4$};
+\node at (0,-.7) {$A$};
+
+\begin{scope}[xshift=5cm]
+\node[draw,minimum width=3cm] at (0,.6*4) {$r^5$};
+\node[draw,minimum width=2.5cm] at (0,.6*3) {$r^6$};
+\node[draw,minimum width=2cm] at (0,.6*2) {$r^7$};
+\node[draw,minimum width=1.5cm] at (0,.6*1) {$r^8$};
+\node[draw,minimum width=1cm] at (0,.6*0) {$r^9$};
+\node at (0,-.7) {$B$};
+\end{scope}
+\end{tikzpicture}
+\caption{ערימות האסימונים לאחר נצחון של $B$}\label{f.pascal2}
+\end{center}
+\end{figure}
 
 \sml{}
 \selectlanguage{english}
@@ -2157,8 +2286,6 @@ $5$
 ~$39$
 מתאים גם כאן והתוחלת של חלק היא
 $48/5=9.6$.
-
-\newpage
 
 \sml{}
 \selectlanguage{english}

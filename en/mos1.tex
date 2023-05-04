@@ -1150,9 +1150,9 @@ P(3,1) &=& \left(\frac{1-2^{2}}{1-2^{3}}\right)=\frac{3}{7}\,.
 The solution is based on \cite[Section~20.1.1]{mit} where it is attributed to Pascal.
 
 \ans{2}
-Instead of steps on an axis, the two gamblers start out with piles of chips: one gambler $A$ has $m$ chips and the other gambler $B$ has $n-m$ chips. The chips are not identical: chip $i$ is labeled with $r^i$, units where $r$ is $(1-p)/p$ (Figure~\ref{f.pascal1}). Since we are assuming $1/2<p<1$, $r^i>r^{i+1}$ as indicated by the width of the chips in the figure.
+Instead of steps on an axis, the two gamblers start out with piles of chips: gambler $A$ has $m$ chips and gambler $B$ has $n-m$ chips. The chips are not identical: chip $i$ is labeled with $r^i$ units, where $r$ is $(1-p)/p$ (Figure~\ref{f.pascal1}). Since we are assuming $1/2<p<1$, $r^i>r^{i+1}$ as indicated by the width of the chips in the figure.
 
-If $A$ wins (with probability $p$) he takes the top chip from $B$ and places it on the top of his pile. If $B$ wins (with probability $1-p$) she takes the top chip from $A$ and places it on the top of her pile. In  Figure~\ref{f.pascal2} if $A$ wins he adds $r^{5}$ units to his pile while if $B$ wins she adds $r^4$ units to her pile. The sum of the units of the chips in a pile is that gambler's current winnings. For one round of the game:
+If $A$ wins (with probability $p$) he takes the top chip from $B$ and places it on the top of his pile. If $B$ wins (with probability $1-p$) she takes the top chip from $A$ and places it on the top of her pile. In  Figure~\ref{f.pascal2} if $A$ wins he adds $r^{5}$ units to his pile while if $B$ wins she adds $r^4$ units to her pile. The sum of the units of the chips in a pile is that gambler's current capital. For one round of the game:
 \begin{eqnarray*}
 E(A \textsf{'s winnings if\ }A  \textsf{\ has\ }i \textsf{\ units})&=&pr^{i+1}-(1-p)r^i\\
 &=&r^i\left(\frac{p(1-p)}{p}-(1-p)\right)\\
@@ -1162,7 +1162,7 @@ Since the conditions of all rounds are the same, $A$'s expected winnings at the 
 \[
 P_A\sum_{j=m+1}^{n}r^j - (1-P_A)\sum_{j=1}^{m}r^j=0\,.
 \]
-Since we assume that $1/2<p<1$, so $r\neq 1$, the geometric series results in:
+Since we assume that $1/2<p<1$, so $r\neq 1$, the formula for the sum of a geometric series results in:
 \[
 P_A \frac{r^{m+1} - r^{n+1}}{1-r} - (1-P_A) \frac{r-r^{m+1}}{1-r}=0\,,
 \]
